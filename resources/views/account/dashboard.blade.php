@@ -8,12 +8,27 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
 </head>
-<body class="dark-theme">
-    <sidebar class="sidebar-wrapper">
-        xxx
+<body class="">
+    <sidebar class="sidebar-wrapper py-2">
+        <div class="logo d-flex w-100 justify-content-center align-items-center">
+            <img src="{{asset('images/pursuit-icon.svg')}}" width="100%" style="max-width: 100px;">
+        </div>
     </sidebar>
-    <section class="topbar">
+    <section class="topbar d-flex justify-content-between align-items-center">
+        <div class="w-100 d-flex align-items-center justify-content-between">
+            <div class="p-2">
+                Options
+            </div>
+            <div class="d-flex justify-content-between align-items-center norder-left border-light">
+                <div class="bg-light rounded-circle border border-light" style="width: 40px; height: 40px; margim-right: 10px">
 
+                </div>
+                <div>
+                    {{ auth()->user()->fullname()}}<br>
+                    {{ 'TM Operative'}}
+                </div>
+            </div>
+        </div>
     </section>
     <section class="page-wrapper">
         <div class="page-content">
@@ -69,16 +84,7 @@
                 @endfor
             </div>
 
-            <h2>Availability</h2>
-            <div class="d-flex justify-content-between w-100">
-                <div class="bg-info p-2 border border-secondary text-center">Monday</div>
-                <div class="bg-info p-2 border border-secondary text-center">Tuesday</div>
-                <div class="bg-info p-2 border border-secondary text-center">Wednesday</div>
-                <div class="bg-info p-2 border border-secondary text-center">Thursday</div>
-                <div class="bg-info p-2 border border-secondary text-center">Friday</div>
-                <div class="bg-info p-2 border border-secondary text-center">Saturday</div>
-                <div class="bg-info p-2 border border-secondary text-center">Sunday</div>
-            </div>
+            
         </div>
     </section>
     <section class="page-footer">
