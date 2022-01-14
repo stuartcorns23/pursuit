@@ -26,12 +26,13 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach($users as $user)
                     <tr>
-                        <td>1</td>
-                        <td>stuartcorns</td>
-                        <td>Stuart Corns</td>
-                        <td>stuartcorns@outlook.com</td>
-                        <td>07425889230</td>
+                        <td>{{$user->id}}</td>
+                        <td>{{ $user->username}}</td>
+                        <td>{{ $user->fullname}}</td>
+                        <td>{{ $user->email}}</td>
+                        <td>{{ $user->telephone}}</td>
                         <td><button class="btn btn-secondary"><i class="fas fa-menu"></i></button></td>
                     </tr>
                 </tbody>
