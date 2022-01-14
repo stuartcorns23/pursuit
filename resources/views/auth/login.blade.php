@@ -3,6 +3,19 @@
 @section('title', 'Login Area')
 
 @section('content')
+
+    <div class="col-12">
+        @if(count($errors) > 0)
+
+            @foreach( $errors->all() as $message )
+            <div class="alert alert-danger display-hide">
+                <button class="close" data-close="alert"></button>
+                <span>{{ $message }}</span>
+                </div>
+            @endforeach
+        @endif
+    </div>
+
     <div class="col-12 col-md-6 p-4">
         
         <h2 class="fs-5 text-center">Already a member? Login here</h2>
@@ -10,7 +23,7 @@
             @csrf
             <div class="form-group mb-2">
                 <label for="username" class="form-label">Username/Email</label>
-                <input type="text" class="form-control" name="email" id="email" placeholder="Email Address...." />
+                <input type="text" class="form-control" name="email" id="email" placeholder="Email Address...." value="{{ old('email')}}" />
             </div>
             <div class="form-group mb-2">
                 <label for="password" class="form-label">Password</label>
