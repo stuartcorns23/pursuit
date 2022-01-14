@@ -30,7 +30,7 @@
                 <div id="accessoryDD" class="collapse p-0" aria-labelledby="accessoryTitle" data-bs-parent="#accordionSidebar">
                     <a class="collapse-item sub-link" href="#"><i
                             class="far fa-fw fa-circle text-secondary"></i> Add New User</a>
-                    <a class="collapse-item sub-link" href="#"><i
+                    <a class="collapse-item sub-link" href="{{ route('users.index')}}"><i
                             class="far fa-circle text-secondary"></i> View All</a>
                 </div>
                 

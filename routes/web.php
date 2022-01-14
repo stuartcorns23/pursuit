@@ -22,4 +22,8 @@ Auth::routes();
 Route::group(['middleware' => 'auth'], function() {
     //Staff Area
     Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'staff'])->name('dashboard');
+
+
+    //Users
+    Route::resource('/users', 'App\Http\Controllers\UserController');
 });
