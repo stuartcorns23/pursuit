@@ -12,16 +12,16 @@
         <h1 class="text-center mb-4">Users</h1>
         <p>Here are all of the users within the application</p>
 
-        <div class="">
+        <div class="w-100">
 
-            <table>
+            <table class="table-view striped" width="100%">
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Username</th>
                         <th>Full Name</th>
                         <th>Email Address</th>
                         <th>Telephone</th>
+                        <th>Last Logged in</th>
                         <th>Options</th>
                     </tr>
                 </thead>
@@ -29,20 +29,29 @@
                     @foreach($users as $user)
                     <tr>
                         <td>{{$user->id}}</td>
-                        <td>{{ $user->username}}</td>
-                        <td>{{ $user->fullname}}</td>
+                        <td>{{ $user->fullname()}}</td>
                         <td>{{ $user->email}}</td>
                         <td>{{ $user->telephone}}</td>
-                        <td><button class="btn btn-secondary"><i class="fas fa-menu"></i></button></td>
+                        <td>12th January 2022 19:04</td>
+                        <td><button class="btn btn-secondary"><i class="fas fa-ellipsis-h"></i></button></td>
                     </tr>
+                    <tr>
+                        <td>{{$user->id}}</td>
+                        <td>{{ $user->fullname()}}</td>
+                        <td>{{ $user->email}}</td>
+                        <td>{{ $user->telephone}}</td>
+                        <td>12th January 2022 19:04</td>
+                        <td><button class="btn btn-secondary"><i class="fas fa-ellipsis-h"></i></button></td>
+                    </tr>
+                    @endforeach
                 </tbody>
                 <tfoot>
                     <tr>
                         <td>ID</td>
-                        <td>Username</td>
                         <td>Full Name</td>
                         <td>Email Address</td>
                         <td>Telephone</td>
+                        <td>Last Logged In</td>
                         <td>Options</td>
                     </tr>
                 </tfoot>
