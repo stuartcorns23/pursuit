@@ -12,7 +12,7 @@
         <div class="w-100 d-flex justify-content-between align-items-center">
             <h1 class="text-center mb-4">Users</h1>
             <div class="p-2">
-                <button class="btn btn-success">Add New User</button>
+                <a href="{{route('users.create')}}" class="btn btn-success">Add New User</a>
             </div>
         </div>
         <p class="fs-5">Here are all of the users within the application</p>
