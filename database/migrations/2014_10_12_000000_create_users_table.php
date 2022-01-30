@@ -27,6 +27,7 @@ class CreateUsersTable extends Migration
             $table->string('city')->nullable();
             $table->string('postcode')->nullable();
             $table->foreignId('photo_id')->default(0);
+            $table->foreignId('role_id')->default(0);
             $table->integer('admin')->default(0);
             $table->timestamps();
         });

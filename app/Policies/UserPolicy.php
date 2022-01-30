@@ -9,13 +9,7 @@ class UserPolicy
 {
     use HandlesAuthorization;
 
-    /**
-     * Create a new policy instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
+    public function viewAll(User $user){
+        return $user->admin === 1;
     }
 }

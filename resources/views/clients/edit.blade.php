@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Create User | Pursuit TMR')
+@section('title', 'Edit Client | ')
 
 @section('css')
 
@@ -9,22 +9,30 @@
 @section('content')
 <section class="page-wrapper">
     <div class="page-content">
-        <form action="{{ route('users.store')}}" method="POST">
+        <form action="{{ route('clients.update', $client->id)}}" method="POST">
 
-        <div class="w-100 d-flex justify-content-between align-items-center">
-            <h1 class="text-center mb-4">Users</h1>
+        <div class="w-100 d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <h1 class="text-left mb-0 pb-1">Edit Client</h1>
+                <small class="fs-6 text-primary">{{$client->name}}</small>
+            </div>
             <div class="p-2">
                 <button class="btn btn-secondary">Back</button>
                 <button class="btn btn-success">Save</button>
             </div>
         </div>
-        @if(session('danger_message'))
-    <div class="alert alert-danger"> {!! session('danger_message')!!} </div>
-@endif
+        
+        <x.handlers-alert :errors="$errors"></x.handlers-alert>
 
-@if(session('success_message'))
-    <div class="alert alert-success"> {!!session('success_message')!!} </div>
-@endif
+        @if($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 
         <p>Here are all of the users within the application</p>
         
@@ -37,76 +45,61 @@
                             
                                 <div class="col-12 col-md-6 p-4 mb-3" >
                                     <div class="form-group mb-3">
-                                        <div class="row">
-                                            @csrf
-                                            <div class="col-12 col-sm-6">
-                                                <label for="first_name">First Name<span class="text-danger">*</span></label>
-                                                <input class="form-control <?php if ($errors->has('first_name')) {?>border-danger<?php }?>" type="text" name="first_name">
-                                                @if ($errors->has('first_name')) {!!'<p class="small text-danger">'.$errors->first('first_name').'</p>'!!}@endif
-                                            </div>
-                                            <div class="col-12 col-sm-6">
-                                                <label for="last_name">Last Name<span class="text-danger">*</span>:</label>
-                                                <input class="form-control <?php if ($errors->has('last_name')) {?>border-danger<?php }?>" type="text" name="last_name">
-                                            </div>
-                                        </div>
+                                        @csrf
+                                        @method('PATCH')
+                                        <label for="name">Name<span class="text-danger">*</span></label>
+                                        <input class="form-control <?php if ($errors->has('name')) {?>border-danger<?php }?>" type="text" name="name" value="{{old('name') ?? $client->name}}">
+                                        @if ($errors->has('name')) {!!'<p class="small text-danger">'.$errors->first('name').'</p>'!!}@endif
                                     </div>
                                     <div class="form-group  mb-3">
+                                        <label for="contact">Contact Name<span class="text-danger">*</span></label>
+                                        <input class="form-control <?php if ($errors->has('contact')) {?>border-danger<?php }?>" name="contact" type="text" value="{{ old('contact') ?? $client->contact}}">
+                                        @if ($errors->has('contact')) {!!'<p class="small text-danger">'.$errors->first('contact').'</p>'!!}@endif    
+                                    </div>  
+                                    <div class="form-group  mb-3">
                                         <label for="telephone">Telephone<span class="text-danger">*</span></label>
-                                        <input class="form-control <?php if ($errors->has('telephone')) {?>border-danger<?php }?>" name="telephone" type="tel">    
+                                        <input class="form-control <?php if ($errors->has('telephone')) {?>border-danger<?php }?>" name="telephone" type="tel" value="{{ old('telephone') ?? $client->telephone}}">
+                                        @if ($errors->has('telephone')) {!!'<p class="small text-danger">'.$errors->first('telephone').'</p>'!!}@endif      
                                     </div>  
                                     <div class="form-group  mb-3">
                                         <label for="email">Email<span class="text-danger">*</span></label>
-                                        <input class="form-control <?php if ($errors->has('email')) {?>border-danger<?php }?>" name="email" type="email">    
+                                        <input class="form-control <?php if ($errors->has('email')) {?>border-danger<?php }?>" name="email" type="email" value="{{old('email') ?? $client->email}}">
+                                        @if ($errors->has('email')) {!!'<p class="small text-danger">'.$errors->first('email').'</p>'!!}@endif    
                                     </div>   
                                     <div class="form-group mb-3">
                                         <label for="address_1">Address<span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control mb-3 <?php if ($errors->has('address_1')) {?>border-danger<?php }?>" name="address_1">
-                                        <input type="text" class="form-control <?php if ($errors->has('address_2')) {?>border-danger<?php }?>" name="address_2">
+                                        <input type="text" class="form-control mb-3 <?php if ($errors->has('address_1')) {?>border-danger<?php }?>" name="address_1" value="{{ old('address_1') ?? $client->address_1}}">
+                                        @if ($errors->has('address_1')) {!!'<p class="small text-danger">'.$errors->first('address_1').'</p>'!!}@endif 
+                                        <input type="text" class="form-control <?php if ($errors->has('address_2')) {?>border-danger<?php }?>" name="address_2" value="{{ old('address_2') ?? $client->address_2}}">
+                                        @if ($errors->has('address_2')) {!!'<p class="small text-danger">'.$errors->first('address_2').'</p>'!!}@endif
                                     </div>
                                     <div class="form-group mb-3">
                                         <div class="row">
                                             <div class="col-12 col-sm-8">
                                                 <label for="city">City<span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control <?php if ($errors->has('city')) {?>border-danger<?php }?>" name="city">
+                                                <input type="text" class="form-control <?php if ($errors->has('city')) {?>border-danger<?php }?>" name="city" value="{{ old('city') ?? $client->city}}">
+                                                @if ($errors->has('city')) {!!'<p class="small text-danger">'.$errors->first('city').'</p>'!!}@endif
                                             </div>
                                             <div class="col-12 col-sm-4">
                                                 <label for="postcode">Post Code<span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control <?php if ($errors->has('postcode')) {?>border-danger<?php }?>"  name="postcode">
+                                                <input type="text" class="form-control <?php if ($errors->has('postcode')) {?>border-danger<?php }?>"  name="postcode" value="{{old('postcode') ?? $client->postcode}}">
+                                                @if ($errors->has('postcode')) {!!'<p class="small text-danger">'.$errors->first('postcode').'</p>'!!}@endif
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group mb-3">
-                                        <label for="admin" class="form-label">Admin Permissions<span class="text-danger">*</span></label>
-                                        <select name="admin" id="admin" class="form-control">
-                                            <option value="1">Yes</option>
-                                            <option value="0" selected>No</option>
-                                        </select>
-                                        <p class="text-muted small">** Allowing unauthorised users with 'Admin' permissions could be damaging! Please be careful
-                                            as to whom this permission is granted</p>
                                     </div>
                                 </div >
                                 <div class="col-12 col-md-6 p-4 mb-3 " >
                                     <div class="bg-light p-4" >
-                                        <div class="model_title text-center h4 mb-3" >User Image<span class="text-danger">*</span></div >
+                                        <div class="model_title text-center h4 mb-3" >Client Image<span class="text-danger">*</span></div >
                                         <div class="model_image p-4 text-center" >
-                                            <input type="hidden" class="form-control" id="photo_id" name="photo_id" readonly>
+                                            <input type="hidden" class="form-control" id="photo_id" name="photo_id" readonly value="{{old('photo_id') ?? $client->photo_id}}">
                                             <img id="profileImage"
                                                     src="{{ asset('images/profile.jpg') }}" width="50%"
                                                     alt="Select Profile Picture" data-bs-toggle="modal" data-bs-target="#imageModal">
                                         </div >
-                                        <div class="form-group">
-                                            <label for="exampleDataList" class="form-label">Datalist example<span class="text-danger">*</span></label>
-                                            <input class="form-control" list="datalistOptions" id="exampleDataList" name="role" placeholder="Type to search...">
-                                            <datalist id="datalistOptions">
-                                                @foreach($roles as $role)
-                                                <option value="{{$role->name}}">
-                                                    @endforeach
-                                            </datalist>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        
                     </div >
                 </div >
             </div >

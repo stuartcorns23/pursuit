@@ -10,20 +10,21 @@
 <section class="page-wrapper">
     <div class="page-content">
         <div class="w-100 d-flex justify-content-between align-items-center">
-            <h1 class="text-center mb-4">Users</h1>
+            <h1 class="text-center mb-4">Clients</h1>
             <div class="p-2">
                 @can('viewAll', auth()->user())
-                <a href="{{route('users.create')}}" class="btn btn-success">Add New User</a>
+                <a href="{{route('clients.create')}}" class="btn btn-success">Add New Client</a>
                 @endcan
             </div>
         </div>
+        
         @if(session('danger_message'))
-            <div class="alert alert-danger"> {!! session('danger_message')!!} </div>
-        @endif
-
-        @if(session('success_message'))
-            <div class="alert alert-success"> {!!session('success_message')!!} </div>
-        @endif
+        <div class="alert alert-danger"> {!! session('danger_message')!!} </div>
+    @endif
+    
+    @if(session('success_message'))
+        <div class="alert alert-success"> {!!session('success_message')!!} </div>
+    @endif
 
         <p class="fs-5">Here are all of the users within the application</p>
 
@@ -34,21 +35,23 @@
                     <tr>
                         <th class="text-center" width="5%">ID</th>
                         <th class="text-center">Photo</th>
-                        <th>Full Name</th>
-                        <th>Email Address</th>
+                        <th>Name</th>
+                        <th>Location</th></th>
                         <th>Telephone</th>
-                        <th>Last Logged in</th>
+                        <th>Email Address</th>
+                        <th>Shifts Completed</th>
+                        <th>Shifts</th>
                         <th class="text-center" width="5%">Options</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($users as $user)
+                    @foreach($clients as $client)
                     <tr>
-                        <td class="text-center">{{$user->id}}</td>
+                        <td class="text-center">{{$client->id}}</td>
                         <td class="text-center">
-                            @if($user->photo()->exists())
+                            @if($client->photo()->exists())
                                 <div class="imgThumb">
-                                    <img src="{{asset($user->photo->path)}}" alt="{{$user->fullname()}}" width="100%">
+                                    <img src="{{asset($client->photo->path)}}" alt="{{$client->name}}" width="100%">
                                 </div>
                             @else
                             <div class="imgThumb">
@@ -57,24 +60,26 @@
                             </div>
                             @endif
                         </td>
-                        <td>{{ $user->fullname()}}
-                            <br><p class="small">{{$user->role->name ?? 'Unknown'}}</p>
+                        <td>{{ $client->name}}
+                            <br><p class="small">{{$client->city ?? ''}}</p>
                         </td>
-                        <td>{{ $user->email}}</td>
-                        <td>{{ $user->telephone}}</td>
-                        <td>12th January 2022 19:04</td>
+                        <td>{{ $client->contact}}</td>
+                        <td>{{ $client->telephone}}</td>
+                        <td>{{ $client->email}}</td>
+                        <td>54</td>
+                        <td>0</td>
                         <td class="text-center">
                             <div class="dropdown">
-                                <button class="btn btn-secondary" id="dropDown{{$user->id}}" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button class="btn btn-secondary" id="dropDown{{$client->id}}" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fas fa-ellipsis-h"></i>
                                 </button>
-                                <div class="dropdown-menu" aria-labelledby="dropDown{{$user->id}}">
-                                    <li><a class="dropdown-item" href="{{route('users.edit', $user->id)}}">Edit</a></li>
-                                    <form id="form{{$user->id}}" action="{{ route('users.destroy', $user->id) }}" method="POST">
+                                <div class="dropdown-menu" aria-labelledby="dropDown{{$client->id}}">
+                                    <li><a class="dropdown-item" href="{{route('clients.edit', $client->id)}}">Edit</a></li>
+                                    <form id="form{{$client->id}}" action="{{ route('clients.destroy', $client->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <a class="deleteBtn dropdown-item" href="#"
-                                           data-id="{{$user->id}}">Delete</a>
+                                           data-id="{{$client->id}}">Delete</a>
                                     </form>
                                 </div>
                             </div>
@@ -84,13 +89,15 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <th class="text-center">ID</th>
+                        <th class="text-center" width="5%">ID</th>
                         <th class="text-center">Photo</th>
-                        <th>Full Name</th>
-                        <th>Email Address</th>
+                        <th>Name</th>
+                        <th>Location</th></th>
                         <th>Telephone</th>
-                        <th>Last Logged In</th>
-                        <th class="text-center">Options</th>
+                        <th>Email Address</th>
+                        <th>Shifts Completed</th>
+                        <th>Shifts</th>
+                        <th class="text-center" width="5%">Options</th>
                     </tr>
                 </tfoot>
             </table>

@@ -8,6 +8,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+use App\Models\Role;
+use App\Models\Shift;
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -23,6 +26,13 @@ class User extends Authenticatable
         'email',
         'telephone',
         'password',
+        'address_1',
+        'address_2',
+        'city',
+        'postcode',
+        'photo_id',
+        'role_id',
+        'admin',
     ];
 
     /**
@@ -44,7 +54,43 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function photo()
+    {
+        return $this->belongsTo('App\Models\Photo');
+    }
+
+    public function role()
+    {
+        return $this->belongsTo('App\Models\Role');
+    }
+
+
     public function fullname(){
         return $this->first_name.' '.$this->last_name;
+    }
+
+    public function random_password($length)
+    {
+        //A list of characters that can be used in our
+        //random password.
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!-.[]?*()';
+        //Create a blank string.
+        $password = '';
+        //Get the index of the last character in our $characters string.
+        $characterListLength = mb_strlen($characters, '8bit') - 1;
+        //Loop from 1 to the $length that was specified.
+        foreach(range(1, $length) as $i){
+            $password .= $characters[random_int(0, $characterListLength)];
+        }
+        return $password;
+
+    }
+
+    public function has_shift($date){
+        if(Shift::where('user_id', '=', $this->id)->whereDate('date', $date)->count() > 0){
+            return true;
+        }else{
+            return false;
+        }
     }
 }

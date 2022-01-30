@@ -1,10 +1,15 @@
 <section class="topbar">
     <div class="w-100 d-flex justify-content-between align-items-center border-left border-light pr-2">
+        <a class="btn btn-secondary d-inline-block d-lg-none" href="#">
+            <i class="fas fa-fw fa-tablet-alt" data-bs-toggle="tooltip" data-bs-placement="bottom"
+            title="Add New Asset"></i>
+            <span class="badge badge-success badge-counter">Menu</span>
+        </a>
         <div class="p-2">
-            <a class="btn btn-secondary" href="#">
+            <a class="btn btn btn-outline-primary" href="#">
                 <i class="fas fa-fw fa-tablet-alt" data-bs-toggle="tooltip" data-bs-placement="bottom"
                 title="Add New Asset"></i>
-                <span class="badge badge-success badge-counter">+</span>
+                <span class="badge badge-primary">4</span>
             </a>
         
             <a class="btn btn-secondary" href="#">

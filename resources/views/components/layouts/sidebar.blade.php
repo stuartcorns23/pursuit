@@ -5,17 +5,17 @@
     <nav class="">
         <ul class="navbar-nav accordion" id="accordionSidebar">
             <li class="nav-item active">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{route('dashboard')}}">
                     <i class="fas fa-fw fa-tachometer-alt sidebar-icon"></i>
                     <span class="sidebar-title">Dashboard</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{route('availability.index', ['01', '2022'])}}">
                     <i class="fas fa-fw fa-calendar-week sidebar-icon"></i>
                     <span class="sidebar-title">Availability</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ route('availability.index', ['01', '2022'])}}">
                     <i class="fa-fw fas fa-hard-hat sidebar-icon"></i>
                     <span class="sidebar-title">Shifts</span></a>
             </li>
@@ -44,8 +44,8 @@
                     <span class="sidebar-title">Clients</span>
                 </a>
                 <div id="clientsDD" class="collapse p-0" aria-labelledby="clientsTitle" data-bs-parent="#accordionSidebar">
-                    <a class="collapse-item sub-link" href="#"><i
-                            class="far fa-fw fa-circle text-secondary"></i> User Settings</a>
+                    <a class="collapse-item sub-link" href="{{route('clients.index')}}"><i
+                            class="far fa-fw fa-circle text-secondary"></i> View All Clients</a>
                 </div>
             </li>
             <li class="nav-item active">

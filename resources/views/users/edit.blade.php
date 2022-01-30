@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Create User | Pursuit TMR')
+@section('title', 'Users | Pursuit TMR')
 
 @section('css')
 
@@ -9,7 +9,7 @@
 @section('content')
 <section class="page-wrapper">
     <div class="page-content">
-        <form action="{{ route('users.store')}}" method="POST">
+        <form action="{{ route('users.update', $user->id)}}" method="POST">
 
         <div class="w-100 d-flex justify-content-between align-items-center">
             <h1 class="text-center mb-4">Users</h1>
@@ -34,52 +34,52 @@
                     <div class="card-body" >
                        
                             <div class="row" >
-                            
                                 <div class="col-12 col-md-6 p-4 mb-3" >
                                     <div class="form-group mb-3">
                                         <div class="row">
                                             @csrf
+                                            @method('PATCH')
                                             <div class="col-12 col-sm-6">
                                                 <label for="first_name">First Name<span class="text-danger">*</span></label>
-                                                <input class="form-control <?php if ($errors->has('first_name')) {?>border-danger<?php }?>" type="text" name="first_name">
+                                                <input class="form-control <?php if ($errors->has('first_name')) {?>border-danger<?php }?>" type="text" name="first_name" value="{{ $user->first_name }}">
                                                 @if ($errors->has('first_name')) {!!'<p class="small text-danger">'.$errors->first('first_name').'</p>'!!}@endif
                                             </div>
                                             <div class="col-12 col-sm-6">
                                                 <label for="last_name">Last Name<span class="text-danger">*</span>:</label>
-                                                <input class="form-control <?php if ($errors->has('last_name')) {?>border-danger<?php }?>" type="text" name="last_name">
+                                                <input class="form-control <?php if ($errors->has('last_name')) {?>border-danger<?php }?>" type="text" name="last_name" value="{{$user->last_name}}">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group  mb-3">
                                         <label for="telephone">Telephone<span class="text-danger">*</span></label>
-                                        <input class="form-control <?php if ($errors->has('telephone')) {?>border-danger<?php }?>" name="telephone" type="tel">    
+                                        <input class="form-control <?php if ($errors->has('telephone')) {?>border-danger<?php }?>" name="telephone" type="tel" value="{{$user->telephone}}">    
                                     </div>  
                                     <div class="form-group  mb-3">
                                         <label for="email">Email<span class="text-danger">*</span></label>
-                                        <input class="form-control <?php if ($errors->has('email')) {?>border-danger<?php }?>" name="email" type="email">    
+                                        <input class="form-control <?php if ($errors->has('email')) {?>border-danger<?php }?>" name="email" type="email" value="{{ $user->email}}">    
                                     </div>   
                                     <div class="form-group mb-3">
                                         <label for="address_1">Address<span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control mb-3 <?php if ($errors->has('address_1')) {?>border-danger<?php }?>" name="address_1">
-                                        <input type="text" class="form-control <?php if ($errors->has('address_2')) {?>border-danger<?php }?>" name="address_2">
+                                        <input type="text" class="form-control mb-3 <?php if ($errors->has('address_1')) {?>border-danger<?php }?>" name="address_1" value="{{$user->address_1}}">
+                                        <input type="text" class="form-control <?php if ($errors->has('address_2')) {?>border-danger<?php }?>" name="address_2" value="{{$user->address_2}}">
                                     </div>
                                     <div class="form-group mb-3">
                                         <div class="row">
                                             <div class="col-12 col-sm-8">
                                                 <label for="city">City<span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control <?php if ($errors->has('city')) {?>border-danger<?php }?>" name="city">
+                                                <input type="text" class="form-control <?php if ($errors->has('city')) {?>border-danger<?php }?>" name="city" value="{{$user->city}}">
                                             </div>
                                             <div class="col-12 col-sm-4">
                                                 <label for="postcode">Post Code<span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control <?php if ($errors->has('postcode')) {?>border-danger<?php }?>"  name="postcode">
+                                                <input type="text" class="form-control <?php if ($errors->has('postcode')) {?>border-danger<?php }?>"  name="postcode" value="{{$user->postcode}}">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group mb-3">
                                         <label for="admin" class="form-label">Admin Permissions<span class="text-danger">*</span></label>
                                         <select name="admin" id="admin" class="form-control">
-                                            <option value="1">Yes</option>
-                                            <option value="0" selected>No</option>
+                                            <option value="1" @if($user->admin == 1){{ 'selected' }}@endif>Yes</option>
+                                            <option value="0" @if($user->admin == 0){{ 'selected' }}@endif>No</option>
                                         </select>
                                         <p class="text-muted small">** Allowing unauthorised users with 'Admin' permissions could be damaging! Please be careful
                                             as to whom this permission is granted</p>
@@ -89,14 +89,20 @@
                                     <div class="bg-light p-4" >
                                         <div class="model_title text-center h4 mb-3" >User Image<span class="text-danger">*</span></div >
                                         <div class="model_image p-4 text-center" >
-                                            <input type="hidden" class="form-control" id="photo_id" name="photo_id" readonly>
+                                            <input type="hidden" class="form-control" id="photo_id" name="photo_id" value="{{$user->photo_id}}" readonly>
+                                            @if($user->photo()->exists())
+                                            <img id="profileImage"
+                                                    src="{{ asset($user->photo->path) }}" width="50%"
+                                                    alt="Select Profile Picture" data-bs-toggle="modal" data-bs-target="#imageModal">
+                                            @else
                                             <img id="profileImage"
                                                     src="{{ asset('images/profile.jpg') }}" width="50%"
                                                     alt="Select Profile Picture" data-bs-toggle="modal" data-bs-target="#imageModal">
+                                            @endif
                                         </div >
                                         <div class="form-group">
                                             <label for="exampleDataList" class="form-label">Datalist example<span class="text-danger">*</span></label>
-                                            <input class="form-control" list="datalistOptions" id="exampleDataList" name="role" placeholder="Type to search...">
+                                            <input class="form-control" list="datalistOptions" id="exampleDataList" name="role" placeholder="Type to search..." value="{{ $user->role}}">
                                             <datalist id="datalistOptions">
                                                 @foreach($roles as $role)
                                                 <option value="{{$role->name}}">

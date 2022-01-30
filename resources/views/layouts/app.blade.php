@@ -18,6 +18,7 @@
     <x-layouts.footer />
     @yield('modals')
     <script src="{{ asset('js/app.js')}}"></script>
+    <script src="{{ asset('js/app-layout.js')}}"></script>
     @yield('js')
 </body>
 </html>

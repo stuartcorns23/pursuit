@@ -22,6 +22,8 @@ class CreateClientsTable extends Migration
             $table->string('city');
             $table->string('postcode');
             $table->foreignId('photo_id');
+            $table->string('telephone');
+            $table->string('email')->unique();
             $table->timestamps();
         });
     }
