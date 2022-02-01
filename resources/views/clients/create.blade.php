@@ -14,8 +14,10 @@
         <div class="w-100 d-flex justify-content-between align-items-center">
             <h1 class="text-center mb-4">Create Client</h1>
             <div class="p-2">
-                <button class="btn btn-secondary">Back</button>
-                <button class="btn btn-success">Save</button>
+                <div class="p-2">
+                    <a href="{{route('clients.index')}}" class="btn btn-secondary">Back</a>
+                    <button type="submit" class="btn btn-success">Save</button>
+                </div>
             </div>
         </div>
         
@@ -36,7 +38,7 @@
         <div class="row row-eq-height container m-auto" >
             <div class="col-12" >
                 <div class="card shadow h-100" >
-                    <div class="card-body" >
+                    <div class="card-body text-secondary" >
                        
                             <div class="row" >
                             
@@ -87,6 +89,14 @@
                                                     src="{{ asset('images/profile.jpg') }}" width="50%"
                                                     alt="Select Profile Picture" data-bs-toggle="modal" data-bs-target="#imageModal">
                                         </div >
+                                        <div class="form-group mb-3">
+                                            <label for="icon_color">Icon Colour</label>
+                                            <input type="color" class="form-control mb-3 <?php if ($errors->has('icon_color')) {?>border-danger<?php }?>" value="#333" name="icon_color">
+                                        </div>
+                                        <div class="form-group mb-3">
+                                            <label for="text_color">Text Colour</label>
+                                            <input type="color" class="form-control mb-3 <?php if ($errors->has('text_color')) {?>border-danger<?php }?>" value="#FFF" name="text_color">
+                                        </div>
                                     </div>
                                 </div>
                             </div>

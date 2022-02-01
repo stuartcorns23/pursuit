@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Users | Pursuit TMR')
+@section('title', 'Clients | Pursuit TMR')
 
 @section('css')
 
@@ -66,8 +66,8 @@
                         <td>{{ $client->contact}}</td>
                         <td>{{ $client->telephone}}</td>
                         <td>{{ $client->email}}</td>
-                        <td>54</td>
-                        <td>0</td>
+                        <td>{{ $client->shiftsCompleted->count()}}</td>
+                        <td>{{ $client->shiftsIncoming->count()}}</td>
                         <td class="text-center">
                             <div class="dropdown">
                                 <button class="btn btn-secondary" id="dropDown{{$client->id}}" data-bs-toggle="dropdown" aria-expanded="false">

@@ -87,8 +87,8 @@ class User extends Authenticatable
     }
 
     public function has_shift($date){
-        if(Shift::where('user_id', '=', $this->id)->whereDate('date', $date)->count() > 0){
-            return true;
+        if($shift = Shift::where('user_id', '=', $this->id)->whereDate('date', $date)->first()){
+            return $shift;
         }else{
             return false;
         }

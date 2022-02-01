@@ -291,17 +291,16 @@ body.dark-theme .table-view.striped > tbody > tr:nth-of-type(2n + 1) > * {
 
 .calendar-cell:not(.nullDay):nth-child(6),
 .calendar-cell:not(.nullDay):nth-child(7) {
-    background-color: var(--dark-theme-main-color);
+    background-color: #c3cfe6;
 }
 
 .calendar-cell.nullDay {
-    background-color: var(--bs-table-striped-color);
+    background-color: #6d6f73;
 }
 
 .calendar-cell:not(.nullDay):hover {
-    background-color: lightcyan;
     cursor: pointer;
-    border-color: darkblue;
+    border-color: solid 1px var(--light-theme-main-color);
 }
 
 .calendar-bar {
@@ -312,4 +311,11 @@ body.dark-theme .table-view.striped > tbody > tr:nth-of-type(2n + 1) > * {
     background-color: green;
     position: absolute;
     bottom: 5px;
+}
+
+.calendar-number {
+    padding: 5px;
+    background-color: var(--light-theme-main-color);
+    border-radius: 5px;
+    margin-bottom: 5px;
 }

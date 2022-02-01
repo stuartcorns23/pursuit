@@ -81,18 +81,19 @@
 
 
                     @for($i = $start; $i <= $end; $i++)
-
-                        <div class="border  calendar-cell border-light">
+                        @php($day = \Carbon\Carbon::parse($year.'-'.$date->format('m').'-'.$i))
+                        <div class="border calendar-cell border-light">
                             <div class="calendar-number">
                                 {{$i}}
                             </div>
                             {{-- If the USer has a shift --}}
-                            @if(auth()->user()->has_shift($year.'-'.$date->format('m').'-'.$i))
-                            <span class="badge bg-info">
-                                Shift at Signal Traffic Management
+                            @if($shift = auth()->user()->has_shift($year.'-'.$date->format('m').'-'.$i))
+                            <span class="badge d-block fs-5" style="background-color: {{ $shift->client->icon_color ?? '#333'}}; color: {{$shift->client->text_color ?? '#FFF'}}">
+                                {{ str_replace('Traffic Management', 'TM', $shift->client->name) }}
                             </span>
                             @endif
                             {{-- If the User is an admin--}}
+                
                             {{-- State the Operative Available --}}
                             <?php 
                                 $available = \App\Models\Availability::where('day', '=', 1)
@@ -102,7 +103,7 @@
                                                                     ->count();
                             ?>
                             @if($available != 0)
-                            <span class="badge bg-success">
+                            <span class="badge bg-success d-block p-2">
                                 {{$available}} Operatives Available
                             </span>
                             @endif
@@ -114,10 +115,65 @@
                                                                     ->count();
                             ?>
                             @if($unavailable != 0)
-                            <span class="badge bg-warning">
+                            <span class="badge bg-warning d-block text-secondary p-2">
                                 {{$unavailable}} Operative Unavailable
                             </span>
                             @endif
+
+                            <?php
+                            $availability = \App\Models\Availability::where('user_id', '=', auth()->user()->id)
+                                            ->whereDate('date', $day->format('Y-m-d'))->first();
+
+
+                        ?>
+                        @if($availability && $availability->unavailable() == true)
+                        <p class="text-center d-block text-danger">Unavailable</p>
+                        @elseif($availability && $availability->available() == true)
+                        <p class="text-center d-block text-success">Available</p>
+                        @else
+                        <p class="text-center d-block text-warning">Not Set</p>
+                        @endif
+
+                            <div class="btn-group text-center w-100 mb-2" role="group" aria-label="Basic example">
+                                <button 
+                                    type="button" 
+                                    class="availabilityBtn btn @if($availability && $availability->am() == true) btn-success @else btn-secondary @endif"
+                                    data-id="{{ auth()->user()->id }}"
+                                    data-date="{{ $day->format('Y-m-d') }}"
+                                    data-select="am"
+                                >
+                                    AM
+                                </button>
+                                <button 
+                                    type="button" 
+                                    class="availabilityBtn btn @if($availability && $availability->pm() == true) btn-success @else btn-secondary @endif"
+                                    data-id="{{ auth()->user()->id }}"
+                                    data-date="{{ $day->format('Y-m-d') }}"
+                                    data-select="pm"
+                                >
+                                    PM
+                                </button>
+                                <button 
+                                    type="button" 
+                                    class="availabilityBtn btn @if($availability && $availability->both() == true) btn-success @else btn-secondary @endif"
+                                    data-id="{{ auth()->user()->id }}"
+                                    data-date="{{ $day->format('Y-m-d') }}"
+                                    data-select="both"
+                                >
+                                    Both
+                                </button>
+                                </div>
+                                <button 
+                                    type="button"
+                                    class="availabilityBtn btn @if($availability && $availability->unavailable() == true) btn-danger text-white @else btn-secondary text-danger @endif w-100"
+                                    data-id="{{ auth()->user()->id }}"
+                                    data-date="{{ $day->format('Y-m-d') }}"
+                                    data-select="unavailable"
+                                >
+                                    Unavailable
+                                </button>
+
+
                             @if("{$i}/{$date->format('m')}/{$year}" == \Carbon\Carbon::now()->format('j/m/Y'))
                             <div class="calendar-bar"></div>
                             @endif

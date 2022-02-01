@@ -58,7 +58,9 @@ class ClientController extends Controller
             'address_2' => $request->address_2,  
             'city' => $request->city,  
             'postcode' => $request->postcode,  
-            'photo_id' => $request->photo_id
+            'photo_id' => $request->photo_id,
+            'icon_color' => $request->icon_color,
+            'text_color' => $request->text_color
         ])->save()){
             /* Mail::to($request->email)->send(new \App\Mail\NewUserPassword($user, $unhash)); */
             session()->flash('success_message', 'Client has been successfully created!');

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Edit Client | ')
+@section('title', 'Edit Client | '.$client->name)
 
 @section('css')
 
@@ -17,8 +17,8 @@
                 <small class="fs-6 text-primary">{{$client->name}}</small>
             </div>
             <div class="p-2">
-                <button class="btn btn-secondary">Back</button>
-                <button class="btn btn-success">Save</button>
+                <a href="{{route('clients.index')}}" class="btn btn-secondary">Back</a>
+                <button type="submit" class="btn btn-success">Save</button>
             </div>
         </div>
         
@@ -39,7 +39,7 @@
         <div class="row row-eq-height container m-auto" >
             <div class="col-12" >
                 <div class="card shadow h-100" >
-                    <div class="card-body" >
+                    <div class="card-body text-secondary" >
                        
                             <div class="row" >
                             
@@ -94,9 +94,17 @@
                                         <div class="model_image p-4 text-center" >
                                             <input type="hidden" class="form-control" id="photo_id" name="photo_id" readonly value="{{old('photo_id') ?? $client->photo_id}}">
                                             <img id="profileImage"
-                                                    src="{{ asset('images/profile.jpg') }}" width="50%"
+                                                    src="{{ asset($client->photo->path) }}" width="50%"
                                                     alt="Select Profile Picture" data-bs-toggle="modal" data-bs-target="#imageModal">
                                         </div >
+                                        <div class="form-group mb-3">
+                                            <label for="icon_color">Icon Colour</label>
+                                            <input type="color" class="form-control mb-3 <?php if ($errors->has('icon_color')) {?>border-danger<?php }?>" value="{{$client->icon_color ?? '#333'}}" name="icon_color">
+                                        </div>
+                                        <div class="form-group mb-3">
+                                            <label for="text_color">Text Colour</label>
+                                            <input type="color" class="form-control mb-3 <?php if ($errors->has('text_color')) {?>border-danger<?php }?>" value="{{$client->text_color ?? '#FFF'}}" name="text_color">
+                                        </div>
                                     </div>
                                 </div>
                             </div>

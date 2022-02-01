@@ -11,7 +11,7 @@
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
     @yield('css')
 </head>
-<body class="">
+<body class="dark-theme">
     <x-layouts.sidebar />
     <x-layouts.topbar />
     @yield('content')

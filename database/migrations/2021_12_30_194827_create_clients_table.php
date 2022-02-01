@@ -24,6 +24,9 @@ class CreateClientsTable extends Migration
             $table->foreignId('photo_id');
             $table->string('telephone');
             $table->string('email')->unique();
+            $table->string('icon_color')->nullable();
+            $table->string('text_color')->nullable();
+            $table->string('email')->unique();
             $table->timestamps();
         });
     }
