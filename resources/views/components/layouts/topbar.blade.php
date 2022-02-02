@@ -6,22 +6,19 @@
             <span class="badge badge-success badge-counter">Menu</span>
         </a>
         <div class="p-2">
-            <a class="btn btn btn-outline-primary" href="#">
+            <a class="btn btn btn-primary" href="#">
                 <i class="fas fa-fw fa-tablet-alt" data-bs-toggle="tooltip" data-bs-placement="bottom"
                 title="Add New Asset"></i>
-                <span class="badge badge-primary">4</span>
             </a>
         
-            <a class="btn btn-secondary" href="#">
+            <a class="btn btn-primary" href="#">
                 <i class="fas fa-fw fa-tasks" data-bs-toggle="tooltip" data-bs-placement="bottom"
                 title="Requests"></i>
-                <span class="badge badge-danger badge-counter">7</span>
             </a>
         
-            <a class="btn btn-secondary" href="#">
+            <a class="btn btn-primary" href="#">
                 <i class="fas fa-fw fa-folder" data-toggle="tooltip" data-placement="bottom"
                 title="Documentation"></i>
-                <span class="badge badge-primary badge-counter"><i class="fas fa-eye text-white"></i></span>
             </a>
         </div> 
         <div class="pr-4">

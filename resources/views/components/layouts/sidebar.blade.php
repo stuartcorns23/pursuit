@@ -15,7 +15,7 @@
                     <span class="sidebar-title">Availability</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('availability.index', ['01', '2022'])}}">
+                <a class="nav-link" href="{{ route('shifts.index', ['01', '2022'])}}">
                     <i class="fa-fw fas fa-hard-hat sidebar-icon"></i>
                     <span class="sidebar-title">Shifts</span></a>
             </li>
