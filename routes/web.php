@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'App\Http\Controllers\HomeController@index');
 
 Auth::routes();
 
@@ -25,12 +23,14 @@ Route::group(['middleware' => 'auth'], function() {
     //Availability
     Route::get('/schedule/{month}/{year}', 'App\Http\Controllers\AvailabilityController@index')->name('availability.index');
     Route::post('/availability/set', 'App\Http\Controllers\AvailabilityController@set');
+    
     //Clients
     Route::resource('/clients', 'App\Http\Controllers\ClientController');
     //Shifts
     Route::resource('/shifts', 'App\Http\Controllers\ShiftController');
     //Users
     Route::resource('/users', 'App\Http\Controllers\UserController');
+    Route::post('/user/date', 'App\Http\Controllers\UserController@viewDate');
     
 
 

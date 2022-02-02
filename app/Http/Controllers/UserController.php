@@ -158,4 +158,14 @@ class UserController extends Controller
 
         return redirect(route('users.index'));
     }
+
+    public function viewDate(Request $request){
+        $date = \Carbon\Carbon::parse($request->date);
+        $output = "";
+        if($shift = auth()->user()->has_shift($date->format('Y-m-d'))){
+            $output .= "<h2>Shift for {$date->format('d-J')}</h2>";
+        }
+
+        return $output;
+    }
 }

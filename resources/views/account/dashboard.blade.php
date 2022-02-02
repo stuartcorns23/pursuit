@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('title', 'Dashboard | Pursuit TMR')
    
@@ -15,11 +15,11 @@
                 (If you have not yet submitted your availabilty for next week please do so as soon as possible, this will give us the best 
                 chance to provide you with a full week of work). We also displayed some statistics about your shift availability and completion.
             </p>
-            <h3 class="mb-3">Shift for Week Beginning: </h3>
             <?php 
             $now = \Carbon\Carbon::now();
             ?>
-            <div class="d-flex justify-content-between align-items-center flex-column flex-lg-row w-100">
+            <h3 class="my-5 text-center">Shift for Week Beginning: {{ $now->startOfWeek()->format('jS F Y')}}</h3>
+            <div class="d-flex justify-content-between align-items-start flex-column flex-lg-row w-100">
                 @for($i=0; $i<7; $i++)
                 <?php
                     $day = $now->startOfWeek()->addDays($i);
@@ -27,6 +27,7 @@
                 <div class="day-card card bg-transparent @if ($day->isToday()) border-success @else border-primary @endif shadow">
                     <div class="card-header @if ($day->isToday()) bg-success @else bg-primary @endif text-center text-white">{{ $day->format('l jS M Y') }}</div>
                     <div class="card-body">
+                        @if($shift = auth()->user()->has_shift($day->format('Y-m-d')))
                         {{-- Check if there is a Shift Set for today --}}
                         <img src="{{asset('images/signal-tm.png')}}" width="100%" alt="Signal Traffic Management" class="mb-4">
                         {{-- <h5 class="card-title text-center">Signal Traffic Management</h5> --}}
@@ -42,6 +43,7 @@
                             &nbsp;<i class="fas fa-times-circle text-danger"></i>
                             @endif
                         </div>
+                        @endif
                     </div>
                 </div>
                 @endfor

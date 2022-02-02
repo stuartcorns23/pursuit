@@ -80,15 +80,26 @@
                     @endfor
 
 
-                    @for($i = $start; $i <= $end; $i++)
-                        @php($day = \Carbon\Carbon::parse($year.'-'.$date->format('m').'-'.$i))
-                        <div class="border calendar-cell border-light">
-                            <div class="calendar-number">
-                                {{$i}}
-                            </div>
+                    @for($i = $start; $i <= $end; $i++)                        
+                        <?php
+                        $day = \Carbon\Carbon::parse($year.'-'.$date->format('m').'-'.$i);
+                        $availability = \App\Models\Availability::where('user_id', '=', auth()->user()->id)
+                                        ->whereDate('date', $day->format('Y-m-d'))->first();
+                        ?>      
+                        <div class="border calendar-cell border-light" data-date="{{$day->format('Y-m-d')}}" >
+                                
+                        {{-- Check to see if the user has made availability --}}
+                            @if($availability && $availability->unavailable() == true)
+                            <div class="calendar-number bg-danger text-white">{{$i}} Unavailable</div>
+                            @elseif($availability && $availability->available() == true)
+                            <div class="calendar-number bg-success text-white">{{$i}} Available</div>
+                            @else
+                            <div class="calendar-number">{{$i}} Unset</div>
+                            @endif
+
                             {{-- If the USer has a shift --}}
                             @if($shift = auth()->user()->has_shift($year.'-'.$date->format('m').'-'.$i))
-                            <span class="badge d-block fs-5" style="background-color: {{ $shift->client->icon_color ?? '#333'}}; color: {{$shift->client->text_color ?? '#FFF'}}">
+                            <span class="badge d-block fs-5 mb-1" style="background-color: {{ $shift->client->icon_color ?? '#333'}}; color: {{$shift->client->text_color ?? '#FFF'}}">
                                 {{ str_replace('Traffic Management', 'TM', $shift->client->name) }}
                             </span>
                             @endif
@@ -100,80 +111,17 @@
                                                                     ->whereDate('date', $year.'-'.$date->format('m').'-'.$i)
                                                                     ->orWhere('night', '=', 1)
                                                                     ->whereDate('date', $year.'-'.$date->format('m').'-'.$i)
-                                                                    ->count();
+                                                                    ->count(); 
                             ?>
-                            @if($available != 0)
-                            <span class="badge bg-success d-block p-2">
-                                {{$available}} Operatives Available
+
+                            @if(auth()->user()->admin == 1)
+
+                            <span class="p-2 text-center small">
+                                {{$available}} Ops Available
                             </span>
+
                             @endif
-                            {{-- State the Operatives Unavailable --}}
-                            <?php 
-                                $unavailable = \App\Models\Availability::where('day', '=', 0)
-                                                                    ->where('night', '=', 0)
-                                                                    ->whereDate('date', $year.'-'.$date->format('m').'-'.$i)
-                                                                    ->count();
-                            ?>
-                            @if($unavailable != 0)
-                            <span class="badge bg-warning d-block text-secondary p-2">
-                                {{$unavailable}} Operative Unavailable
-                            </span>
-                            @endif
-
-                            <?php
-                            $availability = \App\Models\Availability::where('user_id', '=', auth()->user()->id)
-                                            ->whereDate('date', $day->format('Y-m-d'))->first();
-
-
-                        ?>
-                        @if($availability && $availability->unavailable() == true)
-                        <p class="text-center d-block text-danger">Unavailable</p>
-                        @elseif($availability && $availability->available() == true)
-                        <p class="text-center d-block text-success">Available</p>
-                        @else
-                        <p class="text-center d-block text-warning">Not Set</p>
-                        @endif
-
-                            <div class="btn-group text-center w-100 mb-2" role="group" aria-label="Basic example">
-                                <button 
-                                    type="button" 
-                                    class="availabilityBtn btn @if($availability && $availability->am() == true) btn-success @else btn-secondary @endif"
-                                    data-id="{{ auth()->user()->id }}"
-                                    data-date="{{ $day->format('Y-m-d') }}"
-                                    data-select="am"
-                                >
-                                    AM
-                                </button>
-                                <button 
-                                    type="button" 
-                                    class="availabilityBtn btn @if($availability && $availability->pm() == true) btn-success @else btn-secondary @endif"
-                                    data-id="{{ auth()->user()->id }}"
-                                    data-date="{{ $day->format('Y-m-d') }}"
-                                    data-select="pm"
-                                >
-                                    PM
-                                </button>
-                                <button 
-                                    type="button" 
-                                    class="availabilityBtn btn @if($availability && $availability->both() == true) btn-success @else btn-secondary @endif"
-                                    data-id="{{ auth()->user()->id }}"
-                                    data-date="{{ $day->format('Y-m-d') }}"
-                                    data-select="both"
-                                >
-                                    Both
-                                </button>
-                                </div>
-                                <button 
-                                    type="button"
-                                    class="availabilityBtn btn @if($availability && $availability->unavailable() == true) btn-danger text-white @else btn-secondary text-danger @endif w-100"
-                                    data-id="{{ auth()->user()->id }}"
-                                    data-date="{{ $day->format('Y-m-d') }}"
-                                    data-select="unavailable"
-                                >
-                                    Unavailable
-                                </button>
-
-
+                            
                             @if("{$i}/{$date->format('m')}/{$year}" == \Carbon\Carbon::now()->format('j/m/Y'))
                             <div class="calendar-bar"></div>
                             @endif
@@ -216,40 +164,8 @@
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <div class="modal-body text-dark">
-                <h3>Your Shift Details:</h3>
-                <table>
-                    <tr>
-                        <td>Client</td>
-                        <td>Signal Traffic Management</td>
-                    </tr>
-                    <tr>
-                        <td>Address</td>
-                        <td>Holbrook Road. Kidderminster. DY10 0SF</td>
-                    </tr>
-                    <tr>
-                        <td>Start Time</td>
-                        <td>18:00</td>
-                    </tr>
-                    <tr>
-                        <td>End Time</td>
-                        <td>6:00</td>
-                    </tr>
-                    <tr>
-                        <td>Rate</td>
-                        <td>£110.00</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"><p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. 
-                            The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', 
-                            making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a 
-                            search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, 
-                            sometimes on purpose (injected humour and the like).</p>
-                        </td>
-                    </tr>
-                </table>
-                <hr>
-                Operative Aailability
+            <div id="dayDetails" class="modal-body text-dark">
+                
             </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
@@ -265,12 +181,27 @@
 
     /* Calendar Functions */
     const detailsModal = new bootstrap.Modal(document.getElementById('dateDetailsModal'), {backdrop: true});
+    const dayDetails = document.querySelector("#dayDetails");
     let calendarCells = document.querySelectorAll(".calendar-cell:not(.nullDay)");
 
     calendarCells.forEach(item => {
         item.addEventListener('click', function(){
             /* Get information on the date that is passed to the Controller */
-            detailsModal.show();
+            let date = item.getAttribute('data-date');
+            let formData = new FormData();
+            formData.append('date', date);
+            const xhr = new XMLHttpRequest();
+
+            xhr.onload = function(e) {
+                //Place the JSON Images into the modal
+                console.log(xhr.responseText);
+                dayDetails.insertAdjacentHTML('afterend', xhr.responseText);
+                detailsModal.show();
+            }
+            xhr.open("POST", `/user/date`);
+            xhr.send(formData);
+
+            
         })
     });
 

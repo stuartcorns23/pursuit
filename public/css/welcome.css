@@ -1,0 +1,36 @@
+:root {
+}
+
+body {
+    font-family: "Raleway", sans-serif;
+    font-size: 14px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Orbitron", sans-serif;
+}
+
+h1 {
+    font-size: 1.6rem;
+}
+
+.name {
+    font-family: "Orbitron", sans-serif;
+    font-size: 1.2rem;
+}
+
+.email a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #333;
+}
+
+.telephone {
+    font-weight: 400;
+    font-size: 1.1rem;
+}
