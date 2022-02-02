@@ -15,6 +15,10 @@ class Shift extends Model
         return $this->belongsTo(Client::class);
     }
 
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
     public function scopeCompletedFilter($query, $status){
         return $query->whereDate('date', '>=', \Carbon\Carbon::now());
     }
