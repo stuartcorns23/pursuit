@@ -26,7 +26,6 @@ class CreateClientsTable extends Migration
             $table->string('email')->unique();
             $table->string('icon_color')->nullable();
             $table->string('text_color')->nullable();
-            $table->string('email')->unique();
             $table->timestamps();
         });
     }

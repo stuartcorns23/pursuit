@@ -28,6 +28,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('/clients', 'App\Http\Controllers\ClientController');
     //Shifts
     Route::resource('/shifts', 'App\Http\Controllers\ShiftController');
+    //Timesheets
+    Route::resource('/timesheets', 'App\Http\Controllers\TimesheetController');
     //Users
     Route::resource('/users', 'App\Http\Controllers\UserController');
     Route::post('/user/date', 'App\Http\Controllers\UserController@viewDate');
