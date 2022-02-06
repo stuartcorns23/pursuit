@@ -10,26 +10,14 @@ class AvailabilityController extends Controller
 
     public function set(Request $request){
 
-        $availability = new Availability;
-        $availability->user_id = $request->user_id; 
-        $availability->date = $request->date; 
-        if($request->select == 'am'){
-            $availability->day = 1;
-            $availability->night = 0;
-        }elseif($request->select == 'pm'){
-            $availability->day = 0;
-            $availability->night = 1;
-        }
-        elseif($request->select == 'both'){
-            $availability->day = 1;
-            $availability->night = 1;
-        }
-        elseif($request->select == 'unavailable'){
-            $availability->day = 0;
-            $availability->night = 0;
-        }
-        $availability->save();
-
+        $request->select === 'am' || $request->select === 'both' ? $day = 1: $day = 0;
+        $request->select === 'pm' || $request->select === 'both' ? $night = 1: $night = 0;
+    
+        $availability = Availability::updateOrCreate(
+            ['user_id' => $request->user_id, 'date' => $request->date],
+            ['day' => $day, 'night' => $night]
+        );
+       
         return true;
 
     }

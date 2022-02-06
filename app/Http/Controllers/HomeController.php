@@ -12,6 +12,7 @@ class HomeController extends Controller
     public function index()
     {
         $clients = Client::all();
+        
         return view('welcome', compact('clients'));
     }
 
@@ -22,6 +23,8 @@ class HomeController extends Controller
 
     public function staff()
     {
-        return view('account.dashboard');
+        $nextWeekEnd = \Carbon\Carbon::now()->subWeek()->endOfWeek();
+        $timesheets = auth()->user()->timesheets()->where('week_end', '=', $nextWeekEnd->format('Y-m-d'))->count();
+        return view('account.dashboard', compact('timesheets'));
     }
 }

@@ -15,9 +15,21 @@
                     <span class="sidebar-title">Availability</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('shifts.index', ['01', '2022'])}}">
-                    <i class="fa-fw fas fa-hard-hat sidebar-icon"></i>
-                    <span class="sidebar-title">Shifts</span></a>
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                   data-bs-target="#shiftsDD" aria-expanded="true"
+                   aria-controls="shiftsDD">
+                    <i class="fas fa-fw fa-users sidebar-icon" data-bs-toggle="tooltip" data-bs-placement="right"
+                       title="Shift Management"></i>
+                    <span class="sidebar-title">Shifts</span>
+                </a>
+                <div id="shiftsDD" class="collapse p-0" aria-labelledby="shiftsTitle" data-bs-parent="#accordionSidebar">
+                    <a class="collapse-item sub-link" href="{{ route('shifts.index')}}"><i
+                        class="far fa-circle text-secondary"></i> View All</a>
+                    <a class="collapse-item sub-link" href="{{route('shifts.create')}}"><i
+                        class="far fa-fw fa-circle text-secondary"></i> Add Shift</a>
+                    
+                </div>
+                
             </li>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"

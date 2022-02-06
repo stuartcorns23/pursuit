@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Shift;
+use App\Models\Type;
 use Illuminate\Http\Request;
 
-use App\Models\User;
-
-class ShiftController extends Controller
+class TypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +14,7 @@ class ShiftController extends Controller
      */
     public function index()
     {
-        $shifts = Shift::all();
-        return view('shifts.view', compact('shifts'));
+        //
     }
 
     /**
@@ -27,8 +24,7 @@ class ShiftController extends Controller
      */
     public function create()
     {
-        $users = User::all();
-        return view('shifts.create', compact('users'));
+        //
     }
 
     /**
@@ -45,10 +41,10 @@ class ShiftController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Shift  $shift
+     * @param  \App\Models\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function show(Shift $shift)
+    public function show(Type $type)
     {
         //
     }
@@ -56,10 +52,10 @@ class ShiftController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Shift  $shift
+     * @param  \App\Models\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function edit(Shift $shift)
+    public function edit(Type $type)
     {
         //
     }
@@ -68,10 +64,10 @@ class ShiftController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Shift  $shift
+     * @param  \App\Models\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Shift $shift)
+    public function update(Request $request, Type $type)
     {
         //
     }
@@ -79,10 +75,10 @@ class ShiftController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Shift  $shift
+     * @param  \App\Models\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Shift $shift)
+    public function destroy(Type $type)
     {
         //
     }

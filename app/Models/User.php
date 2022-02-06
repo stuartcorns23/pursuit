@@ -54,6 +54,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function timesheets(){
+        return $this->hasMany(Timesheet::class);
+    }
+
     public function photo()
     {
         return $this->belongsTo('App\Models\Photo');
