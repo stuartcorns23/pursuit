@@ -6,6 +6,7 @@ use App\Models\Shift;
 use Illuminate\Http\Request;
 
 use App\Models\User;
+use App\Models\Client;
 
 class ShiftController extends Controller
 {
@@ -28,7 +29,8 @@ class ShiftController extends Controller
     public function create()
     {
         $users = User::all();
-        return view('shifts.create', compact('users'));
+        $clients = Client::all();
+        return view('shifts.create', compact('users', 'clients'));
     }
 
     /**
@@ -39,7 +41,27 @@ class ShiftController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return dd($request);
+
+        #parameters: array:17 [▼
+      "_token" => "KyLlbZvcQAwGVtF2DgqP9G9YujZxEoZu5WIQb8aO"
+      "date" => "2022-02-10"
+      "start_time" => "06:00"
+      "end_time" => "16:00"
+      "client_id" => "1"
+      "contact_name" => "John"
+      "details" => "df sdfugjk,dfjghuydflgihlgiuhgo;ihdzfg;odfrihjg d;origjdfgibo jdfig jhdfpg dfpgj dp9fog dfg dfg dfg fg hnj yjmyher Details here..."
+      "user_id" => array:2 [▶]
+      "charge" => array:2 [▶]
+      "rate" => array:2 [▶]
+      "monday" => "1"
+      "tuesday" => "1"
+      "wednesday" => "1"
+      "thursday" => "1"
+      "friday" => "1"
+      "alert" => "1"
+      "approve" => "1"
+    ]
     }
 
     /**

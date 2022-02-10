@@ -117,7 +117,7 @@
                             @if(auth()->user()->admin == 1)
 
                             <span class="p-2 text-center small">
-                                {{$available}} Ops Available
+                                Operatives: {{$available}} Available
                             </span>
 
                             @endif
@@ -157,7 +157,7 @@
 <div class="modal fade bd-example-modal-lg" id="dateDetailsModal" tabindex="-1" role="dialog"
     aria-labelledby="dateDetailsModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
+        <div class="modal-content text-dark">
             <div class="modal-header">
                 <h5 class="modal-title" id="dateDetailsModalLabel">30th January 2022</h5>
                 <button class="btn btn-gray close" type="button" data-bs-dismiss="modal" aria-label="Close">
@@ -182,6 +182,7 @@
     /* Calendar Functions */
     const detailsModal = new bootstrap.Modal(document.getElementById('dateDetailsModal'), {backdrop: true});
     const dayDetails = document.querySelector("#dayDetails");
+    const modalTitle = document.querySelector('.modal-title');
     let calendarCells = document.querySelectorAll(".calendar-cell:not(.nullDay)");
 
     calendarCells.forEach(item => {
@@ -195,6 +196,7 @@
             xhr.onload = function(e) {
                 //Place the JSON Images into the modal
                 console.log(xhr.responseText);
+                modalTitle.innerHTML = date;
                 dayDetails.insertAdjacentHTML('afterend', xhr.responseText);
                 detailsModal.show();
             }

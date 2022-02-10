@@ -10,7 +10,8 @@
                     <span class="sidebar-title">Dashboard</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('availability.index', ['01', '2022'])}}">
+                <?php $now = \Carbon\Carbon::now();?>
+                <a class="nav-link" href="{{route('availability.index', [$now->format('m'), $now->format('Y')])}}">
                     <i class="fas fa-fw fa-calendar-week sidebar-icon"></i>
                     <span class="sidebar-title">Availability</span></a>
             </li>
@@ -56,8 +57,10 @@
                     <span class="sidebar-title">Clients</span>
                 </a>
                 <div id="clientsDD" class="collapse p-0" aria-labelledby="clientsTitle" data-bs-parent="#accordionSidebar">
-                    <a class="collapse-item sub-link" href="{{route('clients.index')}}"><i
-                            class="far fa-fw fa-circle text-secondary"></i> View All Clients</a>
+                    <a class="collapse-item sub-link" href="{{route('clients.index')}}"><i class="far fa-fw fa-circle text-secondary"></i> View All Clients</a>
+                    @can('create', \App\Models\Client::class)
+                    <a class="collapse-item sub-link" href="{{route('clients.create')}}"><i class="fas fa-fw fa-plus text-secondary"></i> Add Clients</a>
+                    @endcan
                 </div>
             </li>
             <li class="nav-item active">

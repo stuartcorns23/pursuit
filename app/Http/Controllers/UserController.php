@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Role;
+use App\Models\Shift;
 
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -15,34 +16,18 @@ use App\Policies\UserPolicy;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $users = User::all();
         return view('users.view', compact('users'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $roles = Role::all();
         return view('users.create', compact('roles'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
 
@@ -56,7 +41,7 @@ class UserController extends Controller
             'postcode' => 'required',
             'admin' => 'required'
         ]);
-        $role = Role::whereName($request->role)->first();
+        $role = Role::firstOrCreate(array('name' => $request->role));
         $user = new User;
         $unhash = $user->random_password(12);
         $password = Hash::make($unhash);
@@ -84,36 +69,18 @@ class UserController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show(User $user)
     {
-        return view('users.show', compact('user'));
+        $shifts = Shift::whereUserId($user->id);
+        return view('users.show', compact('user', 'shifts'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit(User $user)
     {
         $roles = Role::all();
         return view('users.edit', compact('user', 'roles'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, User $user)
     {
         /* if(auth()->user()->cant('update', $user))
@@ -131,7 +98,7 @@ class UserController extends Controller
             'postcode' => 'required',
             'admin' => 'required'
         ]);
-        $role = Role::whereName($request->role)->first();
+        $role = Role::firstOrCreate(array('name' => $request->role));
         $user->fill(array_merge(
             $request->only('first_name', 'last_name', 'telephone', 'email', 'address_1', 'address_2', 'city', 'post_code', 'admin', 'photo_id', 'role_id'),
             ['role_id' => $role->id]
@@ -161,11 +128,19 @@ class UserController extends Controller
 
     public function viewDate(Request $request){
         $date = \Carbon\Carbon::parse($request->date);
-        $output = "";
-        if($shift = auth()->user()->has_shift($date->format('Y-m-d'))){
-            $output .= "<h2>Shift for {$date->format('d-J')}</h2>";
+        
+        $object = [];
+        if($availability = auth()->user()->availability($date->format('Y-m-d'))){
+           $arr = [];
+           $arr['day'] = 1;
+           $arr['night'] = 1;
+           $object['availability'] = $arr;
         }
 
-        return $output;
+        if($shift = auth()->user()->has_shift($date->format('Y-m-d'))){
+            $object['shift'] = $shift->toArray();
+        }
+       
+        return json_encode($object);
     }
 }

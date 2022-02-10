@@ -69,6 +69,7 @@
                                     <i class="fas fa-ellipsis-h"></i>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropDown{{$user->id}}">
+                                    <li><a class="dropdown-item" href="{{route('users.show', $user->id)}}">View</a></li>
                                     <li><a class="dropdown-item" href="{{route('users.edit', $user->id)}}">Edit</a></li>
                                     <form id="form{{$user->id}}" action="{{ route('users.destroy', $user->id) }}" method="POST">
                                         @csrf
