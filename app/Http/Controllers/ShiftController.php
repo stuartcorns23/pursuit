@@ -43,6 +43,27 @@ class ShiftController extends Controller
     {
         return dd($request);
 
+        $date = \Carbon\Carbon::parse($request->date);
+        $start = $date->startOfWeek();
+
+        for($i = 0; $i < count($request->user_id); $i++){
+            $shift = new Shift;
+            $shift->user_id = $request->user_id[$i];
+            $shift->date = $date;
+            $shift->start_time = $request->start_time;
+            $shift->end_time = $request->end_time;
+            $shift->client = $request->client_id;
+            $shift->contact_name = $request->contact_name;
+            $shift->details = $client->details;
+            $shift->charge = $request->charge;
+            $shift->rate = $request->rate;
+            $shift->save();
+        }
+
+        if($request->monday == 1){
+
+        }
+
         #parameters: array:17 [▼
       "_token" => "KyLlbZvcQAwGVtF2DgqP9G9YujZxEoZu5WIQb8aO"
       "date" => "2022-02-10"
