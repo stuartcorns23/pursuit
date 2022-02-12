@@ -46,36 +46,36 @@
                                     <div class="form-group mb-3">
                                         @csrf
                                         <label for="name">Name<span class="text-danger">*</span></label>
-                                        <input class="form-control <?php if ($errors->has('name')) {?>border-danger<?php }?>" type="text" name="name">
+                                        <input class="form-control <?php if ($errors->has('name')) {?>border-danger<?php }?>" type="text" name="name" value="{{old('name')}}">
                                         @if ($errors->has('name')) {!!'<p class="small text-danger">'.$errors->first('name').'</p>'!!}@endif
                                     </div>
                                     <div class="form-group  mb-3">
                                         <label for="contact">Contact Name<span class="text-danger">*</span></label>
-                                        <input class="form-control <?php if ($errors->has('contact')) {?>border-danger<?php }?>" name="contact" type="text">
+                                        <input class="form-control <?php if ($errors->has('contact')) {?>border-danger<?php }?>" name="contact" type="text" value="{{old('contact')}}">
                                         @if ($errors->has('contact')) {!!'<p class="small text-danger">'.$errors->first('contact').'</p>'!!}@endif    
                                     </div>  
                                     <div class="form-group  mb-3">
                                         <label for="telephone">Telephone<span class="text-danger">*</span></label>
-                                        <input class="form-control <?php if ($errors->has('telephone')) {?>border-danger<?php }?>" name="telephone" type="tel">    
+                                        <input class="form-control <?php if ($errors->has('telephone')) {?>border-danger<?php }?>" name="telephone" type="tel" value="{{old('telephone')}}">    
                                     </div>  
                                     <div class="form-group  mb-3">
                                         <label for="email">Email<span class="text-danger">*</span></label>
-                                        <input class="form-control <?php if ($errors->has('email')) {?>border-danger<?php }?>" name="email" type="email">    
+                                        <input class="form-control <?php if ($errors->has('email')) {?>border-danger<?php }?>" name="email" type="email" value="{{old('email')}}">    
                                     </div>   
                                     <div class="form-group mb-3">
                                         <label for="address_1">Address<span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control mb-3 <?php if ($errors->has('address_1')) {?>border-danger<?php }?>" name="address_1">
-                                        <input type="text" class="form-control <?php if ($errors->has('address_2')) {?>border-danger<?php }?>" name="address_2">
+                                        <input type="text" class="form-control mb-3 <?php if ($errors->has('address_1')) {?>border-danger<?php }?>" name="address_1" value="{{old('address_1')}}">
+                                        <input type="text" class="form-control <?php if ($errors->has('address_2')) {?>border-danger<?php }?>" name="address_2" value="{{old('address_2')}}">
                                     </div>
                                     <div class="form-group mb-3">
                                         <div class="row">
                                             <div class="col-12 col-sm-8">
                                                 <label for="city">City<span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control <?php if ($errors->has('city')) {?>border-danger<?php }?>" name="city">
+                                                <input type="text" class="form-control <?php if ($errors->has('city')) {?>border-danger<?php }?>" name="city" value="{{old('city')}}">
                                             </div>
                                             <div class="col-12 col-sm-4">
                                                 <label for="postcode">Post Code<span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control <?php if ($errors->has('postcode')) {?>border-danger<?php }?>"  name="postcode">
+                                                <input type="text" class="form-control <?php if ($errors->has('postcode')) {?>border-danger<?php }?>"  name="postcode" value="{{old('postcode')}}">
                                             </div>
                                         </div>
                                     </div>
@@ -91,11 +91,11 @@
                                         </div >
                                         <div class="form-group mb-3">
                                             <label for="icon_color">Icon Colour</label>
-                                            <input type="color" class="form-control mb-3 <?php if ($errors->has('icon_color')) {?>border-danger<?php }?>" value="#333" name="icon_color">
+                                            <input type="color" class="form-control mb-3 <?php if ($errors->has('icon_color')) {?>border-danger<?php }?>" value="#333" name="icon_color" value="{{old('icon_color')}}">
                                         </div>
                                         <div class="form-group mb-3">
                                             <label for="text_color">Text Colour</label>
-                                            <input type="color" class="form-control mb-3 <?php if ($errors->has('text_color')) {?>border-danger<?php }?>" value="#FFF" name="text_color">
+                                            <input type="color" class="form-control mb-3 <?php if ($errors->has('text_color')) {?>border-danger<?php }?>" value="#FFF" name="text_color" value="{{old('text_color')}}">
                                         </div>
                                     </div>
                                 </div>
@@ -113,7 +113,7 @@
 @section('modals')
 <div id="imageModal" class="modal" tabindex="-1">
     <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-      <div class="modal-content">
+      <div class="modal-content text-secondary">
         <div class="modal-header">
           <h5 class="modal-title">Photo Modal</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

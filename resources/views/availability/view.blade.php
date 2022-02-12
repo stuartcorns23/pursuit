@@ -13,7 +13,9 @@
             <h1 class="text-center mb-4">Schedule</h1>
             <div class="p-2">
                 @can('viewAll', auth()->user())
-                <a href="{{route('users.create')}}" class="btn btn-success">Add New User</a>
+                <a href="{{route('users.create')}}" class="btn btn-success">Add Availability</a>
+                <a href="{{route('users.create')}}" class="btn btn-secondary">Download Month Schedule</a>
+                <a href="{{route('users.create')}}" class="btn btn-light">Help</a>
                 @endcan
             </div>
         </div>
@@ -89,18 +91,23 @@
                         <div class="border calendar-cell border-light" data-date="{{$day->format('Y-m-d')}}" >
                                 
                         {{-- Check to see if the user has made availability --}}
+                        <div class="d-flex justify-content-start align-items-start">
+                            <div class="calendar-number" style="margin-right: 5px;">{{$i}}</div>
                             @if($availability && $availability->unavailable() == true)
-                            <div class="calendar-number bg-danger text-white">{{$i}} Unavailable</div>
+                            <div class="calendar-availability bg-danger text-white">Unavailable</div>
                             @elseif($availability && $availability->available() == true)
-                            <div class="calendar-number bg-success text-white">{{$i}} Available</div>
+                            <div class="calendar-availability bg-success text-white"> Available</div>
                             @else
-                            <div class="calendar-number">{{$i}} Unset</div>
+                            <div class="calendar-availability bg-secondary text-white">Unset</div>
                             @endif
+                        </div>
+                        
+                            
 
                             {{-- If the USer has a shift --}}
                             @if($shift = auth()->user()->has_shift($year.'-'.$date->format('m').'-'.$i))
                             <span class="badge d-block fs-5 mb-1" style="background-color: {{ $shift->client->icon_color ?? '#333'}}; color: {{$shift->client->text_color ?? '#FFF'}}">
-                                {{ str_replace('Traffic Management', 'TM', $shift->client->name) }}
+                                <i class="fas fa-hard-hat"></i> {{ str_replace('Traffic Management', 'TM', $shift->client->name) }}
                             </span>
                             @endif
                             {{-- If the User is an admin--}}
@@ -117,7 +124,11 @@
                             @if(auth()->user()->admin == 1)
 
                             <span class="p-2 text-center small">
-                                {{$available}} Ops Available
+                                Operatives: {{$available}} Available
+                            </span>
+                            <br>
+                            <span class="p-2 text-center small">
+                                Shifts: {{$available}} Assigned
                             </span>
 
                             @endif
@@ -157,7 +168,7 @@
 <div class="modal fade bd-example-modal-lg" id="dateDetailsModal" tabindex="-1" role="dialog"
     aria-labelledby="dateDetailsModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
+        <div class="modal-content text-dark">
             <div class="modal-header">
                 <h5 class="modal-title" id="dateDetailsModalLabel">30th January 2022</h5>
                 <button class="btn btn-gray close" type="button" data-bs-dismiss="modal" aria-label="Close">
@@ -182,6 +193,7 @@
     /* Calendar Functions */
     const detailsModal = new bootstrap.Modal(document.getElementById('dateDetailsModal'), {backdrop: true});
     const dayDetails = document.querySelector("#dayDetails");
+    const modalTitle = document.querySelector('.modal-title');
     let calendarCells = document.querySelectorAll(".calendar-cell:not(.nullDay)");
 
     calendarCells.forEach(item => {
@@ -195,7 +207,8 @@
             xhr.onload = function(e) {
                 //Place the JSON Images into the modal
                 console.log(xhr.responseText);
-                dayDetails.insertAdjacentHTML('afterend', xhr.responseText);
+                modalTitle.innerHTML = date;
+                dayDetails.innerHTML = xhr.responseText;
                 detailsModal.show();
             }
             xhr.open("POST", `/user/date`);

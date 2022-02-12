@@ -9,7 +9,7 @@
 @section('content')
 <section class="page-wrapper">
     <div class="page-content">
-        <form action="{{route('timesheets.store')}}" method="POST">
+        <form action="{{route('shifts.store')}}" method="POST">
 
         <div class="w-100 d-flex justify-content-between align-items-center">
             <h1 class="text-center mb-4">Add New Shift</h1>
@@ -39,9 +39,9 @@
                 <div class="col-12 col-md-8" >
                     <div class="card shadow h-100" >
                         <div class="card-body text-secondary" >
-                            @csrf
-                            <div class="form-group row mb-2">
-                                <div class="col-4">
+                            @csrf                                                      
+                            <div class="form-group row mb-2">                                                      
+                                <div class="col-4">                                                      
                                     <label for="date">Date</label>
                                     <input type="date" name="date" value="{{\Carbon\Carbon::now()->format('Y-m-d')}}" class="form-control">
                                 </div>
@@ -54,88 +54,107 @@
                                     <input type="time" class="form-control" name="end_time">
                                 </div>
                             </div>
+                            {{-- Put this in a row along with contact name col ratio 8-4 --}}
                             <div class="form-group mb-2">
-                                <label for="client_id">Client</label>
+                                <div class="row">
+                                    <div class="col-8">
+                                        <label for="client_id">Client</label>
                                 <select name="client_id" class="form-control">
-                                    @foreach($users as $user)
-                                        <option value="{{$user->id}}">{{$user->fullname()}}</option>
+                                    @foreach($clients as $client)
+                                        <option value="{{$client->id}}">{{$client->name}}</option>
                                     @endforeach
                                 </select>
-                            </div>
-                            <div class="form-group row mb-4">
-                                <div class="col-4">
-                                    <label for="contact_name">Contact Name/Report to:</label>
-                                    <input type="text" name="contact_name" class="form-control">
+                                    </div>
+                                    <div class="col-4">
+                                        <label for="contact_name">Contact Name/Report to:</label>
+                                        <input type="text" name="contact_name" class="form-control">
+                                    </div>
                                 </div>
-                                <div class="col-4">
-                                    <label for="charge">Client Charge:</label>
-                                    <input type="currency" name="charge" class="form-control">
-                                </div>
-                                <div class="col-4">
-                                    <label for="rate">User Rate:</label>
-                                    <input type="currency" name="rate" class="form-control">
-                                </div>
+                                
                             </div>
                             <div class="form-group">
                                 <textarea name="details"  class="form-control" cols="30" rows="10">Enter Details here...</textarea>
                             </div>
                             <hr>
-                            <div class="form-group">
-                                <label for="user_id">Operative</label>
-                                <select name="user_id" class="form-control">
-                                    @foreach($users as $user)
-                                        <option value="{{$user->id}}">{{$user->fullname()}}</option>
-                                    @endforeach
-                                </select>
+                            {{-- This needs to have there own row and javascript can add the same rowss
+                                in the row is charge and payment --}}
+
+                            <div class="operators mb-4">
+                            
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <label for="user_id">Operative</label>
+                                                <select name="user_id[]" class="form-control">
+                                                    @foreach($users as $user)
+                                                        <option value="{{$user->id}}">{{$user->fullname()}}</option>
+                                                    @endforeach
+                                                </select>
+                                        </div>
+                                    
+                                        <div class="col-4">
+                                            <label for="charge">Client Charge:</label>
+                                            <input type="currency" name="charge[]" class="form-control">
+                                        </div>
+                                        <div class="col-3">
+                                            <label for="rate">User Rate:</label>
+                                            <input type="currency" name="rate[]" class="form-control">
+                                        </div>
+                                        <div class="col-1 d-flex justify-content-end align-items-end">
+                                            <i class="fas fa-times fa-2x"></i>
+                                        </div>
+                                    </div>                                                                                                                                                                                                                                                                                                                                                                                                            
+                            
+                            
+                                </div>   
                             </div>
+                            <button type="button" class="add-op btn btn-secondary">+Add another Operative</button>
+                            
+                                
+                            
                             <hr>
                             <div class="form-group">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                                    <label class="form-check-label" for="inlineCheckbox1">Monday</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                                    <label class="form-check-label" for="inlineCheckbox2">Tuesday</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" disabled>
-                                    <label class="form-check-label" for="inlineCheckbox3">Wednesday</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                                        <label class="form-check-label" for="inlineCheckbox1">Thursday</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                                        <label class="form-check-label" for="inlineCheckbox2">Friday</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" disabled>
-                                        <label class="form-check-label" for="inlineCheckbox3">Saturday</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" disabled>
-                                            <label class="form-check-label" for="inlineCheckbox3">Sunday</label>
-                                            </div>
+                                    <input class="form-check-input" type="checkbox" name="monday" value="1">
+                                    <label class="form-check-label" for="monday">Monday</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="tuesday" value="1">
+                                    <label class="form-check-label" for="tuesday">Tuesday</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="wednesday" value="1">
+                                    <label class="form-check-label" for="wednesday">Wednesday</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="thursday" value="1">
+                                    <label class="form-check-label" for="thursday">Thursday</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="friday" value="1">
+                                    <label class="form-check-label" for="friday">Friday</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="saturday" value="1" >
+                                    <label class="form-check-label" for="saturday">Saturday</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="sunday" value="1" >
+                                    <label class="form-check-label" for="sunday">Sunday</label>
+                                </div>
                             </div>
-                            
-                            <p>
-                                <label for="imageFile">Upload a photo of yourself:</label>
-                                <input type="file" id="imageFile" capture="user" accept="image/*">
-                                </p>
                             <hr>
                             
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                                <label class="form-check-label" for="flexCheckChecked">
-                                Send to Accountants
+                                <input class="form-check-input" type="checkbox" value="1" name="alert" checked>
+                                <label class="form-check-label" for="alert">
+                                Alert Operative (Via Email and Text)
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                <input class="form-check-input" type="checkbox" value="1" name="approve" checked>
                                 <label class="form-check-label" for="flexCheckChecked">
-                                Send to a Receipt to Email
+                                Auto Approve the Shifts
                                 </label>
                             </div>
                         </div>
@@ -153,6 +172,42 @@
 @endsection
 
 @section('js')
+<script>
+    const newOpBtn = document.querySelector('.add-op');
+    const operatives = document.querySelector('.operators');
+    const elements = document.querySelectorAll('.operators .form-group');
+    
 
+    newOpBtn.addEventListener('click', function(e){
+        console.log(elements.length);
+        if(elements.length >= 1){
+            element = elements[0].cloneNode(true);
+            operatives.appendChild(element);
+            initOperativeFields();
+        }
+    });
+
+
+    function initOperativeFields(){
+        let rows = document.querySelectorAll('.operators .form-group');
+        
+        console.log(rows.length);
+        if(rows.length > 1){
+            rows.forEach((item) => {
+                item.addEventListener('click', function(e){
+                    if(e.target.classList.contains('fa-times')){
+                        item.remove();
+                        initOperativeFields();
+                    }
+                });
+            });
+        }
+        
+    }
+    
+
+
+
+</script>
 
 @endsection

@@ -60,6 +60,10 @@ body.dark-theme .page-wrapper {
     color: var(--light-theme-text-color);
 }
 
+.menuBtn {
+    margin-left: 10px;
+}
+
 .page-wrapper {
     height: 100%;
     margin-top: 60px;
@@ -89,7 +93,7 @@ body.dark-theme .page-wrapper {
 /* Sidebar Classes */
 
 .sidebar-wrapper {
-    width: 0px;
+    width: 100%;
     overflow: hidden;
     height: 100%;
     position: fixed;
@@ -118,6 +122,11 @@ body.dark-theme .sidebar-wrapper {
     width: 100%;
     font-size: 1rem;
     border-bottom: solid 1px var(--light-theme-text-color);
+}
+
+.sidebar-wrapper .nav-link:hover {
+    text-decoration: dotted;
+    background-color: #666;
 }
 
 @media (min-width: 992px) {
@@ -292,7 +301,7 @@ body.dark-theme .table-view.striped > tbody > tr:nth-of-type(2n + 1) > * {
 .calendar-cell:not(.nullDay):nth-child(6),
 .calendar-cell:not(.nullDay):nth-child(7) {
     background-color: #c3cfe6;
-    color: --light-theme-text-color;
+    color: var(--light-theme-text-color);
 }
 
 .calendar-cell.nullDay {
@@ -315,8 +324,16 @@ body.dark-theme .table-view.striped > tbody > tr:nth-of-type(2n + 1) > * {
 }
 
 .calendar-number {
+    font-weight: 600;
     padding: 5px;
     background-color: var(--light-theme-main-color);
+    color: var(--dark-theme-text-color);
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.calendar-availability {
+    padding: 5px;
     border-radius: 5px;
     margin-bottom: 5px;
 }

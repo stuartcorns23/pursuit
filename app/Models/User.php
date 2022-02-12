@@ -97,4 +97,27 @@ class User extends Authenticatable
             return false;
         }
     }
+
+    public function availability($date){
+        if($availability = Availability::where('user_id', '=', $this->id)->whereDate('date', $date)->first()){
+            return $availability;
+        }else{
+            return false;
+        }
+    }
+
+    public function full_address($sep){
+        $output = $this->address_1.$sep;
+        if($this->address_2 != ''){ $output .= $this->address_2.$sep; }
+        $output .= $this->city.$sep.$this->postcode;
+        return $output;
+    }
+
+    public function get_image(){
+        if($this->photo()->exists() && file_exists(asset($this->photo->path))){
+            return $this->photo->path;
+        }else{
+            return "images/profile.jpg";
+        }
+    }
 }

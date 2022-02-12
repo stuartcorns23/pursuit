@@ -1,4 +1,7 @@
-<sidebar class="sidebar-wrapper py-2">
+<sidebar class="sidebar-wrapper py-2 d-none">
+    <div class="closeMenu d-flex justify-content-end align-items-center p-2">
+        <i class="fas fa-times fa-2x"></i>
+    </div>
     <div class="logo d-flex w-100 justify-content-center align-items-center mb-4">
             <img src="{{asset('images/pursuit-icon.svg')}}" width="100%" style="max-width: 100px;">
     </div>
@@ -6,11 +9,12 @@
         <ul class="navbar-nav accordion" id="accordionSidebar">
             <li class="nav-item active">
                 <a class="nav-link" href="{{route('dashboard')}}">
-                    <i class="fas fa-fw fa-tachometer-alt sidebar-icon"></i>
+                    <i class="fas fa-fw fa-tachometer-alt sidebar-icon text-white-50"></i>
                     <span class="sidebar-title">Dashboard</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('availability.index', ['01', '2022'])}}">
+                <?php $now = \Carbon\Carbon::now();?>
+                <a class="nav-link" href="{{route('availability.index', [$now->format('m'), $now->format('Y')])}}">
                     <i class="fas fa-fw fa-calendar-week sidebar-icon"></i>
                     <span class="sidebar-title">Availability</span></a>
             </li>
@@ -56,8 +60,10 @@
                     <span class="sidebar-title">Clients</span>
                 </a>
                 <div id="clientsDD" class="collapse p-0" aria-labelledby="clientsTitle" data-bs-parent="#accordionSidebar">
-                    <a class="collapse-item sub-link" href="{{route('clients.index')}}"><i
-                            class="far fa-fw fa-circle text-secondary"></i> View All Clients</a>
+                    <a class="collapse-item sub-link" href="{{route('clients.index')}}"><i class="far fa-fw fa-circle text-secondary"></i> View All Clients</a>
+                    @can('create', \App\Models\Client::class)
+                    <a class="collapse-item sub-link" href="{{route('clients.create')}}"><i class="fas fa-fw fa-plus text-secondary"></i> Add Clients</a>
+                    @endcan
                 </div>
             </li>
             <li class="nav-item active">

@@ -6,6 +6,7 @@ use App\Models\Shift;
 use Illuminate\Http\Request;
 
 use App\Models\User;
+use App\Models\Client;
 
 class ShiftController extends Controller
 {
@@ -28,7 +29,8 @@ class ShiftController extends Controller
     public function create()
     {
         $users = User::all();
-        return view('shifts.create', compact('users'));
+        $clients = Client::all();
+        return view('shifts.create', compact('users', 'clients'));
     }
 
     /**
@@ -39,7 +41,43 @@ class ShiftController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $date = \Carbon\Carbon::parse($request->date);
+        $success = 0;
+        $errors = [];
+
+        for($d=0; $d<7; $d++){
+            $start = $date->startOfWeek()->addDays($d);
+            $day = strtolower($start->format('l'));
+            if($request->$day == 1){
+                for($i = 0; $i < count($request->user_id); $i++){
+                    $shift = new Shift;
+                    $shift->user_id = $request->user_id[$i];
+                    $shift->date = $start;
+                    $shift->start_time = $request->start_time;
+                    $shift->finish_time = $request->end_time;
+                    $shift->client_id = $request->client_id;
+                    $shift->contact_name = $request->contact_name;
+                    $shift->details = $request->details;
+                    $shift->charge = $request->charge[$i];
+                    $shift->rate = $request->rate[$i];
+                    if($request->approved == 1){
+                        $shift->status = 1;
+                        $shift->responded_date = \Carbon\Carbon::now();
+                    }
+                    
+                    $shift->save();
+                }
+            }
+        }
+
+        if($request->update == 1){
+            //UPdate the user suing a notifcation
+        }
+
+        session()->flash('success_message', 'Shifts were created for X users');
+        return redirect(route('shifts.index'));
+
     }
 
     /**

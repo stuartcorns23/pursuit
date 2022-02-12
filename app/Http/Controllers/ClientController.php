@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use App\Models\Photo;
+use App\Models\Shift;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -79,7 +80,8 @@ class ClientController extends Controller
      */
     public function show(Client $client)
     {
-        //
+        $shifts = Shift::whereClientId($client->id);
+        return view('clients.show', compact('client', 'shifts'));
     }
 
     /**

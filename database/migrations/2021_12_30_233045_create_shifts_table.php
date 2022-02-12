@@ -24,9 +24,9 @@ class CreateShiftsTable extends Migration
             $table->text('details');
             $table->decimal('charge', 8, 2);
             $table->decimal('rate', 8, 2);
-            $table->integer('status');
-            $table->date('responded_date');
-            $table->integer('completed');
+            $table->integer('status')->nullable();
+            $table->date('responded_date')->nullable();
+            $table->integer('completed')->nullable();
             $table->timestamps();
         });
     }
