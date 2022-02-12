@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Timesheet;
+use App\Models\Client;
 use Illuminate\Http\Request;
 
 class TimesheetController extends Controller
@@ -25,7 +26,8 @@ class TimesheetController extends Controller
      */
     public function create()
     {
-        return view('timesheets.create');
+        $clients = Client::all();
+        return view('timesheets.create', compact('clients'));
     }
 
     /**

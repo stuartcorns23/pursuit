@@ -41,48 +41,43 @@ class ShiftController extends Controller
      */
     public function store(Request $request)
     {
-        return dd($request);
 
         $date = \Carbon\Carbon::parse($request->date);
-        $start = $date->startOfWeek();
+        $success = 0;
+        $errors = [];
 
-        for($i = 0; $i < count($request->user_id); $i++){
-            $shift = new Shift;
-            $shift->user_id = $request->user_id[$i];
-            $shift->date = $date;
-            $shift->start_time = $request->start_time;
-            $shift->end_time = $request->end_time;
-            $shift->client = $request->client_id;
-            $shift->contact_name = $request->contact_name;
-            $shift->details = $client->details;
-            $shift->charge = $request->charge;
-            $shift->rate = $request->rate;
-            $shift->save();
+        for($d=0; $d<7; $d++){
+            $start = $date->startOfWeek()->addDays($d);
+            $day = strtolower($start->format('l'));
+            if($request->$day == 1){
+                for($i = 0; $i < count($request->user_id); $i++){
+                    $shift = new Shift;
+                    $shift->user_id = $request->user_id[$i];
+                    $shift->date = $start;
+                    $shift->start_time = $request->start_time;
+                    $shift->finish_time = $request->end_time;
+                    $shift->client_id = $request->client_id;
+                    $shift->contact_name = $request->contact_name;
+                    $shift->details = $request->details;
+                    $shift->charge = $request->charge[$i];
+                    $shift->rate = $request->rate[$i];
+                    if($request->approved == 1){
+                        $shift->status = 1;
+                        $shift->responded_date = \Carbon\Carbon::now();
+                    }
+                    
+                    $shift->save();
+                }
+            }
         }
 
-        if($request->monday == 1){
-
+        if($request->update == 1){
+            //UPdate the user suing a notifcation
         }
 
-        #parameters: array:17 [▼
-      "_token" => "KyLlbZvcQAwGVtF2DgqP9G9YujZxEoZu5WIQb8aO"
-      "date" => "2022-02-10"
-      "start_time" => "06:00"
-      "end_time" => "16:00"
-      "client_id" => "1"
-      "contact_name" => "John"
-      "details" => "df sdfugjk,dfjghuydflgihlgiuhgo;ihdzfg;odfrihjg d;origjdfgibo jdfig jhdfpg dfpgj dp9fog dfg dfg dfg fg hnj yjmyher Details here..."
-      "user_id" => array:2 [▶]
-      "charge" => array:2 [▶]
-      "rate" => array:2 [▶]
-      "monday" => "1"
-      "tuesday" => "1"
-      "wednesday" => "1"
-      "thursday" => "1"
-      "friday" => "1"
-      "alert" => "1"
-      "approve" => "1"
-    ]
+        session()->flash('success_message', 'Shifts were created for X users');
+        return redirect(route('shifts.index'));
+
     }
 
     /**

@@ -14,7 +14,7 @@
             @endif
             <h1 class="text-center mb-4">Dashboard</h1>
             <div class="row mb-4">
-                <div class="col-4">
+                <div class="col-12 col-lg-4 order-1 mb-4 mb-lg-0">
                     <div class="card bg-dark p-4 box">
                         <h3>Welcome {{auth()->user()->first_name}},</h3>
                         <p>This is your personal Pursuit TMR dashboard, below you have your shifts for the current week and the your availabilty for next
@@ -24,12 +24,12 @@
                     </div>
                     
                 </div>
-                <div class="col-4">
+                <div class="col-12 col-lg-4 order-2 mb-4 mb-lg-0">
                     <div class="card bg-dark p-4 box">
                         xxx
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-12 col-lg-4 order-2 order-lg-1 mb-4 mb-lg-0">
                     <div class="card bg-dark p-4 box">
                         <h3 class="text-center">To Do List</h3>
                         <ul class="list-group list-group-flush">
@@ -48,7 +48,7 @@
             ?>
 
             <div class="row mb-4">
-                <div class="col-4">
+                <div class="col-12 col-lg-4 order-1 mb-4 mb-lg-0">
                     <div class="card bg-dark p-4">
                         <h4 class="text-center text-uppercase">Shifts Week Commencing: {{ $now->startOfWeek()->format('d\/m\/Y')}}</h4>
                         <div class="slider">
@@ -89,8 +89,8 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="col-8">
+ 
+                <div class="col-12 col-lg-8 order-2 mb-4 mb-lg-0">
                     <div class="card bg-dark p-4 box position-relative">
                         <h4 class="text-center text-uppercase">Week Availability</h4>
                         <div class="availabilitySlider d-flex justify-content-start align-items-center">
@@ -171,7 +171,7 @@
 
             <div class="row mb-4">
                 
-                <div class="col-4">
+                <div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-0">
                     <div class="card bg-dark p-4 box">
                         <h4 class="text-center text-uppercase">Days Available (Per Week)</h4>
                         <div id="availableAmounts"  style="height: 300px;" class="text-white">
@@ -179,7 +179,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-0">
                     <div class="card bg-dark p-4 box">
                         <h4 class="text-center text-uppercase">Shifts Assigned (Per Week)</h4>
                         <div id="shiftAmounts" style="height: 300px;">
@@ -187,7 +187,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-0">
                     <div class="card bg-dark p-4 box">
                         <h4 class="text-center text-uppercase">Incoming Earnings (Per Week)</h4>
                         <div id="weeklyIncomings" style="height: 300px;">
@@ -398,6 +398,7 @@
         el: '#weeklyIncomings',
         url: "@chart('week_incomings')",
         });
+
     </script>
 
 @endsection

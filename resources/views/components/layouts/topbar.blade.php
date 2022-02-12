@@ -1,25 +1,11 @@
 <section class="topbar">
     <div class="w-100 d-flex justify-content-between align-items-center border-left border-light pr-2">
-        <a class="btn btn-secondary d-inline-block d-lg-none" href="#">
-            <i class="fas fa-fw fa-tablet-alt" data-bs-toggle="tooltip" data-bs-placement="bottom"
+        <a class="menuBtn btn btn-secondary d-inline-block d-lg-none" href="#">
+            <i class="fas fa-fw fa-bars" data-bs-toggle="tooltip" data-bs-placement="bottom"
             title="Add New Asset"></i>
-            <span class="badge badge-success badge-counter">Menu</span>
         </a>
-        <div class="p-2">
-            <a class="btn btn btn-primary" href="#">
-                <i class="fas fa-fw fa-tablet-alt" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                title="Add New Asset"></i>
-            </a>
-        
-            <a class="btn btn-primary" href="#">
-                <i class="fas fa-fw fa-tasks" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                title="Requests"></i>
-            </a>
-        
-            <a class="btn btn-primary" href="#">
-                <i class="fas fa-fw fa-folder" data-toggle="tooltip" data-placement="bottom"
-                title="Documentation"></i>
-            </a>
+        <div class="p-2 text-white">
+            Availability | My Shifts | My Timesheets
         </div> 
         <div class="pr-4">
             <ul class="navbar-nav">

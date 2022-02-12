@@ -55,7 +55,8 @@
                             <div class="shifts mb-4">
                                 @for($i=0; $i < 7; $i++)
                                 @php($day = \Carbon\Carbon::now()->startOfWeek()->subWeek()->addDays($i))
-                                <label for="{{strtolower($day->format('l'))}}">{{$day->format('l')}}</label>
+                                @php($shift = \App\Models\Shift::whereDate('date', '=', $day)->whereUserId(auth()->user()->id)->first())
+                                <label for="{{strtolower($day->format('l'))}}">{{$day->format('l')}} @if($shift){{$shift->rate}}@endif</label>
                                 <div class="row">
                                     <div class="col-3">
                                         <select name="{{strtolower($day->format('l'))}}_time" class="form-control">
@@ -65,19 +66,20 @@
                                     </div>
                                     <div class="col-3">
                                         <select name="{{strtolower($day->format('l'))}}_client" class="form-control">
-                                            <option value="Signal TM">Signal</option>
-                                            <option value="pm">Traffix</option>
+                                            @foreach($clients as $client)
+                                            <option value="{{$client->id}}" @if($shift && $shift->client_id == $client->id){{ 'selected' }}@endif>{{$client->name}}</option>
+                                            @endforeach
                                         </select>  
                                     </div>    
                                     <div class="col-2">
-                                        <input type="time" value="18:00" name="{{strtolower($day->format('l'))}}_start" class="form-control">
+                                        <input type="time" value="{{$shift->start_time ?? '18:00'}}" name="{{strtolower($day->format('l'))}}_start" class="form-control">
                                         
                                     </div>
                                     <div class="col-2">
-                                        <input type="time" value="06:00" name="{{strtolower($day->format('l'))}}_end" class="form-control">    
+                                        <input type="time" value="{{$shift->finish_time ?? '06:00'}}" name="{{strtolower($day->format('l'))}}_end" class="form-control">    
                                     </div> 
                                     <div class="col-2">
-                                        <input type="currency" value="" placeholder="£" name="{{strtolower($day->format('l'))}}_shift_rate" class="form-control">    
+                                        <input type="currency" value="{{$shift->rate ?? ''}}" placeholder="£" name="{{strtolower($day->format('l'))}}_shift_rate" class="form-control">    
                                     </div>   
                                 </div>
                                 @endfor

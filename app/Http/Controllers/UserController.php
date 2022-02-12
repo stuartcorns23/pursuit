@@ -64,7 +64,7 @@ class UserController extends Controller
             return redirect(route('users.index'));
         }else{
             session()->flash('error_message', 'User has been successfully created!');
-            return redirect(route('users.creare'));
+            return redirect(route('users.create'));
         }
 
     }

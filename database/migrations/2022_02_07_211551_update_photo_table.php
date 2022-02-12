@@ -14,7 +14,7 @@ class UpdatePhotoTable extends Migration
     public function up()
     {
         Schema::table('photos', function (Blueprint $table) {
-            //
+            $table->foreignId('user_id');
         });
     }
 
