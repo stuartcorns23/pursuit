@@ -1,5 +1,5 @@
-<sidebar class="sidebar-wrapper py-2 d-none">
-    <div class="closeMenu d-flex justify-content-end align-items-center p-2">
+<sidebar class="sidebar-wrapper py-2 d-none d-xl-inline-block">
+    <div class="closeMenu d-flex d-xl-none justify-content-end align-items-center p-2">
         <i class="fas fa-times fa-2x"></i>
     </div>
     <div class="logo d-flex w-100 justify-content-center align-items-center mb-4">

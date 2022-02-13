@@ -9,9 +9,9 @@
 @section('content')
 <section class="page-wrapper">
     <div class="page-content">
-        <div class="w-100 d-flex justify-content-between align-items-center">
-            <h1 class="text-center mb-4">Schedule</h1>
-            <div class="p-2">
+        <div class="w-100 d-flex justify-content-between align-items-center flex-column flex-lg-row">
+            <h1 class="text-center mb-4 order-2 order-lg-1">Schedule</h1>
+            <div class="p-2 order-1 order-lg-2">
                 @can('viewAll', auth()->user())
                 <a href="{{route('users.create')}}" class="btn btn-success">Add Availability</a>
                 <a href="{{route('users.create')}}" class="btn btn-secondary">Download Month Schedule</a>
@@ -30,7 +30,7 @@
         <p class="fs-5">Here are all of the users within the application</p>
 
         <div class="w-100">
-            <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex justify-content-between flex-column flex-lg-row align-items-center">
                 <h3>{{ $date->format('F Y')}}</h3>
                 <div class="p-2">
                     <a class="btn btn-primary" href="{{ route('availability.index', [$prevMonth->format('m'), $prevMonth->format('Y')])}}">{{ $prevMonth->format('F Y')}}</a>
@@ -48,7 +48,7 @@
                 $year = $date->format('Y');
             ?>
             <div class="calendar">
-                <div class="calendar-row">
+                <div class="calendar-row d-none d-lg-flex">
                     <div class="border border-light calendar-header">
                         Monday
                     </div>
@@ -75,7 +75,7 @@
                 
                 <div class="calendar-row">
                     @for($sd = 1; $sd < $startDay; $sd++)
-                        <div class="border border-light calendar-cell nullDay">
+                        <div class="border border-light calendar-cell nullDay d-none d-md-inline-block">
                             -
                         </div>
                         @php($count++)
@@ -90,24 +90,33 @@
                         ?>      
                         <div class="border calendar-cell border-light" data-date="{{$day->format('Y-m-d')}}" >
                                 
-                        {{-- Check to see if the user has made availability --}}
-                        <div class="d-flex justify-content-start align-items-start">
-                            <div class="calendar-number" style="margin-right: 5px;">{{$i}}</div>
-                            @if($availability && $availability->unavailable() == true)
-                            <div class="calendar-availability bg-danger text-white">Unavailable</div>
-                            @elseif($availability && $availability->available() == true)
-                            <div class="calendar-availability bg-success text-white"> Available</div>
-                            @else
-                            <div class="calendar-availability bg-secondary text-white">Unset</div>
-                            @endif
-                        </div>
+                            {{-- Check to see if the user has made availability --}}
+                            <div class="d-flex justify-content-between align-items-start flex-row flex-xl-row">
+                                <div class="calendar-number" style="margin-right: 5px;">
+                                    <span class="d-none d-md-inline-block ">{{$i}}</span>
+                                    <span class="d-inline-block d-md-none">{{$day->format('D jS')}}</span>
+                                    <span class="d-inline-block d-md-none">{{$day->format('M Y')}}</span>
+                                </div>
+                                @if($availability && $availability->unavailable() == true)
+                                <div class="calendar-availability bg-danger text-white">
+                                    <i class="fas fa-times"></i> <span class="d-inline d-md-none d-xl-inline">Unavailable</span>
+                                </div>
+                                @elseif($availability && $availability->available() == true)
+                                <div class="calendar-availability bg-success text-white">
+                                    <i class="fas fa-check"></i> <span class="d-inline d-md-none d-xl-inline">Available</span></div>
+                                @else
+                                <div class="calendar-availability bg-secondary text-white">
+                                    <i class="fas fa-question"></i> <span class="d-inline d-md-none d-xl-inline">Unset</span>
+                                </div>
+                                @endif
+                            </div>
                         
                             
 
                             {{-- If the USer has a shift --}}
                             @if($shift = auth()->user()->has_shift($year.'-'.$date->format('m').'-'.$i))
                             <span class="badge d-block fs-5 mb-1" style="background-color: {{ $shift->client->icon_color ?? '#333'}}; color: {{$shift->client->text_color ?? '#FFF'}}">
-                                <i class="fas fa-hard-hat"></i> {{ str_replace('Traffic Management', 'TM', $shift->client->name) }}
+                                <i class="fas fa-hard-hat"></i> <span class="d-inline d-md-none d-xl-inline">{{ str_replace('Traffic Management', 'TM', $shift->client->name) }}</span>
                             </span>
                             @endif
                             {{-- If the User is an admin--}}
@@ -123,11 +132,11 @@
 
                             @if(auth()->user()->admin == 1)
 
-                            <span class="p-2 text-center small">
-                                Operatives: {{$available}} Available
+                            <span class="p-2 text-center small badge bg-warning text-dark mb-1">
+                                Ops: {{$available}} Available
                             </span>
                             <br>
-                            <span class="p-2 text-center small">
+                            <span class="p-2 text-center small badge bg-primary">
                                 Shifts: {{$available}} Assigned
                             </span>
 
@@ -148,7 +157,7 @@
                     @endfor
 
                     @for($ed = $count; $ed < 7; $ed++)
-                        <div class="border border-light calendar-cell nullDay">
+                        <div class="border border-light calendar-cell nullDay d-none d-md-inline-block">
                             -
                         </div>
                         @php($count++)
@@ -176,11 +185,57 @@
                 </button>
             </div>
             <div id="dayDetails" class="modal-body text-dark">
-                
+                <h3>HTM</h3>
+                <p>Shift: 06:00am - 16:00pm
+                    <br>Report to: Dean Hollis
+                </p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse cum quasi ex odit non laborum exercitationem magni quis aspernatur temporibus, vitae in modi animi distinctio nisi aperiam praesentium blanditiis commodi pariatur inventore aut itaque! Molestias et dolorem at reprehenderit illum deleniti quasi nisi, mollitia magnam consequuntur officiis perferendis quidem, voluptates, excepturi cumque perspiciatis ullam deserunt? Et deleniti repudiandae repellat tenetur.</p>
+                <p>Rate: £145.00</p>
+                <p>Accepted on 07/02/2022</p>
+                <hr>
+                <h3>Availability</h3>
+                <div class="btn-group text-center w-100 mb-2" role="group" aria-label="Basic example">
+                    <button 
+                        type="button" 
+                        class="availabilityBtn btn btn-secondary"
+                        data-id="{{ auth()->user()->id }}"
+                        data-date="{{ $day->format('Y-m-d') }}"
+                        data-select="am"
+                    >
+                        AM
+                    </button>
+                    <button 
+                        type="button" 
+                        class="availabilityBtn btn btn-secondary"
+                        data-id="{{ auth()->user()->id }}"
+                        data-date="{{ $day->format('Y-m-d') }}"
+                        data-select="pm"
+                    >
+                        PM
+                    </button>
+                    <button 
+                        type="button" 
+                        class="availabilityBtn btn btn-secondary"
+                        data-id="{{ auth()->user()->id }}"
+                        data-date="{{ $day->format('Y-m-d') }}"
+                        data-select="both"
+                    >
+                        Both
+                    </button>
+                </div>
+                <button 
+                    type="button"
+                    class="availabilityBtn btn @if($availability && $availability->unavailable() == true) btn-danger text-white @else btn-secondary @endif w-100"
+                    data-id="{{ auth()->user()->id }}"
+                    data-date="{{ $day->format('Y-m-d') }}"
+                    data-select="unavailable"
+                >
+                    Unavailable
+                </button>
+
             </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
-                <button class="btn btn-danger" type="button" id="confirmBtn">Delete</button>
             </div>
         </div>
     </div>
@@ -208,7 +263,7 @@
                 //Place the JSON Images into the modal
                 console.log(xhr.responseText);
                 modalTitle.innerHTML = date;
-                dayDetails.innerHTML = xhr.responseText;
+                //dayDetails.innerHTML = xhr.responseText;
                 detailsModal.show();
             }
             xhr.open("POST", `/user/date`);

@@ -1,11 +1,14 @@
 <section class="topbar">
     <div class="w-100 d-flex justify-content-between align-items-center border-left border-light pr-2">
-        <a class="menuBtn btn btn-secondary d-inline-block d-lg-none" href="#">
+        <a class="menuBtn btn btn-secondary d-inline-block d-xl-none" href="#">
             <i class="fas fa-fw fa-bars" data-bs-toggle="tooltip" data-bs-placement="bottom"
-            title="Add New Asset"></i>
+            title="Open Navigation"></i>
         </a>
-        <div class="p-2 text-white">
+        <div class="p-2 text-white d-none d-lg-inline">
             Availability | My Shifts | My Timesheets
+        </div>
+        <div class="p-2 d-inline d-xl-none">
+            
         </div> 
         <div class="pr-4">
             <ul class="navbar-nav">

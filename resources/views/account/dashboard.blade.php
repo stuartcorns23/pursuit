@@ -303,15 +303,28 @@
     
         let currSlide2 = 0;
         const maxSlides2 = slides2.length;
+        const windowWidth = window.innerWidth;
+        let totalSlides = 0;
 
-       
+        if(windowWidth <= 576){
+            totalSlides = 1;
+        }else if(windowWidth > 576 && windowWidth <= 992){
+            totalSlides = 2;
+        }else if(windowWidth > 992 && windowWidth <= 1400){
+            totalSlides = 3;
+        }else if(windowWidth > 1400){
+            totalSlides = 4;
+        }else{
+            totalSlides = 1;
+        }
+            
 
         const gotToSlide2 = function(slide){
             slides2.forEach((s, i) => s.style.transform = `translateX(${100 * (i - slide)}%)`);
         }
 
         const nextSlide2 = function (){
-            if(currSlide2 === maxSlides2 - 4){
+            if(currSlide2 === maxSlides2 - totalSlides){
                 currSlide2 = 0;
             }else{
                 currSlide2++;
@@ -322,7 +335,7 @@
 
         const prevSlide2 = function (){
             if(currSlide2 === 0){
-                currSlide2 = maxSlides2 - 4;
+                currSlide2 = maxSlides2 - totalSlides;
             }else{
                 currSlide2--;
             }

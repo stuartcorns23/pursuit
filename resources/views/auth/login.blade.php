@@ -16,7 +16,7 @@
         @endif
     </div>
 
-    <div class="col-12 col-md-6 p-4">
+    <div class="col-12 col-lg-6 p-4">
         
         <h2 class="fs-5 text-center">Already a member? Login here</h2>
         <form action="/login" method="POST">
@@ -41,7 +41,7 @@
             </div>
         </form>
     </div>
-    <div class="col-12 col-md-6 p-4 mb-4 bg-light">
+    <div class="col-12 col-lg-6 p-4 mb-4 bg-light">
         <h2 class="fs-5 text-center text-info">Looking for work? register here</h2>
         <form action="{{ route('register') }}" method="POST">
             @csrf
