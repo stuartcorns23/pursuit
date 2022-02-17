@@ -34,3 +34,21 @@ h1 {
     font-weight: 400;
     font-size: 1.1rem;
 }
+
+/* Holder */
+
+#holder {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    #holder {
+        width: 75%;
+    }
+}
+
+@media (min-width: 992px) {
+    #holder {
+        width: 50%;
+    }
+}

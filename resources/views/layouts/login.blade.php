@@ -10,7 +10,7 @@
     <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
 </head>
 <body class="bg-secondary">
-    <div class="d-flex vw-100 mvh-100 align-items-center justify-content-center">
+    <div class="d-flex vw-100 min-vh-100 align-items-center justify-content-center">
         <div id="holder" class="border p-4 rounded shadow bg-white">
             <div class="p-2 mb-4 text-center">
                 <img src="{{ asset('images/pursuit-tmr-1.jpg')}}" alt="Pursuit TMR" width="300px"/>

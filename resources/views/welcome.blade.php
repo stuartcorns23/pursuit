@@ -7,10 +7,10 @@
     <h1 class="text-center mb-4">Welcome to Pursuit TM Recruitment</h1>
 
     <div class="row mb-5">
-        <div class="col-12 col-md-6 col-lg-4">
+        <div class="col-12 col-lg-6 col-xl-4">
             <img src="{{ asset('images/traffic-management.jpg')}}" alt="Pursuit Traffic Management" width="100%">
         </div>
-        <div class="col-12 col-md-6 col-lg-8">
+        <div class="col-12 col-lg-6 col-xl-8">
             <strong>Our website is currently under maintenance to help optimise our visitors and employees experience</strong>.
             We are a Traffic Management Recruitment agency based in the West Midlands and provide our clients with
             fully Lantra trained operatives (All levels of qualifactions and experience). All our operatives are carefully selected,

@@ -97,17 +97,23 @@
                                     <span class="d-inline-block d-md-none">{{$day->format('D jS')}}</span>
                                     <span class="d-inline-block d-md-none">{{$day->format('M Y')}}</span>
                                 </div>
-                                @if($availability && $availability->unavailable() == true)
-                                <div class="calendar-availability bg-danger text-white">
-                                    <i class="fas fa-times"></i> <span class="d-inline d-md-none d-xl-inline">Unavailable</span>
+                                @if($shift = auth()->user()->has_shift($year.'-'.$date->format('m').'-'.$i))
+                                <div class="calendar-availability bg-primary text-white">
+                                    <i class="fas fa-times"></i> <span class="d-inline d-md-none d-xl-inline">Assigned</span>
                                 </div>
-                                @elseif($availability && $availability->available() == true)
-                                <div class="calendar-availability bg-success text-white">
-                                    <i class="fas fa-check"></i> <span class="d-inline d-md-none d-xl-inline">Available</span></div>
                                 @else
-                                <div class="calendar-availability bg-secondary text-white">
-                                    <i class="fas fa-question"></i> <span class="d-inline d-md-none d-xl-inline">Unset</span>
-                                </div>
+                                    @if($availability && $availability->unavailable() == true)
+                                    <div class="calendar-availability bg-danger text-white">
+                                        <i class="fas fa-times"></i> <span class="d-inline d-md-none d-xl-inline">Unavailable</span>
+                                    </div>
+                                    @elseif($availability && $availability->available() == true)
+                                    <div class="calendar-availability bg-success text-white">
+                                        <i class="fas fa-check"></i> <span class="d-inline d-md-none d-xl-inline">Available</span></div>
+                                    @else
+                                    <div class="calendar-availability bg-secondary text-white">
+                                        <i class="fas fa-question"></i> <span class="d-inline d-md-none d-xl-inline">Unset</span>
+                                    </div>
+                                    @endif
                                 @endif
                             </div>
                         
@@ -194,45 +200,7 @@
                 <p>Accepted on 07/02/2022</p>
                 <hr>
                 <h3>Availability</h3>
-                <div class="btn-group text-center w-100 mb-2" role="group" aria-label="Basic example">
-                    <button 
-                        type="button" 
-                        class="availabilityBtn btn btn-secondary"
-                        data-id="{{ auth()->user()->id }}"
-                        data-date="{{ $day->format('Y-m-d') }}"
-                        data-select="am"
-                    >
-                        AM
-                    </button>
-                    <button 
-                        type="button" 
-                        class="availabilityBtn btn btn-secondary"
-                        data-id="{{ auth()->user()->id }}"
-                        data-date="{{ $day->format('Y-m-d') }}"
-                        data-select="pm"
-                    >
-                        PM
-                    </button>
-                    <button 
-                        type="button" 
-                        class="availabilityBtn btn btn-secondary"
-                        data-id="{{ auth()->user()->id }}"
-                        data-date="{{ $day->format('Y-m-d') }}"
-                        data-select="both"
-                    >
-                        Both
-                    </button>
-                </div>
-                <button 
-                    type="button"
-                    class="availabilityBtn btn @if($availability && $availability->unavailable() == true) btn-danger text-white @else btn-secondary @endif w-100"
-                    data-id="{{ auth()->user()->id }}"
-                    data-date="{{ $day->format('Y-m-d') }}"
-                    data-select="unavailable"
-                >
-                    Unavailable
-                </button>
-
+                <p>Available</p>
             </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button>

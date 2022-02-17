@@ -38,6 +38,7 @@
                         <th>Email Address</th>
                         <th>Telephone</th>
                         <th>Last Logged in</th>
+                        <th>Date Registered</th>
                         <th class="text-center" width="5%">Options</th>
                     </tr>
                 </thead>
@@ -60,15 +61,32 @@
                         <td>{{ $user->fullname()}}
                             <br><p class="small">{{$user->role->name ?? 'Unknown'}}</p>
                         </td>
-                        <td>{{ $user->email}}</td>
+                        <td>
+                            {{ $user->email}}<br>
+                            @if($user->hasVerifiedEmail())  
+                                <span class="text-success"><i class="fas fa-check"></i> Verified</span>
+                            @else
+                                <span class="text-danger"><i class="fas fa-times"></i> Unverified</span> 
+                            @endif
+                        </td>
                         <td>{{ $user->telephone}}</td>
                         <td>12th January 2022 19:04</td>
+                        <td>
+                            {{\Carbon\Carbon::parse($user->created_at)->format('jS M Y')}}
+                            <br>
+                            @if($user->confirmed)
+                            <span class="text-success"><i class="fas fa-check"></i> Accepted</span>
+                            @endif
+                        </td>
                         <td class="text-center">
                             <div class="dropdown">
                                 <button class="btn btn-secondary" id="dropDown{{$user->id}}" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fas fa-ellipsis-h"></i>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropDown{{$user->id}}">
+                                    @if(!$user->confirmed)
+                                    <li><a class="dropdown-item" href="{{route('users.approval', $user->id)}}">Approve/Deny</a></li>
+                                    @endif
                                     <li><a class="dropdown-item" href="{{route('users.show', $user->id)}}">View</a></li>
                                     <li><a class="dropdown-item" href="{{route('users.edit', $user->id)}}">Edit</a></li>
                                     <form id="form{{$user->id}}" action="{{ route('users.destroy', $user->id) }}" method="POST">
@@ -91,6 +109,7 @@
                         <th>Email Address</th>
                         <th>Telephone</th>
                         <th>Last Logged In</th>
+                        <th>Date Registered</th>
                         <th class="text-center">Options</th>
                     </tr>
                 </tfoot>

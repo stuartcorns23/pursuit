@@ -47,15 +47,15 @@
             @csrf
             <div class="form-group mb-2">
                 <label for="first_name" class="form-label">First Name</label>
-                <input class="form-control bg-white" name="first_name" id="first_name" placeholder="Username...." />
+                <input class="form-control bg-white" name="first_name" id="first_name" value="{{old('first_name')}}" />
             </div>
             <div class="form-group mb-2">
                 <label for="last_name" class="form-label">Last Name</label>
-                <input type="text" class="form-control bg-white" name="last_name" id="last_name" placeholder />
+                <input type="text" class="form-control bg-white" name="last_name" id="last_name" value="{{old('last_name')}}" />
             </div>
             <div class="form-group mb-2">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control bg-white" name="email" id="email" placeholder />
+                <input type="email" class="form-control bg-white" name="email" id="email" value="{{old('email')}}" />
                 @error('email')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -63,8 +63,8 @@
                 @enderror
             </div>
             <div class="form-group mb-2">
-                <label for="telephone" class="form-label">Telephone</label>
-                <input type="telephone" class="form-control bg-white" name="telephone" id="telephone" placeholder />
+                <label for="phone" class="form-label">Telephone</label>
+                <input type="telephone" class="form-control bg-white" name="phone" id="phone" value="{{old('phone')}}" />
                 @error('telephone')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -74,7 +74,7 @@
             <hr>
             <div class="form-group mb-2">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control bg-white" name="password" id="password" placeholder="************" />
+                <input type="password" class="form-control bg-white" name="password" id="password"  />
                 @error('password')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -83,7 +83,7 @@
             </div>
             <div class="form-group mb-2">
                 <label for="confirmed" class="form-label">Confirm Password</label>
-                <input type="password" class="form-control bg-white" name="password_confirmation" id="confirmed" placeholder="************" />
+                <input type="password" class="form-control bg-white" name="password_confirmation" id="confirmed" />
                 @error('confirmed')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>

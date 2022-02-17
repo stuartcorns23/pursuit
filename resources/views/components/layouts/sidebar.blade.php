@@ -77,17 +77,9 @@
                     <span class="sidebar-title">Posts</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                   data-bs-target="#settingsDD" aria-expanded="true"
-                   aria-controls="settingsDD">
-                    <i class="fas fa-fw fa-cog sidebar-icon" data-bs-toggle="tooltip" data-bs-placement="right"
-                       title="Settings"></i>
-                    <span class="sidebar-title">Settings</span>
-                </a>
-                <div id="settingsDD" class="collapse p-0" aria-labelledby="settingsTitle" data-bs-parent="#accordionSidebar">
-                    <a class="collapse-item sub-link" href="#"><i
-                            class="far fa-fw fa-circle text-secondary"></i> User Settings</a>
-                </div>
+                <a class="nav-link" href="{{ route('settings.index')}}">
+                    <i class="fas fa-fw fa-tachometer-alt sidebar-icon"></i>
+                    <span class="sidebar-title">Settings</span></a>
             </li>
             
         </ul>
