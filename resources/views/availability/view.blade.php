@@ -13,7 +13,7 @@
             <h1 class="text-center mb-4 order-2 order-lg-1">Schedule</h1>
             <div class="p-2 order-1 order-lg-2">
                 @can('viewAll', auth()->user())
-                <a href="{{route('users.create')}}" class="btn btn-success">Add Availability</a>
+                <a href="{{route('availability.create')}}" class="btn btn-success"><i class="fas fa-plus"></i> Add Availability</a>
                 <a href="{{route('users.create')}}" class="btn btn-secondary">Download Month Schedule</a>
                 <a href="{{route('users.create')}}" class="btn btn-light">Help</a>
                 @endcan
@@ -133,7 +133,8 @@
                                                                     ->whereDate('date', $year.'-'.$date->format('m').'-'.$i)
                                                                     ->orWhere('night', '=', 1)
                                                                     ->whereDate('date', $year.'-'.$date->format('m').'-'.$i)
-                                                                    ->count(); 
+                                                                    ->count();
+                                $shifts = \App\Models\Shift::whereDate('date', $year.'-'.$date->format('m').'-'.$i)->count();
                             ?>
 
                             @if(auth()->user()->admin == 1)
@@ -143,7 +144,7 @@
                             </span>
                             <br>
                             <span class="p-2 text-center small badge bg-primary">
-                                Shifts: {{$available}} Assigned
+                                Shifts: {{$shifts}} Assigned
                             </span>
 
                             @endif
@@ -191,16 +192,7 @@
                 </button>
             </div>
             <div id="dayDetails" class="modal-body text-dark">
-                <h3>HTM</h3>
-                <p>Shift: 06:00am - 16:00pm
-                    <br>Report to: Dean Hollis
-                </p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse cum quasi ex odit non laborum exercitationem magni quis aspernatur temporibus, vitae in modi animi distinctio nisi aperiam praesentium blanditiis commodi pariatur inventore aut itaque! Molestias et dolorem at reprehenderit illum deleniti quasi nisi, mollitia magnam consequuntur officiis perferendis quidem, voluptates, excepturi cumque perspiciatis ullam deserunt? Et deleniti repudiandae repellat tenetur.</p>
-                <p>Rate: £145.00</p>
-                <p>Accepted on 07/02/2022</p>
-                <hr>
-                <h3>Availability</h3>
-                <p>Available</p>
+                
             </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
@@ -229,6 +221,7 @@
 
             xhr.onload = function(e) {
                 //Place the JSON Images into the modal
+                dayDetails.innerHTML = xhr.responseText;
                 console.log(xhr.responseText);
                 modalTitle.innerHTML = date;
                 //dayDetails.innerHTML = xhr.responseText;

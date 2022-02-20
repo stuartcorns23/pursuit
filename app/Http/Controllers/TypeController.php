@@ -7,35 +7,23 @@ use Illuminate\Http\Request;
 
 class TypeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
+    // Store the document type from the settings tab
     public function store(Request $request)
     {
-        //
+        $validation = $request->validate([
+            "name" => "required",
+        ]);
+
+        $type = new Type;
+        $type->fill(
+            $request->only('name', 'required', 'type', )
+        )->save();
+
+        session()->flash('success_message', 'The new document type has been added');
+        return redirect(route('settings.index')); 
+
+
     }
 
     /**

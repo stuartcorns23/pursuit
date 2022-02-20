@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Settings;
+use App\Models\Type;
 use Illuminate\Http\Request;
 
 class SettingsController extends Controller
@@ -14,7 +15,8 @@ class SettingsController extends Controller
      */
     public function index()
     {
-        return view('settings.view');
+        $documents = Type::all();
+        return view('settings.view', compact('documents'));
     }
 
     /**

@@ -47,6 +47,10 @@ body.dark-theme .page-wrapper {
     color: var(--dark-theme-text-color);
 }
 
+body.dark-theme .page-wrapper .card-body {
+    color: var(--light-theme-text-color);
+}
+
 /* Top Bar Functions */
 
 .topbar {

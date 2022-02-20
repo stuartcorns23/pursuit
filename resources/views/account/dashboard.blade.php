@@ -26,7 +26,8 @@
                 </div>
                 <div class="col-12 col-lg-4 order-2 mb-4 mb-lg-0">
                     <div class="card bg-dark p-4 box">
-                        xxx
+                        {{auth()->user()->fullname()}}<br>
+                        {{auth()->user()->role->name ?? 'Unknown'}}
                     </div>
                 </div>
                 <div class="col-12 col-lg-4 order-2 order-lg-1 mb-4 mb-lg-0">
@@ -34,10 +35,37 @@
                         <h3 class="text-center">To Do List</h3>
                         <ul class="list-group list-group-flush">
                             {{-- Check to see if there is a Drivers License Uploaded  --}}
-                            <li class="list-group-item list-group-item-dark"><i class="fas fa-exclamation-triangle text-danger"></i> Upload Drivers License</li>
-                            <li class="list-group-item list-group-item-dark"><i class="fas fa-exclamation-triangle text-danger"></i> Upload OCCY Health Certificate</li>
-                            <li class="list-group-item list-group-item-dark"><i class="fas fa-exclamation-triangle text-danger"></i> Upload Lantra Card</li>
-                            <li class="list-group-item list-group-item-dark"><i class="fas fa-exclamation-circle text-warning"></i> Update Availability</li>
+                            @foreach($types as $type)
+                            @if(!$type->documents->where('user_id', '=', auth()->user()->id)->count())
+                            <li class="list-group-item list-group-item-dark d-flex justify-content-between">
+                                <span>
+                                    <i class="fas fa-exclamation-triangle text-danger"></i> Upload {{$type->name}}
+                                </span>
+                                <span>
+                                    <a href="{{route('documents.create')}}">Upload</a>
+                                </span>
+                            </li>
+                            @endif
+                           
+                            @endforeach
+
+                            <li class="list-group-item list-group-item-dark d-flex justify-content-between">
+                                <span>
+                                    <i class="fas fa-exclamation-triangle text-danger"></i> Timesheet for last week
+                                </span>
+                                <span>
+                                    <a href="{{route('timesheets.create')}}">Add Timesheet</a>
+                                </span>
+                            </li>
+                            <li class="list-group-item list-group-item-dark d-flex justify-content-between">
+                                <span>
+                                    <i class="fas fa-exclamation-triangle text-danger"></i> Set Availability for Next Week
+                                </span>
+                                <span>
+                                    <a href="{{route('documents.create')}}">Update</a>
+                                </span>
+                            </li>
+
                         </ul>
 
                     </div>
@@ -110,11 +138,11 @@
                                     <div class="m-2 p-2">
                                     <h5 class="text-center">{{$day->format('jS M Y')}}</h5>
                                     @if($availability && $availability->unavailable() == true)
-                                        <p class="text-center d-block text-danger">Unavailable</p>
+                                        <p class="text-center d-block text-danger" data-date="{{ $day->format('Y-m-d') }}">Unavailable</p>
                                     @elseif($availability && $availability->available() == true)
-                                        <p class="text-center d-block text-success">Available</p>
+                                        <p class="text-center d-block text-success" data-date="{{ $day->format('Y-m-d') }}">Available</p>
                                     @else
-                                        <p class="text-center d-block text-warning">Not Set</p>
+                                        <p class="text-center d-block text-warning" data-date="{{ $day->format('Y-m-d') }}">Not Set</p>
                                     @endif
                                     <div class="btn-group text-center w-100 mb-2" role="group" aria-label="Basic example">
                                         <button 
@@ -161,9 +189,12 @@
                             <div class="btn availability-btn-right btn-light"><i class="fas fa-chevron-right"></i></div>
                         </div>
                         <div class="position-absolute bottom-0 start-0 end-0 text-center pb-4">
-                            <button class="btn btn-secondary">
+                            <a href="{{route('availability.index', [$now->format('m'), $now->format('Y')])}}" class="btn btn-secondary">
                                 View Schedule
-                            </button>
+                            </a>
+                            <a href="{{route('availability.create')}}" class="btn btn-secondary">
+                                Set More Availability
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -233,14 +264,26 @@
                 let xhr = new XMLHttpRequest();
 
                 xhr.onprogress = function(e){
-                  //Get the model where the data attribute == the dates
-                  let btns = document.querySelectorAll(`[data-date="${date}"]`);
+                    //Get the model where the data attribute == the dates
+                    let btns = document.querySelectorAll(`button[data-date="${date}"]`);
+                    let title = document.querySelector(`p[data-date="${date}"]`)
+                    console.log(title);
                     btns.forEach((i) => {
                         i.classList.remove('btn-success');
                         i.classList.remove('btn-danger');
                         i.classList.add('btn-secondary');
                         if(i.getAttribute('data-select') === select){
-                            select === "unavailable" ? i.classList.add('btn-danger','text-white') : i.classList.add('btn-success');
+                            if(select === "unavailable"){
+                                i.classList.add('btn-danger','text-white');
+                                title.innerHTML = "Unavailable";
+                                title.classList.remove('text-warning', 'text-success')
+                                title.classList.add('text-danger');
+                            }else{
+                                i.classList.add('btn-success');
+                                title.innerHTML = "Available";
+                                title.classList.remove('text-warning', 'text-danger')
+                                title.classList.add('text-success');
+                            }
                         }
                     });
                 }

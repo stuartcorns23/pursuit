@@ -27,32 +27,31 @@
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
                     <div class="tab-pane fade p-4 text-dark" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <div>
-                            <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex justify-content-between align-items-center mb-4">
                                 <h3>Documents</h3>
                                 <div>
-                                    <button class="btn btn-success">Add New</button>
-                                    <button class="btn btn-warning">Upload</button>
+                                    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#documentAddModal">Add New</button>
                                 </div>
                             </div>
 
                             <table class="table table-striped table-responsive">
-                                <th>
+                                <thead>
                                     <tr>
-                                        <th>Document Name</th>
-                                        <th>Document Type</th>
-                                        <th>Required</th>
-                                        <th>Added</th>
-                                        <th>Options</th>
+                                        <th class="col-3 text-center">Document Name</th>
+                                        <th class="col-3 text-center">Document Type</th>
+                                        <th class="col-2  text-center">Required</th>
+                                        <th class="col-2">Added</th>
+                                        <th class="col-1 text-end">Options</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach($documents as $document)
                                     <tr>
-                                        <td>Driver License</td>
-                                        <td>License</td>
-                                        <td>Required</td>
-                                        <td>17/02/2022</td>
-                                        <td>Options</td>
+                                        <td>{{$document->name}}</td>
+                                        <td>{{ $document->type}}</td>
+                                        <td class="text-center">@if($document->required) Yes  @else No @endif</td>
+                                        <td>{{\Carbon\Carbon::parse($document->created_at)->format('d-m-Y')}}</td>
+                                        <td><button class="btn btn-light">...</button></td>
                                     </tr>
                                     @endforeach
                                 </tbody>
@@ -72,6 +71,46 @@
 @endsection
 
 @section('modals')
+
+<!-- Add Document Type Modal -->
+<div class="modal fade" id="documentAddModal" tabindex="-1" aria-labelledby="documentAddModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="documentAddModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="{{route('types.store')}}" method="POST">
+            @csrf
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="Name">Name</label>
+                    <input type="text" name="name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="Type">Type</label>
+                    <select name="type" class="form-control">
+                        <option value="License">License</option>    
+                        <option value="Qualification">Qualification</option>    
+                        <option value="Medical">Medical</option>    
+                    </select>    
+                </div>
+                <div class="form-group">
+                    <label for="required">Required</label>
+                    <select name="required" id="required" class="form-control">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option></option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-success">Add Document Type</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
 @endsection
 

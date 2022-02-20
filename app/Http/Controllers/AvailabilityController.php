@@ -37,14 +37,9 @@ class AvailabilityController extends Controller
         return view('availability.view', compact('availability', 'date', 'nextMonth', 'prevMonth'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('availability.create');
     }
 
     /**

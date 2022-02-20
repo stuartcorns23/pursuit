@@ -11,6 +11,9 @@ class Availability extends Model
 
     protected $fillable = ['user_id', 'date', 'day', 'night'];
 
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 
     public function am(){
 
@@ -60,5 +63,13 @@ class Availability extends Model
 
         return false;
 
+    }
+
+    public function scopeUnavailableFilter($query, $date){
+        return $query->where('day', '=', 0)->where('night', '=', 0)->whereDate('date', '=', $date);
+    }
+
+    public function scopeAvailableFilter($query, $date){
+        return $query->where('day', '=', 1)->orWhere('night', '=', 1)->whereDate('date', '=', $date);
     }
 }

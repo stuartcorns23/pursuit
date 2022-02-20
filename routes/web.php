@@ -30,6 +30,7 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'staff'])->name('dashboard');
     //Availability
     Route::get('/schedule/{month}/{year}', 'App\Http\Controllers\AvailabilityController@index')->name('availability.index');
+    Route::get('/availability/create', 'App\Http\Controllers\AvailabilityController@create')->name('availability.create');
     Route::post('/availability/set', 'App\Http\Controllers\AvailabilityController@set');
     
     //Clients
@@ -38,6 +39,9 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::resource('/shifts', 'App\Http\Controllers\ShiftController');
     //Timesheets
     Route::resource('/timesheets', 'App\Http\Controllers\TimesheetController');
+    //Document Type
+    Route::resource('/documents', 'App\Http\Controllers\DocumentController');
+    Route::resource('/types', 'App\Http\Controllers\TypeController');
     //Users
     Route::resource('/users', 'App\Http\Controllers\UserController');
     Route::post('/user/date', 'App\Http\Controllers\UserController@viewDate');
