@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Timesheet;
 use App\Models\Client;
 use Illuminate\Http\Request;
+use App\Jobs\SubmitTimesheet;
 
 class TimesheetController extends Controller
 {
