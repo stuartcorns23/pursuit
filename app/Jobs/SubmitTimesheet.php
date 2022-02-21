@@ -41,7 +41,7 @@ class SubmitTimesheet implements ShouldQueue
         $pdf->setPaper('a4', 'portrait');
         Storage::put('public/timesheets/timesheet.pdf', $pdf->output());
 
-        $timesheet->addMedia(Storage::disk('timesheets')->url('timesheet.pdf'))->toMediaCollection('timesheets');
+        $timesheet->addMedia(Storage::disk('local')->url('timesheets/timesheet.pdf'))->toMediaCollection('timesheets');
         //SendTimesheet::dispatch($timesheet)->afterResponse();
     }
 }
