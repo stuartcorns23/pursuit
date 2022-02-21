@@ -23,7 +23,6 @@ class SubmitTimesheet implements ShouldQueue
 
     public function __construct(Timesheet $timesheet, $notify)
     {
-        return dd($timesheet);
         $this->timesheet = $timesheet;
         $this->notify = $notify;
     }
@@ -35,7 +34,7 @@ class SubmitTimesheet implements ShouldQueue
      */
     public function handle()
     {
-        $user = $timesheet->user();
+        $timesheet = $this->timesheet;
         //Get the user name format [s-corns-ts-19-may-2022]
         $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
                 ->loadView('timesheets.showPDF', compact('timesheet'));
