@@ -39,9 +39,10 @@ class SubmitTimesheet implements ShouldQueue
         $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
                 ->loadView('timesheets.showPDF', compact('timesheet'));
         $pdf->setPaper('a4', 'portrait');
-        Storage::put('public/timesheets/timesheet.pdf', $pdf->output());
+       if(Storage::put('public/timesheets/timesheet.pdf', $pdf->output())){
+           $timesheet->addMedia(Storage::url('/timesheets/timesheet.pdf'))->toMediaCollection('timesheets');
+       }
 
-        $timesheet->addMedia(Storage::url('/timesheets/timesheet.pdf'))->toMediaCollection('timesheets');
         //SendTimesheet::dispatch($timesheet)->afterResponse();
     }
 }
