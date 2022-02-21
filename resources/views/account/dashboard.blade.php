@@ -51,7 +51,7 @@
 
                             <li class="list-group-item list-group-item-dark d-flex justify-content-between">
                                 <span>
-                                    <i class="fas fa-exclamation-triangle text-danger"></i> Timesheet for last week
+                                    <i class="fas fa-exclamation-circle text-danger"></i> Timesheet for last week
                                 </span>
                                 <span>
                                     <a class="btn btn-sm btn-warning" href="{{route('timesheets.create')}}">Add</a>
@@ -59,7 +59,7 @@
                             </li>
                             <li class="list-group-item list-group-item-dark d-flex justify-content-between">
                                 <span>
-                                    <i class="fas fa-exclamation-triangle text-danger"></i> Set Availability for Next Week
+                                    <i class="fas fa-exclamation-circle text-danger"></i> Set Availability for Next Week
                                 </span>
                                 <span>
                                     <a class="btn btn-sm btn-warning" href="{{route('documents.create')}}">Update</a>
