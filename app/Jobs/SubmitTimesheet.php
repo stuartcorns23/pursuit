@@ -23,6 +23,7 @@ class SubmitTimesheet implements ShouldQueue
 
     public function __construct(Timesheet $timesheet, $notify)
     {
+        return dd($timesheet);
         $this->timesheet = $timesheet;
         $this->notify = $notify;
     }
