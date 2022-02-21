@@ -91,7 +91,7 @@ class TimesheetController extends Controller
         $message = "Thank you for submitting your timesheet, it has been sent to Pursuit and to your accountants";
         session()->flash('success_message', $message);
 
-        return view('accounts.dashboard');
+        return view('account.dashboard');
 
 
     }
