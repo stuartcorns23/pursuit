@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Settings;
 use App\Models\Type;
+use App\Models\Role;
 use Illuminate\Http\Request;
 
 class SettingsController extends Controller
