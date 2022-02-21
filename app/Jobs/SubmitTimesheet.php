@@ -17,8 +17,8 @@ class SubmitTimesheet implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    protected $timesheet;
-    protected $notify;
+    public $timesheet;
+    public $notify;
     
 
     public function __construct(Timesheet $timesheet, $notify)

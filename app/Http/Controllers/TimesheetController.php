@@ -15,7 +15,7 @@ class TimesheetController extends Controller
         if(auth()->user()->role == 1){
             $timesheets = Timesheet::all();
         }else{
-            $timesheets = Timesheet::whereUserId(auth()->user()->id);
+            $timesheets = Timesheet::whereUserId(auth()->user()->id)->get();
         }
         return view('timesheets.view', compact('timesheets'));
     }
@@ -86,7 +86,7 @@ class TimesheetController extends Controller
         $timesheet->save();
     
         //The Job for creating the timesheet PDF and sending it to Accountants and Pursuit TMR
-        SubmitTimesheet::dispatch($timesheet, $request->sendAccountants)->afterResponse();
+        SubmitTimesheet::dispatch($timesheet, 1)->afterResponse();
 
         $message = "Thank you for submitting your timesheet, it has been sent to Pursuit and to your accountants";
         session()->flash('success_message', $message);
