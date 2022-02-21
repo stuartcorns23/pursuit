@@ -14,7 +14,7 @@ class SettingsController extends Controller
     {
         $documents = Type::all();
         $roles = Role::all();
-        return view('settings.view', compact('documents'));
+        return view('settings.view', compact('documents', 'roles'));
     }
 
     /**
