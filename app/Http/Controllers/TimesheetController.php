@@ -8,34 +8,24 @@ use Illuminate\Http\Request;
 
 class TimesheetController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
-        $timesheets = Timesheet::all();
+        if(auth()->user()->role == 1){
+            $timesheets = Timesheet::all();
+        }else{
+            $timesheets = Timesheet::whereUserId(auth()->user()->id);
+        }
         return view('timesheets.view', compact('timesheets'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $clients = Client::all();
         return view('timesheets.create', compact('clients'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         $timesheet = new Timesheet;
@@ -93,13 +83,12 @@ class TimesheetController extends Controller
         $timesheet->total_shifts = $shifts_total;
         $timesheet->total_wages = $wages;
         $timesheet->save();
+    
+        //The Job for creating the timesheet PDF and sending it to Accountants and Pursuit TMR
+        SubmitTimesheet::dispatch($timesheet, $request->sendAccountants)->afterResponse();
 
-        //Create PDF
-        //Send Email to the Pursuit
-        //Send Copy to User
-        //Send Copy to Accountants
-
-        session()->flash('success_message', 'You have submitted your timesheet');
+        $message = "Thank you for submitting your timesheet, it has been sent to Pursuit and to your accountants";
+        session()->flash('success_message', $message);
 
         return view('accounts.dashboard');
 
