@@ -42,7 +42,7 @@
                                     <i class="fas fa-exclamation-triangle text-danger"></i> Upload {{$type->name}}
                                 </span>
                                 <span>
-                                    <a href="{{route('documents.create')}}">Upload</a>
+                                    <a class="btn btn-sm btn-danger" href="{{route('documents.create')}}">Upload</a>
                                 </span>
                             </li>
                             @endif
@@ -54,7 +54,7 @@
                                     <i class="fas fa-exclamation-triangle text-danger"></i> Timesheet for last week
                                 </span>
                                 <span>
-                                    <a href="{{route('timesheets.create')}}">Add Timesheet</a>
+                                    <a class="btn btn-sm btn-warning" href="{{route('timesheets.create')}}">Add</a>
                                 </span>
                             </li>
                             <li class="list-group-item list-group-item-dark d-flex justify-content-between">
@@ -62,7 +62,7 @@
                                     <i class="fas fa-exclamation-triangle text-danger"></i> Set Availability for Next Week
                                 </span>
                                 <span>
-                                    <a href="{{route('documents.create')}}">Update</a>
+                                    <a class="btn btn-sm btn-warning" href="{{route('documents.create')}}">Update</a>
                                 </span>
                             </li>
 
