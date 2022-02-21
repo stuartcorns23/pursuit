@@ -5,7 +5,9 @@
             title="Open Navigation"></i>
         </a>
         <div class="p-2 text-white d-none d-lg-inline">
-            Availability | My Shifts | My Timesheets
+            <button class="btn btn-sm btn-primary">Availability</button>
+            <button class="btn btn-sm btn-primary">My Shifts</button>
+            <button class="btn btn-sm btn-primary">My Timesheets</button>
         </div>
         <div class="p-2 d-inline d-xl-none">
             

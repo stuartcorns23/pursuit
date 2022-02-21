@@ -12,7 +12,7 @@ use Illuminate\Queue\SerializesModels;
 use PDF;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Timesheet;
-use App\Jobs\AttachTimesheet;
+use App\Jobs\SendTimesheet;
 
 class SubmitTimesheet implements ShouldQueue
 {
@@ -45,7 +45,6 @@ class SubmitTimesheet implements ShouldQueue
         Storage::disk('public')->put('timesheets/timesheet.pdf', $pdf->output());
         $timesheet->addMediaFromUrl(Storage::disk('public')->url('timesheets/timesheet.pdf'))->toMediaCollection();
 
-
-        //SendTimesheet::dispatch($timesheet)->afterResponse();
+        SendTimesheet::dispatch($timesheet)->afterResponse();
     }
 }
