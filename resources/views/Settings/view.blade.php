@@ -20,7 +20,7 @@
                         <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Documents</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Contact</button>
+                        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Roles</button>
                     </li>
                 </ul>
                 <div class="tab-content bg-light" id="myTabContent">
@@ -58,7 +58,35 @@
                             </table>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                        <div>
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <h3>Roles</h3>
+                                <div>
+                                    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#rolesAddModal">Add New</button>
+                                </div>
+                            </div>
+
+                            <table class="table table-striped table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th class="col-9 text-center">Name</th>
+                                        <th class="col-2">Added</th>
+                                        <th class="col-1 text-end">Options</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($roles as $role)
+                                    <tr>
+                                        <td>{{$role->name}}</td>
+                                        <td>{{\Carbon\Carbon::parse($role->created_at)->format('d-m-Y')}}</td>
+                                        <td><button class="btn btn-light">...</button></td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
             

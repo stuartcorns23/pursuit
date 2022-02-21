@@ -8,14 +8,11 @@ use Illuminate\Http\Request;
 
 class SettingsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $documents = Type::all();
+        $roles = Role::all();
         return view('settings.view', compact('documents'));
     }
 
