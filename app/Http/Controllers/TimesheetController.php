@@ -33,7 +33,7 @@ class TimesheetController extends Controller
 
         $timesheet->user_id = auth()->user()->id;
 
-        $timesheet->week_beginning = "$request->start_date";
+        $timesheet->week_start = "$request->start_date";
         $timesheet->week_end = $request->end_date;
 
         $shifts = [];
