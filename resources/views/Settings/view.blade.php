@@ -63,7 +63,7 @@
                             <div class="d-flex justify-content-between align-items-center mb-4">
                                 <h3>Roles</h3>
                                 <div>
-                                    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#rolesAddModal">Add New</button>
+                                    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#roleAddModal">Add New</button>
                                 </div>
                             </div>
 
