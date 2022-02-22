@@ -58,7 +58,7 @@
                             </table>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                    <div class="tab-pane fade p-4" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                         <div>
                             <div class="d-flex justify-content-between align-items-center mb-4">
                                 <h3>Roles</h3>
