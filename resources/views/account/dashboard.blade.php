@@ -53,7 +53,7 @@
                                 $last_week = \Carbon\Carbon::now()->subWeek();
                                 $week_start = $last_week->startOfWeek();
                                 $week_end = $last_week->endOfWeek();
-                                $timesheet = \App\Model\Timesheet::whereUserId(auth()->user()->id)->whereBetween('start_date', [$week_start, $week_end])->count();
+                                $timesheet = \App\Models\Timesheet::whereUserId(auth()->user()->id)->whereBetween('start_date', [$week_start, $week_end])->count();
                             @endphp
                             @if($timesheet < 1)
                             <li class="list-group-item list-group-item-dark d-flex justify-content-between">
@@ -71,7 +71,7 @@
                                 $next_week = \Carbon\Carbon::now()->addWeek();
                                 $week_start = $next_week->startOfWeek();
                                 $week_end = $next_week->endOfWeek();
-                                $availability = \App\Model\Availability::whereUserId(auth()->user()->id)->whereBetween('date', [$week_start, $week_end])->count();
+                                $availability = \App\Models\Availability::whereUserId(auth()->user()->id)->whereBetween('date', [$week_start, $week_end])->count();
                             @endphp
                             @if($availability < 0)
                             <li class="list-group-item list-group-item-dark d-flex justify-content-between">
@@ -84,6 +84,17 @@
                             </li>
                             @endif
 
+                            {{-- Check to see if any of the details are incorrect --}}
+                            @if(auth()->user()->address_1 === '' || auth()->user()->city)
+                            <li class="list-group-item list-group-item-dark d-flex justify-content-between">
+                                <span>
+                                    <i class="fas fa-exclamation-circle text-danger"></i> Update Personal Details
+                                </span>
+                                <span>
+                                    <a class="btn btn-sm btn-warning" href="{{route('user.profile')}}">Update</a>
+                                </span>
+                            </li>
+                            @endif
                         </ul>
 
                     </div>

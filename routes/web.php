@@ -49,6 +49,7 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::get('/user/{id}/approve', 'App\Http\Controllers\UserController@approveUser')->name('user.approve');
     Route::get('/user/{id}/deny', 'App\Http\Controllers\UserController@denyUser')->name('user.deny');
     Route::get('/user/{id}/text', 'App\Http\Controllers\UserController@sendSMS')->name('user.text');
+    Route::get('user/profile', 'App\Http\Controllers\UserController@viewProfile')->name('user.profile');
     
 
 
