@@ -38,6 +38,8 @@
                 </div>
                 
             </li>
+
+            @can('admin', auth()->user())
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
                    data-bs-target="#accessoryDD" aria-expanded="true"
@@ -84,7 +86,7 @@
                     <i class="fas fa-fw fa-tachometer-alt sidebar-icon"></i>
                     <span class="sidebar-title">Settings</span></a>
             </li>
-            
+            @endcan
         </ul>
     </nav>
 </sidebar>
