@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Storage;
 
 use App\Policies\UserPolicy;
 use AWS;
-use App\Notifications\NewAccount;
+use App\Notifications\ApprovedAccount;
 
 class UserController extends Controller
 {
