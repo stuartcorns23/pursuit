@@ -65,7 +65,15 @@
                                 </span>
                             </li>
                             @endif
+
                             {{-- If there is no availabilty set for next week - then display the message --}}
+                            @php
+                                $next_week = \Carbon\Carbon::now()->addWeek();
+                                $week_start = $next_week->startOfWeek();
+                                $week_end = $next_week->endOfWeek();
+                                $availability = \App\Model\Availability::whereUserId(auth()->user()->id)->whereBetween('date', [$week_start, $week_end])->count();
+                            @endphp
+                            @if($availability < 0)
                             <li class="list-group-item list-group-item-dark d-flex justify-content-between">
                                 <span>
                                     <i class="fas fa-exclamation-circle text-danger"></i> Set Availability for Next Week
@@ -74,6 +82,7 @@
                                     <a class="btn btn-sm btn-warning" href="{{route('documents.create')}}">Update</a>
                                 </span>
                             </li>
+                            @endif
 
                         </ul>
 
