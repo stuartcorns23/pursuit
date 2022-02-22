@@ -36,7 +36,7 @@
                                             </tr>
                                             <tr>
                                                 <th>Telephone</th>
-                                                <td>{{$user->telephone}}</td>
+                                                <td>{{$user->phone}}</td>
                                             </tr>
                                             <tr>
                                                 <th>Email Address</th>

@@ -12,4 +12,8 @@ class UserPolicy
     public function viewAll(User $user){
         return $user->admin === 1;
     }
+
+    public function approveUser(User $user){
+        return true;
+    }
 }
