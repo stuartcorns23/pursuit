@@ -33,20 +33,18 @@
                     <!-- Dropdown - User Information -->
                     <div class="dropdown-menu dropdown-menu-dark dropdown-menu-lg-end shadow animated--grow-in"
                         aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="{{route('user.profile')}}">
                             <i class="fas fa-user fa-sm fa-fw mr-2 text-light"></i>
-                            Profile
+                            My Profile
                         </a>
-                        <a class="dropdown-item" href="#">
-                            <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                            Edit
-                        </a>
+                        @can('admin', auth()->user())
                         <a class="dropdown-item" href="#">
                             <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                             Activity Log
                         </a>
+                        @endcan
                         <div class="dropdown-divider"></div>
-                        <a href="{{ route('logout') }}"
+                        <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
                             Logout
