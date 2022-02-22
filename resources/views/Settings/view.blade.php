@@ -24,13 +24,30 @@
                     </li>
                 </ul>
                 <div class="tab-content bg-light text-secondary" id="myTabContent">
-                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
+                    <div class="tab-pane fade show active p-4" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <div>
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <h3>Settings</h3>
+                                <div>
+                                    <button class="btn btn-info">Clear Cache</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="tab-pane fade p-4 text-dark" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <div>
                             <div class="d-flex justify-content-between align-items-center mb-4">
                                 <h3>Documents</h3>
                                 <div>
                                     <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#documentAddModal">Add New</button>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-md-6">
+                                        
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        
+                                    </div>
                                 </div>
                             </div>
 
@@ -51,7 +68,7 @@
                                         <td>{{ $document->type}}</td>
                                         <td class="text-center">@if($document->required) Yes  @else No @endif</td>
                                         <td>{{\Carbon\Carbon::parse($document->created_at)->format('d-m-Y')}}</td>
-                                        <td><button class="btn btn-light">...</button></td>
+                                        <td class="texzt-end"><button class="btn btn-light">...</button></td>
                                     </tr>
                                     @endforeach
                                 </tbody>
@@ -70,7 +87,10 @@
                             <table class="table table-striped table-responsive">
                                 <thead>
                                     <tr>
-                                        <th class="col-9 text-start">Name</th>
+                                        <th class="col-3 text-start">Name</th>
+                                        <th class="col-2 text-start">Charge</th>
+                                        <th class="col-2 text-start">Rate</th>
+                                        <th class="col-2 text-center">Staff</th>
                                         <th class="col-2">Added</th>
                                         <th class="col-1 text-end">Options</th>
                                     </tr>
@@ -79,8 +99,11 @@
                                     @foreach($roles as $role)
                                     <tr>
                                         <td>{{$role->name}}</td>
+                                        <td>{{$role->rate ?? 'Not Set'}}</td>
+                                        <td>{{$role->charge ?? 'Not Set' }}</td>
+                                        <td class="text-center">{{$role->users->count()}}</td>
                                         <td>{{\Carbon\Carbon::parse($role->created_at)->format('d-m-Y')}}</td>
-                                        <td><button class="btn btn-light">...</button></td>
+                                        <td class="text-end"><button class="btn btn-light">...</button></td>
                                     </tr>
                                     @endforeach
                                 </tbody>
@@ -155,6 +178,14 @@
                     <label for="Name">Name</label>
                     <input type="text" name="name" class="form-control">
                 </div>
+                <div class="form-group">
+                    <label for="rate">Rate</label>
+                    <input type="text" name="rate" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="charge">Charge</label>
+                    <input type="text" name="charge" class="form-control">
+                </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -162,7 +193,7 @@
             </div>
         </form>
       </div>
-    </div>
+    </div>  
   </div>
 
 @endsection

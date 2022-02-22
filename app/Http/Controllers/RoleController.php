@@ -7,35 +7,22 @@ use Illuminate\Http\Request;
 
 class RoleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
-        //
+        $validation = $request->validate([
+            'name' => 'required'
+        ]);
+
+        $role = new Role;
+        $role->name = $request->name;
+        $role->charge = $request->charge;
+        $role->rate = $request->rate;
+        $role->save();
+
+        session()->flash('success_message', 'The role has been added to the system successfully.');
+        return redirect(route('settings.index'));
+
     }
 
     /**
