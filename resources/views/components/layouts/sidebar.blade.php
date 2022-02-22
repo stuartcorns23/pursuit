@@ -26,6 +26,7 @@
                        title="Shift Management"></i>
                     <span class="sidebar-title">Shifts</span>
                 </a>
+                @can('admin', User::class)
                 <div id="shiftsDD" class="collapse p-0" aria-labelledby="shiftsTitle" data-bs-parent="#accordionSidebar">
                     <a class="collapse-item sub-link" href="{{ route('shifts.index')}}"><i
                         class="far fa-circle text-secondary"></i> View All</a>
@@ -33,6 +34,7 @@
                         class="far fa-fw fa-circle text-secondary"></i> Add Shift</a>
                     
                 </div>
+                @endcan
                 
             </li>
             <li class="nav-item">

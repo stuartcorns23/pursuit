@@ -16,4 +16,8 @@ class UserPolicy
     public function approveUser(User $user){
         return true;
     }
+
+    public function admin(User $user){
+        return $user->admin === 1;
+    }
 }
