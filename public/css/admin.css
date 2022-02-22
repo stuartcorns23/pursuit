@@ -47,7 +47,10 @@ body.dark-theme .page-wrapper {
     color: var(--dark-theme-text-color);
 }
 
-body.dark-theme .page-wrapper .card-body {
+body.dark-theme .page-wrapper .card-body,
+body.dark-theme .modal,
+body.dark-theme .tab-content
+{
     color: var(--light-theme-text-color);
 }
 
