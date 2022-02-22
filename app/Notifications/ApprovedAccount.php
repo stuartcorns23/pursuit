@@ -22,8 +22,7 @@ class ApprovedAccount extends Notification
     {        
         // OR return a SnsMessage passing the arguments via `create()` or `__construct()`:
         return SnsMessage::create([
-            'body' => "Your Account has been approved! If you have verfied your email
-            you can now access your account at https://www.pursuit-tmr.co.uk/login",
+            'body' => "Your Account has been approved! If you have verfied your email you can now access your account at https://www.pursuit-tmr.co.uk/login",
             'transactional' => true,
             'sender' => 'Pursuit-TMR',
         ]); 

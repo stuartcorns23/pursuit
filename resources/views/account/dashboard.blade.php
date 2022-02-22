@@ -48,7 +48,14 @@
                             @endif
                            
                             @endforeach
-
+                            {{-- IF there is no timesheet for hte previous week upload timesheet --}}
+                            @php
+                                $last_week = \Carbon\Carbon::now()->subWeek();
+                                $week_start = $last_week->startOfWeek();
+                                $week_end = $last_week->endOfWeek();
+                                $timesheet = \App\Model\Timesheet::whereUserId(auth()->user()->id)->whereBetween('start_date', [$week_start, $week_end])->count();
+                            @endphp
+                            @if($timesheet < 1)
                             <li class="list-group-item list-group-item-dark d-flex justify-content-between">
                                 <span>
                                     <i class="fas fa-exclamation-circle text-danger"></i> Timesheet for last week
@@ -57,6 +64,8 @@
                                     <a class="btn btn-sm btn-warning" href="{{route('timesheets.create')}}">Add</a>
                                 </span>
                             </li>
+                            @endif
+                            {{-- If there is no availabilty set for next week - then display the message --}}
                             <li class="list-group-item list-group-item-dark d-flex justify-content-between">
                                 <span>
                                     <i class="fas fa-exclamation-circle text-danger"></i> Set Availability for Next Week
