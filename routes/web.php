@@ -42,6 +42,8 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     //Document Type
     Route::resource('/documents', 'App\Http\Controllers\DocumentController');
     Route::resource('/types', 'App\Http\Controllers\TypeController');
+    //Roles
+    Route::resource('/roles', 'App\Http\Controllers\RoleController');
     //Users
     Route::resource('/users', 'App\Http\Controllers\UserController');
     Route::post('/user/date', 'App\Http\Controllers\UserController@viewDate');
