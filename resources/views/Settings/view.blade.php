@@ -23,7 +23,7 @@
                         <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Roles</button>
                     </li>
                 </ul>
-                <div class="tab-content bg-light" id="myTabContent">
+                <div class="tab-content bg-light text-secondary" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
                     <div class="tab-pane fade p-4 text-dark" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <div>
@@ -70,7 +70,7 @@
                             <table class="table table-striped table-responsive">
                                 <thead>
                                     <tr>
-                                        <th class="col-9 text-center">Name</th>
+                                        <th class="col-9 text-start">Name</th>
                                         <th class="col-2">Added</th>
                                         <th class="col-1 text-end">Options</th>
                                     </tr>
@@ -134,6 +134,31 @@
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
               <button type="submit" class="btn btn-success">Add Document Type</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Document Type Modal -->
+<div class="modal fade" id="roleAddModal" tabindex="-1" aria-labelledby="roleAddModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="roleAddModalLabel">Add New Role</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="{{route('roles.store')}}" method="POST">
+            @csrf
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="Name">Name</label>
+                    <input type="text" name="name" class="form-control">
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-success">Add Role</button>
             </div>
         </form>
       </div>
