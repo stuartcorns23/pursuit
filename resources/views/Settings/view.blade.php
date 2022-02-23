@@ -43,7 +43,18 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-12 col-md-6">
-                                        
+                                        <div class="form-group">
+                                            <label for="timesheet_reminder">Timesheet Notification</label>
+                                            <select name="timesheet_reminder" class="form-control">
+                                                <option value="Monday">Monday</option>
+                                                <option value="Tuesday">Tuesday</option>
+                                                <option value="Wednesday">Wednesday</option>
+                                                <option value="Thursday">Thursday</option>
+                                                <option value="Friday">Friday</option>
+                                                <option value="Saturday">Saturday</option>
+                                                <option value="Sunday">Sunday</option>
+                                            </select>
+                                        </div>
                                     </div>
                                     <div class="col-12 col-md-6">
                                         
