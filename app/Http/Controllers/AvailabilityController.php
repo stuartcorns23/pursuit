@@ -28,7 +28,8 @@ class AvailabilityController extends Controller
         $message = '';
         $users = User::where('id', '=', $request->user_id)->get();
         $date = \Carbon\Carbon::parse($request->date);
-        $days = $request->days;
+        $days = explode(',',$request->days);
+        return $days;
         foreach($users as $user){
             $unavailable = [];
             for($d=0; $d<7; $d++){
