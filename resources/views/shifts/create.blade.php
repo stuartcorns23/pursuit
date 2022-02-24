@@ -260,9 +260,16 @@
 
         xhr.onload = function(e) {
             //Place th JSON Images into the modal
-            errorMessage.innerHTML = xhr.responseText;
-            errorMessage.classList.remove('d-none');
-            saveBtn.classList.add('disabled');
+            if(xhr.responseText !== ''){
+                errorMessage.innerHTML = xhr.responseText;
+                errorMessage.classList.remove('d-none');
+                saveBtn.classList.add('disabled');  
+            }else{
+                errorMessage.innerHTML = '';
+                errorMessage.classList.add('d-none');
+                saveBtn.classList.remove('disabled');
+            }
+            
         }
         xhr.open("POST", `/availability/check`);
         xhr.send(formData); 
