@@ -37,7 +37,7 @@ class AvailabilityController extends Controller
                 if(in_array($day, $days)){
                     $availability = \App\Models\Availability::where('user_id', '=', $user->id)
                                 ->whereDate('date', $start->format('Y-m-d'))->first();
-                    if($availabilty && $availability->unavailable() == true){
+                    if($availability && $availability->unavailable() == true){
                         $unavailable[] = $day;
                     }
                 }
