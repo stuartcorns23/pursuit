@@ -212,37 +212,29 @@
     const operators = document.querySelectorAll('.operatives');
     const dayChecked = document.querySelectorAll('.day-checkbox');
 
-    shiftDate.addEventListener('change', function(e){
-        alert('changed');
-    });
+    shiftDate.addEventListener('change', checkAvail);
 
     operators.forEach((item) => {
-        item.addEventListener('select', function(e){
-        alert('changed');
-    });
+        item.addEventListener('change', checkAvail);
     });
 
     dayChecked.forEach((item) => {
-        item.addEventListener('click', function(e){
-        alert('changed');
-    });
+        item.addEventListener('change', checkAvail);
     });
 
     function initOpertiveNames(){
         let names = document.querySelectorAll('.operatives');
         operators.forEach((item) => {
-            item.addEventListener('change', function(e){
-        alert('changed');
-    });
+            item.addEventListener('change', checkAvail);
         });
     }
 
     function checkAvail(){
-        /* alert('changed');
+        alert('changed');
         let date = shiftDate.value;
         console.log(date);
         let ops = document.querySelectorAll('[name="user_id"]');
-        console.log(ops); */
+        console.log(ops);
 
 
         /* let ops = [];
