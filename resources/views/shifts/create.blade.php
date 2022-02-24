@@ -224,7 +224,7 @@
 
     function initOpertiveNames(){
         let names = document.querySelectorAll('.operatives');
-        operators.forEach((item) => {
+        names.forEach((item) => {
             item.addEventListener('change', checkAvail);
         });
     }
