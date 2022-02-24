@@ -16,7 +16,7 @@
             <div class="p-2">
                 <div class="p-2">
                     <a href="{{route('timesheets.index')}}" class="btn btn-secondary">Back</a>
-                    <button type="submit" class="btn btn-success">Save</button>
+                    <button type="submit" class="btn btn-success save-btn">Save</button>
                 </div>
             </div>
         </div>
@@ -212,6 +212,8 @@
     const shiftDate = document.querySelector('#shift_date');
     const operators = document.querySelectorAll('.operatives');
     const dayChecked = document.querySelectorAll('.day-checkbox');
+    const errorMessage = document.querySelector('.availability-errors');
+    const saveBtn = document.querySelector('.save-btn');
 
     shiftDate.addEventListener('change', checkAvail);
 
@@ -258,7 +260,9 @@
 
         xhr.onload = function(e) {
             //Place th JSON Images into the modal
-            console.log(xhr.responseText);
+            errorMessage.innerHTML = xhr.responseText;
+            errorMessage.classList.remove('d-none');
+            saveBtn.classList.add('disabled');
         }
         xhr.open("POST", `/availability/check`);
         xhr.send(formData); 
