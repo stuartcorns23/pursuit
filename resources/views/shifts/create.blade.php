@@ -21,7 +21,7 @@
             </div>
         </div>
 
-        <div class="availability-errors d-none alert alert-danger">
+        <div class="availability-errors d-none alert alert-danger position-absolute top-10 right-0 left-0">
 
         </div>
         
