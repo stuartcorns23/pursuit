@@ -25,7 +25,7 @@ class AvailabilityController extends Controller
     }
 
     public function check(Request $request){
-        return dd($request);
+        return dd($request->days);
         $message = '';
         $users = User::where('id', '=', $request->user_id)->get();
         $date = \Carbon\Carbon::parse($request->date);

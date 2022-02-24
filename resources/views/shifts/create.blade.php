@@ -243,6 +243,7 @@
                 days[item.name] = item.value;
             }
         });
+        console.log(days);
 
         let formData = new FormData();
         formData.append('date', date);
