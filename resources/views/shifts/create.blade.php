@@ -21,7 +21,9 @@
             </div>
         </div>
 
-        
+        <div class="availability-errors d-none alert alert-danger position-absolute top-10 right-0 left-0">
+
+        </div>
         
         <x.handlers-alert :errors="$errors"></x.handlers-alert>
 
@@ -167,10 +169,6 @@
     </div>
 </section>
 
-<div class="availability-errors d-none alert alert-danger position-absolute top-10 right-0 left-0">
-
-</div>
-
 @endsection
 
 @section('modals')
@@ -266,7 +264,8 @@
             if(xhr.responseText !== '<ul></ul>'){
                 errorMessage.innerHTML = xhr.responseText;
                 errorMessage.classList.remove('d-none');
-                saveBtn.classList.add('disabled');  
+                saveBtn.classList.add('disabled'); 
+                window.scrollTo(0,0); 
             }else{
                 errorMessage.innerHTML = '';
                 errorMessage.classList.add('d-none');
