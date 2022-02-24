@@ -237,7 +237,6 @@
         forms.forEach((item) => {
             ops.push(item.value);
         });
-        console.log(ops);
         let days = [];
         dayChecked.forEach((item) => {
             if(item.checked){
@@ -245,18 +244,10 @@
             }
         });
 
-
-        /* let ops = [];
-        let days = [];
-        operators.forEach((item) => {
-            ops.push(item.value);
-        });
-        daysChecked.foreach((item) => {
-            if(item.checked){
-                days.push(item.value);
-            }
-        })
-
+        let formData = new FormData();
+        formData.append('date', date);
+        formData.append('user_id', ops);
+        formData.append('days', days);
 
         let xhr = new XMLHttpRequest();
 
@@ -268,10 +259,8 @@
             //Place th JSON Images into the modal
             console.log(xhr.responsiveText);
         }
-        xhr.open("POST", `/availability/set`);
-        xhr.send(formData); */
-
-
+        xhr.open("POST", `/availability/check`);
+        xhr.send(formData); 
     }
 
 </script>

@@ -22,11 +22,32 @@ class AvailabilityController extends Controller
         return true;
 
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    public function check(Reqeust $request){
+        $message = '';
+        $users = User::where()->get();
+
+        foreach($users as $user){
+            $unavailable = [];
+            for($d=0; $d<7; $d++){
+                $start = $date->startOfWeek()->addDays($d);
+                $day = strtolower($start->format('l'));
+                if($days[$day] == 1){
+                    $availability = \App\Models\Availability::where('user_id', '=', $user->id)
+                                ->whereDate('date', $start->format('Y-m-d'))->first();
+                    if($availabilty && $availability->unavailable() == true){
+                        $unavailable[] = $day;
+                    }
+                }
+            }
+            if(!empty($unavailable)){
+                $message .= "<li>{$user->fullname()} is unavailable on ".implode(', ',$unavailable)."</li>";
+            }
+        }
+
+        return "<ul>{$message}</ul>";
+    }
+   
     public function index($month, $year)
     {
         $date = \Carbon\Carbon::parse("{$month}/01/{$year}");

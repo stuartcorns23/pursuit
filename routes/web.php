@@ -32,6 +32,7 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::get('/schedule/{month}/{year}', 'App\Http\Controllers\AvailabilityController@index')->name('availability.index');
     Route::get('/availability/create', 'App\Http\Controllers\AvailabilityController@create')->name('availability.create');
     Route::post('/availability/set', 'App\Http\Controllers\AvailabilityController@set');
+    Route::post('/availability/check', 'App\Http\Controllers\AvailabilityController@check');
     
     //Clients
     Route::resource('/clients', 'App\Http\Controllers\ClientController');
