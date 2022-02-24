@@ -257,7 +257,7 @@
 
         xhr.onload = function(e) {
             //Place th JSON Images into the modal
-            console.log(xhr.responsiveText);
+            console.log(xhr.responseText);
         }
         xhr.open("POST", `/availability/check`);
         xhr.send(formData); 
