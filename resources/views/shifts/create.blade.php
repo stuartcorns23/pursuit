@@ -232,7 +232,12 @@
     function checkAvail(){
         let date = shiftDate.value;
         let ops = document.querySelectorAll('[name="user_id"]');
-        console.log(dayChecked.length);
+        dayChecked.forEach((item) => {
+            if(item.checked){
+                days[item.name] = item.value;
+            }
+        });
+        console.log(days);
 
 
         /* let ops = [];
