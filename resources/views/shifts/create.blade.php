@@ -183,7 +183,6 @@
     
 
     newOpBtn.addEventListener('click', function(e){
-        console.log(elements.length);
         if(elements.length >= 1){
             element = elements[0].cloneNode(true);
             operatives.appendChild(element);
@@ -213,7 +212,9 @@
     const operators = document.querySelectorAll('.operatives');
     const dayChecked = document.querySelectorAll('.day-checkbox');
 
-    shiftDate.addEventListener('change', checkAvail());
+    shiftDate.addEventListener('change', function(e){
+        alert('changed');
+    });
 
     operators.forEach((item) => {
         item.addEventListener('select', checkAvail());
