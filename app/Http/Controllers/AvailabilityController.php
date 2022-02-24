@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Availability;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 
 class AvailabilityController extends Controller
