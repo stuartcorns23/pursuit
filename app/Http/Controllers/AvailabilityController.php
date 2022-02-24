@@ -25,7 +25,6 @@ class AvailabilityController extends Controller
     }
 
     public function check(Request $request){
-        return dd($request->days);
         $message = '';
         $users = User::where('id', '=', $request->user_id)->get();
         $date = \Carbon\Carbon::parse($request->date);
@@ -35,7 +34,7 @@ class AvailabilityController extends Controller
             for($d=0; $d<7; $d++){
                 $start = $date->startOfWeek()->addDays($d);
                 $day = strtolower($start->format('l'));
-                if($days[$day] == 1){
+                if(in_array($day, $days)){
                     $availability = \App\Models\Availability::where('user_id', '=', $user->id)
                                 ->whereDate('date', $start->format('Y-m-d'))->first();
                     if($availabilty && $availability->unavailable() == true){
