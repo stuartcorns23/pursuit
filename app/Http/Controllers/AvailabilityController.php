@@ -23,7 +23,7 @@ class AvailabilityController extends Controller
 
     }
 
-    public function check(Reqeust $request){
+    public function check(Request $request){
         $message = '';
         $users = User::where()->get();
 
