@@ -260,6 +260,7 @@
 
         xhr.onload = function(e) {
             //Place th JSON Images into the modal
+            console.log(xhr.responseText);
             if(xhr.responseText !== ''){
                 errorMessage.innerHTML = xhr.responseText;
                 errorMessage.classList.remove('d-none');
