@@ -21,9 +21,7 @@
             </div>
         </div>
 
-        <div class="availability-errors d-none alert alert-danger position-absolute top-10 right-0 left-0">
-
-        </div>
+        
         
         <x.handlers-alert :errors="$errors"></x.handlers-alert>
 
@@ -168,6 +166,10 @@
     </form>
     </div>
 </section>
+
+<div class="availability-errors d-none alert alert-danger position-absolute top-10 right-0 left-0">
+
+</div>
 
 @endsection
 
