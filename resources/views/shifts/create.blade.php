@@ -200,7 +200,7 @@
                     if(e.target.classList.contains('fa-times')){
                         item.remove();
                         initOperativeFields();
-                        initOpertiveNames();
+                        initOperativeNames();
                     }
                 });
             });
@@ -222,7 +222,8 @@
         item.addEventListener('change', checkAvail);
     });
 
-    function initOpertiveNames(){
+    function initOperativeNames(){
+        console.log('called');
         let names = document.querySelectorAll('.operatives');
         names.forEach((item) => {
             item.addEventListener('change', checkAvail);
