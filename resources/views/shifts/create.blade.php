@@ -231,11 +231,11 @@
     }
 
     function checkAvailability(){
-        /* alert('changed');
+        alert('changed');
         let date = shiftDate.value;
         console.log(date);
-        let ops = document.querySelectorAll('[name="user_id[]"]');
-        console.log(ops); */
+        let ops = document.querySelectorAll('[name="user_id"]');
+        console.log(ops);
 
 
         /* let ops = [];
