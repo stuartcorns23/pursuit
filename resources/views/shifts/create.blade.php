@@ -199,8 +199,7 @@
                 item.addEventListener('click', function(e){
                     if(e.target.classList.contains('fa-times')){
                         item.remove();
-                        //initOperativeFields();
-                        initOperativeNames();
+                        initOperativeFields();
                     }
                 });
             });
@@ -225,7 +224,6 @@
     });
 
     function initOperativeNames(){
-        console.log('called');
         let names = document.querySelectorAll('.operatives');
         names.forEach((item) => {
             item.addEventListener('change', checkAvail);
@@ -235,6 +233,7 @@
     function checkAvail(){
         let date = shiftDate.value;
         let ops = document.querySelectorAll('[name="user_id"]');
+        console.log(ops);
         let days = [];
         dayChecked.forEach((item) => {
             if(item.checked){
