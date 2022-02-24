@@ -230,11 +230,14 @@
     }
 
     function checkAvail(){
-        alert('changed');
         let date = shiftDate.value;
-        console.log(date);
         let ops = document.querySelectorAll('[name="user_id"]');
-        console.log(ops);
+        daysChecked.foreach((item) => {
+            if(item.checked){
+                days[item.name] = item.value;
+            }
+        })
+        console.log(days);
 
 
         /* let ops = [];
