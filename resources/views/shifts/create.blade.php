@@ -213,24 +213,24 @@
     const operators = document.querySelectorAll('.operatives');
     const dayChecked = document.querySelectorAll('.day-checkbox');
 
-    shiftDate.addEventListener('change', checkAvailability());
+    shiftDate.addEventListener('change', checkAvail());
 
     operators.forEach((item) => {
-        item.addEventListener('select', checkAvailability());
+        item.addEventListener('select', checkAvail());
     });
 
     dayChecked.forEach((item) => {
-        item.addEventListener('click', checkAvailability());
+        item.addEventListener('click', checkAvail());
     });
 
     function initOpertiveNames(){
         let names = document.querySelectorAll('.operatives');
         operators.forEach((item) => {
-            item.addEventListener('change', checkAvailability());
+            item.addEventListener('change', checkAvail());
         });
     }
 
-    function checkAvailability(){
+    function checkAvail(){
         alert('changed');
         let date = shiftDate.value;
         console.log(date);
