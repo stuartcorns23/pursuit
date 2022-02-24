@@ -216,11 +216,11 @@
     shiftDate.addEventListener('change', checkAvailability());
 
     operators.forEach((item) => {
-        item.addEventListener('change', checkAvailability());
+        item.addEventListener('select', checkAvailability());
     });
 
     dayChecked.forEach((item) => {
-        item.addEventListener('change', checkAvailability());
+        item.addEventListener('click', checkAvailability());
     });
 
     function initOpertiveNames(){
