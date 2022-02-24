@@ -26,7 +26,7 @@ class AvailabilityController extends Controller
 
     public function check(Request $request){
         $message = '';
-        $users = User::where()->get();
+        $users = User::where('id', '=', $request->user_id)->get();
 
         foreach($users as $user){
             $unavailable = [];
