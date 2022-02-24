@@ -217,26 +217,32 @@
     });
 
     operators.forEach((item) => {
-        item.addEventListener('select', checkAvail());
+        item.addEventListener('select', function(e){
+        alert('changed');
+    });
     });
 
     dayChecked.forEach((item) => {
-        item.addEventListener('click', checkAvail());
+        item.addEventListener('click', function(e){
+        alert('changed');
+    });
     });
 
     function initOpertiveNames(){
         let names = document.querySelectorAll('.operatives');
         operators.forEach((item) => {
-            item.addEventListener('change', checkAvail());
+            item.addEventListener('change', function(e){
+        alert('changed');
+    });
         });
     }
 
     function checkAvail(){
-        alert('changed');
+        /* alert('changed');
         let date = shiftDate.value;
         console.log(date);
         let ops = document.querySelectorAll('[name="user_id"]');
-        console.log(ops);
+        console.log(ops); */
 
 
         /* let ops = [];
