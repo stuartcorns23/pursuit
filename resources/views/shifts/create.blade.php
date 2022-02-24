@@ -233,7 +233,7 @@
     function checkAvail(){
         let date = shiftDate.value;
         let ops = [];
-        let forms = document.querySelectorAll('[name="user_id"]');
+        let forms = document.querySelectorAll('[name="user_id[]"]');
         forms.forEach((item) => {
             ops.push(item.value);
         });
