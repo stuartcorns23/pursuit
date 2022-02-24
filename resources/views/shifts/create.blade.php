@@ -40,7 +40,7 @@
         <p>Complete the following information for hte previous week of work with Pursuit TM Recruitment. </p>
       
             <div class="d-flex justify-content-center">
-                <div class="col-12 col-lg-8" >
+                <div class="col-12 col-xl-8" >
                     <div class="card shadow h-100" >
                         <div class="card-body text-secondary" >
                             @csrf                                                      
