@@ -199,7 +199,7 @@
                 item.addEventListener('click', function(e){
                     if(e.target.classList.contains('fa-times')){
                         item.remove();
-                        initOperativeFields();
+                        //initOperativeFields();
                         initOperativeNames();
                     }
                 });
