@@ -27,7 +27,7 @@ class AvailabilityController extends Controller
     public function check(Request $request){
         $message = '';
         $users = User::where('id', '=', $request->user_id)->get();
-
+        $date = \Carbon\Carbon::parse($request->date);
         foreach($users as $user){
             $unavailable = [];
             for($d=0; $d<7; $d++){
