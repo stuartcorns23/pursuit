@@ -32,7 +32,7 @@
 
         <div class="w-100">
 
-             <table class="table-view striped" width="100%">
+             <table class="table-view striped table-responsive" width="100%">
                 <thead>
                     <tr>
                         <th class="text-center" width="5%"> ID</th>
@@ -75,6 +75,9 @@
                         </td>
                     </tr>
                     @endforeach
+                    @if(shifts->count() == 0)
+                    <tr><td colspan="9" class="text-center">No Shift are currently on the system</td></tr>
+                    @endof
                 </tbody>
                 <tfoot>
                     <tr>
