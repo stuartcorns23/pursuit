@@ -240,7 +240,7 @@
         let days = [];
         dayChecked.forEach((item) => {
             if(item.checked){
-                days.push(item.value);
+                days.push(item.name);
             }
         });
         console.log(days);
