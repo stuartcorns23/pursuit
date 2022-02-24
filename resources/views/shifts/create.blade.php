@@ -20,6 +20,10 @@
                 </div>
             </div>
         </div>
+
+        <div class="availability-errors d-none alert alert-danger">
+
+        </div>
         
         <x.handlers-alert :errors="$errors"></x.handlers-alert>
 
@@ -43,7 +47,7 @@
                             <div class="form-group row mb-2">                                                      
                                 <div class="col-4">                                                      
                                     <label for="date">Date</label>
-                                    <input type="date" name="date" value="{{\Carbon\Carbon::now()->format('Y-m-d')}}" class="form-control">
+                                    <input id="shift_date" type="date" name="date" value="{{\Carbon\Carbon::now()->format('Y-m-d')}}" class="form-control">
                                 </div>
                                 <div class="col-4">
                                     <label for="start_time">Start</label>
@@ -85,7 +89,7 @@
                                     <div class="row">
                                         <div class="col-4">
                                             <label for="user_id">Operative</label>
-                                                <select name="user_id[]" class="form-control">
+                                                <select name="user_id[]" class="form-control operatives">
                                                     @foreach($users as $user)
                                                         <option value="{{$user->id}}">{{$user->fullname()}}</option>
                                                     @endforeach
@@ -115,31 +119,31 @@
                             <hr>
                             <div class="form-group">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" name="monday" value="1">
-                                    <label class="form-check-label" for="monday">Monday</label>
+                                    <input class="form-check-input day-checkbox" type="checkbox" name="monday" value="1">
+                                    <label class="form-check-label " for="monday">Monday</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" name="tuesday" value="1">
+                                    <input class="form-check-input day-checkbox" type="checkbox" name="tuesday" value="1">
                                     <label class="form-check-label" for="tuesday">Tuesday</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" name="wednesday" value="1">
+                                    <input class="form-check-input day-checkbox" type="checkbox" name="wednesday" value="1">
                                     <label class="form-check-label" for="wednesday">Wednesday</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" name="thursday" value="1">
+                                    <input class="form-check-input day-checkbox" type="checkbox" name="thursday" value="1">
                                     <label class="form-check-label" for="thursday">Thursday</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" name="friday" value="1">
+                                    <input class="form-check-input day-checkbox" type="checkbox" name="friday" value="1">
                                     <label class="form-check-label" for="friday">Friday</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" name="saturday" value="1" >
+                                    <input class="form-check-input day-checkbox" type="checkbox" name="saturday" value="1" >
                                     <label class="form-check-label" for="saturday">Saturday</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" name="sunday" value="1" >
+                                    <input class="form-check-input day-checkbox" type="checkbox" name="sunday" value="1" >
                                     <label class="form-check-label" for="sunday">Sunday</label>
                                 </div>
                             </div>
@@ -191,22 +195,75 @@
     function initOperativeFields(){
         let rows = document.querySelectorAll('.operators .form-group');
         
-        console.log(rows.length);
         if(rows.length > 1){
             rows.forEach((item) => {
                 item.addEventListener('click', function(e){
                     if(e.target.classList.contains('fa-times')){
                         item.remove();
                         initOperativeFields();
+                        initOpertiveNames();
                     }
                 });
             });
         }
         
     }
-    
+
+    const shiftDate = document.querySelector('#shift_date');
+    const operators = document.querySelectorAll('.operatives');
+    const dayChecked = document.querySelectorAll('.day-checkbox');
+
+    shiftDate.addEventListener('change', checkAvailability());
+
+    operators.forEach((item) => {
+        item.addEventListener('change', checkAvailability());
+    });
+
+    dayChecked.forEach((item) => {
+        item.addEventListener('change', checkAvailability());
+    });
+
+    function initOpertiveNames(){
+        let names = document.querySelectorAll('.operatives');
+        operators.forEach((item) => {
+            item.addEventListener('change', checkAvailability());
+        });
+    }
+
+    function checkAvailability(){
+        let date = shiftDate.value;
+        console.log(date);
+        let ops = document.querySelectorAll('[name="user_id[]"]');
+        console.log(ops);
 
 
+        /* let ops = [];
+        let days = [];
+        operators.forEach((item) => {
+            ops.push(item.value);
+        });
+        daysChecked.foreach((item) => {
+            if(item.checked){
+                days.push(item.value);
+            }
+        })
+
+
+        let xhr = new XMLHttpRequest();
+
+        xhr.onprogress = function(e){
+            
+        }
+
+        xhr.onload = function(e) {
+            //Place th JSON Images into the modal
+            console.log(xhr.responsiveText);
+        }
+        xhr.open("POST", `/availability/set`);
+        xhr.send(formData); */
+
+
+    }
 
 </script>
 

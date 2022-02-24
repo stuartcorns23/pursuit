@@ -257,4 +257,18 @@ class UserController extends Controller
         $user->notify(new NewAccount());
     }
 
+    public function checkAvailability(Request $request){
+        $date = \Carbon\Carbon::parse($request->date);
+        foreach($requests->users as $user){
+            for($d=0; $d<7; $d++){
+                $start = $date->startOfWeek()->addDays($d);
+                $day = strtolower($start->format('l'));
+                if($request->$day == 1){
+
+                }
+            }
+            
+        }
+    }
+
 }
