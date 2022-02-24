@@ -232,7 +232,11 @@
 
     function checkAvail(){
         let date = shiftDate.value;
-        let ops = document.querySelectorAll('[name="user_id"]');
+        let ops = [];
+        let forms = document.querySelectorAll('[name="user_id"]');
+        forms.forEach((item) => {
+            ops.push(item.value);
+        });
         console.log(ops);
         let days = [];
         dayChecked.forEach((item) => {
@@ -240,7 +244,6 @@
                 days[item.name] = item.value;
             }
         });
-        console.log(days);
 
 
         /* let ops = [];
