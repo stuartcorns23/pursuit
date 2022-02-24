@@ -15,7 +15,7 @@
             <h1 class="text-center mb-4">Add New Shift</h1>
             <div class="p-2">
                 <div class="p-2">
-                    <a href="{{route('timesheets.index')}}" class="btn btn-secondary">Back</a>
+                    <a href="{{route('shifts.index')}}" class="btn btn-secondary">Back</a>
                     <button type="submit" class="btn btn-success save-btn">Save</button>
                 </div>
             </div>
@@ -40,7 +40,7 @@
         <p>Complete the following information for hte previous week of work with Pursuit TM Recruitment. </p>
       
             <div class="d-flex justify-content-center">
-                <div class="col-12 col-md-8" >
+                <div class="col-12 col-lg-8" >
                     <div class="card shadow h-100" >
                         <div class="card-body text-secondary" >
                             @csrf                                                      
