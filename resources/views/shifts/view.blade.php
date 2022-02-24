@@ -13,10 +13,10 @@
             <h1 class="text-center mb-4">Shifts</h1>
             <div class="p-2">
                 @can('viewAll', auth()->user())
-                <a href="#" class="btn btn-danger">Delete Shift</a>
-                <a href="#" class="btn btn-info">Get Report</a>
+                <a href="#" class="btn btn-info">Export</a>
+                <a href="#" class="btn btn-info">Generate PDF</a>
                 <a href="{{route('shifts.create')}}" class="btn btn-success">Add New Shift</a>
-                <a href="#" class="btn btn-warning">Filter</a>
+                <a href="#" class="btn btn-info">Filter</a>
                 @endcan
             </div>
         </div>
@@ -35,7 +35,7 @@
              <table class="table-view striped" width="100%">
                 <thead>
                     <tr>
-                        <th class="text-center" width="5%">Shift ID</th>
+                        <th class="text-center" width="5%"> ID</th>
                         <th class="text-center">User</th>
                         <th>Client</th>
                         <th>Date</th>
@@ -78,7 +78,7 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <th class="text-center" width="5%">Shift ID</th>
+                        <th class="text-center" width="5%">ID</th>
                         <th class="text-center">User</th>
                         <th>Client</th>
                         <th>Date</th>
