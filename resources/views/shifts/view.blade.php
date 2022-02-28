@@ -76,8 +76,9 @@
                     </tr>
                     @endforeach
                     @if($shifts->count() == 0)
-                    <tr><td colspan="9" class="text-center">No Shift are currently on the system</td></tr>
+                    <tr><td colspan="9" class="text-center">No shift are currently on the system</td></tr>
                     @endif
+
                 </tbody>
                 <tfoot>
                     <tr>

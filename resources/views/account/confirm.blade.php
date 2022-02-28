@@ -14,7 +14,7 @@
             
             @if(!auth()->user()->confirmed)
             <p>We have received your request for an account with Pursuit Traffic Management Recruitment. Your account still awaiting approval, in the meantime please be sure 
-                to verify your email. WHen you registered for an account you should have received an email with a link to verify your account, this link lasts 48 hours. If you haven't recevied
+                to verify your email. When you registered for an account you should have received an email with a link to verify your account, this link lasts 48 hours. If you haven't recevied
                 an email or it has been longer than 48 hours please click the button below to resend. 
             </p>
             @endif

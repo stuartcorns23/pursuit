@@ -27,7 +27,7 @@ class HomeController extends Controller
         $nextWeekEnd = \Carbon\Carbon::now()->subWeek()->endOfWeek();
         $timesheets = auth()->user()->timesheets()->where('week_end', '=', $nextWeekEnd->format('Y-m-d'))->count();
         $types = Type::all();
-        if(auth()->user()->confirmed === 1 && auth()->user()->hasVerifiedEmail()){
+        if(auth()->user()->confirmed === 1){
             return view('account.dashboard', compact('timesheets', 'types'));
         }else{
             return view('account.confirm', compact('timesheets'));
