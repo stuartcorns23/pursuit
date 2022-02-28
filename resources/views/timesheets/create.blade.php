@@ -191,7 +191,7 @@
         const expenses = document.querySelector('.expenses');
 
         toggle.addEventListener('change', function(){
-            alert('hello');
+            expenses.classList.toggle('d-none');
         })
 
     </script>
