@@ -90,31 +90,39 @@
                                 @endfor
                             </div>
 
-                            <!-- Rounded switch -->
-                            <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider-toggle round"></span>
-                            </label>
-
-                            <h4 class="text-primary">Mileage</h4>
-                            <div class="miles mb-4">
-                                @for($i=0; $i < 7; $i++)
-                                @php($day = \Carbon\Carbon::now()->startOfWeek()->subWeek()->addDays($i))
-                                    <label for="{{strtolower($day->format('l'))}}">{{$day->format('l')}}</label>
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <input type="text" placeholder="From" name="{{strtolower($day->format('l'))}}_from_miles" class="form-control">
-                                        </div>
-                                        <div class="col-4">
-                                            <input type="text" placeholder="To" name="{{strtolower($day->format('l'))}}_to_miles" class="form-control">
-                                        </div>
-                                        <div class="col-4">
-                                            <input type="text" placeholder="Total Miles" name="{{strtolower($day->format('l'))}}_total" class="form-control">
-                                        </div>
-                                    </div>
-                                    
-                                @endfor
+                            <div class="form-group mb-4">
+                                <!-- Rounded switch -->
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider-toggle round"></span>
+                                </label>
+                                Mileage
                             </div>
+                            
+                            <div id="mileage">
+                                <h4 class="text-primary">Mileage</h4>
+                                <div class="miles mb-4">
+                                    @for($i=0; $i < 7; $i++)
+                                    @php($day = \Carbon\Carbon::now()->startOfWeek()->subWeek()->addDays($i))
+                                        <label for="{{strtolower($day->format('l'))}}">{{$day->format('l')}}</label>
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <input type="text" placeholder="From" name="{{strtolower($day->format('l'))}}_from_miles" class="form-control">
+                                            </div>
+                                            <div class="col-4">
+                                                <input type="text" placeholder="To" name="{{strtolower($day->format('l'))}}_to_miles" class="form-control">
+                                            </div>
+                                            <div class="col-4">
+                                                <input type="text" placeholder="Total Miles" name="{{strtolower($day->format('l'))}}_total" class="form-control">
+                                            </div>
+                                        </div>
+                                        
+                                    @endfor
+                                </div>
+                            </div>
+                            
+
+
                             <h4 class="text-primary">Expenses</h4>
                             <div class="expenses mb-2">
                                 <label for="expenses">Expenses</label>

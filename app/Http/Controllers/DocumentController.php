@@ -14,7 +14,8 @@ class DocumentController extends Controller
      */
     public function index()
     {
-        return view('documents.create');
+        
+        return view('documents.view', compact('documents'));
     }
 
     /**
