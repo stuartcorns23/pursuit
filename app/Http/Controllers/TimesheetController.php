@@ -12,7 +12,7 @@ class TimesheetController extends Controller
     
     public function index()
     {
-        if(auth()->user()->role == 1){
+        if(auth()->user()->admin == 1){
             $timesheets = Timesheet::all();
         }else{
             $timesheets = Timesheet::whereUserId(auth()->user()->id)->get();
