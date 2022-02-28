@@ -90,7 +90,7 @@
                                 @endfor
                             </div>
 
-                            <div class="form-group mb-4">
+                            <div class="form-group mb-4 d-flex justify-content-center align-items-center">
                                 <!-- Rounded switch -->
                                 <label class="switch">
                                     <input type="checkbox">
