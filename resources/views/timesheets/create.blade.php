@@ -93,7 +93,7 @@
                             <div class="form-group mb-4 d-flex justify-content-start align-items-center">
                                 <!-- Rounded switch -->
                                 <label class="switch">
-                                    <input type="checkbox">
+                                    <input type="checkbox" id="expenses_toggle">
                                     <span class="slider-toggle round"></span>
                                 </label>
                                 <span class="ms-2">Add Expenses</span>
@@ -185,5 +185,15 @@
 
 @section('js')
 
+    <script>
+
+        const toggle = document.querySelector('#expenses_toggle');
+        const expenses = document.querySelector('.expenses');
+
+        toggle.addEventListener('change', function(){
+            alert('hello');
+        })
+
+    </script>
 
 @endsection
