@@ -46,7 +46,7 @@
                                     <input type="date" class="form-control" name="start_date" value="{{\Carbon\Carbon::now()->subWeek()->startOfWeek()->format('Y-m-d')}}">
                                 </div>
                                 <div class="col-6">
-                                    <label for="end_date">Start of Week</label>
+                                    <label for="end_date">End of Week</label>
                                     <input type="date" class="form-control" name="end_date" value="{{\Carbon\Carbon::now()->subWeek()->endOfWeek()->format('Y-m-d')}}">
                                 </div>
                             </div>
