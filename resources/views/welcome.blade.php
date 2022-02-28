@@ -20,7 +20,7 @@
         </div>
     </div>
 
-    <div class="d-flex justify-content-center align-items-center border-top border-bottom border-secondary mb-5">
+    <div class="d-flex overflow-hidden justify-content-center align-items-center border-top border-bottom border-secondary mb-5">
         @foreach($clients as $client)
         <div class="image m-3">
             <img src="{{ asset($client->photo->path)}}" alt="{{ $client->name}}" height="50px">
