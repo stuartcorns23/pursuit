@@ -73,6 +73,7 @@
                                 <div>
                                     <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#documentAddModal">Add New</button>
                                 </div>
+                            </div>
                             
 
                             <table class="table table-striped table-responsive">
