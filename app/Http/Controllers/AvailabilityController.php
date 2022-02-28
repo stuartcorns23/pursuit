@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Availability;
+use App\Models\Shift;
 use Illuminate\Http\Request;
 use App\Models\User;
 
@@ -31,17 +32,28 @@ class AvailabilityController extends Controller
         $days = explode(',',$request->days);
         foreach($users as $user){
             $unavailable = [];
+            $shifts = [];
             for($d=0; $d<7; $d++){
                 $start = $date->startOfWeek()->addDays($d);
                 $day = strtolower($start->format('l'));
                 if(in_array($day, $days)){
-                    $availability = \App\Models\Availability::where('user_id', '=', $user->id)
+                    $availability = Availability::where('user_id', '=', $user->id)
                                 ->whereDate('date', $start->format('Y-m-d'))->first();
+                    $shift = Shift::where('user_id', '=', $user->id)
+                                ->whereDate('date', $start->format('Y-m-d'))->first();
+                    if($shift == true){
+                        $shifts[] = ucfirst($day);
+                    }
+
                     if($availability && $availability->unavailable() == true){
-                        $unavailable[] = $day;
+                        $unavailable[] = ucfirst($day);
                     }
                 }
             }
+            if(!empty($shifts)){
+                $message .= "<li>{$user->fullname()} is already working on ".implode(', ',$shifts)." of this week</li>";
+            }
+            
             if(!empty($unavailable)){
                 $message .= "<li>{$user->fullname()} is unavailable on ".implode(', ',$unavailable)."</li>";
             }

@@ -1,890 +1,582 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
+<!--[if (gte mso 9)|(IE)]>
+  <xml>
+    <o:OfficeDocumentSettings>
+    <o:AllowPNG/>
+    <o:PixelsPerInch>96</o:PixelsPerInch>
+  </o:OfficeDocumentSettings>
+</xml>
+<![endif]-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"> <!-- So that mobile will display zoomed in -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- enable media queries for windows phone 8 -->
+<meta name="format-detection" content="telephone=no"> <!-- disable auto telephone linking in iOS -->
+<meta name="format-detection" content="date=no"> <!-- disable auto date linking in iOS -->
+<meta name="format-detection" content="address=no"> <!-- disable auto address linking in iOS -->
+<meta name="format-detection" content="email=no"> <!-- disable auto email linking in iOS -->
+<meta name="color-scheme" content="only">
+<title></title>
 
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-<title>Pursuit Traffic Management Recruitment</title>
-
-<link href='http://fonts.googleapis.com/css?family=Montserrat:400,500,300,600,700' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700' rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
-<link href="https://fonts.googleapis.com/css?family=Condiment" rel="stylesheet"> 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;300;400;500;600;700;800;900&family=Rubik:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style type="text/css">
- 
-body{ margin:0; padding:0; -webkit-text-size-adjust: none; -ms-text-size-adjust: none; background:#505052;}
-
-span.preheader{display: none; font-size: 1px;}
-
-html { width: 100%; }
-
-table { border-spacing: 0; border-coll apse: collapse;}
-
-.ReadMsgBody { width: 100%; background-color: #FFFFFF; }
-
-.ExternalClass { width: 100%; background-color: #FFFFFF; }
-
-.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalCl ass font, .ExternalClass td, .ExternalClass div { line-height: 100%; }
-
-a,a:hover { text-decoration:none; color:#FFF;}
-
-img { display: block !important; }
-
-table td { border-collapse: collapse; }
-
-.white{
-    background: #FFF;
-    padding: 20px;
+/*Basics*/
+body {margin:0px !important; padding:0px !important; display:block !important; min-width:100% !important; width:100% !important; -webkit-text-size-adjust:none;}
+table {border-spacing:0; mso-table-lspace:0pt; mso-table-rspace:0pt;}
+table td {border-collapse: collapse;mso-line-height-rule:exactly;}
+td img {-ms-interpolation-mode:bicubic; width:auto; max-width:auto; height:auto; margin:auto; display:block!important; border:0px;}
+td p {margin:0; padding:0;}
+td div {margin:0; padding:0;}
+td a {text-decoration:none; color: inherit;}
+/*Outlook*/
+.ExternalClass {width: 100%;}
+.ExternalClass,.ExternalClass p,.ExternalClass span,.ExternalClass font,.ExternalClass td,.ExternalClass div {line-height:inherit;}
+.ReadMsgBody {width:100%; background-color: #ffffff;}
+/* iOS BLUE LINKS */
+a[x-apple-data-detectors] {color:inherit !important; text-decoration:none !important; font-size:inherit !important; font-family:inherit !important; font-weight:inherit !important; line-height:inherit !important;} 
+/*Gmail blue links*/
+u + #body a {color:inherit;text-decoration:none;font-size:inherit;font-family:inherit;font-weight:inherit;line-height:inherit;}
+/*Buttons fix*/
+.undoreset a, .undoreset a:hover {text-decoration:none !important;}
+.yshortcuts a {border-bottom:none !important;}
+.ios-footer a {color:#aaaaaa !important;text-decoration:none;}
+/* data-outer-table="800 - 600" */
+.outer-table {width:640px!important;max-width:640px!important;}
+/* data-inner-table="780 - 540" */
+.inner-table {width:580px!important;max-width:580px!important;}
+/*Responsive-Tablet*/
+@media only screen and (max-width: 799px) and (min-width: 601px) {
+  .outer-table.row {width:640px!important;max-width:640px!important;}
+  .inner-table.row {width:580px!important;max-width:580px!important;}
 }
-
-
-@media only screen and (max-width:640px)
-{
-    body {width:auto!important;}
-    table [class=main] {width:85% !important;}
-    table [class=full] {width:100% !important; margin:0px auto;}
-    table [class=two-left-inner] {width:90% !important; margin:0px auto;}
-    td[class="two-left"] { display: block; width: 100% !important; }
-    table [class=menu-icon] { display:none;}
-    img[class="image-full"] { width: 100% !important; }
-    table[class=menu-icon] { display:none;}
+/*Responsive-Mobile*/
+@media only screen and (max-width: 600px) and (min-width: 320px) {
+  table.row {width: 100%!important;max-width: 100%!important;}
+  td.row {width: 100%!important;max-width: 100%!important;}
+  .img-responsive img {width:100%!important;max-width: 100%!important;height: auto!important;margin: auto;}
+  .center-float {float: none!important;margin:auto!important;}
+  .center-text{text-align: center!important;}
+  .container-padding {width: 100%!important;padding-left: 15px!important;padding-right: 15px!important;}
+  .container-padding10 {width: 100%!important;padding-left: 10px!important;padding-right: 10px!important;}
+  .hide-mobile {display: none!important;}
+  .menu-container {text-align: center !important;}
+  .autoheight {height: auto!important;}
+  .m-padding-10 {margin: 10px 0!important;}
+  .m-padding-15 {margin: 15px 0!important;}
+  .m-padding-20 {margin: 20px 0!important;}
+  .m-padding-30 {margin: 30px 0!important;}
+  .m-padding-40 {margin: 40px 0!important;}
+  .m-padding-50 {margin: 50px 0!important;}
+  .m-padding-60 {margin: 60px 0!important;}
+  .m-padding-top10 {margin: 30px 0 0 0!important;}
+  .m-padding-top15 {margin: 15px 0 0 0!important;}
+  .m-padding-top20 {margin: 20px 0 0 0!important;}
+  .m-padding-top30 {margin: 30px 0 0 0!important;}
+  .m-padding-top40 {margin: 40px 0 0 0!important;}
+  .m-padding-top50 {margin: 50px 0 0 0!important;}
+  .m-padding-top60 {margin: 60px 0 0 0!important;}
+  .m-height10 {font-size:10px!important;line-height:10px!important;height:10px!important;}
+  .m-height15 {font-size:15px!important;line-height:15px!important;height:15px!important;}
+  .m-height20 {font-size:20px!important;line-height:20px!important;height:20px!important;}
+  .m-height25 {font-size:25px!important;line-height:25px!important;height:25px!important;}
+  .m-height30 {font-size:30px!important;line-height:30px!important;height:30px!important;}
+  .radius6 {border-radius: 6px!important;}
+  .fade-white {background-color: rgba(255, 255, 255, 0.8)!important;}
+  .rwd-on-mobile {display: inline-block!important;padding: 5px!important;}
+  .center-on-mobile {text-align: center!important;}
+  .rwd-col {width:100%!important;max-width:100%!important;display:inline-block!important;}
 }
-
-@media only screen and (max-width:479px)
-{
-	body {width:auto!important;}
-	table [class=main] {width:93% !important;}
-	table [class=full] {width:100% !important; margin:0px auto;}
-	td[class="two-left"] { display: block; width: 100% !important; }
-	table [class=two-left-inner] {width:90% !important; margin:0px auto;}
-	table [class=menu-icon] { display:none;}
-	img[class="image-full"] { width: 100% !important; }
-	table[class=menu-icon] { display:none;}
-
-}
-
-		
 </style>
-
+<style type="text/css" class="export-delete"> 
+  .composer--mobile table.row {width: 100%!important;max-width: 100%!important;}
+  .composer--mobile td.row {width: 100%!important;max-width: 100%!important;}
+  .composer--mobile .img-responsive img {width:100%!important;max-width: 100%!important;height: auto!important;margin: auto;}
+  .composer--mobile .center-float {float: none!important;margin:auto!important;}
+  .composer--mobile .center-text{text-align: center!important;}
+  .composer--mobile .container-padding {width: 100%!important;padding-left: 15px!important;padding-right: 15px!important;}
+  .composer--mobile .container-padding10 {width: 100%!important;padding-left: 10px!important;padding-right: 10px!important;}
+  .composer--mobile .hide-mobile {display: none!important;}
+  .composer--mobile .menu-container {text-align: center !important;}
+  .composer--mobile .autoheight {height: auto!important;}
+  .composer--mobile .m-padding-10 {margin: 10px 0!important;}
+  .composer--mobile .m-padding-15 {margin: 15px 0!important;}
+  .composer--mobile .m-padding-20 {margin: 20px 0!important;}
+  .composer--mobile .m-padding-30 {margin: 30px 0!important;}
+  .composer--mobile .m-padding-40 {margin: 40px 0!important;}
+  .composer--mobile .m-padding-50 {margin: 50px 0!important;}
+  .composer--mobile .m-padding-60 {margin: 60px 0!important;}
+  .composer--mobile .m-padding-top10 {margin: 30px 0 0 0!important;}
+  .composer--mobile .m-padding-top15 {margin: 15px 0 0 0!important;}
+  .composer--mobile .m-padding-top20 {margin: 20px 0 0 0!important;}
+  .composer--mobile .m-padding-top30 {margin: 30px 0 0 0!important;}
+  .composer--mobile .m-padding-top40 {margin: 40px 0 0 0!important;}
+  .composer--mobile .m-padding-top50 {margin: 50px 0 0 0!important;}
+  .composer--mobile .m-padding-top60 {margin: 60px 0 0 0!important;}
+  .composer--mobile .m-height10 {font-size:10px!important;line-height:10px!important;height:10px!important;}
+  .composer--mobile .m-height15 {font-size:15px!important;line-height:15px!important;height:15px!important;}
+  .composer--mobile .m-height20 {font-sBarlowize:20px!important;line-height:20px!important;height:20px!important;}
+  .composer--mobile .m-height25 {font-size:25px!important;line-height:25px!important;height:25px!important;}
+  .composer--mobile .m-height30 {font-size:30px!important;line-height:30px!important;height:30px!important;}
+  .composer--mobile .radius6 {border-radius: 6px!important;}
+  .composer--mobile .fade-white {background-color: rgba(255, 255, 255, 0.8)!important;}
+  .composer--mobile .rwd-on-mobile {display: inline-block!important;padding: 5px!important;}
+  .composer--mobile .center-on-mobile {text-align: center!important;}
+  .composer--mobile .rwd-col {width:100%!important;max-width:100%!important;display:inline-block!important;}
+</style>
 </head>
 
-<body yahoo="fix" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<body data-bgcolor="Body" style="margin-top: 0; margin-bottom: 0; padding-top: 0; padding-bottom: 0; width: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;" bgcolor="#FFFFFF">
 
-<!--Main Table Start-->
+<span class="preheader-text" data-preheader-text style="color: transparent; height: 0; max-height: 0; max-width: 0; opacity: 0; overflow: hidden; visibility: hidden; width: 0; display: none; mso-hide: all;"></span>
 
-<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#505052" style="background:#505052;">
+<!-- Preheader white space hack -->
+<div style="display: none; max-height: 0px; overflow: hidden;">
+&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+</div>
+
+<div data-primary-font="Barlow" data-secondary-font="Rubik" style="display:none; font-size:0px; line-height:0px; max-height:0px; max-width:0px; opacity:0; overflow:hidden; visibility:hidden; mso-hide:all;"></div>
+
+<table border="0" align="center" cellpadding="0" cellspacing="0" width="100%" style="width:100%;max-width:100%;">
+  <tr><!-- Outer Table -->
+    <td align="center" data-bgcolor="Body" bgcolor="#FFFFFF" data-composer>
+
+{{-- Logo Header --}}
+    <table data-outer-table border="0" align="center" cellpadding="0" cellspacing="0" class="outer-table row" role="presentation" width="640" style="width:640px;max-width:640px;" data-module="blue-logo">
+    <!-- blue-logo -->
+    <tr>
+        <td align="center" bgcolor="#FFFFFF" data-bgcolor="BgColor" class="container-padding">
+
+        <!-- Content -->
+        <table border="0" align="center" cellpadding="0" cellspacing="0" role="presentation" width="100%" style="width:100%;max-width:100%;">
+        <tr>
+            <td height="20" style="font-size:20px;line-height:20px;" data-height="Spacing top">&nbsp;</td>
+        </tr>
+        <tr data-element="blue-logo" data-label="Logo">
+            <td align="center" class="center-text">
+            <img style="width:300px;border:0px;display: inline!important;" src="{{ asset('images/pursuit-tmr-1.jpg')}}" width="300" border="0" editable="true" data-icon data-image-edit data-url data-label="Logo" data-image-width alt="logo">
+            </td>
+        </tr>
+        <tr>
+            <td height="20" style="font-size:20px;line-height:20px;" data-height="Spacing bottom">&nbsp;</td>
+        </tr>
+        </table>
+        <!-- Content -->
+
+        </td>
+    </tr>
+    <!-- blue-logo -->
+    </table>
+
+    {{-- Header Image --}}
+    <table data-outer-table border="0" align="center" cellpadding="0" cellspacing="0" class="outer-table row" width="640" style="width:640px;max-width:640px;" data-module="blue-header">
+    <!-- blue-header -->
+    <tr>
+        <td align="center" class="img-responsive container-padding">
+        <img class="auto-width" style="display:block;width:100%;max-width:100%;border:0px;" data-image-edit data-url data-label="Header image" width="640" src="{{ asset('images/tm-01.png')}}" border="0" editable="true" alt="picture">
+        </td>
+    </tr>
+    <!-- blue-header -->
+    </table>
+
+    {{-- Content --}}
+    <table data-outer-table border="0" align="center" cellpadding="0" cellspacing="0" class="outer-table row" role="presentation" width="640" style="width:640px;max-width:640px;" data-module="blue-preface-11">
+    <!-- blue-preface-11 -->
+    <tr>
+        <td align="center" bgcolor="#FFFFFF" data-bgcolor="BgColor" class="container-padding">
+
+        <table data-inner-table border="0" align="center" cellpadding="0" cellspacing="0" role="presentation" class="inner-table row" width="580" style="width:580px;max-width:580px;">
+        <tr>
+            <td height="40" style="font-size:40px;line-height:40px;" data-height="Spacing top">&nbsp;</td>
+        </tr>
+        <tr>
+            <td align="center" data-bgcolor="BgColor" bgcolor="#FFFFFF">
+            <!-- content -->
+            <table border="0" align="center" cellpadding="0" cellspacing="0" role="presentation" width="100%" style="width:100%;max-width:100%;">
+                <tr data-element="blue-subline" data-label="Sublines">
+                <td class="center-text" data-text-style="Sublines" align="center" style="font-family:'Barlow',Arial,Helvetica,sans-serif;font-size:14px;line-height:24px;font-weight:900;font-style:normal;color:#50C0FF;text-decoration:none;letter-spacing:1px;">
+                    <singleline>
+                        <div mc:edit data-text-edit>
+                        @yield('sub_title')
+                        </div>
+                    </singleline>
+                </td>
+                </tr>
+                <tr data-element="blue-headline" data-label="Headlines">
+                <td class="center-text" data-text-style="Headlines" align="center" style="font-family:'Barlow',Arial,Helvetica,sans-serif;font-size:48px;line-height:54px;font-weight:900;font-style:normal;color:#222222;text-decoration:none;letter-spacing:0px;">
+                    <singleline>
+                        <div mc:edit data-text-edit>
+                        @yield('title')
+                        </div>
+                    </singleline>
+                </td>
+                </tr>
+                <tr data-element="blue-headline" data-label="Headlines">
+                <td height="15" style="font-size:15px;line-height:15px;" data-height="Spacing under headline">&nbsp;</td>
+                </tr>
+                <tr data-element="blue-paragraph" data-label="Paragraphs">
+                <td class="center-text" data-text-style="Paragraphs" align="center" style="font-family:'Barlow',Arial,Helvetica,sans-serif;font-size:16px;line-height:26px;font-weight:400;font-style:normal;color:#333333;text-decoration:none;letter-spacing:0px;">
+                    <singleline>
+                        <div mc:edit data-text-edit>
+                            @yield('content')    
+                        </div>
+                    </singleline>
+                </td>
+                </tr>
+            </table>
+            <!-- content -->
+            </td>
+        </tr>
+        <tr>
+            <td height="20" style="font-size:20px;line-height:20px;" data-height="Spacing bottom">&nbsp;</td>
+        </tr>
+        </table>
+
+        </td>
+    </tr>
+    <!-- blue-preface-11 -->
+    </table>
+
+<table data-outer-table border="0" align="center" cellpadding="0" cellspacing="0" class="outer-table row" role="presentation" width="640" style="width:640px;max-width:640px;" data-module="blue-title">
+  <!-- blue-title -->
   <tr>
-    <td align="center" valign="top">
-    
-    <!--Top Space Part Start-->
-    
-    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-      <tr>
-        <td align="center" valign="top"><table width="750" border="0" cellspacing="0" cellpadding="0" class="main">
-          <tr>
-            <td height="35" align="center" valign="top" style="font-size:35px; line-height:35px;">&nbsp;</td>
-          </tr>
-        </table></td>
-      </tr>
-    </table>
-    
-     <!--Top Space Part End-->
-    
-    <!--View Part Start-->
-    
-    <!-- <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-      <tr>
-        <td align="center" valign="top"><table width="750" border="0" cellspacing="0" cellpadding="0" class="main">
-          <tr>
-            <td align="center" valign="top" bgcolor="#f5f5f5"><table width="600" border="0" align="center" cellpadding="0" cellspacing="0" class="two-left-inner">
-          <tr>
-            <td height="35" align="center" valign="top" style="line-height:35px; font-size:35px;">&nbsp;</td>
-          </tr>
-          <tr>
-            <td align="center" valign="top" style="font-family:'Open Sans', sans-serif, Verdana; font-size:12px; font-weight:normal; color:#999999;" mc:edit="nm-01"><multiline>You can&acute;t see this email? <b style="color:#363535;"><a href="#" style="color:#363535; text-decoration:none;">View it in your browser</a></b></multiline></td>
-          </tr>
-          <tr>
-             <td height="35" align="center" valign="top" style="line-height:35px; font-size:35px;">&nbsp;</td>
-          </tr>
-        </table></td>
-          </tr>
-        </table></td>
-      </tr>
-    </table> -->
-    
-     <!--View Part End-->
-     
-      <!--Logo Part Start-->
-    
-    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-      <tr>
-        <td align="center" valign="top"><table width="750" border="0" cellspacing="0" cellpadding="0" class="main">
-          <tr>
-            <td align="center" valign="top" bgcolor="#FFFFFF"><table width="600" border="0" align="center" cellpadding="0" cellspacing="0" class="two-left-inner">
-              <tr>
-                <td height="35" align="center" valign="top" style=" font-size:35px;line-height:35px;">&nbsp;</td>
-              </tr>
-              <tr>
-                <td align="center" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                  <tr>
-                    <td width="180" align="center" valign="top" class="two-left"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-                    <tr>
-                        <td height="2" style="font-size:2px; line-height:2px;">&nbsp;</td>
-                      </tr>
-                      <tr>
-                        <td align="center" valign="top" style="font-family:'Open Sans', sans-serif, Verdana; font-size:16px; color:#36373a; font-weight:normal;" mc:edit="nm-02"><multiline>call us :<b><a href="#" style="color:#36373a; text-decoration:none;"> 07783 520810</a></b></multiline></td>
-                      </tr>
-                      <tr>
-                <td height="35" align="center" valign="top" style=" font-size:35px;line-height:35px;">&nbsp;</td>
-              </tr>
-                    </table></td>
-                    <td width="240" align="center" valign="top" class="two-left"><table border="0" align="center" cellpadding="0" cellspacing="0">
-                      <tr>
-                        <td align="center" valign="middle"><a href="#"><img editable="true" mc:edit="nm-03" src="{{ asset('images/pursuit-tmr-1.jpg') }}" width="105" height="32" alt="" /></a></td>
-                      </tr>
-                    </table></td>
-                    <td width="180" align="center" valign="top" class="two-left"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-                    <tr>
-                        <td height="3" style="font-size:3px; line-height:3px;">&nbsp;</td>
-                      </tr>
-                      <tr>
-                        <td align="center" valign="top" style="font-family:'Open Sans', sans-serif, Verdana; font-size:14px; color:#36373a; font-weight:bold;" mc:edit="nm-04"><multiline><a href="#" style="color:#36373a; text-decoration:none;">about</a> .  <a href="#" style="color:#36373a; text-decoration:none;">work</a> . <a href="#" style="color:#36373a; text-decoration:none;">support</a></multiline></td>
-                      </tr>
-                      <tr>
-                 <td height="35" align="center" valign="top" style=" font-size:35px;line-height:35px;">&nbsp;</td>
-              </tr>
-                    </table></td>
-                  </tr>
-                  </table></td>
-              </tr>
-              </table></td>
-          </tr>
-        </table></td>
-      </tr>
-    </table>
-    
-    <!--Logo Part End-->
-    
-    <!--Banner Part Start-->
-    
-    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-      <tr>
-        <td align="center" valign="top"><table width="750" border="0" cellspacing="0" cellpadding="0" class="main">
-          <tr>
-            <td height="550" align="center" valign="top" style="background:url({{ asset('images/traffic-management.jpg') }}) #333 center top no-repeat;"><table width="550" border="0" align="center" cellpadding="0" cellspacing="0" class="two-left-inner">
-              <tr>
-                <td height="230" align="left" valign="top" style="font-size:230px; line-height:230px;">&nbsp;</td>
-              </tr>
-              <tr>
-                <td align="left" valign="top"><table width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
-                  <tr>
-                    <td align="center" valign="top" style="font-family:'Open Sans', sans-serif, Verdana; font-size:35px; line-height:55px; color:#FFF; font-weight:normal;" mc:edit="nm-05"><multiline>We provide the best <br />
-                      solutions for your work and safety <b style="color:#1d71b8; font-size:55px;">Pursuit TMR</b><br /></multiline></td>
-                  </tr>
-    
-                </table></td>
-              </tr>
-              <tr>
-                <td height="100" align="left" valign="top" style="font-size:100px; line-height:100px;">&nbsp;</td>
-              </tr>
-            </table></td>
-          </tr>
-        </table></td>
-      </tr>
-    </table>
-    
-     <!--Banner Part End-->
-     
-      <!--Service Title Part Start-->
-    
-    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-      <tr>
-        <td align="center" valign="top"><table width="750" border="0" cellspacing="0" cellpadding="0" class="main">
-          <tr>
-            <td align="center" valign="top" bgcolor="#1d71b8"><table width="600" border="0" align="center" cellpadding="0" cellspacing="0" class="two-left-inner">
-              <tr>
-                <td height="80" align="left" valign="top" style="font-size:80px; line-height:80px;">&nbsp;</td>
-              </tr>
-              <tr>
-                <td align="center" valign="top"><table width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
-                  <tr>
-                    <td align="center" valign="top" style="font-family:'Open Sans', sans-serif, Verdana; font-size:22px; color:#FFF; font-weight:normal;" mc:edit="nm-06"><multiline>@yield('titlePT1')</multiline></td>
-                  </tr>
-                  <tr>
-                <td height="5" align="left" valign="top" style="font-size:5px; line-height:5px;">&nbsp;</td>
-              </tr>
-                  <tr>
-                    <td align="center" valign="top" style="font-family:'Open Sans', sans-serif, Verdana; font-size:32px; color:#FFF; font-weight:bold;" mc:edit="nm-07"><multiline>@yield('titlePT2')</multiline></td>
-                  </tr>
-                </table></td>
-              </tr>
-              <tr>
-               <td height="80" align="left" valign="top" style="font-size:80px; line-height:80px;">&nbsp;</td>
-              </tr>
-              </table></td>
-          </tr>
-        </table></td>
-      </tr>
-    </table>
-    
-     <!--Service Title Part End-->
-     
-      <!--Service List Part Start-->
-    
-    <table width="750" border="0" cellspacing="0" cellpadding="0" class="white">
-      <tr>
-        <td align="center" valign="top">
-            @yield('content')
+    <td height="20" style="font-size:20px;line-height:20px;" data-height="Spacing top">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#FFFFFF" data-bgcolor="BgColor" class="container-padding">
+    <!-- Content -->
+    <table border="0" align="center" cellpadding="0" cellspacing="0" role="presentation" width="100%" style="width:100%;max-width:100%;">
+      <tr data-element="blue-title-titles" data-label="Titles">
+        <td class="center-text" data-text-style="Titles" align="center" style="font-family:'Barlow',Arial,Helvetica,sans-serif;font-size:24px;line-height:36px;font-weight:700;font-style:normal;color:#50C0FF;text-decoration:none;letter-spacing:0px;">
+            <singleline>
+              <div mc:edit data-text-edit>
+                Button
+              </div>
+            </singleline>
         </td>
       </tr>
     </table>
-    
-     <!--Service List Part End-->
-     
-      <!--About Title Part Start-->
-    
-    <!--
-      <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-      <tr>
-        <td align="center" valign="top"><table width="750" border="0" cellspacing="0" cellpadding="0" class="main">
-          <tr>
-            <td align="center" valign="top" bgcolor="#f5f5f5"><table width="600" border="0" align="center" cellpadding="0" cellspacing="0" class="two-left-inner">
-              <tr>
-                <td height="100" align="left" valign="top" style="font-size:100px; line-height:100px;">&nbsp;</td>
-              </tr>
-              <tr>
-                <td align="center" valign="top"><table width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
-                  <tr>
-                    <td align="center" valign="top" style="font-family:'Open Sans', sans-serif, Verdana; font-size:22px; color:#5f5e5e; font-weight:normal;" mc:edit="nm-20"><multiline>Some Words</multiline></td>
-                  </tr>
-                  <tr>
-                <td height="5" align="left" valign="top" style="font-size:5px; line-height:5px;">&nbsp;</td>
-              </tr>
-                  <tr>
-                    <td align="center" valign="top" style="font-family:'Open Sans', sans-serif, Verdana; font-size:32px; color:#363535; font-weight:bold;" mc:edit="nm-21"><multiline>newmail story</multiline></td>
-                  </tr>
-                </table></td>
-              </tr>
-              <tr>
-               <td height="70" align="left" valign="top" style="font-size:70px; line-height:70px;">&nbsp;</td>
-              </tr>
-              </table></td>
-          </tr>
-        </table></td>
-      </tr>
-    </table>
--->
-    
-     <!--About Title Part End-->
-     
-     
-     
-      <!--About Space Part Start-->
-    
-    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-  <tr>
-    <td align="center" valign="top"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0" class="main">
-      <tr>
-        <td align="center" valign="top" bgcolor="#FFFFFF"><table width="600" border="0" align="center" cellpadding="0" cellspacing="0" class="two-left-inner">
-          <tr>
-            <td height="55" align="left" valign="top" style="font-size:55px; line-height:55px;">&nbsp;</td>
-          </tr>
-        </table></td>
-      </tr>
-    </table></td>
-  </tr>
-</table>
-
-  <!--About Space Part End-->
-
-   <!--Skill Part Start-->
-
-<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-    <tr>
-      <td align="center" valign="top"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0" class="main">
-        <tr>
-          <td align="center" valign="top" bgcolor="#f5f5f5"><table width="600" border="0" align="center" cellpadding="0" cellspacing="0" class="two-left-inner">
-            <tr>
-              <td height="100" align="left" valign="top" style="font-size:100px; line-height:100px;">&nbsp;</td>
-            </tr>
-            <tr>
-              <td align="left" valign="top"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-                <tr>
-                
-                <td width="240" align="center" valign="top" class="two-left"><table width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
-                   <tr>
-                      <td align="left" valign="top" style="font-family:'Open Sans', sans-serif, Verdana; font-size:18px; color:#1d71b8; line-height:30px; font-weight:normal;" mc:edit="nm-34"><multiline>Our Operatives</multiline></td>
-                    </tr>
-                    <tr>
-                      <td align="left" valign="top" style="font-family:'Open Sans', sans-serif, Verdana; font-size:24px; color:#1d1d1b; line-height:38px; font-weight:normal;" mc:edit="nm-35"><multiline>Work Skill Levels</multiline></td>
-                    </tr>
-               
-                    <tr>
-                     <td height="10" align="center" valign="top" style="font-size:10px; line-height:10px;">&nbsp;</td>
-                    </tr>
-                    <tr>
-                      <td align="left" valign="top" style="font-family:'Open Sans', sans-serif, Verdana; font-size:14px; color:#5f5e5e; line-height:30px; font-weight:normal;" mc:edit="nm-36"><multiline>We have operatives of all skill levels available from trainees to Forman and IPV Drivers to TSCOs.</multiline></td>
-                    </tr>
-       
-       
-                    <tr>
-                      <td height="25" align="center" valign="top" style="font-size:25px; line-height:25px;">&nbsp;</td>
-                    </tr>
-   
-                  </table></td>
-                  
-                  <td width="50" align="center" valign="top" class="two-left">&nbsp;</td>
-                  
-                  <td width="310" align="center" valign="top" class="two-left"><table width="100%" border="0" align="center" cellpadding="0">
-  
-            <tr>
-              <td align="center" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                <tr>
-                  <td align="center" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                    <tr>
-                      <td align="left" valign="top" style="font-family:'Open Sans', sans-serif, Verdana; font-size:16px; color:#1d1d1b; line-height:38px; font-weight:normal;" mc:edit="nm-37"><multiline>Average Shifts (Per Week)   4.75</multiline></td>
-                    </tr>
-                    <tr>
-                      <td align="left" valign="top"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-                        <tr>
-                          <td height="5" align="center" valign="top" bgcolor="#187018" style="font-size:5px; line-height:5px;" data-bgcolor="skill3-bg"><table width="95%" border="0" align="left" cellpadding="0" cellspacing="0">
-                            <tr>
-                              <td align="left" valign="top" bgcolor="#56ba56" data-bgcolor="skill3-bg2">&nbsp;</td>
-                            </tr>
-                          </table></td>
-                        </tr>
-                      </table></td>
-                    </tr>
-                    <tr>
-                      <td align="left" valign="top">&nbsp;</td>
-                    </tr>
-                    </table></td>
-                </tr>
-                <tr>
-                  <td align="center" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                    <tr>
-                      <td align="left" valign="top" style="font-family:'Open Sans', sans-serif, Verdana; font-size:16px; color:#1d1d1b; line-height:38px; font-weight:normal;" mc:edit="nm-38"><multiline>Availabilty   97.5%</multiline></td>
-                    </tr>
-                    <tr>
-                      <td align="left" valign="top"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-                        <tr>
-                          <td height="5" align="center" valign="top" bgcolor="#187018" style="font-size:5px; line-height:5px;" data-bgcolor="skill3-bg"><table width="97.5%" border="0" align="left" cellpadding="0" cellspacing="0">
-                            <tr>
-                              <td align="left" valign="top" bgcolor="#56ba56" data-bgcolor="skill3-bg2">&nbsp;</td>
-                            </tr>
-                          </table></td>
-                        </tr>
-                      </table></td>
-                    </tr>
-                    <tr>
-                      <td align="left" valign="top">&nbsp;</td>
-                    </tr>
-                    </table></td>
-                </tr>
-                <tr>
-                  <td align="center" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                    <tr>
-                      <td align="left" valign="top" style="font-family:'Open Sans', sans-serif, Verdana; font-size:16px; color:#1d1d1b; line-height:38px; font-weight:normal;" mc:edit="nm-39"><multiline>Shifts Fulfilled   495/500</multiline></td>
-                    </tr>
-                    <tr>
-                      <td align="left" valign="top"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-                        <tr>
-                          <td height="5" align="center" valign="top" bgcolor="#187018" style="font-size:5px; line-height:5px;" data-bgcolor="skill3-bg"><table width="99%" border="0" align="left" cellpadding="0" cellspacing="0">
-                            <tr>
-                              <td align="left" valign="top" bgcolor="#56ba56" data-bgcolor="skill3-bg2">&nbsp;</td>
-                            </tr>
-                          </table></td>
-                        </tr>
-                      </table></td>
-                    </tr>
-                    <tr>
-                      <td align="left" valign="top">&nbsp;</td>
-                    </tr>
-                    </table></td>
-                </tr>
-              </table></td>
-            </tr>
-            <tr>
-              <td height="25" align="center" valign="top" style="font-size:25px; line-height:25px;">&nbsp;</td>
-            </tr>
-            </table></td>
-                    
-                  
-                </tr>
-              </table></td>
-            </tr>
-            <tr>
-              <td height="65" align="left" valign="top" style="font-size:65px; line-height:65px;">&nbsp;</td>
-            </tr>
-          </table></td>
-        </tr>
-      </table></td>
-    </tr>
-  </table>
-  
-   <!--Skill Part End-->
-  
-    <!--About Single Part Start-->
-    
-    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-        <tr>
-    <td align="center" valign="top"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0" class="main">
-      <tr>
-        <td align="center" valign="top" bgcolor="#FFFFFF"><table width="600" border="0" align="center" cellpadding="0" cellspacing="0" class="two-left-inner">
-          <tr>
-          
-          <td width="270" align="left" valign="top" class="two-left"><table width="270" border="0" align="left" cellpadding="0" cellspacing="0" class="full">
-              <tr>
-                <td height="80" align="left" valign="top" style="font-size:80px; line-height:80px;">&nbsp;</td>
-              </tr>
-              <tr>
-                <td align="left" valign="top"><table width="270" border="0" align="center" cellpadding="0" cellspacing="0">
-                  <tr>
-                    <td align="left" valign="top" style="font-family:'Open Sans', sans-serif, Verdana; font-size:24px; line-height:34px; font-weight:normal;color:#1f1f1f;" mc:edit="nm-30"><multiline>The Directors<br />
-Jac and Alex</multiline></td>
-                  </tr>
-                  <tr>
-                    <td align="left" valign="top">&nbsp;</td>
-                  </tr>
-                  <tr>
-                    <td align="left" valign="top" style="font-family:'Open Sans', sans-serif, Verdana; font-size:16px; line-height:30px; font-weight:normal;color:#7e7c7c;" mc:edit="nm-31"><multiline>Jac and Alex have been in the TM industry for over 10 years and have experience across the whole of the UK</multiline></td>
-                  </tr>
-                  <tr>
-                    <td height="35" align="left" valign="top">&nbsp;</td>
-                  </tr>
-                  <tr>
-                    <td align="left" valign="top"><table width="155" border="0" align="left" cellpadding="0" cellspacing="0">
-                      <tr>
-                        <td align="left" valign="top"><img editable="true" mc:edit="nm-32" src="images/signature-image.png" width="155" height="95" alt="" /></td>
-                      </tr>
-                    </table></td>
-                  </tr>
-                </table></td>
-              </tr>
-              <tr>
-                <td height="30" align="left" valign="top" style="font-size:30px; line-height:30px;">&nbsp;</td>
-              </tr>
-            </table></td>
-          
-           <td width="60" align="left" valign="top" class="two-left">&nbsp;</td>
-            <td width="270" align="center" valign="top" class="two-left"><img editable="true" mc:edit="nm-33" src="images/about-image.png" width="270" height="445" alt="" /></td>
-           
-            
-          </tr>
-        </table></td>
-      </tr>
-    </table></td>
-  </tr>
-</table>
-
- <!--About Single Part End-->
- 
- 
- 
-  
-  
-  
- 
- 
-  <!--
-
-<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-      <tr>
-        <td align="center" valign="top"><table width="750" border="0" cellspacing="0" cellpadding="0" class="main">
-          <tr>
-            <td align="center" valign="top" bgcolor="#f5f5f5"><table width="600" border="0" align="center" cellpadding="0" cellspacing="0" class="two-left-inner">
-              <tr>
-                <td height="100" align="left" valign="top" style="font-size:100px; line-height:100px;">&nbsp;</td>
-              </tr>
-              <tr>
-                <td align="center" valign="top"><table width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
-                  <tr>
-                    <td align="center" valign="top" style="font-family:'Open Sans', sans-serif, Verdana; font-size:22px; color:#5f5e5e; font-weight:normal;" mc:edit="nm-47"><multiline>Our Some</multiline></td>
-                  </tr>
-                  <tr>
-                <td height="5" align="left" valign="top" style="font-size:5px; line-height:5px;">&nbsp;</td>
-              </tr>
-                  <tr>
-                    <td align="center" valign="top" style="font-family:'Open Sans', sans-serif, Verdana; font-size:32px; color:#363535; font-weight:bold;" mc:edit="nm-48"><multiline>Latest Works 2</multiline></td>
-                  </tr>
-                </table></td>
-              </tr>
-              <tr>
-               <td height="70" align="left" valign="top" style="font-size:70px; line-height:70px;">&nbsp;</td>
-              </tr>
-              </table></td>
-          </tr>
-        </table></td>
-      </tr>
-    </table>
-    
- 
-    
-    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-  <tr>
-    <td align="center" valign="top"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0" class="main">
-      <tr>
-        <td align="center" valign="top" bgcolor="#f5f5f5"><table width="580" border="0" align="center" cellpadding="0" cellspacing="0" class="two-left-inner">
-          <tr>
-            <td align="center" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-              <tr>
-                <td width="180" align="center" valign="top" class="two-left"><img editable="true" mc:edit="nm-49" src="images/work-image5.png" width="180" height="150" alt="" /></td>
-                <td width="20" align="center" valign="top" class="two-left">&nbsp;</td>
-                <td width="180" align="center" valign="top" class="two-left"><img editable="true" mc:edit="nm-50" src="images/work-image6.png" width="180" height="150" alt="" /></td>
-                <td width="20" align="center" valign="top" class="two-left">&nbsp;</td>
-                <td width="180" align="center" valign="top" class="two-left"><img editable="true" mc:edit="nm-51" src="images/work-image7.png" width="180" height="150" alt="" /></td>
-              </tr>
-            </table></td>
-          </tr>
-          <tr>
-            <td align="center" valign="top">&nbsp;</td>
-          </tr>
-          </table></td>
-      </tr>
-    </table></td>
-  </tr>
-</table>
-
-
-<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-  <tr>
-    <td align="center" valign="top"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0" class="main">
-      <tr>
-        <td align="center" valign="top" bgcolor="#f5f5f5"><table width="580" border="0" align="center" cellpadding="0" cellspacing="0" class="two-left-inner">
-          <tr>
-            <td align="center" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-              <tr>
-                <td width="180" align="center" valign="top" class="two-left"><img editable="true" mc:edit="nm-52" src="images/work-image8.png" width="180" height="150" alt="" /></td>
-                <td width="20" align="center" valign="top" class="two-left">&nbsp;</td>
-                <td width="180" align="center" valign="top" class="two-left"><img editable="true" mc:edit="nm-53" src="images/work-image9.png" width="180" height="150" alt="" /></td>
-                <td width="20" align="center" valign="top" class="two-left">&nbsp;</td>
-                <td width="180" align="center" valign="top" class="two-left"><img editable="true" mc:edit="nm-54" src="images/work-image10.png" width="180" height="150" alt="" /></td>
-              </tr>
-            </table></td>
-          </tr>
-          <tr>
-            <td align="center" valign="top">&nbsp;</td>
-          </tr>
-          </table></td>
-      </tr>
-    </table></td>
-  </tr>
-</table>
-
-
-<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-  <tr>
-    <td align="center" valign="top"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0" class="main">
-      <tr>
-        <td align="center" valign="top" bgcolor="#f5f5f5"><table width="580" border="0" align="center" cellpadding="0" cellspacing="0" class="two-left-inner">
-          <tr>
-            <td align="center" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-              <tr>
-                <td width="180" align="center" valign="top" class="two-left"><img editable="true" mc:edit="nm-55" src="images/work-image16.png" width="180" height="150" alt="" /></td>
-                <td width="20" align="center" valign="top" class="two-left">&nbsp;</td>
-                <td width="180" align="center" valign="top" class="two-left"><img editable="true" mc:edit="nm-56" src="images/work-image17.png" width="180" height="150" alt="" /></td>
-                <td width="20" align="center" valign="top" class="two-left">&nbsp;</td>
-                <td width="180" align="center" valign="top" class="two-left"><img editable="true" mc:edit="nm-57" src="images/work-image18.png" width="180" height="150" alt="" /></td>
-              </tr>
-            </table></td>
-          </tr>
-          <tr>
-            <td height="70" align="left" valign="top" style="font-size:70px; line-height:70px;">&nbsp;</td>
-          </tr>
-          </table></td>
-      </tr>
-    </table></td>
-  </tr>
-</table>
-
-<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-  <tr>
-    <td align="center" valign="top"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0" class="main">
-      <tr>
-        <td align="center" valign="top" bgcolor="#f5f5f5"><table width="580" border="0" align="center" cellpadding="0" cellspacing="0" class="two-left-inner">
-          <tr>
-            <td height="35" align="center" valign="middle" style="font-size:35px; line-height:35px;">&nbsp;</td>
-          </tr>
-          <tr>
-            <td align="center" valign="middle"></td>
-          </tr>
-          <tr>
-           <td align="center" valign="middle"><table width="550" border="0" align="center" cellpadding="0" cellspacing="0" class="two-left-inner">
-
-              <tr>
-                <td align="left" valign="top"><table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
-              <tr>
-            <td align="center" valign="top" style="font-family:'Open Sans', sans-serif, Verdana; font-size:18px; color:#333; line-height:32px; font-weight:normal;" mc:edit="nm-58"><multiline>It is a long established fact that a reader will be  of a page when looking at its layout.</multiline></td>
-          </tr>
-          
-              <tr>
-                 <td height="30" align="center" valign="top" style="font-size:30px; line-height:30px;">&nbsp;</td>
-              </tr>
-              <tr>
-                <td align="center" valign="top"><table width="170" border="0" align="center" cellpadding="0" cellspacing="0">
-          <tr>
-            <td height="45" align="center" valign="middle" style="background:#56ba56;font-family:'Open Sans', sans-serif, Verdana; font-size:13px; color:#FFF; font-weight:bold;-moz-border-radius: 40px; border-radius: 40px; text-transform:uppercase;" mc:edit="nm-59"><multiline><a href="#">View our works</a></multiline></td>
-          </tr>
-        </table></td>
-              </tr>
-             
-   
-                </table></td>
-              </tr>
-              <tr>
-                <td height="55" align="center" valign="middle" style="font-size:55px; line-height:55px;">&nbsp;</td>
-              </tr>
-            </table></td>
-          </tr>
-          <tr>
-            <td height="60" align="center" valign="middle" style="font-size:60px; line-height:60px;">&nbsp;</td>
-          </tr>
-          </table></td>
-      </tr>
-    </table></td>
-  </tr>
-</table>
--->
-<!--Work 2 View Button Part End-->
-
-
-<!--Video Part Start-->
-
-<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-  <tr>
-    <td align="center" valign="top"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0" class="main">
-      <tr>
-        <td height="425" align="center" valign="middle" bgcolor="#1d71b8" style="background:url(images/video-bg.png) #1d71b8 top center no-repeat;"><table width="600" border="0" align="center" cellpadding="0" cellspacing="0" class="two-left-inner">
-          <tr>
-          <td height="50" align="center" valign="middle" style="font-size:50px; line-height:50px;">&nbsp;</td>
-          </tr>
-          <tr>
-            <td align="center" valign="middle"><table width="250" border="0" align="center" cellpadding="0" cellspacing="0">
-              <tr>
-                <td width="250" align="center" valign="middle" style="font-family:'Open Sans', sans-serif, Verdana; font-size:22px; line-height:24px; font-weight:bold; color:#FFF; text-transform:none;" mc:edit="nm-61"><multiline><a href="https://www.pursuit-tmr.co.uk" style="text-decoration:none; color:#FFF;">Visit our Website</a></multiline></td>
-              </tr>
-            </table></td>
-          </tr>
-          <tr>
-            <td height="40" align="center" valign="middle" style="font-size:40px; line-height:40px;">&nbsp;</td>
-          </tr>
-
-        </table></td>
-      </tr>
-    </table></td>
-  </tr>
-</table>
-
-<!--Video Part End-->
-
-
-
-<!--Testimonial Title Part End-->
-
-<!--Testimonial Image Part Start-->
-   
-<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-  <tr>
-    <td align="center" valign="top"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0" class="main">
-      <tr>
-        <td align="center" valign="top" bgcolor="#FFFFFF"><img editable="true" mc:edit="nm-81" src="{{asset('images/traffic-management.jpg')}}" width="750" height="350" alt="" style="display:block;width:100% !important; height:auto !important; " /></td>
-      </tr>
-    </table> </td>
-  </tr>
-</table> 
-    
-    <!--Testimonial Image Part End-->
-    
-    <!--Testimonial Text Part Start-->
-
-<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-  <tr>
-    <td align="center" valign="top"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0" class="main">
-      <tr>
-        <td align="center" valign="top" bgcolor="#575756"><table width="600" border="0" align="center" cellpadding="0" cellspacing="0" class="two-left-inner">
-          <tr>
-            <td height="75" align="left" valign="top" style="font-size:75px; line-height:75px;">&nbsp;</td>
-          </tr>
-          <tr>
-            <td align="left" valign="top"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="full">
-              <tr>
-                <td width="46" align="left" valign="top" class="two-left"><table width="46" border="0" align="left" cellpadding="0" cellspacing="0">
-                  <tr>
-                    <td align="left" valign="top"><img editable="true" mc:edit="nm-82" src="{{ asset('images/email/quote-icon3.png')}}" width="46" height="43" alt="" /></td>
-                  </tr>
-                </table></td>
-                <td align="left" valign="top" class="two-left"><table width="445" border="0" align="center" cellpadding="0" cellspacing="0" class="two-left-inner">
-                  <tr>
-                   <td align="left" valign="top" style="font-family:'Open Sans', sans-serif, Verdana; font-size:20px; line-height:30px; color:#FFF; font-weight:bold;" mc:edit="nm-83"><multiline>Great compnay to work with and for. Great communication, honesty and always trying to aid progression</multiline></td>
-                  </tr>
-                  <tr>
-                    <td align="left" valign="top" style="font-family:'Open Sans', sans-serif, Verdana; font-size:18px; line-height:40px; color:#FFF; font-weight:normal;" mc:edit="nm-84"><multiline>James Spade <span style="font-size:12px;">IPV Foreman</span></multiline></td>
-                  </tr>
-                </table></td>
-                <td width="46" align="left" valign="top" class="two-left"><table width="46" border="0" align="right" cellpadding="0" cellspacing="0">
-                  <tr>
-                    <td align="left" valign="top"><img editable="true" mc:edit="nm-85" src="{{ asset('images/email/quote-icon4.png')}}" width="46" height="43" alt="" /></td>
-                  </tr>
-                </table></td>
-              </tr>
-             
-            </table></td>
-          </tr>
-          <tr>
-           <td height="60" align="left" valign="top" style="font-size:60px; line-height:60px;">&nbsp;</td>
-          </tr>
-        </table></td>
-      </tr>
-    </table></td>
-  </tr>
-</table>
-
-<!--Testimonial Text Part End-->
-
-<!--Footer Text Part Start-->
-
-    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-      <tr>
-        <td align="center" valign="top"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0" class="main">
-          <tr>
-            <td align="center" valign="top" bgcolor="#1d71b8">
-            
-            
-            <table width="600" border="0" align="center" cellpadding="0" cellspacing="0" class="main">
-  <tr>
-    <td width="200" align="left" valign="top" class="two-left"><table width="160" border="0" align="left" cellpadding="0" cellspacing="0">
-      <tr>
-        <td height="60" align="left" valign="top" style="font-size:60px; line-height:60px;">&nbsp;</td>
-      </tr>
-      <tr>
-        <td align="center" valign="top"><table width="60" border="0" align="left" cellpadding="0" cellspacing="0">
-          <tr>
-            <td align="center" valign="top"><img editable="true" mc:edit="nm-86" src="{{ asset('images/email/call-icon.png')}}"" width="48" height="48" alt="" /></td>
-          </tr>
-        </table></td>
-      </tr>
-      <tr>
-        <td align="center" valign="top">&nbsp;</td>
-      </tr>
-      <tr>
-        <td align="left" valign="top" style="font-family:'Open Sans', sans-serif, Verdana; font-size:13px; font-weight:bold; color:#FFF; text-transform:none;" mc:edit="nm-87"><multiline>Telephpne</multiline></td>
-      </tr>
-      <tr>
-        <td align="left" valign="top" style="font-family:'Open Sans', sans-serif, Verdana; font-size:14px; font-weight:normal; color:#FFF; line-height:26px;" mc:edit="nm-88"><multiline>07783 520810</multiline></td>
-      </tr>
-      <tr>
-        <td height="60" align="left" valign="top" style="font-size:60px; line-height:60px;">&nbsp;</td>
-      </tr>
-    </table></td>
-    <td width="200" align="left" valign="top" class="two-left"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-      <tr>
-         <td height="60" align="left" valign="top" style="font-size:60px; line-height:60px;">&nbsp;</td>
-      </tr>
-      <tr>
-        <td align="center" valign="top"><table width="60" border="0" align="left" cellpadding="0" cellspacing="0">
-          <tr>
-            <td align="center" valign="top"><img editable="true" mc:edit="nm-89" src="{{ asset('images/email/location-icon.png')}}"" width="48" height="48" alt="" /></td>
-          </tr>
-        </table></td>
-      </tr>
-      <tr>
-        <td align="center" valign="top">&nbsp;</td>
-      </tr>
-      <tr>
-        <td align="left" valign="top" style="font-family:'Open Sans', sans-serif, Verdana; font-size:13px; font-weight:bold; color:#FFF; text-transform:none;" mc:edit="nm-90"><multiline>Our Location</multiline></td>
-      </tr>
-      <tr>
-        <td align="left" valign="top" style="font-family:'Open Sans', sans-serif, Verdana; font-size:14px; font-weight:normal; color:#FFF; line-height:26px;" mc:edit="nm-91"><multiline>Wolverhampton WV11 3LD</multiline></td>
-      </tr>
-      <tr>
-       <td height="60" align="left" valign="top" style="font-size:60px; line-height:60px;">&nbsp;</td>
-      </tr>
-    </table></td>
-    <td width="200" align="left" valign="top" class="two-left"><table width="169" border="0" align="left" cellpadding="0" cellspacing="0" >
-      <tr>
-        <td height="60" align="left" valign="top" style="font-size:60px; line-height:60px;">&nbsp;</td>
-      </tr>
-      <tr>
-        <td align="center" valign="top"><table width="60" border="0" align="left" cellpadding="0" cellspacing="0">
-          <tr>
-            <td align="center" valign="top"><img editable="true" mc:edit="nm-92" src="{{ asset('images/email/mail-icon.png')}}"" width="48" height="48" alt="" /></td>
-          </tr>
-        </table></td>
-      </tr>
-      <tr>
-        <td align="center" valign="top">&nbsp;</td>
-      </tr>
-      <tr>
-        <td align="left" valign="top" style="font-family:'Open Sans', sans-serif, Verdana; font-size:13px; font-weight:bold; color:#FFF; text-transform:none;" mc:edit="nm-93"><multiline>Mail Us</multiline></td>
-      </tr>
-      <tr>
-        <td align="left" valign="top" style="font-family:'Open Sans', sans-serif, Verdana; font-size:14px; font-weight:normal; color:#FFF; line-height:26px;" mc:edit="nm-94"><multiline>info@pursuit-tmr.co.uk</multiline></td>
-      </tr>
-      <tr>
-         <td height="60" align="left" valign="top" style="font-size:60px; line-height:60px;">&nbsp;</td>
-      </tr>
-    </table></td>
-  </tr>
-</table>
-
-            
-            
-            </td>
-          </tr>
-        </table></td>
-      </tr>
-    </table>
-    
-    <!--Footer Text Part End-->
-    
-    <!--Copyright Part Start-->
-    
-    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-  <tr>
-    <td align="center" valign="top"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0" class="main">
-      <tr>
-        <td align="center" valign="top" bgcolor="#f5f5f5"><table width="600" border="0" align="center" cellpadding="0" cellspacing="0" class="two-left-inner">
-          <tr>
-            <td height="35" colspan="3" align="center" valign="top" style="line-height:35px; font-size:35px;">&nbsp;</td>
-          </tr>
-          <tr>
-            <td width="300" height="38" align="left" valign="top" class="two-left" style="font-family:'Open Sans', sans-serif, Verdana; font-size:14px; font-weight:normal; color:#262626;" mc:edit="nm-95"><multiline>Copyright &copy; {{ \Carbon\Carbon::now()->format('Y') }} Pursuit Traffic Management Recruitment Ltd</multiline></td>
-             <td width="50" align="right" valign="top" style="font-family:'Open Sans', sans-serif, Verdana; font-size:14px; font-weight:bold; color:#262626;" class="two-left">&nbsp;</td>
-            <td width="250" align="left" valign="top" style="font-family:'Open Sans', sans-serif, Verdana; font-size:14px; font-weight:bold; color:#262626;" class="two-left" mc:edit="nm-96"><unsubscribe>Unsubscribe</unsubscribe></td>
-           
-          </tr>
-          <tr>
-             <td height="35" colspan="3" align="center" valign="top" style="line-height:35px; font-size:35px;">&nbsp;</td>
-          </tr>
-        </table></td>
-      </tr>
-    </table></td>
-  </tr>
-</table>
-
-<!--Copyright Part End-->
-
- <!--Bottom Space Part Start-->
-
-<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-      <tr>
-        <td align="center" valign="top"><table width="750" border="0" cellspacing="0" cellpadding="0" class="main">
-          <tr>
-            <td height="35" align="center" valign="top" style="font-size:35px; line-height:35px;">&nbsp;</td>
-          </tr>
-        </table></td>
-      </tr>
-    </table>
-    
-     <!--Bottom Space Part End-->
-    
+    <!-- Content -->
     </td>
   </tr>
+  <tr>
+    <td height="10" style="font-size:10px;line-height:10px;" data-height="Spacing bottom">&nbsp;</td>
+  </tr>
+</table>
+<!-- blue-title -->
+
+
+<table data-outer-table border="0" align="center" cellpadding="0" cellspacing="0" class="outer-table row" role="presentation" width="640" style="width:640px;max-width:640px;" data-module="blue-title">
+  <!-- blue-title -->
+  <tr>
+    <td height="20" style="font-size:20px;line-height:20px;" data-height="Spacing top">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#FFFFFF" data-bgcolor="BgColor" class="container-padding">
+    <!-- Content -->
+    <table border="0" align="center" cellpadding="0" cellspacing="0" role="presentation" width="100%" style="width:100%;max-width:100%;">
+      <tr data-element="blue-title-titles" data-label="Titles">
+        <td class="center-text" data-text-style="Titles" align="center" style="font-family:'Barlow',Arial,Helvetica,sans-serif;font-size:24px;line-height:36px;font-weight:700;font-style:normal;color:#50C0FF;text-decoration:none;letter-spacing:0px;">
+            <singleline>
+              <div mc:edit data-text-edit>
+                Pick a Plan and let's get started!
+              </div>
+            </singleline>
+        </td>
+      </tr>
+    </table>
+    <!-- Content -->
+    </td>
+  </tr>
+  <tr>
+    <td height="10" style="font-size:10px;line-height:10px;" data-height="Spacing bottom">&nbsp;</td>
+  </tr>
+</table>
+<!-- blue-title -->
+
+
+    </td>
+  </tr>
+  <tr>
+    <td height="40" style="font-size:40px;line-height:40px;" data-height="Spacing bottom">&nbsp;</td>
+  </tr>
+</table>
+<!-- Content -->
+    </td>
+  </tr>
+  <tr>
+    <td height="20" style="font-size:20px;line-height:20px;" data-height="Spacing bottom">&nbsp;</td>
+  </tr>
+  <!-- blue-plans-box -->
 </table>
 
-<!--Main Table End-->
+
+
+<table border="0" align="center" cellpadding="0" cellspacing="0" role="presentation" width="100%" style="width:100%;max-width:100%;" data-module="blue-footer">
+  <!-- blue-footer -->
+  <tr>
+    <td align="center" bgcolor="#F8F8F8" data-bgcolor="BgColor" data-border-color="Footer Border Color" class="container-padding" style="border-top: 10px solid #F1F1F1;">
+      
+<!-- Content -->
+<table border="0" align="center" cellpadding="0" cellspacing="0" role="presentation" class="row" width="520" style="width:520px;max-width:520px;">
+  <tr>
+    <td height="60" style="font-size:60px;line-height:60px;" data-height="Footer spacing top">&nbsp;</td>
+  </tr>
+  <tr data-element="blue-footer-titles" data-label="Titles">
+    <td class="center-text" data-text-style="Titles" align="center" style="font-family:'Barlow',Arial,Helvetica,sans-serif;font-size:21px;line-height:28px;font-weight:700;font-style:normal;color:#444444;text-decoration:none;letter-spacing:0px;">
+        <singleline>
+          <div mc:edit data-text-edit>
+            Download our app
+          </div>
+        </singleline>
+    </td>
+  </tr>
+  <tr data-element="blue-footer-titles" data-label="Titles">
+    <td height="30" style="font-size:30px;line-height:30px;" data-height="Spacing under titles">&nbsp;</td>
+  </tr>
+  <tr data-element="blue-footer-buttons" data-label="Buttons">
+    <td align="center">
+      <!-- Buttons -->
+      <table border="0" align="center" cellpadding="0" cellspacing="0" role="presentation" class="row" width="100%" style="width:100%;max-width:100%;">
+        <tr>
+          <td align="center">
+            <!-- column -->
+            <table border="0" align="center" cellpadding="0" cellspacing="0" role="presentation">
+              <tr data-element="blue-footer-icon" data-label="Buttons">
+                <td align="center">
+                  <img style="display:block;width:100%;max-width:117px;border:0px;" data-image-edit data-url data-label="App Store" width="117" src="images/App-Store.png" border="0" editable="true" alt="icon">
+                </td>
+                <td width="20" style="width: 20px;"></td>
+                <td align="center">
+                  <img style="display:block;width:100%;max-width:117px;border:0px;" data-image-edit data-url data-label="Google play" width="117" src="images/Google-play.png" border="0" editable="true" alt="icon"></td>
+              </tr>
+            </table>
+            <!-- column -->
+          </td>
+        </tr>
+      </table>
+      <!-- Buttons -->
+    </td>
+  </tr>
+  <tr data-element="blue-footer-buttons" data-label="Buttons">
+    <td height="60" style="font-size:60px;line-height:60px;" data-height="Spacing under buttons">&nbsp;</td>
+  </tr>
+  <tr data-element="blue-footer-links" data-label="Footer Links">
+    <td align="center">
+      <table border="0" align="center" cellpadding="0" cellspacing="0" role="presentation">
+        <tr class="center-on-mobile">
+          <td data-element="blue-footer-1st-link" data-label="1st Link" data-text-style="Footer Links" class="rwd-on-mobile center-text" align="center" style="font-family:'Barlow',Arial,Helvetica,sans-serif;font-size:14px;line-height:24px;font-weight:300;font-style:normal;color:#666666;text-decoration:none;letter-spacing:0px;">
+            <!-- Links -->
+              <singleline>
+                <a href="#" mc:edit data-button data-text-style="Footer Links" style="font-family:'Barlow',Arial,Helvetica,sans-serif;font-size:14px;line-height:24px;font-weight:400;font-style:normal;color:#666666;text-decoration:none;letter-spacing:0px;display:inline-block;vertical-align:middle;"><span>HOME</span></a>
+              </singleline>
+            <!-- Links -->
+          </td>
+          <td data-element="blue-footer-gap-1" data-label="1st Gap" class="hide-mobile" align="center" valign="middle">
+            <table border="0" align="center" cellpadding="0" cellspacing="0" role="presentation">
+              <tr>
+                <td width="5"></td>
+                <td class="center-text" data-text-style="Paragraphs" align="center" style="font-family:'Barlow',Arial,Helvetica,sans-serif;font-size:14px;line-height:24px;font-weight:400;font-style:normal;color:#666666;text-decoration:none;letter-spacing:0px;">|</td>
+                <td width="5"></td>
+              </tr>
+            </table>
+          </td>
+          <td data-element="blue-footer-2nd-link" data-label="2nd Link" data-text-style="Footer Links" class="rwd-on-mobile center-text" align="center" style="font-family:'Barlow',Arial,Helvetica,sans-serif;font-size:14px;line-height:24px;font-weight:300;font-style:normal;color:#666666;text-decoration:none;letter-spacing:0px;">
+            <!-- Links -->
+              <singleline>
+                <a href="#" mc:edit data-button data-text-style="Footer Links" style="font-family:'Barlow',Arial,Helvetica,sans-serif;font-size:14px;line-height:24px;font-weight:400;font-style:normal;color:#666666;text-decoration:none;letter-spacing:0px;display:inline-block;vertical-align:middle;"><span>BLOG</span></a>
+              </singleline>
+            <!-- Links -->
+          </td>
+          <td data-element="blue-footer-gap-2" data-label="2nd Gap" class="hide-mobile" align="center" valign="middle">
+            <table border="0" align="center" cellpadding="0" cellspacing="0" role="presentation">
+              <tr>
+                <td width="5"></td>
+                <td class="center-text" data-text-style="Paragraphs" align="center" style="font-family:'Barlow',Arial,Helvetica,sans-serif;font-size:14px;line-height:24px;font-weight:400;font-style:normal;color:#666666;text-decoration:none;letter-spacing:0px;">|</td>
+                <td width="5"></td>
+              </tr>
+            </table>
+          </td>
+          <td data-element="blue-footer-3rd-link" data-label="3rd Link" data-text-style="Footer Links" class="rwd-on-mobile center-text" align="center" style="font-family:'Barlow',Arial,Helvetica,sans-serif;font-size:14px;line-height:24px;font-weight:300;font-style:normal;color:#666666;text-decoration:none;letter-spacing:0px;">
+            <!-- Links -->
+              <singleline>
+                <a href="#" mc:edit data-button data-text-style="Footer Links" style="font-family:'Barlow',Arial,Helvetica,sans-serif;font-size:14px;line-height:24px;font-weight:400;font-style:normal;color:#666666;text-decoration:none;letter-spacing:0px;display:inline-block;vertical-align:middle;"><span>CONTACT US</span></a>
+              </singleline>
+            <!-- Links -->
+          </td>
+          <td data-element="blue-footer-gap-3" data-label="3rd Gap" class="hide-mobile" align="center" valign="middle">
+            <table border="0" align="center" cellpadding="0" cellspacing="0" role="presentation">
+              <tr>
+                <td width="5"></td>
+                <td class="center-text" data-text-style="Paragraphs" align="center" style="font-family:'Barlow',Arial,Helvetica,sans-serif;font-size:14px;line-height:24px;font-weight:400;font-style:normal;color:#666666;text-decoration:none;letter-spacing:0px;">|</td>
+                <td width="5"></td>
+              </tr>
+            </table>
+          </td>
+          <td data-element="blue-footer-4rd-link" data-label="4rd Link" data-text-style="Footer Links" class="rwd-on-mobile center-text" align="center" style="font-family:'Barlow',Arial,Helvetica,sans-serif;font-size:14px;line-height:24px;font-weight:300;font-style:normal;color:#666666;text-decoration:none;letter-spacing:0px;">
+            <!-- Links -->
+              <singleline>
+                <a href="#" mc:edit data-button data-text-style="Footer Links" style="font-family:'Barlow',Arial,Helvetica,sans-serif;font-size:14px;line-height:24px;font-weight:400;font-style:normal;color:#666666;text-decoration:none;letter-spacing:0px;display:inline-block;vertical-align:middle;"><span>PRIVACY POLICY</span></a>
+              </singleline>
+            <!-- Links -->
+          </td>
+          <td data-element="blue-footer-gap-3" data-label="4th Gap" class="hide-mobile" align="center" valign="middle">
+            <table border="0" align="center" cellpadding="0" cellspacing="0" role="presentation">
+              <tr>
+                <td width="5"></td>
+                <td class="center-text" data-text-style="Paragraphs" align="center" style="font-family:'Barlow',Arial,Helvetica,sans-serif;font-size:14px;line-height:24px;font-weight:400;font-style:normal;color:#666666;text-decoration:none;letter-spacing:0px;">|</td>
+                <td width="5"></td>
+              </tr>
+            </table>
+          </td>
+          <td data-element="blue-footer-5th-link" data-label="5th Link" data-text-style="Footer Links" class="rwd-on-mobile center-text" align="center" style="font-family:'Barlow',Arial,Helvetica,sans-serif;font-size:14px;line-height:24px;font-weight:300;font-style:normal;color:#666666;text-decoration:none;letter-spacing:0px;">
+            <!-- Links -->
+              <singleline>
+                <a href="#" mc:edit data-button data-text-style="Footer Links" style="font-family:'Barlow',Arial,Helvetica,sans-serif;font-size:14px;line-height:24px;font-weight:400;font-style:normal;color:#666666;text-decoration:none;letter-spacing:0px;display:inline-block;vertical-align:middle;"><span>TERMS</span></a>
+              </singleline>
+            <!-- Links -->
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr data-element="blue-footer-links" data-label="Footer Links">
+    <td height="60" style="font-size:60px;line-height:60px;" data-height="Spacing under footer links">&nbsp;</td>
+  </tr>
+  <tr data-element="blue-footer-social-icons" data-label="Social Icons">
+    <td align="center">
+      <!-- Social Icons -->
+      <table border="0" align="center" cellpadding="0" cellspacing="0" role="presentation" width="100%" style="width:100%;max-width:100%;">
+        <tr>
+          <td align="center">
+            <table border="0" align="center" cellpadding="0" cellspacing="0" role="presentation">
+              <tr>
+                <td data-element="blue-footer-facebook" data-label="Facebook" class="rwd-on-mobile" align="center" valign="middle" height="36" style="height: 36px;">
+                  <table border="0" align="center" cellpadding="0" cellspacing="0" role="presentation">
+                    <tr>
+                      <td width="10"></td>
+                      <td align="center">
+                        <img style="width:36px;border:0px;display: inline!important;" src="images/Facebook.png" width="36" border="0" editable="true" data-icon data-image-edit data-url data-label="Facebook" data-image-width alt="icon">
+                      </td>
+                      <td width="10"></td>
+                    </tr>
+                  </table>
+                </td>
+                <td data-element="blue-footer-instagram" data-label="Instagram" class="rwd-on-mobile" align="center" valign="middle" height="36" style="height: 36px;">
+                  <table border="0" align="center" cellpadding="0" cellspacing="0" role="presentation">
+                    <tr>
+                      <td width="10"></td>
+                      <td align="center">
+                        <img style="width:36px;border:0px;display: inline!important;" src="images/Instagram.png" width="36" border="0" editable="true" data-icon data-image-edit data-url data-label="Instagram" data-image-width alt="icon">
+                      </td>
+                      <td width="10"></td>
+                    </tr>
+                  </table>
+                </td>
+                <td data-element="blue-footer-twitter" data-label="Twitter" class="rwd-on-mobile" align="center" valign="middle" height="36" style="height: 36px;">
+                  <table border="0" align="center" cellpadding="0" cellspacing="0" role="presentation">
+                    <tr>
+                      <td width="10"></td>
+                      <td align="center">
+                        <img style="width:36px;border:0px;display: inline!important;" src="images/Twitter.png" width="36" border="0" editable="true" data-icon data-image-edit data-url data-label="Twitter" data-image-width alt="icon">
+                      </td>
+                      <td width="10"></td>
+                    </tr>
+                  </table>
+                </td>
+                <td data-element="blue-footer-pinterest" data-label="Pinterest" class="rwd-on-mobile" align="center" valign="middle" height="36" style="height: 36px;">
+                  <table border="0" align="center" cellpadding="0" cellspacing="0" role="presentation">
+                    <tr>
+                      <td width="10"></td>
+                      <td align="center">
+                        <img style="width:36px;border:0px;display: inline!important;" src="images/Pinterest.png" width="36" border="0" editable="true" data-icon data-image-edit data-url data-label="Pinterest" data-image-width alt="icon">
+                      </td>
+                      <td width="10"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <!-- Social Icons -->
+    </td>
+  </tr>
+  <tr data-element="blue-footer-social-icons" data-label="Social Icons">
+    <td height="60" style="font-size:60px;line-height:60px;" data-height="Spacing under social icons">&nbsp;</td>
+  </tr>
+  <tr data-element="blue-footer-paragraphs" data-label="Paragraphs">
+    <td align="center">
+      <table border="0" align="center" cellpadding="0" cellspacing="0" role="presentation" class="row" width="480" style="width:480px;max-width:480px;">
+        <tr>
+          <td class="center-text" data-text-style="Paragraphs" align="center" style="font-family:'Barlow',Arial,Helvetica,sans-serif;font-size:14px;line-height:24px;font-weight:300;font-style:normal;color:#666666;text-decoration:none;letter-spacing:0px;">
+            <multiline>
+              <div mc:edit data-text-edit>
+                2021 Blue Inc. All Rights Reserved.<br>
+                Address name St. 24, City Name, State, Country Name
+              </div>
+            </multiline>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr data-element="blue-footer-paragraphs" data-label="Paragraphs">
+    <td height="40" style="font-size:40px;line-height:40px;" data-height="Spacing above tags">&nbsp;</td>
+  </tr>
+  <tr data-element="blue-footer-tags" data-label="Tags">
+    <td align="center">
+      <table border="0" align="center" cellpadding="0" cellspacing="0" role="presentation">
+        <tr class="center-on-mobile">
+          <td data-element="blue-footer-unsubscribe" data-label="Unsubscribe" data-text-style="Paragraphs" class="rwd-on-mobile center-text" align="center" style="font-family:'Barlow',Arial,Helvetica,sans-serif;font-size:14px;line-height:24px;font-weight:300;font-style:normal;color:#666666;text-decoration:none;letter-spacing:0px;">
+            <unsubscribe href="#" data-mergetag="Unsubscribe" style="font-family:'Barlow',Arial,Helvetica,sans-serif;font-size:14px;font-weight:300;line-height:24px;color:#666666;text-decoration:none;">Unsubscribe</unsubscribe>
+          </td>
+          <td data-element="blue-footer-gap-1" data-label="1st Gap" class="hide-mobile" align="center" valign="middle">
+            <table border="0" align="center" cellpadding="0" cellspacing="0" role="presentation">
+              <tr>
+                <td width="5"></td>
+                <td class="center-text" data-text-style="Paragraphs" align="center" style="font-family:'Barlow',Arial,Helvetica,sans-serif;font-size:14px;line-height:24px;font-weight:300;font-style:normal;color:#666666;text-decoration:none;letter-spacing:0px;">|</td>
+                <td width="5"></td>
+              </tr>
+            </table>
+          </td>
+          <td data-element="blue-footer-webversion" data-label="Web version" data-text-style="Paragraphs" class="rwd-on-mobile center-text" align="center" style="font-family:'Barlow',Arial,Helvetica,sans-serif;font-size:14px;line-height:24px;font-weight:300;font-style:normal;color:#666666;text-decoration:none;letter-spacing:0px;">
+            <webversion href="#" data-mergetag="Web version" style="font-family:'Barlow',Arial,Helvetica,sans-serif;font-size:14px;font-weight:300;line-height:24px;color:#666666;text-decoration:none;">View on browser</webversion>
+          </td>
+          <td data-element="blue-footer-gap-2" data-label="2nd Gap" class="hide-mobile" align="center" valign="middle">
+            <table border="0" align="center" cellpadding="0" cellspacing="0" role="presentation">
+              <tr>
+                <td width="5"></td>
+                <td class="center-text" data-text-style="Paragraphs" align="center" style="font-family:'Barlow',Arial,Helvetica,sans-serif;font-size:14px;line-height:24px;font-weight:300;font-style:normal;color:#666666;text-decoration:none;letter-spacing:0px;">|</td>
+                <td width="5"></td>
+              </tr>
+            </table>
+          </td>
+          <td data-element="blue-footer-forward" data-label="Forward" data-text-style="Paragraphs" class="rwd-on-mobile center-text" align="center" style="font-family:'Barlow',Arial,Helvetica,sans-serif;font-size:14px;line-height:24px;font-weight:300;font-style:normal;color:#666666;text-decoration:none;letter-spacing:0px;">
+            <forward href="#" data-mergetag="Forward" style="font-family:'Barlow',Arial,Helvetica,sans-serif;font-size:14px;font-weight:300;line-height:24px;color:#666666;text-decoration:none;">Forward</forward>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td height="40" style="font-size:40px;line-height:40px;" data-height="Footer spacing bottom">&nbsp;</td>
+  </tr>
+</table>
+<!-- Content -->
+
+    </td>
+  </tr>
+  <!-- blue-footer -->
+</table>
+
+    </td>
+  </tr><!-- Outer-Table -->
+</table>
 
 </body>
 </html>

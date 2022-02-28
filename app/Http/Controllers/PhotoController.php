@@ -71,7 +71,7 @@ class PhotoController extends Controller
         // File path config
         $fileName = $request->file->getClientOriginalName();
         if($filePath = $request->file('file')->storeAs('images', $fileName, 'public')){
-            $photo = Photo::create(['name'=> $name, 'path' => $filePath]);
+            $photo = Photo::create(['name'=> $name, 'path' => $filePath, 'user_id' => auth()->user()->id]);
             $response['status'] = 1;
             $response['message'] = 'Image was uploaded successfully';
             $response['path'] = asset($photo->path);

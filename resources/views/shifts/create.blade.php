@@ -46,16 +46,16 @@
                             @csrf                                                      
                             <div class="form-group row mb-2">                                                      
                                 <div class="col-4">                                                      
-                                    <label for="date">Date</label>
-                                    <input id="shift_date" type="date" name="date" value="{{\Carbon\Carbon::now()->format('Y-m-d')}}" class="form-control">
+                                    <label for="date">Week Beginning</label>
+                                    <input id="shift_date" type="date" name="date" value="{{\Carbon\Carbon::now()->addWeek()->startOfWeek()->format('Y-m-d')}}" class="form-control">
                                 </div>
                                 <div class="col-4">
                                     <label for="start_time">Start</label>
-                                    <input type="time" class="form-control" name="start_time">
+                                    <input type="time" class="form-control" name="start_time" required>
                                 </div>
                                 <div class="col-4">
                                     <label for="end_time">End</label>
-                                    <input type="time" class="form-control" name="end_time">
+                                    <input type="time" class="form-control" name="end_time" required>
                                 </div>
                             </div>
                             {{-- Put this in a row along with contact name col ratio 8-4 --}}

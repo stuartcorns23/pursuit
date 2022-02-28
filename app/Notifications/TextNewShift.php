@@ -9,7 +9,8 @@ use NotificationChannels\AwsSns\SnsChannel;
 use NotificationChannels\AwsSns\SnsMessage;
 use Illuminate\Notifications\Notification;
 
-class ApprovedAccount extends Notification
+
+class TextNewShift extends Notification
 {
     use Queueable;
 
@@ -19,18 +20,13 @@ class ApprovedAccount extends Notification
     }
 
     public function toSns($notifiable)
-    {        
+    {            
         // OR return a SnsMessage passing the arguments via `create()` or `__construct()`:
         return SnsMessage::create([
-            'body' => "Your Account has been approved! If you have verified your email you can now access your account at https://www.pursuit-tmr.co.uk/login",
+            'body' => "New Shifts have been added to your calendar. To view visit https://www.pursuit-tmr.co.uk/dashboard",
             'transactional' => true,
             'sender' => 'Pursuit-TMR',
         ]); 
 
-        // OR create the object with or without arguments and then use the fluent API:
-        return SnsMessage::create()
-            ->body("Your Account was approved! you can now access your account at ")
-            ->promotional()
-            ->sender('Pursuit TMR');
     }
 }

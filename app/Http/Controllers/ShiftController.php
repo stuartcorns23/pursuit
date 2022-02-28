@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 use App\Models\Client;
+use Illuminate\Support\Facades\Mail;
+use AWS;
+use App\Notifications\EmailNewShift;
+use App\Notifications\TextNewShift;
 
 class ShiftController extends Controller
 {
@@ -42,6 +46,7 @@ class ShiftController extends Controller
     public function store(Request $request)
     {
 
+
         $date = \Carbon\Carbon::parse($request->date);
         $success = 0;
         $errors = [];
@@ -71,9 +76,20 @@ class ShiftController extends Controller
             }
         }
 
-        if($request->update == 1){
+        if($request->alert == 1){
             //UPdate the user suing a notifcation
+            $users = User::whereIn('id', $request->user_id)->get(); 
+            
+            foreach($users as $user){
+            
+                $user->notify(new TextNewShift());
+                \Notification::route('mail', $user->email)->notifyNow(new EmailNewShift());
+                /* Mail::to($user->email)
+                    ->send(new EmailNewShift()); */
+            }
         }
+
+
 
         session()->flash('success_message', 'Shifts were created for X users');
         return redirect(route('shifts.index'));
