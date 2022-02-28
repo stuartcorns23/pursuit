@@ -90,13 +90,13 @@
                                 @endfor
                             </div>
 
-                            <div class="form-group mb-4 d-flex justify-content-center align-items-center">
+                            <div class="form-group mb-4 d-flex justify-content-start align-items-center">
                                 <!-- Rounded switch -->
                                 <label class="switch">
                                     <input type="checkbox">
                                     <span class="slider-toggle round"></span>
                                 </label>
-                                Mileage
+                                <span class="ms-2">Mileage</span>
                             </div>
                             
                             <div id="mileage">
