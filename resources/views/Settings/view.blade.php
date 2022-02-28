@@ -65,9 +65,8 @@
                                 </div>
                             </div>
                         </div>
-                        </div>
                     </div>
-                    <div class="tab-pane fade p-4 text-dark" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="tab-pane fade p-4" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <div>
                             <div class="d-flex justify-content-between align-items-center mb-4">
                                 <h3>Documents</h3>
