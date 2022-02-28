@@ -12,9 +12,8 @@
         <div class="w-100 d-flex justify-content-between align-items-center">
             <h1 class="text-center mb-4">Timesheets</h1>
             <div class="p-2">
-                @can('viewAll', auth()->user())
-                <a href="{{route('timesheets.create')}}" class="btn btn-success">Add New User</a>
-                @endcan
+                <a href="#" class="btn btn-warning">Download PDF</a>
+                <a href="{{route('timesheets.create')}}" class="btn btn-success">Submit a Timesheet</a>
             </div>
         </div>
         @if(session('danger_message'))
@@ -68,6 +67,11 @@
                         </td>
                     </tr>
                     @endforeach
+                    @if($timesheets->count() === 0)
+                        <tr>
+                            <td colspan="7" class="text-center">No timesheets have been returned</td>
+                        </tr>
+                    @endif
                 </tbody>
                 <tfoot>
                     <tr>

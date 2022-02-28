@@ -38,6 +38,26 @@
                 </div>
                 
             </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                   data-bs-target="#timesheetsDD" aria-expanded="true"
+                   aria-controls="timesheetsDD">
+                    <i class="fas fa-fw fa-hourglass-half sidebar-icon" data-bs-toggle="tooltip" data-bs-placement="right"
+                       title="Timesheets"></i>
+                    <span class="sidebar-title">Timesheets</span>
+                </a>
+                
+                <div id="timesheetsDD" class="collapse p-0" aria-labelledby="timesheetsTitle" data-bs-parent="#accordionSidebar">
+                    <a class="collapse-item sub-link" href="{{ route('timesheets.index')}}"><i
+                        class="far fa-circle text-secondary"></i> View All</a>
+                        @can('admin', auth()->user())
+                    <a class="collapse-item sub-link" href="{{route('timesheets.create')}}"><i
+                        class="far fa-fw fa-circle text-secondary"></i> Add Timesheet</a>
+                    
+                @endcan
+                </div>
+                
+            </li>
 
             @can('admin', auth()->user())
             <li class="nav-item">
@@ -70,6 +90,11 @@
                     <a class="collapse-item sub-link" href="{{route('clients.create')}}"><i class="fas fa-fw fa-plus text-secondary"></i> Add Clients</a>
                     @endcan
                 </div>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-fw fa-tachometer-alt sidebar-icon"></i>
+                    <span class="sidebar-title">Announcements</span></a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="#">

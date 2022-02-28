@@ -51,21 +51,26 @@
                                 </div>
                             </div>
                             <hr>
-                            <h4>Shifts</h4>
+                            <h4 class="text-primary">Shifts</h4>
                             <div class="shifts mb-4">
                                 @for($i=0; $i < 7; $i++)
                                 @php($day = \Carbon\Carbon::now()->startOfWeek()->subWeek()->addDays($i))
                                 @php($shift = \App\Models\Shift::whereDate('date', '=', $day)->whereUserId(auth()->user()->id)->first())
                                 <label for="{{strtolower($day->format('l'))}}">{{$day->format('l')}} @if($shift){{$shift->rate}}@endif</label>
                                 <div class="row">
-                                    <div class="col-3">
+                                    <div class="col-3 d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <input class="form-check-input me-2" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">
+                                        </div>
                                         <select name="{{strtolower($day->format('l'))}}_time" class="form-control">
+                                            <option value="0" selected="selected">Please select</option>
                                             <option value="am">AM Shift</option>
                                             <option value="pm">PM Shift</option>
                                         </select>  
                                     </div>
                                     <div class="col-3">
                                         <select name="{{strtolower($day->format('l'))}}_client" class="form-control">
+                                            <option selected>Please select a client</option>
                                             @foreach($clients as $client)
                                             <option value="{{$client->id}}" @if($shift && $shift->client_id == $client->id){{ 'selected' }}@endif>{{$client->name}}</option>
                                             @endforeach
@@ -84,6 +89,13 @@
                                 </div>
                                 @endfor
                             </div>
+
+                            <!-- Rounded switch -->
+                            <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider-toggle round"></span>
+                            </label>
+
                             <h4 class="text-primary">Mileage</h4>
                             <div class="miles mb-4">
                                 @for($i=0; $i < 7; $i++)
