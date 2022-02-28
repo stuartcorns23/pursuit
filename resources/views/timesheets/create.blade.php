@@ -96,10 +96,10 @@
                                     <input type="checkbox">
                                     <span class="slider-toggle round"></span>
                                 </label>
-                                <span class="ms-2">Mileage</span>
+                                <span class="ms-2">Add Expenses</span>
                             </div>
                             
-                            <div id="mileage">
+                            <div id="expenses" class="d-none">
                                 <h4 class="text-primary">Mileage</h4>
                                 <div class="miles mb-4">
                                     @for($i=0; $i < 7; $i++)
@@ -119,35 +119,36 @@
                                         
                                     @endfor
                                 </div>
-                            </div>
                             
 
 
-                            <h4 class="text-primary">Expenses</h4>
-                            <div class="expenses mb-2">
-                                <label for="expenses">Expenses</label>
-                                
-                                <div class="row">
-                                    <div class="col-8">
-                                        <select name="expense1" class="form-control">
-                                            <option value="5hr">5 Hour Shift Allowance (£5)</option>
-                                            <option value="5hr+">Above 5 Hour Shift Allowance (£10)</option>
-                                            <option value="15hr+">15 Hour Shift Allowance (£25)</option>
-                                            <option value="PIE">Personal Incidental Expenses (@£10 per overnight/nightshift)</option>
-                                            <option value="wash">Washing of Workwear (MAX £10 per week)</option>
-                                            <option value="office">Home Office (£6 per week)</option>
-                                            <option value="overnight">Overnight (£25 per night)</option>
-                                            <option value="toll">Toll Bridges</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-4">
-                                        <input type="text" name="value1" placeholder="£" class="form-control">
+                                <h4 class="text-primary">Expenses</h4>
+                                <div class="expenses mb-2">
+                                    <label for="expenses">Expenses</label>
+                                    
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <select name="expense1" class="form-control">
+                                                <option value="5hr">5 Hour Shift Allowance (£5)</option>
+                                                <option value="5hr+">Above 5 Hour Shift Allowance (£10)</option>
+                                                <option value="15hr+">15 Hour Shift Allowance (£25)</option>
+                                                <option value="PIE">Personal Incidental Expenses (@£10 per overnight/nightshift)</option>
+                                                <option value="wash">Washing of Workwear (MAX £10 per week)</option>
+                                                <option value="office">Home Office (£6 per week)</option>
+                                                <option value="overnight">Overnight (£25 per night)</option>
+                                                <option value="toll">Toll Bridges</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-4">
+                                            <input type="text" name="value1" placeholder="£" class="form-control">
+                                        </div>
                                     </div>
                                 </div>
+                                <div class="mb-4">
+                                    <button class="btn btn-secondary">Add Another Expense</button>
+                                </div>
                             </div>
-                            <div class="mb-4">
-                                <button class="btn btn-secondary">Add Another Expense</button>
-                            </div>
+                            
                             <h4 class="text-primary">Options</h4>
                             <div class="form-group">
                                 <label for="accountants">Accounts</label>
