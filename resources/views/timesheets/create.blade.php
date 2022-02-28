@@ -16,7 +16,7 @@
             <div class="p-2">
                 <div class="p-2">
                     <a href="{{route('timesheets.index')}}" class="btn btn-secondary">Back</a>
-                    <button type="submit" class="btn btn-success">Save</button>
+                    <button type="submit" class="btn btn-success">Submit</button>
                 </div>
             </div>
         </div>
