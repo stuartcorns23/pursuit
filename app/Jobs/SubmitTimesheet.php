@@ -36,6 +36,7 @@ class SubmitTimesheet implements ShouldQueue
     public function handle()
     {
         $timesheet = $this->timesheet;
+        $file = str_replace(' ', '-', $timesheet->user->fullname());
         //Get the user name format [s-corns-ts-19-may-2022]
         $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
                 ->loadView('timesheets.showPDF', compact('timesheet'));

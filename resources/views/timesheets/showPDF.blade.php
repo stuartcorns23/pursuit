@@ -81,6 +81,8 @@
             </tr>
         </table>
     </header>
+
+    <?php $shifts = json_decode($timesheet->shifts);?>
     
     <div style="width: 100%">
     
@@ -93,41 +95,13 @@
             </tr>
         </thead>
         <tbody>
+            @foreach($shifts as $key => shift)
             <tr>
+                <th>{{$key}}</th>
                 <th>Monday</th>
-                <th>Monday</th>
                 <td>+ 12 Hours</td>
             </tr>
-            <tr>
-                <th>Tuesday</th>
-                <th>Tuesday</th>
-                <td>+ 12 Hours</td>
-            </tr>
-            <tr>
-                <th>Wednesday</th>
-                <th>Wednesday</th>
-                <td>+ 12 Hours</td>
-            </tr>
-            <tr>
-                <th>Thursday</th>
-                <th>Thursday</th>
-                <td>+ 12 Hours</td>
-            </tr>
-            <tr>
-                <th>Friday</th>
-                <th>Friday</th>
-                <td>+ 12 Hours</td>
-            </tr>
-            <tr>
-                <th>Saturday</th>
-                <th>Saturday</th>
-                <td>+ 12 Hours</td>
-            </tr>
-            <tr>
-                <th>Sunday</th>
-                <th>Sunday</th>
-                <td>+ 12 Hours</td>
-            </tr>
+            @endforeach
         </tbody>
     </table>
     
