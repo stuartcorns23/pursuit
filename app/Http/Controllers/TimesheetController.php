@@ -48,8 +48,9 @@ class TimesheetController extends Controller
             //if the {day}_field is checked
             $value = strtolower($day->format('l'));
             $shift = "{$value}_shift";
+            $arr = [];
             if($request->$shift === 1){
-                $arr = [];
+                
                 $time = "{$value}_time";
                 $arr['shift'] = $request->$time;
                 $client = "{$value}_client";
