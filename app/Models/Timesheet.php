@@ -25,7 +25,7 @@ class Timesheet extends Model implements HasMedia
         $this->addMediaCollection('timesheet');
     }
     
-    public function getTimesheets(): string
+    public function getTimesheet(): string
     {
         return $this->media->where('collection_name', '==', 'timesheet')->first();
     }
