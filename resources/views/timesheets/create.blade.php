@@ -60,7 +60,7 @@
                                 <div class="row">
                                     <div class="col-3 d-flex justify-content-between align-items-center">
                                         <div>
-                                            <input name="{{strtolower($day->format('l'))}}_shift" class="form-check-input me-2" type="checkbox" id="checkboxNoLabel" value="1" aria-label="...">
+                                            <input name="{{strtolower($day->format('l'))}}_shift" class="form-check-input me-2" type="checkbox" id="checkboxNoLabel" value="1">
                                         </div>
                                         <select name="{{strtolower($day->format('l'))}}_time" class="form-control">
                                             <option value="0" selected="selected">Please select</option>

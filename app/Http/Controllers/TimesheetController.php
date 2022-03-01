@@ -29,6 +29,7 @@ class TimesheetController extends Controller
 
     public function store(Request $request)
     {
+        return dd($request);
         $timesheet = new Timesheet;
 
         $timesheet->user_id = auth()->user()->id;
@@ -49,7 +50,7 @@ class TimesheetController extends Controller
             $value = strtolower($day->format('l'));
             $shift = "{$value}_shift";
             $arr = [];
-            if($request->$shift === 1){
+            if($request->$shift == 1){
                 
                 $time = "{$value}_time";
                 $arr['shift'] = $request->$time;
