@@ -25,7 +25,7 @@ class SubmitTimesheet implements ShouldQueue
     public function __construct(Timesheet $timesheet, $notify)
     {
         $this->timesheet = $timesheet;
-        $this->notify = $notify;
+        $this->notify = $notify; 
     }
 
     /**
@@ -37,14 +37,25 @@ class SubmitTimesheet implements ShouldQueue
     {
         $timesheet = $this->timesheet;
         $file = str_replace(' ', '-', $timesheet->user->fullname());
+        $date = \Carbon\Carbon::now()->format('dmyhis');
         //Get the user name format [s-corns-ts-19-may-2022]
-        $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
-                ->loadView('timesheets.showPDF', compact('timesheet'));
+
+        $contxt = stream_context_create([
+            'ssl' => [
+                'verify_peer' => FALSE,
+                'verify_peer_name' => FALSE,
+                'allow_self_signed' => TRUE,
+            ]
+            ]);
+
+        $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
+        $pdf->getDomPDF()->setHttpContext($contxt);
+        $pdf->loadView('timesheets.showPDF', compact('timesheet'));
         $pdf->setPaper('a4', 'portrait');
        
        
-        Storage::disk('public')->put('timesheets/timesheet.pdf', $pdf->output());
-        $timesheet->addMediaFromUrl(Storage::disk('public')->url('timesheets/timesheet.pdf'))->toMediaCollection();
+        Storage::disk('public')->put('timesheets/'.$file.'-'.$date.'.pdf', $pdf->output());
+        $timesheet->addMediaFromUrl(Storage::disk('public')->url('timesheets/'.$file.'-'.$date.'.pdf'))->toMediaCollection('timesheet');
 
         SendTimesheet::dispatch($timesheet)->afterResponse();
     }
