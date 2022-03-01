@@ -42,25 +42,29 @@ class TimesheetController extends Controller
         $wages = 0;
 
         for($i = 0; $i < 7; $i++){
+            
             $day = \Carbon\Carbon::now()->startOfWeek()->subWeek()->addDays($i);
 
             //if the {day}_field is checked
             $value = strtolower($day->format('l'));
-            $arr = [];
-            $time = "{$value}_time";
-            $arr['shift'] = $request->$time;
-            $client = "{$value}_client";
-            $arr['client'] = $request->$client;
-            $start = "{$value}_start";
-            $arr['start'] = $request->$start;
-            $end = "{$value}_end";
-            $arr['end'] = $request->$end;
-            $shift = "{$value}_shift_rate";
-            $wages += $request->$shift;
-            $arr['rate'] = $request->$shift;
-            $arr['date'] = $day->format('Y-m-d');
+            $shift = "{$value}_shift";
+            if($request->$shift === 1){
+                $arr = [];
+                $time = "{$value}_time";
+                $arr['shift'] = $request->$time;
+                $client = "{$value}_client";
+                $arr['client'] = $request->$client;
+                $start = "{$value}_start";
+                $arr['start'] = $request->$start;
+                $end = "{$value}_end";
+                $arr['end'] = $request->$end;
+                $shift = "{$value}_shift_rate";
+                $wages += $request->$shift;
+                $arr['rate'] = $request->$shift;
+                $arr['date'] = $day->format('Y-m-d');
 
-            $shifts_total++;
+                $shifts_total++;
+            }
         
 
             $miles = [];
