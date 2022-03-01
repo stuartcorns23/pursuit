@@ -29,7 +29,6 @@ class TimesheetController extends Controller
 
     public function store(Request $request)
     {
-        return dd($request);
         $timesheet = new Timesheet;
 
         $timesheet->user_id = auth()->user()->id;
