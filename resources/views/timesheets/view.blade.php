@@ -55,7 +55,7 @@
                                     <i class="fas fa-ellipsis-h"></i>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropDown{{$timesheet->id}}">
-                                    @if($timesheet->getTimesheet())
+                                    @if($timesheet->getTimesheet()->exists())
                                     <a class="dropdown-item" href="{{$timesheet->getTimesheet->getFullUrl()}}">Download Timesheet</a>
                                     @endif
                                     <a class="dropdown-item" href="{{route('users.edit', $timesheet->id)}}">Edit</a>
