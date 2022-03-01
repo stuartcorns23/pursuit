@@ -12,6 +12,7 @@ class CreateMediaTable extends Migration
             $table->bigIncrements('id');
 
             $table->morphs('model');
+            $table->foreignId('user_id')->nullable();
             $table->uuid('uuid')->nullable()->unique();
             $table->string('collection_name');
             $table->string('name');
