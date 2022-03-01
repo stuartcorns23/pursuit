@@ -19,10 +19,15 @@ class Timesheet extends Model implements HasMedia
     public function user(){
         return $this->belongsTo(User::class);
     }  
-    
-    public function getPDF(): string
+
+    public function registerMediaCollections(): void
     {
-        return $this->getFirstMediaUrl('timesheet');
+        $this->addMediaCollection('timesheet');
+    }
+    
+    public function getTimesheets(): string
+    {
+        return $this->media->where('collection_name', '==', 'timesheet')->first();
     }
 
 

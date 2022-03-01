@@ -55,8 +55,8 @@
                                     <i class="fas fa-ellipsis-h"></i>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropDown{{$timesheet->id}}">
-                                    @if($timesheet->getPDF())
-                                    <a class="dropdown-item" href="{{$timesheet->getPDF}}">Download Timesheet</a>
+                                    @if($timesheet->getTimesheet())
+                                    <a class="dropdown-item" href="{{$timesheet->getTimesheet->getFullUrl()}}">Download Timesheet</a>
                                     @endif
                                     <a class="dropdown-item" href="{{route('users.edit', $timesheet->id)}}">Edit</a>
                                     <form id="form{{$timesheet->id}}" action="{{ route('users.destroy', $timesheet->id) }}" method="POST">
