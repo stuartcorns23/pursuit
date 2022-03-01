@@ -56,7 +56,7 @@
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropDown{{$timesheet->id}}">
                                     
-                                    @if($timesheet->getTimesheet())
+                                    @if(!empty($timesheet->getTimesheet()))
                                     {{dd($timesheet->getTimesheet())}}
                                     <a class="dropdown-item" href="{{$timesheet->getTimesheet->getFullUrl()}}">Download Timesheet</a>
                                     @endif
