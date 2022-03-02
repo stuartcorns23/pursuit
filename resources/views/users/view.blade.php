@@ -87,7 +87,9 @@
                                     @if(!$user->confirmed)
                                     <li><a class="dropdown-item" href="{{route('users.approval', $user->id)}}">Approve/Deny</a></li>
                                     @endif
+                                    @can('update', $user)
                                     <li><a class="dropdown-item" href="{{route('users.show', $user->id)}}">View</a></li>
+                                    @endcan
                                     <li><a class="dropdown-item" href="{{route('users.edit', $user->id)}}">Edit</a></li>
                                     <form id="form{{$user->id}}" action="{{ route('users.destroy', $user->id) }}" method="POST">
                                         @csrf

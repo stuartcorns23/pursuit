@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Document;
 use Illuminate\Http\Request;
+use App\Models\Type;
+use Illuminate\Support\Facades\Storage;
 
 class DocumentController extends Controller
 {
@@ -14,7 +16,7 @@ class DocumentController extends Controller
      */
     public function index()
     {
-        
+        $documents = Document::all();
         return view('documents.view', compact('documents'));
     }
 
@@ -25,7 +27,8 @@ class DocumentController extends Controller
      */
     public function create()
     {
-        return view('documents.create');
+        $types = Type::all();
+        return view('documents.create', compact('types'));
     }
 
     /**
@@ -36,7 +39,16 @@ class DocumentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'file' => 'required|mimes:jpg,jpeg,png,svg|max:2048'
+        ]);
+
+        $fileName = $request->file->getClientOriginalName();
+
+        $document = Document::create(['name' => $request->name, 'type_id' => $request->type_id, 'expiry' => $request->expiry, 'path' => 'path', 'user_id' => auth()->user()->id])->save();
+        Storage::disk('public')->putFile('documents/new-doc.pdf', $fileName);
+        $document->addMediaFromUrl(Storage::disk('public')->url('documents/new-doc.pdf'))->toMediaCollection();
+        return redirect('documents.index');
     }
 
     /**

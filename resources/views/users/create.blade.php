@@ -14,8 +14,8 @@
         <div class="w-100 d-flex justify-content-between align-items-center">
             <h1 class="text-center mb-4">Users</h1>
             <div class="p-2">
-                <button class="btn btn-secondary">Back</button>
-                <button class="btn btn-success">Save</button>
+                <a class="btn btn-secondary" href="{{route('users.index')}}">Back</a>
+                <button class="btn btn-success" type="submit">Save</button>
             </div>
         </div>
         @if(session('danger_message'))
@@ -58,6 +58,10 @@
                                         <label for="email">Email<span class="text-danger">*</span></label>
                                         <input class="form-control <?php if ($errors->has('email')) {?>border-danger<?php }?>" name="email" type="email">    
                                     </div>   
+                                    <div class="form-group  mb-3">
+                                        <label for="company_name">Company Name</label>
+                                        <input class="form-control <?php if ($errors->has('company_name')) {?>border-danger<?php }?>" name="company_name" type="text">    
+                                    </div>  
                                     <div class="form-group mb-3">
                                         <label for="address_1">Address<span class="text-danger">*</span></label>
                                         <input type="text" class="form-control mb-3 <?php if ($errors->has('address_1')) {?>border-danger<?php }?>" name="address_1">

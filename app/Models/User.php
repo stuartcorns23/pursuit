@@ -26,10 +26,12 @@ class User extends Authenticatable
         'email',
         'phone',
         'password',
+        'company_name',
         'address_1',
         'address_2',
         'city',
         'postcode',
+        'accountant_id',
         'photo_id',
         'role_id',
         'admin',
@@ -66,6 +68,10 @@ class User extends Authenticatable
     public function role()
     {
         return $this->belongsTo('App\Models\Role');
+    }
+
+    public function accountant(){
+        return $this->belongsTo('App\Models\Accountant');
     }
 
 

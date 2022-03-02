@@ -20,4 +20,10 @@ class UserPolicy
     public function admin(User $user){
         return $user->admin === 1;
     }
+
+    public function update(User $user){
+        if(auth()->user()->admin == 1 || auth()->user()->id === $user->id){
+            return true;
+        }
+    }
 }

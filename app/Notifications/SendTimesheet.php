@@ -11,14 +11,11 @@ class SendTimesheet extends Notification
 {
     use Queueable;
 
-    /**
-     * Create a new notification instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    protected $timesheet;
+
+    public function __construct(Timesheet $timesheet)
     {
-        //
+        $this->timesheet = $timesheet;
     }
 
     /**
@@ -40,22 +37,12 @@ class SendTimesheet extends Notification
      */
     public function toMail($notifiable)
     {
+        //Send the User a confirmation sign up email
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+            ->subject('')
+            ->view(
+                'mail.login-user', ['user' => $this->user, 'password' => $this->password]
+            );
     }
 
-    /**
-     * Get the array representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return array
-     */
-    public function toArray($notifiable)
-    {
-        return [
-            //
-        ];
-    }
 }

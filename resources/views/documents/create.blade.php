@@ -32,14 +32,17 @@
             <div class="col-12" >
                 <div class="card shadow h-100" >
                     <div class="card-body" >
+                        @csrf
                        <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" class="form-control" placeholder="name">
+                            <input type="text" class="form-control" name="name" placeholder="name">
                         </div>
                         <div class="form-group">
                             <label for="type">Document Type</label>
-                            <select name="type" id="" class="form-control">
-                                <option value="license">License</option>    
+                            <select name="type_id" id="" class="form-control">
+                                @foreach($types as $type)
+                                <option value="{{$type->id}}">{{$type->name}}</option>    
+                                @endforeach
                             </select>    
                         </div>  
                         <div class="form-group">
@@ -48,7 +51,7 @@
                         </div>
                         <div class="form-group">
                             <label for="file">File</label>
-                            <input type="file" class="form-control">    
+                            <input type="file" class="form-control" name="file" capture="user" accept='file_extension|audio/*|video/*|image/*|media_type'>
                         </div>                      
                     </div >
                 </div >

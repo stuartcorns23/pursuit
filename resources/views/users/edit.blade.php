@@ -14,8 +14,8 @@
         <div class="w-100 d-flex justify-content-between align-items-center">
             <h1 class="text-center mb-4">Users</h1>
             <div class="p-2">
-                <button class="btn btn-secondary">Back</button>
-                <button class="btn btn-success">Save</button>
+                <a class="btn btn-secondary" href="{{route('users.index')}}">Back</a>
+                <button class="btn btn-success" type="submit">Save</button>
             </div>
         </div>
         @if(session('danger_message'))
@@ -57,7 +57,11 @@
                                     <div class="form-group  mb-3">
                                         <label for="email">Email<span class="text-danger">*</span></label>
                                         <input class="form-control <?php if ($errors->has('email')) {?>border-danger<?php }?>" name="email" type="email" value="{{ $user->email}}">    
-                                    </div>   
+                                    </div>  
+                                    <div class="form-group  mb-3">
+                                        <label for="company_name">Company Name</label>
+                                        <input class="form-control <?php if ($errors->has('company_name')) {?>border-danger<?php }?>"  value="{{ $user->company_name}}" name="company_name" type="text">    
+                                    </div>  
                                     <div class="form-group mb-3">
                                         <label for="address_1">Address<span class="text-danger">*</span></label>
                                         <input type="text" class="form-control mb-3 <?php if ($errors->has('address_1')) {?>border-danger<?php }?>" name="address_1" value="{{$user->address_1}}">
@@ -76,13 +80,14 @@
                                         </div>
                                     </div>
                                     <div class="form-group mb-3">
-                                        <label for="admin" class="form-label">Admin Permissions<span class="text-danger">*</span></label>
-                                        <select name="admin" id="admin" class="form-control">
+                                        <label for="account_id" class="form-label">Accountants*<span class="text-danger">*</span></label>
+                                        <select name="accountant_id" id="accountant_id" class="form-control">
+                                            <option value="">No Accountant Selected</option>
                                             <option value="1" @if($user->admin == 1){{ 'selected' }}@endif>Yes</option>
                                             <option value="0" @if($user->admin == 0){{ 'selected' }}@endif>No</option>
                                         </select>
-                                        <p class="text-muted small">** Allowing unauthorised users with 'Admin' permissions could be damaging! Please be careful
-                                            as to whom this permission is granted</p>
+                                        <p class="text-muted small">* You do not have to select an accountant, but this would enable you to forward the expenses over automatically.</p>
+                                        
                                     </div>
                                 </div >
                                 <div class="col-12 col-md-6 p-4 mb-3 " >
@@ -100,7 +105,7 @@
                                                     alt="Select Profile Picture" data-bs-toggle="modal" data-bs-target="#imageModal">
                                             @endif
                                         </div >
-                                        <div class="form-group">
+                                        <div class="form-group mb-3">
                                             <label for="exampleDataList" class="form-label">Datalist example<span class="text-danger">*</span></label>
                                             <input class="form-control" list="datalistOptions" id="exampleDataList" name="role" placeholder="Type to search..." value="{{ $user->role}}">
                                             <datalist id="datalistOptions">
@@ -108,6 +113,15 @@
                                                 <option value="{{$role->name}}">
                                                     @endforeach
                                             </datalist>
+                                        </div>
+                                        <div class="form-group mb-3">
+                                            <label for="admin" class="form-label">Admin Permissions<span class="text-danger">*</span></label>
+                                            <select name="admin" id="admin" class="form-control">
+                                                <option value="1" @if($user->admin == 1){{ 'selected' }}@endif>Yes</option>
+                                                <option value="0" @if($user->admin == 0){{ 'selected' }}@endif>No</option>
+                                            </select>
+                                            <p class="text-muted small">** Allowing unauthorised users with 'Admin' permissions could be damaging! Please be careful
+                                                as to whom this permission is granted</p>    
                                         </div>
                                     </div>
                                 </div>
