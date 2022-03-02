@@ -13,14 +13,11 @@ class SendTimesheet implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    /**
-     * Create a new job instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    protected $timesheet;
+    
+    public function __construct(Timesheet $timesheet)
     {
-        //
+        $this->timesheet = $timesheet;
     }
 
     /**
@@ -30,6 +27,11 @@ class SendTimesheet implements ShouldQueue
      */
     public function handle()
     {
-        //
+        //Send the Email
+        
+
+        //Send Notification that the email has been received
+
+        
     }
 }
