@@ -24,11 +24,6 @@ class Timesheet extends Model implements HasMedia
     {
         $this->addMediaCollection('timesheet');
     }
-    
-    public function getTimesheet()
-    {
-        return $this->media;
-    }
 
 
 }

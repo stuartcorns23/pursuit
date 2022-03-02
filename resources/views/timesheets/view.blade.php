@@ -56,8 +56,8 @@
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropDown{{$timesheet->id}}">
                                     
-                                    @if(!empty($timesheet->getTimesheet()))
-                                    <a class="dropdown-item" href="{{$timesheet->getTimesheet->getFullUrl()}}">Download Timesheet</a>
+                                    @if(!empty($timesheet->getFirstMedia()))
+                                    <a class="dropdown-item" href="{{$timesheet->getFirstMedia()->getFullUrl()}}">Download Timesheet</a>
                                     @endif
                                     <a class="dropdown-item" href="{{route('users.edit', $timesheet->id)}}">Edit</a>
                                     <form id="form{{$timesheet->id}}" action="{{ route('users.destroy', $timesheet->id) }}" method="POST">
