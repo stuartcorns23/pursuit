@@ -40,7 +40,7 @@ class DocumentController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'file' => 'required|mimes:jpg,jpeg,png,svg|max:2048'
+            'file' => 'required'
         ]);
 
         $fileName = $request->file->getClientOriginalName();

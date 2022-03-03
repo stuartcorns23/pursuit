@@ -9,7 +9,7 @@
 @section('content')
 <section class="page-wrapper">
     <div class="page-content">
-        <form action="{{ route('documents.store')}}" method="POST">
+        <form action="{{ route('documents.store')}}" method="POST" enctype="multipart/form-data">
 
         <div class="w-100 d-flex justify-content-between align-items-center">
             <h1 class="text-center mb-4">Documents</h1>
@@ -18,13 +18,8 @@
                 <button class="btn btn-success">Save</button>
             </div>
         </div>
-        @if(session('danger_message'))
-    <div class="alert alert-danger"> {!! session('danger_message')!!} </div>
-@endif
-
-@if(session('success_message'))
-    <div class="alert alert-success"> {!!session('success_message')!!} </div>
-@endif
+        
+        <x-handlers.alerts />
 
         <p>Upload a new document to your profile</p>
         
