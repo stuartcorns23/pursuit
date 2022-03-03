@@ -43,12 +43,15 @@ class DocumentController extends Controller
             'file' => 'required'
         ]);
 
-        $fileName = $request->file;
+        $date = \Carbon\Carbon::now()->format('dmy-his');
+        $file = $request->file;
+        $ext = $file->extension();
+        $fileName = auth()->user()->first_name.'-'.auth()->user()->last_name.'-'.$date.'.'.$ext;
 
         $document =  new Document;
         $document->fill(['name' => $request->name, 'type_id' => $request->type_id, 'expiry' => $request->expiry, 'path' => 'path', 'user_id' => auth()->user()->id])->save();
-        Storage::disk('public')->putFileAs('documents/', $fileName, 'new-doc.png');
-        $document->addMediaFromUrl(Storage::disk('public')->url('documents/new-doc.png'))->toMediaCollection();
+        Storage::disk('public')->putFileAs('documents/', $file, $fileName);
+        $document->addMediaFromUrl(Storage::disk('public')->url("documents/{$fileName}"))->toMediaCollection();
         return redirect('documents.index');
     }
 
