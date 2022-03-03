@@ -46,7 +46,7 @@ class DocumentController extends Controller
         $fileName = $request->file->getClientOriginalName();
 
         $document = Document::create(['name' => $request->name, 'type_id' => $request->type_id, 'expiry' => $request->expiry, 'path' => 'path', 'user_id' => auth()->user()->id])->save();
-        Storage::disk('public')->putFile('documents/new-doc.pdf', $fileName);
+        Storage::disk('public')->putFile('documents/new-doc.pdf', $request->file);
         $document->addMediaFromUrl(Storage::disk('public')->url('documents/new-doc.pdf'))->toMediaCollection();
         return redirect('documents.index');
     }
