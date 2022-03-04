@@ -67,7 +67,7 @@ class User extends Authenticatable
 
     public function documents()
     {
-        return $this->belongsTo('App\Models\Document');
+        return $this->hasMany('App\Models\Document');
     }
 
     public function role()
