@@ -61,7 +61,13 @@
                         </div>
                         <div class="col-12 col-lg-4 p-4 bg-secondary">
                             <h3>Documents</h3>
-                            
+                            {{ $user->documents()->count()}}
+                            @foreach($user->documents() as $document)
+                            {{$document->type->name}}
+                            @if($document->getFirstMedia())
+                                {{ $document->getFirstMedia()->name()}}
+                            @endif
+                            @endforeach
                         </div>
                     </div>
                     <hr>

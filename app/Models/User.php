@@ -65,6 +65,11 @@ class User extends Authenticatable
         return $this->belongsTo('App\Models\Photo');
     }
 
+    public function documents()
+    {
+        return $this->belongsTo('App\Models\Document');
+    }
+
     public function role()
     {
         return $this->belongsTo('App\Models\Role');

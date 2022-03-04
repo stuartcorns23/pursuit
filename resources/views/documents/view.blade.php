@@ -43,7 +43,14 @@
                         <td>@if($document->getFirstMedia()){{$document->getFirstMedia()->name}}@endif</td>
                         <td>{{$document->type->name}}</td>
                         <td>{{ \Carbon\Carbon::parse($document->expiry)->format('d-m-Y')}}</td>
-                        <td>Checked</td>
+                        <td>
+                            @if(!$document->checked)
+                                <button class="btn btn-sm btn-success">Approve</button>
+                                <button class="btn btn-sm btn-danger">Reject</button>
+                            @else
+                                Checked by User on {{ \Carbon\Carbon::parse($document->checked_date)->format('d-m-Y')}}
+                            @endif
+                        </td>
                         <td class="text-center">
                             <div class="dropdown">
                                 <button class="btn btn-secondary" id="dropDown{{$document->id}}" data-bs-toggle="dropdown" aria-expanded="false">
@@ -52,7 +59,7 @@
                                 <div class="dropdown-menu" aria-labelledby="dropDown{{$document->id}}">
                                     
                                     @if(!empty($document->getFirstMedia()))
-                                    <a class="dropdown-item" href="{{$document->getFirstMedia()->getFullUrl()}}">Download Document</a>
+                                    <a class="dropdown-item" href="{{$document->getFirstMedia()->getFullUrl()}}" target="_blank">View Document</a>
                                     @endif
                                     <a class="dropdown-item" href="{{route('documents.edit', $document->id)}}">Edit</a>
                                     <form id="form{{$document->id}}" action="{{ route('documents.destroy', $document->id) }}" method="POST">
