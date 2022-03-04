@@ -67,11 +67,21 @@ class DocumentController extends Controller
         $document->checked_date = \Carbon\Carbon::now();
         $document->save();
 
+        //alert user the document has been approved
+
         session()->flash('success_message', 'You have approved the document!');
         return redirect(route('documents.index'));
     }
 
-    public function reject(Document $document){
+    public function reject(Request $request){
+        //get the document ID
+
+        //get hte message as to why it has been rejected
+
+        //alert the user
+
+        //remove the document from the system
+
         
     }
 }

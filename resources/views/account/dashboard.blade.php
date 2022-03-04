@@ -26,8 +26,17 @@
                 </div>
                 <div class="col-12 col-lg-4 order-2 mb-4 mb-lg-0">
                     <div class="card bg-dark p-4 box">
-                        {{auth()->user()->fullname()}}<br>
-                        {{auth()->user()->role->name ?? 'Unknown'}}
+                        <div class="row">
+                            <div class="col-12 bg-danger text-white">TM Operative</div>
+                            <div class="col-3">
+                                Picture
+                            </div>
+                            <div class="col-9">
+                                {{auth()->user()->fullname()}}<br>
+                                {{auth()->user()->role->name ?? 'Unknown'}}
+                                
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-12 col-lg-4 order-2 order-lg-1 mb-4 mb-lg-0">
