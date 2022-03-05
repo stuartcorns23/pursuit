@@ -109,11 +109,11 @@ class ShiftController extends Controller
 
     public function accept(Shift $shift)
     {
-
+        
     }
 
     public function reject(Shift $shift)
     {
-
+        //Alert the admin when the shift has been rejected
     }
 }
