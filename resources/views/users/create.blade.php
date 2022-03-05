@@ -18,13 +18,8 @@
                 <button class="btn btn-success" type="submit">Save</button>
             </div>
         </div>
-        @if(session('danger_message'))
-    <div class="alert alert-danger"> {!! session('danger_message')!!} </div>
-@endif
-
-@if(session('success_message'))
-    <div class="alert alert-success"> {!!session('success_message')!!} </div>
-@endif
+        
+        <x-handlers.alerts />
 
         <p>Here are all of the users within the application</p>
         
@@ -51,8 +46,8 @@
                                         </div>
                                     </div>
                                     <div class="form-group  mb-3">
-                                        <label for="telephone">Telephone<span class="text-danger">*</span></label>
-                                        <input class="form-control <?php if ($errors->has('telephone')) {?>border-danger<?php }?>" name="telephone" type="tel">    
+                                        <label for="phone">Telephone<span class="text-danger">*</span></label>
+                                        <input class="form-control <?php if ($errors->has('phone')) {?>border-danger<?php }?>" name="phone" type="tel">    
                                     </div>  
                                     <div class="form-group  mb-3">
                                         <label for="email">Email<span class="text-danger">*</span></label>
@@ -80,13 +75,15 @@
                                         </div>
                                     </div>
                                     <div class="form-group mb-3">
-                                        <label for="admin" class="form-label">Admin Permissions<span class="text-danger">*</span></label>
-                                        <select name="admin" id="admin" class="form-control">
-                                            <option value="1">Yes</option>
-                                            <option value="0" selected>No</option>
+                                        <label for="account_id" class="form-label">Accountants*<span class="text-danger">*</span></label>
+                                        <select name="accountant_id" id="accountant_id" class="form-control">
+                                            <option value="0" selected>No Accountant Selected</option>
+                                            @foreach($accountants as $accountant)
+                                            <option value="{{$accountant->id}}">{{$accountant->name}}</option>
+                                            @endforeach
                                         </select>
-                                        <p class="text-muted small">** Allowing unauthorised users with 'Admin' permissions could be damaging! Please be careful
-                                            as to whom this permission is granted</p>
+                                        <p class="text-muted small">* You do not have to select an accountant, but this would enable you to forward the expenses over automatically.</p>
+                                        
                                     </div>
                                 </div >
                                 <div class="col-12 col-md-6 p-4 mb-3 " >
@@ -98,14 +95,23 @@
                                                     src="{{ asset('images/profile.jpg') }}" width="50%"
                                                     alt="Select Profile Picture" data-bs-toggle="modal" data-bs-target="#imageModal">
                                         </div >
-                                        <div class="form-group">
-                                            <label for="exampleDataList" class="form-label">Datalist example<span class="text-danger">*</span></label>
-                                            <input class="form-control" list="datalistOptions" id="exampleDataList" name="role" placeholder="Type to search...">
-                                            <datalist id="datalistOptions">
+                                        <div class="form-group mb-3">
+                                            <label for="exampleDataList" class="form-label">User Role/Qualification<span class="text-danger">*</span></label>
+                                            <input class="form-control" list="roleList" id="roleListInput" name="role" placeholder="Type to search..." autocomplete="off">
+                                            <datalist id="roleList">
                                                 @foreach($roles as $role)
                                                 <option value="{{$role->name}}">
                                                     @endforeach
                                             </datalist>
+                                        </div>
+                                        <div class="form-group mb-3">
+                                            <label for="admin" class="form-label">Admin Permissions<span class="text-danger">*</span></label>
+                                            <select name="admin" id="admin" class="form-control">
+                                                <option value="1" >Yes</option>
+                                                <option value="0" selected>No</option>
+                                            </select>
+                                            <p class="text-muted small">** Allowing unauthorised users with 'Admin' permissions could be damaging! Please be careful
+                                                as to whom this permission is granted</p>    
                                         </div>
                                     </div>
                                 </div>

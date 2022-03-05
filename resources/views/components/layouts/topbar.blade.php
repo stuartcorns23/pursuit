@@ -6,7 +6,7 @@
         </a>
         <div class="p-2 text-white d-none d-lg-inline">
             <a href="{{route('availability.create')}}" class="btn btn-sm btn-primary">Availability</a>
-            <button class="btn btn-sm btn-primary">My Shifts</button>
+            <a href="{{route('shifts.index')}}" class="btn btn-sm btn-primary">My Shifts</a>
             <a href="{{ route('timesheets.index')}}" class="btn btn-sm btn-primary">My Timesheets</a>
         </div>
         <div class="p-2 d-inline d-xl-none">

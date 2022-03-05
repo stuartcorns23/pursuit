@@ -26,16 +26,37 @@
                 </div>
                 <div class="col-12 col-lg-4 order-2 mb-4 mb-lg-0">
                     <div class="card bg-dark p-4 box">
-                        <div class="row">
-                            <div class="col-12 bg-danger text-white">TM Operative</div>
-                            <div class="col-3">
-                                Picture
-                            </div>
-                            <div class="col-9">
-                                {{auth()->user()->fullname()}}<br>
+                        <div class="row bg-white rounded">
+                            <div class="col-12 bg-danger text-white p-2 rounded-top text-uppercase text-center                                                                                                   ">NHSS</div>
+                            <div class="col-12 p-2 text-uppercase text-center text-dark font-weight-bold">TRAFFIC MANAGEMENT CERTIFICATION SCHEME</div>
+                            <div class="col-8 p-4 pt-0 text-dark">
+                                
+                                <h3>{{auth()->user()->fullname()}}</h3>
                                 {{auth()->user()->role->name ?? 'Unknown'}}
+                                <br>
+                                @if($lantra = auth()->user()->documents->where('type', '=', 'Lantra')->first())
+                                    {{'Reg:'.$lantra->name ?? 'Reg: Unknown'}}
+                                    <br>
+                                    {{'Expires:'.$lantra->expiry ?? 'Expiry: Unknown'}}
+                                    @else
+                                    {{'Reg: Unknown'}}
+                                    <br>
+                                    {{'Expiry: Unknown'}}
+                                    @endif
                                 
                             </div>
+                            <div class="col-4 p-4">
+                                @if(auth()->user()->photo()->exists())
+                                            <img id="profileImage"
+                                                    src="{{ asset(auth()->user()->photo->path) }}" width="100%"
+                                                    alt="Select Profile Picture" data-bs-toggle="modal" data-bs-target="#imageModal">
+                                            @else
+                                            <img id="profileImage"
+                                                    src="{{ asset('images/profile.jpg') }}" width="100%"
+                                                    alt="Select Profile Picture" data-bs-toggle="modal" data-bs-target="#imageModal">
+                                            @endif
+                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -176,11 +197,11 @@
                                     <div class="m-2 p-2">
                                     <h5 class="text-center">{{$day->format('jS M Y')}}</h5>
                                     @if($availability && $availability->unavailable() == true)
-                                        <p class="text-center d-block text-danger" data-date="{{ $day->format('Y-m-d') }}">Unavailable</p>
+                                        <p class="day-available text-center d-block text-danger" data-date="{{ $day->format('Y-m-d') }}">Unavailable</p>
                                     @elseif($availability && $availability->available() == true)
-                                        <p class="text-center d-block text-success" data-date="{{ $day->format('Y-m-d') }}">Available</p>
+                                        <p class="day-available text-center d-block text-success" data-date="{{ $day->format('Y-m-d') }}">Available</p>
                                     @else
-                                        <p class="text-center d-block text-warning" data-date="{{ $day->format('Y-m-d') }}">Not Set</p>
+                                        <p class="day-available text-center d-block text-warning" data-date="{{ $day->format('Y-m-d') }}">Not Set</p>
                                     @endif
                                     <div class="btn-group text-center w-100 mb-2" role="group" aria-label="Basic example">
                                         <button 
@@ -299,13 +320,14 @@
                 formData.append('user_id', user);
                 formData.append('select', select);
 
+                let dataMsg = document.querySelector('.day-available [data-date="${date}"]');
+
                 let xhr = new XMLHttpRequest();
 
                 xhr.onprogress = function(e){
                     //Get the model where the data attribute == the dates
                     let btns = document.querySelectorAll(`button[data-date="${date}"]`);
                     let title = document.querySelector(`p[data-date="${date}"]`)
-                    console.log(title);
                     btns.forEach((i) => {
                         i.classList.remove('btn-success');
                         i.classList.remove('btn-danger');

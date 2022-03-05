@@ -59,15 +59,19 @@
                             <p>{{$user->city}}</p>
                             <p>{{$user->post_code}}</p>
                         </div>
-                        <div class="col-12 col-lg-4 p-4 bg-secondary">
+                        <div class="col-12 col-lg-4 p-4">
                             <h3>Documents</h3>
-                            {{ $user->documents()->count()}}
-                            @foreach($user->documents() as $document)
-                            {{$document->type->name}}
-                            @if($document->getFirstMedia())
-                                {{ $document->getFirstMedia()->name()}}
-                            @endif
-                            @endforeach
+                            <ul class="list-group">
+                                @foreach($user->documents as $document)
+                                <li class="list-group-item">
+                                {{$document->type->name}}
+                                @if($document->getFirstMedia())
+                                    - <a href="{{ $document->getFirstMedia()->getFullUrl()}}">View Document</a>
+                                @endif
+                                </li>
+                                @endforeach
+                              </ul>
+                            
                         </div>
                     </div>
                     <hr>
@@ -75,44 +79,50 @@
                         <h3 class="text-center mb-4">Statistics</h3>
                         <div class="row">
                             <div class="col-2">
-                                <div class="card card-shadow bg-danger">
-                                    <div class="card-body">
-                                        Date Joined
+                                <div class="card card-shadow bg-primary text-center">
+                                    <div class="card-body text-white">
+                                        <span class="text-light">Date Joined</span><br>
+                                        <span class="fs-3">{{\Carbon\Carbon::parse($user->created_at)->format('M y')}}</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-2">
-                                <div class="card card-shadow bg-danger">
-                                    <div class="card-body">
-                                        Available Days
+                                <div class="card card-shadow bg-primary text-center">
+                                    <div class="card-body text-white">
+                                        <span class="text-light">Available Days</span><br>
+                                        <span class="fs-3">{{$user->available->count()}}</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-2">
-                                <div class="card card-shadow bg-danger">
-                                    <div class="card-body">
-                                        Accepted Shifts
+                                <div class="card card-shadow bg-primary text-center">
+                                    <div class="card-body text-white">
+                                        <span class="text-light">Shifts Accepted</span><br>
+                                        <span class="fs-3">{{$user->shifts->where('status', '=', 1)->count()}}</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-2">
-                                <div class="card card-shadow bg-danger">
-                                    <div class="card-body">
-                                        Rejected Shifts
+                                <div class="card card-shadow bg-danger text-center">
+                                    <div class="card-body text-white">
+                                        <span class="text-light">Shifts Rejected</span><br>
+                                        <span class="fs-3">{{$user->shifts->where('status', '=', 2)->count()}}</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-2">
-                                <div class="card card-shadow bg-danger">
-                                    <div class="card-body">
-                                        Rejected Shifts
+                                <div class="card card-shadow bg-primary text-center">
+                                    <div class="card-body text-white">
+                                        <span class="text-light">Timesheets</span><br>
+                                        <span class="fs-3">{{$user->timesheets->count()}}</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-2">
-                                <div class="card card-shadow bg-danger">
-                                    <div class="card-body">
-                                        Rejected Shifts
+                                <div class="card card-shadow bg-success text-center">
+                                    <div class="card-body text-white">
+                                        <span class="text-light">Total Wages</span><br>
+                                        <span class="fs-3">£700</span>
                                     </div>
                                 </div>
                             </div>
@@ -122,8 +132,58 @@
 
                     <div class="p-4">
                         <h3 class="text-center mb-4">Latest Shifts</h3>
-                        <table>
-
+                        <table class="table table-responsive" width="100%">
+                            <thead>
+                                <tr>
+                                    <th class="text-center" width="5%"> ID</th>
+                                    <th class="text-center">User</th>
+                                    <th>Client</th>
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                    <th>Rate</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($user->shifts as $shift)
+                                <tr>
+                                    <td class="text-center">{{$shift->id}}</td>
+                                    <td class="text-center">{{$shift->user->fullname()}}</td>
+                                    <td>{{ $shift->client->name}}</td>
+                                    <td>{{ $shift->date}}</td>
+                                    <td>{{ $shift->start_time}} - {{ $shift->finish_time }}</td>
+                                    <td>{{$shift->rate}}</td>
+                                    <td>
+                                        @if(\Carbon\Carbon::parse($shift->date)->isPast())
+                                            <span>Completed</span>
+                                        @else
+                                            @if(auth()->user()->id == $shift->user_id)
+                                                @if($shift->status == 1)
+                                                    <span class="text-success">Accepted on {{\Carbon\Carbon::parse($shift->responded_date)->format('d/m/Y')}}</span>
+                                                @elseif($shift->status == 2)
+                                                    <span class="text-danger">Rejected on {{\Carbon\Carbon::parse($shift->responded_date)->format('d/m/Y')}}</span>
+                                                @else
+                                                    <a href="{{route('shift.accept', $shift->id)}}" class="btn btn-success">Accept</a>
+                                                    <a href="{{route('shift.reject', $shift->id)}}" class="btn btn-danger">Reject</a>
+                                                @endif
+                                            @else
+                                                @if($shift->status == 1)
+                                                    <span class="text-success">Accepted on {{\Carbon\Carbon::parse($shift->responded_date)->format('d/m/Y')}}</span>
+                                                @elseif($shift->status == 2)
+                                                    <span class="text-danger">Rejected on {{\Carbon\Carbon::parse($shift->responded_date)->format('d/m/Y')}}</span>
+                                                @else
+                                                <span>Awaiting Descision</span>
+                                                @endif
+                                            @endif
+                                        @endif
+                                    </td>
+                                </tr>
+                                @endforeach
+                                @if($shifts->count() == 0)
+                                <tr><td colspan="7" class="text-center">No shift are currently on the system</td></tr>
+                                @endif
+            
+                            </tbody>
                         </table>
                     </div>
                 </div>

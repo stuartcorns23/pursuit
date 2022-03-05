@@ -14,18 +14,13 @@
             <div class="p-2 order-1 order-lg-2">
                 @can('viewAll', auth()->user())
                 <a href="{{route('availability.create')}}" class="btn btn-success"><i class="fas fa-plus"></i> Add Availability</a>
-                <a href="{{route('users.create')}}" class="btn btn-secondary">Download Month Schedule</a>
-                <a href="{{route('users.create')}}" class="btn btn-light">Help</a>
+                <a href="{{route('availability.showPDF', $date->format('F-Y'))}}" class="btn btn-warning">Download Month Schedule</a>
+                <a href="{{route('help.docs')}}" class="btn btn-secondary">Help</a>
                 @endcan
             </div>
         </div>
-        @if(session('danger_message'))
-            <div class="alert alert-danger"> {!! session('danger_message')!!} </div>
-        @endif
-
-        @if(session('success_message'))
-            <div class="alert alert-success"> {!!session('success_message')!!} </div>
-        @endif
+       
+        <x-handlers.alerts />
 
         <p class="fs-5">Here are all of the users within the application</p>
 
@@ -109,10 +104,6 @@
                                     @elseif($availability && $availability->available() == true)
                                     <div class="calendar-availability bg-success text-white">
                                         <i class="fas fa-check"></i> <span class="d-inline d-md-none d-xl-inline">Available</span></div>
-                                    @else
-                                    <div class="calendar-availability bg-secondary text-white">
-                                        <i class="fas fa-question"></i> <span class="d-inline d-md-none d-xl-inline">Unset</span>
-                                    </div>
                                     @endif
                                 @endif
                             </div>
@@ -139,13 +130,17 @@
 
                             @if(auth()->user()->admin == 1)
 
+                            @if($available)
                             <span class="p-2 text-center small badge bg-warning text-dark mb-1">
                                 Ops: {{$available}} Available
                             </span>
                             <br>
+                            @endif
+                            @if($shifts)
                             <span class="p-2 text-center small badge bg-primary">
                                 Shifts: {{$shifts}} Assigned
                             </span>
+                            @endif
 
                             @endif
                             

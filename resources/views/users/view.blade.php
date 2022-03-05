@@ -17,13 +17,8 @@
                 @endcan
             </div>
         </div>
-        @if(session('danger_message'))
-            <div class="alert alert-danger"> {!! session('danger_message')!!} </div>
-        @endif
-
-        @if(session('success_message'))
-            <div class="alert alert-success"> {!!session('success_message')!!} </div>
-        @endif
+        
+        <x-handlers.alerts />
 
         <p class="fs-5">Here are all of the users within the application</p>
 

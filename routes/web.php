@@ -31,6 +31,7 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     //Availability
     Route::get('/schedule/{month}/{year}', 'App\Http\Controllers\AvailabilityController@index')->name('availability.index');
     Route::get('/availability/create', 'App\Http\Controllers\AvailabilityController@create')->name('availability.create');
+    Route::get('/availability/{date}/showPDF', 'App\Http\Controllers\AvailabilityController@showPDF')->name('availability.showPDF');
     Route::post('/availability/set', 'App\Http\Controllers\AvailabilityController@set');
     Route::post('/availability/check', 'App\Http\Controllers\AvailabilityController@check');
     
@@ -38,6 +39,9 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::resource('/clients', 'App\Http\Controllers\ClientController');
     //Shifts
     Route::resource('/shifts', 'App\Http\Controllers\ShiftController');
+    Route::get('/shift/{shift}/accept', 'App\Http\Controllers\ShiftController@accept')->name('shift.accept');
+    Route::get('/shift/{shift}/reject', 'App\Http\Controllers\ShiftController@reject')->name('shift.reject');
+    Route::get('/shift/{shift}/pdf', 'App\Http\Controllers\ShiftController@showPDF')->name('shifts.showPDF');
     //Timesheets
     Route::resource('/timesheets', 'App\Http\Controllers\TimesheetController');
     //Document Type
@@ -53,9 +57,10 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::get('/user/{id}/deny', 'App\Http\Controllers\UserController@denyUser')->name('user.deny');
     Route::get('/user/{id}/text', 'App\Http\Controllers\UserController@sendSMS')->name('user.text');
     Route::get('user/profile', 'App\Http\Controllers\UserController@viewProfile')->name('user.profile');
+    Route::get('user/{user}/password', 'App\Http\Controllers\UserController@changeDetails')->name('user.change.password');
     
-
-
+    /* Help */
+    Route::get('help/documentation', 'App\Http\Controllers\HomeController@documentation')->name('help.docs');
     /* Photo Uplooader */
     Route::resource('/photos', 'App\Http\Controllers\PhotoController');
     Route::post('/photo/upload', 'App\Http\Controllers\PhotoController@upload');
