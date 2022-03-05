@@ -46,7 +46,7 @@
                         </div>
                         <div class="form-group">
                             <label for="file">File</label>
-                            <input type="file" class="form-control" name="file" capture="user" accept="image/*">
+                            <input type="file" class="form-control" name="file" capture="user" accept='file_extension|audio/*|video/*|image/*|media_type'>
                         </div>                      
                     </div >
                 </div >
