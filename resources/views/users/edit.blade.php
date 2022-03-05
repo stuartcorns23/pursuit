@@ -52,7 +52,7 @@
                                     </div>
                                     <div class="form-group  mb-3">
                                         <label for="telephone">Telephone<span class="text-danger">*</span></label>
-                                        <input class="form-control <?php if ($errors->has('telephone')) {?>border-danger<?php }?>" name="telephone" type="tel" value="{{$user->telephone}}">    
+                                        <input class="form-control <?php if ($errors->has('phone')) {?>border-danger<?php }?>" name="phone" type="tel" value="{{$user->phone}}">    
                                     </div>  
                                     <div class="form-group  mb-3">
                                         <label for="email">Email<span class="text-danger">*</span></label>
@@ -82,9 +82,10 @@
                                     <div class="form-group mb-3">
                                         <label for="account_id" class="form-label">Accountants*<span class="text-danger">*</span></label>
                                         <select name="accountant_id" id="accountant_id" class="form-control">
-                                            <option value="">No Accountant Selected</option>
-                                            <option value="1" @if($user->admin == 1){{ 'selected' }}@endif>Yes</option>
-                                            <option value="0" @if($user->admin == 0){{ 'selected' }}@endif>No</option>
+                                            <option value="0" selected>No Accountant Selected</option>
+                                            @foreach($accountants as $accountant)
+                                            <option value="{{$accountant->id}}" @if($accountant->id == $user->accountant_id){{ 'selected' }}@endif>{{$accountant->name}}</option>
+                                            @endforeach
                                         </select>
                                         <p class="text-muted small">* You do not have to select an accountant, but this would enable you to forward the expenses over automatically.</p>
                                         
@@ -106,9 +107,9 @@
                                             @endif
                                         </div >
                                         <div class="form-group mb-3">
-                                            <label for="exampleDataList" class="form-label">Datalist example<span class="text-danger">*</span></label>
-                                            <input class="form-control" list="datalistOptions" id="exampleDataList" name="role" placeholder="Type to search..." value="{{ $user->role}}">
-                                            <datalist id="datalistOptions">
+                                            <label for="exampleDataList" class="form-label">User Role/Qualification<span class="text-danger">*</span></label>
+                                            <input class="form-control" list="roleList" id="roleListInput" name="role" placeholder="Type to search..." autocomplete="off">
+                                            <datalist id="roleList">
                                                 @foreach($roles as $role)
                                                 <option value="{{$role->name}}">
                                                     @endforeach

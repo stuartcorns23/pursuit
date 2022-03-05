@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Str;
 
 use App\Models\Role;
 use App\Models\Shift;
@@ -35,6 +36,7 @@ class User extends Authenticatable
         'photo_id',
         'role_id',
         'admin',
+        'confirmed',
     ];
 
     /**
@@ -77,6 +79,14 @@ class User extends Authenticatable
 
     public function accountant(){
         return $this->belongsTo('App\Models\Accountant');
+    }
+
+    public function available(){
+        return $this->hasMany('App\Models\Availability');
+    }
+
+    public function shifts(){
+        return $this->hasMany('App\Models\Shift');
     }
 
 
@@ -132,5 +142,20 @@ class User extends Authenticatable
         }
     }
 
+
+    /* Laravel 9 */
+
+    /* protected function firstName(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => ucfirst($value),
+            set: fn ($value) => strtolower($value),
+        );
+    } */
+
+    public function setPhoneAttribute($value)
+    {
+        $this->attributes['phone'] = Str::replaceFirst('0', '+44', $value);
+    }
 
 }

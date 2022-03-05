@@ -13,20 +13,15 @@
             <h1 class="text-center mb-4">Shifts</h1>
             <div class="p-2">
                 @can('viewAll', auth()->user())
-                <a href="#" class="btn btn-info">Export</a>
-                <a href="#" class="btn btn-info">Generate PDF</a>
                 <a href="{{route('shifts.create')}}" class="btn btn-success">Add New Shift</a>
+                <a href="#" class="btn btn-primary">Export</a>
+                <a href="#" class="btn btn-warning">Generate PDF</a>
                 <a href="#" class="btn btn-info">Filter</a>
                 @endcan
             </div>
         </div>
-        @if(session('danger_message'))
-            <div class="alert alert-danger"> {!! session('danger_message')!!} </div>
-        @endif
-
-        @if(session('success_message'))
-            <div class="alert alert-success"> {!!session('success_message')!!} </div>
-        @endif
+       
+        <x-handlers.aLerts ></x-handlers.aLerts>
 
         <p class="fs-5">Here are all of the users within the application</p>
 
@@ -40,7 +35,9 @@
                         <th>Client</th>
                         <th>Date</th>
                         <th>Time</th>
+                        @if(auth()->user()->admin == 1)
                         <th>Charge</th>
+                        @endif
                         <th>Rate</th>
                         <th>Status</th>
                         <th class="text-center" width="5%">Options</th>
@@ -54,15 +51,43 @@
                         <td>{{ $shift->client->name}}</td>
                         <td>{{ $shift->date}}</td>
                         <td>{{ $shift->start_time}} - {{ $shift->finish_time }}</td>
+                        @if(auth()->user()->admin == 1)
                         <td>{{$shift->charge}}</td>
+                        @endif
                         <td>{{$shift->rate}}</td>
-                        <td>Accpeted on 12/05/2022</td>
+                        <td>
+                            @if(\Carbon\Carbon::parse($shift->date)->isPast())
+                                <span>Completed</span>
+                            @else
+                                @if(auth()->user()->id == $shift->user_id)
+                                    @if($shift->status == 1)
+                                        <span class="text-success">Accepted on {{\Carbon\Carbon::parse($shift->responded_date)->format('d/m/Y')}}</span>
+                                    @elseif($shift->status == 2)
+                                        <span class="text-danger">Rejected on {{\Carbon\Carbon::parse($shift->responded_date)->format('d/m/Y')}}</span>
+                                    @else
+                                        <a href="{{route('shift.accept', $shift->id)}}" class="btn btn-success">Accept</a>
+                                        <a href="{{route('shift.reject', $shift->id)}}" class="btn btn-danger">Reject</a>
+                                    @endif
+                                @else
+                                    @if($shift->status == 1)
+                                        <span class="text-success">Accepted on {{\Carbon\Carbon::parse($shift->responded_date)->format('d/m/Y')}}</span>
+                                    @elseif($shift->status == 2)
+                                        <span class="text-danger">Rejected on {{\Carbon\Carbon::parse($shift->responded_date)->format('d/m/Y')}}</span>
+                                    @else
+                                    <span>Awaiting Descision</span>
+                                    @endif
+                                @endif
+                            @endif
+                        </td>
                         <td class="text-center">
                             <div class="dropdown">
                                 <button class="btn btn-secondary" id="dropDown{{$shift->id}}" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fas fa-ellipsis-h"></i>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropDown{{$shift->id}}">
+                                    <li><a class="dropdown-item" href="{{route('shifts.show', $shift->id)}}">View Details</a></li>
+                                    <li><a class="dropdown-item" href="{{route('shifts.showPDF', $shift->id)}}">Download</a></li>
+                                    @if(auth()->user()->admin == 1 && !\Carbon\Carbon::parse($shift->date)->isPast())
                                     <li><a class="dropdown-item" href="{{route('shifts.edit', $shift->id)}}">Edit</a></li>
                                     <form id="form{{$shift->id}}" action="{{ route('shifts.destroy', $shift->id) }}" method="POST">
                                         @csrf
@@ -70,6 +95,7 @@
                                         <a class="deleteBtn dropdown-item" href="#"
                                            data-id="{{$shift->id}}">Delete</a>
                                     </form>
+                                    @endif
                                 </div>
                             </div>
                         </td>
@@ -87,7 +113,9 @@
                         <th>Client</th>
                         <th>Date</th>
                         <th>Time</th>
+                        @if(auth()->user()->admin == 1)
                         <th>Charge</th>
+                        @endif
                         <th>Rate</th>
                         <th>Status</th>
                         <th class="text-center" width="5%">Options</th>

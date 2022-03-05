@@ -29,6 +29,7 @@ class CreateUsersTable extends Migration
             $table->foreignId('photo_id')->default(0);
             $table->foreignId('role_id')->default(0);
             $table->integer('admin')->default(0);
+            $table->integer('confirmed')->default(0);
             $table->timestamps();
         });
     }

@@ -6,6 +6,8 @@ use App\Models\Availability;
 use App\Models\Shift;
 use Illuminate\Http\Request;
 use App\Models\User;
+use PDF;
+use Illuminate\Support\Facades\Storage;
 
 
 class AvailabilityController extends Controller
@@ -111,5 +113,29 @@ class AvailabilityController extends Controller
     public function destroy(Availability $availability)
     {
         //
+    }
+
+    public function showPDF($date){
+
+        $month = \Carbon\Carbon::parse($date);
+        $contxt = stream_context_create([
+            'ssl' => [
+                'verify_peer' => FALSE,
+                'verify_peer_name' => FALSE,
+                'allow_self_signed' => TRUE,
+            ]
+            ]);
+
+        $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
+        $pdf->getDomPDF()->setHttpContext($contxt);
+        $pdf->loadView('availability.showPDF', compact('date'));
+        $pdf->setPaper('a4', 'landscape');
+       
+       
+        Storage::disk('public')->put('timesheets/schedule-'.$date.'.pdf', $pdf->output());
+        $url = Storage::disk('public')->url('timesheets/schedule-'.$date.'.pdf');
+
+        session()->flash('success_message', 'Generated Month Schedule. Please click here to view <a href="'.$url.'">Monthly Schedule</a>');
+        return redirect(route('availability.index', [$month->format('m'), $month->format('Y')]));
     }
 }

@@ -16,6 +16,10 @@ use App\Policies\UserPolicy;
 use AWS;
 use App\Notifications\ApprovedAccount;
 
+use App\Models\Accountant;
+
+use App\Jobs\SendUserDetails;
+
 class UserController extends Controller
 {
     public function index()
@@ -35,8 +39,10 @@ class UserController extends Controller
         {
             return abort(403, 'Unauthorized - Create Users');
         }
+
+        $accountants = Accountant::all();
         $roles = Role::all();
-        return view('users.create', compact('roles'));
+        return view('users.create', compact('roles', 'accountants'));
     }
 
     public function store(Request $request)
@@ -73,8 +79,11 @@ class UserController extends Controller
             'photo_id' => $request->photo_id,  
             'role_id' => $role->id ?? 0,  
             'password' => $password,
-            'admin' => $request->admin
+            'admin' => $request->admin,
+            'confirmed' => 1,
         ])->save()){
+
+            SendUserDetails::dispatch($user, $unhash)->afterResponse();
             session()->flash('success_message', 'User has been successfully created!');
             return redirect(route('users.index'));
         }else{
@@ -102,8 +111,9 @@ class UserController extends Controller
             return abort(403, 'Unauthorized - Edit Users');
         }
 
+        $accountants = Accountant::all();
         $roles = Role::all();
-        return view('users.edit', compact('user', 'roles'));
+        return view('users.edit', compact('user', 'roles', 'accountants'));
     }
 
     public function update(Request $request, User $user)
