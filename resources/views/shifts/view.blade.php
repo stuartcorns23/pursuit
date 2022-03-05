@@ -21,7 +21,7 @@
             </div>
         </div>
        
-        <x-handlers.aLerts ></x-handlers.aLerts>
+        <x-handlers.alerts ></x-handlers.aLerts>
 
         <p class="fs-5">Here are all of the users within the application</p>
 

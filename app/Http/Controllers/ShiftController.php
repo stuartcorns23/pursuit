@@ -132,23 +132,16 @@ class ShiftController extends Controller
 
     public function accept(Shift $shift)
     {
-<<<<<<< HEAD
-        
-=======
         $shift->status = 1;
         $shift->responded_date = \Carbon\Carbon::now();
         $shift->save();
 
         session()->flash('success_message', 'You have accepted the shift. Click the shift to view more details');
         return redirect(route('shifts.index'));
->>>>>>> 1f3afe3424988be31335e063e7c7182ed8d7ab1b
     }
 
     public function reject(Shift $shift)
     {
-<<<<<<< HEAD
-        //Alert the admin when the shift has been rejected
-=======
         $shift->status = 2;
         $shift->responded_date = \Carbon\Carbon::now();
         $shift->save();
@@ -157,6 +150,5 @@ class ShiftController extends Controller
 
         session()->flash('danger_message', 'You have rejected the shift. Someone from Pursuit will be in contact shortly or email info@pursuit-tmr.co.uk to give reasons for your decsion');
         return redirect(route('shifts.index'));
->>>>>>> 1f3afe3424988be31335e063e7c7182ed8d7ab1b
     }
 }
