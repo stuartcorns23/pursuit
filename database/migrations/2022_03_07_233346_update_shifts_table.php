@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UpdateTimesheetsTable extends Migration
+class UpdateShiftsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class UpdateTimesheetsTable extends Migration
      */
     public function up()
     {
-        Schema::table('timesheets', function (Blueprint $table) {
+        Schema::table('shifts', function (Blueprint $table) {
             $table->string('pay_type')->default('per-shift');
-            $table->text('comments')->nullable();
         });
     }
 
@@ -26,7 +25,7 @@ class UpdateTimesheetsTable extends Migration
      */
     public function down()
     {
-        Schema::table('timesheets', function (Blueprint $table) {
+        Schema::table('shifts', function (Blueprint $table) {
             //
         });
     }

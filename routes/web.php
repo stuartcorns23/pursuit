@@ -58,6 +58,7 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::get('/user/{id}/text', 'App\Http\Controllers\UserController@sendSMS')->name('user.text');
     Route::get('user/profile', 'App\Http\Controllers\UserController@viewProfile')->name('user.profile');
     Route::get('user/{user}/password', 'App\Http\Controllers\UserController@changePassword')->name('user.change.password');
+    Route::put('user/{user}/password/update', 'App\Http\Controllers\UserController@updatePassword')->name('users.update.password');
     
     /* Help */
     Route::get('help/documentation', 'App\Http\Controllers\HomeController@documentation')->name('help.docs');
