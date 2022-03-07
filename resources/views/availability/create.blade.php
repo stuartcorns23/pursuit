@@ -139,23 +139,17 @@ aBtns.forEach(item =>{
         xhr.onprogress = function(e){
             //Get the model where the data attribute == the dates
             let btns = document.querySelectorAll(`button[data-date="${date}"]`);
-            let title = document.querySelector(`p[data-date="${date}"]`)
-            console.log(title);
             btns.forEach((i) => {
                 i.classList.remove('btn-success');
                 i.classList.remove('btn-danger');
                 i.classList.add('btn-secondary');
                 if(i.getAttribute('data-select') === select){
                     if(select === "unavailable"){
+                        i.classList.remove('btn-success');
                         i.classList.add('btn-danger','text-white');
-                        title.innerHTML = "Unavailable";
-                        title.classList.remove('text-warning', 'text-success')
-                        title.classList.add('text-danger');
                     }else{
+                        i.classList.remove('btn-danger');
                         i.classList.add('btn-success');
-                        title.innerHTML = "Available";
-                        title.classList.remove('text-warning', 'text-danger')
-                        title.classList.add('text-success');
                     }
                 }
             });
