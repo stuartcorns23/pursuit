@@ -19,7 +19,11 @@
                 <a href="{{route('users.create')}}" class="btn btn-success">Add New User</a>
                 @endcan
                 @can('update', $user)
-                <a href="{{route('users.create')}}" class="btn btn-warning">Update Details</a>
+                <a href="{{route('users.edit', $user->id)}}" class="btn btn-warning">Update Details</a>
+                @endcan
+                <a href="{{route('user.change.password', $user->id)}}" class="btn btn-danger">Rest Password</a>
+                @can('update', $user)
+                <a href="{{route('user.change.password', $user->id)}}" class="btn btn-danger">Change Password</a>
                 @endcan
             </div>
         </div>

@@ -57,7 +57,7 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::get('/user/{id}/deny', 'App\Http\Controllers\UserController@denyUser')->name('user.deny');
     Route::get('/user/{id}/text', 'App\Http\Controllers\UserController@sendSMS')->name('user.text');
     Route::get('user/profile', 'App\Http\Controllers\UserController@viewProfile')->name('user.profile');
-    Route::get('user/{user}/password', 'App\Http\Controllers\UserController@changeDetails')->name('user.change.password');
+    Route::get('user/{user}/password', 'App\Http\Controllers\UserController@changePassword')->name('user.change.password');
     
     /* Help */
     Route::get('help/documentation', 'App\Http\Controllers\HomeController@documentation')->name('help.docs');

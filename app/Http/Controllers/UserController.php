@@ -268,5 +268,9 @@ class UserController extends Controller
         $user->notify(new NewAccount());
     }
 
+    public function changePassword(User $user){
+        return view('users.password', compact('user'));
+    }
+
 
 }

@@ -33,12 +33,12 @@
                     <!-- Dropdown - User Information -->
                     <div class="dropdown-menu dropdown-menu-dark dropdown-menu-lg-end shadow animated--grow-in"
                         aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="{{route('user.profile')}}">
+                        <a class="dropdown-item" href="{{route('users.show', auth()->user()->id)}}">
                             <i class="fas fa-user fa-sm fa-fw mr-2 text-light"></i>
                             My Profile
                         </a>
                         @can('admin', auth()->user())
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item disabled" href="#">
                             <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                             Activity Log
                         </a>

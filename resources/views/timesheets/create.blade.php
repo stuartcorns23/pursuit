@@ -56,9 +56,9 @@
                                 @for($i=0; $i < 7; $i++)
                                 @php($day = \Carbon\Carbon::now()->startOfWeek()->subWeek()->addDays($i))
                                 @php($shift = \App\Models\Shift::whereDate('date', '=', $day)->whereUserId(auth()->user()->id)->first())
-                                <label for="{{strtolower($day->format('l'))}}">{{$day->format('l')}} @if($shift){{$shift->rate}}@endif</label>
+                                <label for="{{strtolower($day->format('l'))}}">{{$day->format('l')}} </label>
                                 <div class="row">
-                                    <div class="col-12 col-md-3 d-flex justify-content-between align-items-center">
+                                    <div class="col-12 col-md-2 d-flex justify-content-between align-items-center">
                                         <div>
                                             <input name="{{strtolower($day->format('l'))}}_shift" class="form-check-input me-2" type="checkbox" id="checkboxNoLabel" value="1">
                                         </div>
@@ -88,6 +88,11 @@
                                     </div>   
                                 </div>
                                 @endfor
+                            </div>
+
+                            <div class="form-group mb-4">
+                                <label for="comments">Any comments:</label>
+                                <textarea name="comments" name="comments" cols="30" rows="10" class="form-control"></textarea>
                             </div>
 
                             <div class="form-group mb-4 d-flex justify-content-start align-items-center">
@@ -150,15 +155,15 @@
                             </div>
                             
                             <h4 class="text-primary">Options</h4>
-                            <div class="form-group">
+                            <div class="form-group mb-4">
                                 <label for="accountants">Accounts</label>
-                                <select name="accountants" id="" class="form-control">
+                                <select name="accountants" id="" class="form-control" disabled>
                                     <option value="Hindsight">Hindsight</option>
                                     <option value="Hindsight">Quay Accounts</option>
                                 </select>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked @if(!auth()->user()->accountant) disabled @endif>
                                 <label class="form-check-label" for="flexCheckChecked">
                                 Send to Accountants
                                 </label>
