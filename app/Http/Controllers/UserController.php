@@ -272,5 +272,30 @@ class UserController extends Controller
         return view('users.password', compact('user'));
     }
 
+    public function updatePassword(Request $request)
+    {
+        $request->validate([
+            'oldPassword' => 'required',
+            'newPassword' => 'required',
+            'confirmNewPassword' => 'required',
+        ]);
+        $user = auth()->user();
+        $hashCheck = \Illuminate\Support\Facades\Hash::check($request->oldPassword, auth()->user()->password);
+        $newCheck = $request->newPassword === $request->confirmNewPassword;
+        if($hashCheck && $newCheck === true)
+        {
+            $newPasswordHashed = Hash::make($request->newPassword);
+            $user->password = $newPasswordHashed;
+            $user->save();
+            session()->flash('success_message', auth()->user()->first_name . ', you have successfully updated your Password.');
+
+                   return redirect(route("users.show", $user->id));
+
+        }else{
+            return redirect(route("user.change.password", $user->id))
+                ->with('danger_message', "Your Password Didn't match your current password please try again!");
+        }
+    }
+
 
 }
