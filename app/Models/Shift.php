@@ -11,7 +11,7 @@ class Shift extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'client_id', 'contact_name', 'date', 'start_time', 'finish_time', 'details', 'charge', 'rate', 'status', 'responded_date', 'completed'];
+    protected $fillable = ['user_id', 'client_id', 'contact_name', 'date', 'start_time', 'finish_time', 'details', 'charge', 'rate', 'status', 'responded_date', 'completed', 'pay_type'];
 
     public function client(){
         return $this->belongsTo(Client::class);

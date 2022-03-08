@@ -13,7 +13,7 @@ class Timesheet extends Model implements HasMedia
     use InteractsWithMedia;
     
     protected $fillable = [
-        'user_id', 'week_start', 'week_end', 'shifts', 'mileage', 'additional', 'total_shifts', 'total_wages'
+        'user_id', 'week_start', 'week_end', 'shifts', 'mileage', 'additional', 'total_shifts', 'total_wages', 'pay_type', 'comments'
     ];
 
     public function user(){
