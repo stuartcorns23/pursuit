@@ -23,16 +23,6 @@
         
         <x.handlers-alert :errors="$errors"></x.handlers-alert>
 
-        @if($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-
         <p>Complete the following information for the previous week of work with Pursuit TM Recruitment. </p>
       
             <div class="d-flex justify-content-center">
@@ -83,6 +73,12 @@
                                     <div class="col-12 col-md-2">
                                         <input type="time" value="{{$shift->finish_time ?? '06:00'}}" name="{{strtolower($day->format('l'))}}_end" class="form-control">    
                                     </div> 
+                                    <div class="col-2">
+                                        <select name="pay_type" class="form-control">
+                                            <option value="per-hour">Per Hour</option>
+                                            <option value="per-shift">Per Shift</option>
+                                        </select>
+                                    </div>
                                     <div class="col-12 col-md-2">
                                         <input type="currency" value="{{$shift->rate ?? ''}}" placeholder="£" name="{{strtolower($day->format('l'))}}_shift_rate" class="form-control">    
                                     </div>   
