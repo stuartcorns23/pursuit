@@ -77,8 +77,8 @@
                                     </div>
                                     <div class="col-12 col-md-2">
                                         <select name="pay_type" class="form-control">
-                                            <option value="per-shift" @if($shift->per_shift == 'per-shift') selected @endif>Per Shift</option>    
-                                            <option value="per-hour" @if($shift->per_shift == 'per-hour') selected @endif>Per Hour</option>    
+                                            <option value="per-shift" @if($shift->per_shift && $shift->per_shift == 'per-shift') selected @endif>Per Shift</option>    
+                                            <option value="per-hour" @if($shift->per_shift && $shift->per_shift == 'per-hour') selected @endif>Per Hour</option>    
                                         </select>    
                                     </div>   
                                 </div>
@@ -89,7 +89,7 @@
                                 <label for="comments">Any comments:</label>
                                 <textarea name="comments" name="comments" cols="30" rows="10" class="form-control">
 
-                                    
+
                                 </textarea>
                             </div>
 

@@ -89,6 +89,7 @@ class TimesheetController extends Controller
         $timesheet->additional = json_encode($expenses);
         $timesheet->total_shifts = $shifts_total;
         $timesheet->total_wages = $wages;
+        $timesheet->comments = $request->comments;
         $timesheet->save();
     
         //The Job for creating the timesheet PDF and sending it to Accountants and Pursuit TMR
