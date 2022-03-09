@@ -87,7 +87,7 @@
                             
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-4">
+                                        <div class="col-5">
                                             <label for="user_id">Operative</label>
                                                 <select name="user_id[]" class="form-control operatives">
                                                     @foreach($users as $user)
@@ -96,13 +96,20 @@
                                                 </select>
                                         </div>
                                     
-                                        <div class="col-4">
+                                        <div class="col-3">
                                             <label for="charge">Client Charge:</label>
                                             <input type="currency" name="charge[]" class="form-control">
                                         </div>
                                         <div class="col-3">
                                             <label for="rate">User Rate:</label>
                                             <input type="currency" name="rate[]" class="form-control">
+                                        </div>
+                                        <div class="col-3">
+                                            <label for="pay_type">Client Charge:</label>
+                                            <select name="pay_type[]" id="" class="form-control">
+                                                <option value="per-shift">Per Shift</option>
+                                                <option value="per-hour">Per Shift</option>
+                                            </select>
                                         </div>
                                         <div class="col-1 d-flex justify-content-end align-items-end">
                                             <i class="fas fa-times fa-2x"></i>
