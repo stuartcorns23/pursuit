@@ -59,7 +59,7 @@ class ShiftController extends Controller
                     $shift->details = $request->details;
                     $shift->charge = $request->charge[$i];
                     $shift->rate = $request->rate[$i];
-                    $shift->pay_type = $request->pay_type;
+                    $shift->pay_type = $request->pay_type[$i];
                     $shift->status = 0;
                     if($request->approved == 1){
                         $shift->status = 1;
