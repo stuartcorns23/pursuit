@@ -99,8 +99,8 @@
                                         <div class="col-4">
                                             <label for="pay_type">Pay Type:</label>
                                             <select name="pay_type[]" id="" class="form-control">
-                                                <option value="per-shift">Per Shift</option>
-                                                <option value="per-hour">Per Hour</option>
+                                                <option value="per-shift" @if($shift->pay_type == 'per-shift') selected @endif>Per Shift</option>
+                                                <option value="per-hour" @if($shift->pay_type == 'per-hour') selected @endif>Per Hour</option>
                                             </select>
                                         </div>
                                     </div>                                                                                                                                                                                                                                                                                                                                                                                                            
