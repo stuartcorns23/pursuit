@@ -54,7 +54,12 @@
                         @if(auth()->user()->admin == 1)
                         <td>{{$shift->charge}}</td>
                         @endif
-                        <td>{{$shift->rate}}</td>
+                        <td>
+                            {{$shift->rate}}
+                            @if($shift->pay_type == 'per-hour')
+                                {{'Per Hour'}}
+                            @endif
+                        </td>
                         <td>
                             @if(\Carbon\Carbon::parse($shift->date)->isPast())
                                 <span>Completed</span>
