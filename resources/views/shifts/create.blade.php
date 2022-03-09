@@ -96,19 +96,19 @@
                                                 </select>
                                         </div>
                                     
-                                        <div class="col-3">
+                                        <div class="col-2">
                                             <label for="charge">Client Charge:</label>
                                             <input type="currency" name="charge[]" class="form-control">
                                         </div>
-                                        <div class="col-3">
+                                        <div class="col-2">
                                             <label for="rate">User Rate:</label>
                                             <input type="currency" name="rate[]" class="form-control">
                                         </div>
-                                        <div class="col-3">
-                                            <label for="pay_type">Client Charge:</label>
+                                        <div class="col-2">
+                                            <label for="pay_type">Pay Type:</label>
                                             <select name="pay_type[]" id="" class="form-control">
                                                 <option value="per-shift">Per Shift</option>
-                                                <option value="per-hour">Per Shift</option>
+                                                <option value="per-hour">Per Hour</option>
                                             </select>
                                         </div>
                                         <div class="col-1 d-flex justify-content-end align-items-end">

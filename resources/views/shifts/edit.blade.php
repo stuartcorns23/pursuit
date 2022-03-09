@@ -88,13 +88,20 @@
                             
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-6">
+                                        <div class="col-4">
                                             <label for="charge">Client Charge:</label>
                                             <input type="currency" name="charge" class="form-control" value="{{$shift->charge}}">
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-4">
                                             <label for="rate">User Rate:</label>
                                             <input type="currency" name="rate" class="form-control" value="{{$shift->rate}}">
+                                        </div>
+                                        <div class="col-4">
+                                            <label for="pay_type">Pay Type:</label>
+                                            <select name="pay_type[]" id="" class="form-control">
+                                                <option value="per-shift">Per Shift</option>
+                                                <option value="per-hour">Per Hour</option>
+                                            </select>
                                         </div>
                                     </div>                                                                                                                                                                                                                                                                                                                                                                                                            
                             
