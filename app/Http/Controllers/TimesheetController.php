@@ -62,6 +62,7 @@ class TimesheetController extends Controller
                 $shift = "{$value}_shift_rate";
                 $wages += $request->$shift;
                 $arr['rate'] = $request->$shift;
+                $arr['pay_type'] = $request->pay_type;
                 $arr['date'] = $day->format('Y-m-d');
 
                 $shifts_total++;

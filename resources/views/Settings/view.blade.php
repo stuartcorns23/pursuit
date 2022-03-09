@@ -22,6 +22,9 @@
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Roles</button>
                     </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="accountants-tab" data-bs-toggle="tab" data-bs-target="#accountants" type="button" role="tab" aria-controls="accountants" aria-selected="false">Accountants</button>
+                    </li>
                 </ul>
                 <div class="tab-content bg-light text-secondary" id="myTabContent">
                     <div class="tab-pane fade show active p-4" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -133,6 +136,28 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade p-4" id="accountants" role="tabpanel" aria-labelledby="accountant-tab">
+                        <div>
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <h3>Accountants</h3>
+                                <div>
+                                    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addAccountantModal">Add New</button>
+                                </div>
+                            </div>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Address</th>
+                                        <th>Telephone</th>
+                                        <th>Email</th>
+                                    </tr>
+                                </thead>
+                            </table>
+
                         </div>
                     </div>
                 </div>
