@@ -121,7 +121,7 @@ class ShiftController extends Controller
             'rate' => 'required',
         ]);
 
-        $shift->fill($request->only('date', 'start_time', 'finish_time', 'client_id', 'details', 'contact_name', 'charge', 'rate'))->save();
+        $shift->fill($request->only('date', 'start_time', 'finish_time', 'client_id', 'details', 'contact_name', 'charge', 'rate', 'pay_type'))->save();
         session()->flash('success_message', "The shift for {$shift->user->fullname()} has been updated!");
         return redirect(route('shifts.index'));
     }
