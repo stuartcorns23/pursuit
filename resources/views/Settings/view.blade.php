@@ -150,12 +150,24 @@
                             <table>
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Address</th>
-                                        <th>Telephone</th>
-                                        <th>Email</th>
+                                        <th class="col-3">Name</th>
+                                        <th class="col-3">Address</th>
+                                        <th class="col-2 text-center">Telephone</th>
+                                        <th class="col-3 text-center">Email</th>
+                                        <th class="col-1 text-end">Options</th>
                                     </tr>
                                 </thead>
+                                <tbody>
+                                    @foreach($accountants as $account)
+                                    <tr>
+                                        <td>{{$accountant->name}}</td>
+                                        <td>{{$account->get_address()</td>
+                                        <td class="text-center">{{ $accountant->telephone }}</td>
+                                        <td class="text-center">{{$accountant->email}}</td>
+                                        <td class="text-end"></td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
                             </table>
 
                         </div>
