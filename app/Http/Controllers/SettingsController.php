@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Settings;
 use App\Models\Type;
 use App\Models\Role;
+use App\Models\Accountant;
 use Illuminate\Http\Request;
 
 class SettingsController extends Controller
@@ -14,6 +15,7 @@ class SettingsController extends Controller
     {
         $documents = Type::all();
         $roles = Role::all();
-        return view('settings.view', compact('documents', 'roles'));
+        $accountants = Accountant::all();
+        return view('settings.view', compact('documents', 'roles', 'accountants'));
     }
 }
