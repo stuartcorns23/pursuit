@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Dashboard | Pursuit TMR')
+@section('title', 'Settings | Pursuit TMR')
    
 @section('css')
 
@@ -147,7 +147,7 @@
                                 </div>
                             </div>
 
-                            <table>
+                            <table class="table table-responsive">
                                 <thead>
                                     <tr>
                                         <th class="col-3">Name</th>
