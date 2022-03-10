@@ -227,31 +227,45 @@
 
   <!-- Add Document Type Modal -->
 <div class="modal fade" id="roleAddModal" tabindex="-1" aria-labelledby="roleAddModalLabel" aria-hidden="true">
+<div class="modal fade" id="accountantAddModal" tabindex="-1" aria-labelledby="accountantAddModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="roleAddModalLabel">Add New Role</h5>
+          <h5 class="modal-title" id="accountAddModalLabel">Add New Accountant</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form action="{{route('roles.store')}}" method="POST">
+        <form action="{{route('accountants.store')}}" method="POST">
             @csrf
             <div class="modal-body">
                 <div class="form-group">
                     <label for="Name">Name</label>
-                    <input type="text" name="name" class="form-control">
+                    <input type="text" name="name" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <label for="rate">Rate</label>
-                    <input type="text" name="rate" class="form-control">
+                    <label for="address_1">Address</label>
+                    <input type="text" name="address_1" class="form-control" required>
+                    <input type="text" name="address_2" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="charge">Charge</label>
-                    <input type="text" name="charge" class="form-control">
+                    <label for="city">City</label>
+                    <input type="text" name="city" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="city">Post Code</label>
+                    <input type="text" name="postcode" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="telephone">Telephone</label>
+                    <input type="tel" name="telephone" class="form-control" required>
                 </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-success">Add Role</button>
+              <button type="submit" class="btn btn-success">Add Accountant</button>
             </div>
         </form>
       </div>

@@ -156,12 +156,13 @@
                             <div class="form-group mb-4">
                                 <label for="accountants">Accounts</label>
                                 <select name="accountants" id="" class="form-control" disabled>
+                                    <option value="0">Not Set</option>
                                     <option value="Hindsight">Hindsight</option>
                                     <option value="Hindsight">Quay Accounts</option>
                                 </select>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked @if(!auth()->user()->accountant) disabled @endif>
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" @if(!auth()->user()->accountant) disabled @endif>
                                 <label class="form-check-label" for="flexCheckChecked">
                                 Send to Accountants
                                 </label>
