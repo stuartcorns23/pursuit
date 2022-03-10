@@ -161,10 +161,10 @@
                                     @foreach($accountants as $account)
                                     <tr>
                                         <td>{{$accountant->name}}</td>
-                                        <td>{{$account->get_address()</td>
+                                        <td>{{$account->get_address()}}</td>
                                         <td class="text-center">{{ $accountant->telephone }}</td>
                                         <td class="text-center">{{$accountant->email}}</td>
-                                        <td class="text-end"></td>
+                                        <td class="text-end"><button class="btn btn-light">...</button></td>
                                     </tr>
                                     @endforeach
                                 </tbody>
