@@ -143,7 +143,7 @@
                             <div class="d-flex justify-content-between align-items-center mb-4">
                                 <h3>Accountants</h3>
                                 <div>
-                                    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addAccountantModal">Add New</button>
+                                    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#accountantAddModal">Add New</button>
                                 </div>
                             </div>
 
