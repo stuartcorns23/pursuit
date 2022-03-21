@@ -45,7 +45,7 @@
                     <tr>
                         <td class="text-center">{{$timesheet->id}}</td>
                         <td class="text-center">{{$timesheet->user->fullname()}}</td>
-                        <td>{{\Carbon\Carbon::parse($timesheet->week_beginning)->format('d\/m\/Y')}}</td>
+                        <td>{{\Carbon\Carbon::parse($timesheet->week_start)->format('d\/m\/Y')}}</td>
                         <td>{{\Carbon\Carbon::parse($timesheet->week_end)->format('d\/m\/Y')}}</td>
                         <td>{{ $timesheet->total_shifts}}</td>
                         <td>£{{$timesheet->total_wages}}</td>

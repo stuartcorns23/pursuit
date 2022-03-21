@@ -136,8 +136,10 @@
                     }
                 @endphp
                 <td>
-                    
                     £{{$wages}}
+                    @if($shift->pay_type == 'per-hour')
+                        <span style="font-size: 10px; color: #999;">({{$shift->rate}} per hour)</span>
+                    @endif
                 </td>
             </tr>
             @endif
