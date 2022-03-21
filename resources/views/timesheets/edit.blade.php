@@ -58,8 +58,8 @@
                                         </div>
                                         <select name="{{strtolower($day->format('l'))}}_time" class="form-control">
                                             <option value="0" selected="selected">Please select</option>
-                                            <option value="am" @if(isset($shift['shift']) && $shift['shit'] == 'am') selected @endif>AM Shift</option>
-                                            <option value="pm" @if(isset($shift['shift']) && $shift['shit'] == 'pm') selected @endif>PM Shift</option>
+                                            <option value="am" @if(isset($shift['shift']) && $shift['shift'] == 'am') selected @endif>AM Shift</option>
+                                            <option value="pm" @if(isset($shift['shift']) && $shift['shift'] == 'pm') selected @endif>PM Shift</option>
                                         </select>  
                                     </div>
                                     <div class="col-12 col-md-2">
