@@ -216,11 +216,18 @@
 
             xhr.onload = function(e) {
                 //Place the JSON Images into the modal
-                dayDetails.innerHTML = xhr.responseText;
-                console.log(xhr.responseText);
+                let day = JSON.parse(xhr.response);
                 modalTitle.innerHTML = date;
-                //dayDetails.innerHTML = xhr.responseText;
-                detailsModal.show();
+                if(day.shift){
+                    dayDetails.innerHTML = `
+                        <h3 class="text-primary text-center">${day.shift.client_id}</h3>
+                        <h4 class="text-muted text-center">${day.shift.start_time} - ${day.shift.finish_time}</h4>
+                        <p>${day.shift.details}</p>
+                        <p>Contact: ${day.shift.contact_name}</p>
+                    `
+                    detailsModal.show();
+                }
+                
             }
             xhr.open("POST", `/user/date`);
             xhr.send(formData);

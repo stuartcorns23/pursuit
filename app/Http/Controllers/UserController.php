@@ -166,63 +166,66 @@ class UserController extends Controller
 
         
         
-        $output = "";
+        $array = [];
 
         if($shift = auth()->user()->has_shift($date->format('Y-m-d'))){
-            $output .= "<h3>{$shift->client->name}</h3>";
-            $output .= "<p>Shift: {$shift->client->start_time} - {$shift->client->end_time}</p>";
-            $output .= "<p>Report to: {$shift->contact_name}</p>";
-            $output .= "<p>{$shift->details}</p>";
-            $output .= "<p>Rate: £{$shift->rate}</p>";
-            if($shift->status == 1){
-                $output .= "<p>Accepted on ".\Carbon\Carbon::parse($shift->response_date)->format('d-m-Y \a\t H:i')."</p>";
-            }elseif($shift->status == 2){
-                $output .= "<p>Rejected on ".\Carbon\Carbon::parse($shift->response_date)->format('d-m-Y \a\t H:i')."</p>";
-            }else{
-                $output .= "<p><a href='#'>Awaiting Response</a></p>";
-            }
+            $shift_array = [
+                'client_id' => $shift->client->name,
+                'contact_name' => $shift->contact_name,
+                'start_time' => $shift->start_time,
+                'finish_time' => $shift->finish_time,
+                'details' => $shift->details,
+                'charge' => $shift->charge,
+                'rate' => $shift->rate,
+                'pay_type' => $shift->pay_type,
+                'status' => $shift->status,
+                'response_date' => $shift->response_date,
+                'completed' => $shift->completed
+            ];
+            $array['shift'] = $shift_array;
         }
+        
 
         $availability = auth()->user()->availability($date->format('Y-m-d'));
-        $output .= "<hr>";
-        $output .= "<h4>Availability</h4>";
-        if($availability->unavailable() == true){
-            $output .= "<div class='calendar-availability bg-danger text-white'>";
-            $output .= "<i class='fas fa-times'></i> <span class='d-inline d-md-none d-xl-inline'>Unavailable</span></div>";
+        if($availability && $availability->unavailable() == true){
+            $array['availability'] = 'false';
         }elseif($availability && $availability->available() == true){
-            $output .= "<div class='calendar-availability bg-success text-white'>";
-            $output .= "<i class='fas fa-check'></i> <span class='d-inline d-md-none d-xl-inline'>Available</span></div>";
-        }else{
-            $output .= "<div class='calendar-availability bg-secondary text-white'>";
-            $output .= "<i class='fas fa-question'></i> <span class='d-inline d-md-none d-xl-inline'>Unset</span> </div>";
-           
+            $array['availability'] = 'true';
         }
 
         if(auth()->user()->admin == 1){
 
-            $output .= "<table class='table table-responsive'>
-                <thead>
-                <tr>
-                <th>Availabile</th>
-                <th>Unavailable</th>
-                <th>Unset</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                <td><ul>";
-            $avails = \App\Models\Availability::availableFilter($request->date)->get();
-            foreach($avails as $available){
-                $output .= "<li>{$available->user->fullname()}</li>";
-                
+            if($avails = \App\Models\Availability::dateFilter($request->date)->availableFilter()->get()){
+                $av = [];
+                foreach($avails as $available){
+                    $av[$available->user->id] = $available->user->fullname();
+                }
+                if(!empty($av)){
+                    $array['available'] = $av;
+                }
             }
             
-            $output .= "</ul></td><td></td><td></td></tr>
-                </tbody>
-            </table>";
 
-            return $output;
+            if($unavails = \App\Models\Availability::dateFilter($request->date)->unavailableFilter()->get()){
+                $unav = [];
+                foreach($unavails as $unavailable){
+                    $unav[$unavailable->user->id] = $unavailable->user->fullname();
+                }
+                if(!empty($unav)){
+                    $array['unavailable'] = $unav;
+                }
+            }
+            
+                if(!empty($av) && !empty($unav)){
+                $unset = \App\Models\User::count() - count($av) - count($unav);
+                $array['unset'] = $unset;
+            }
+            
+
+
+            
         }
+        return $array;
     }
 
     public function newUser($id)

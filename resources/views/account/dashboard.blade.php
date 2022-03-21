@@ -79,14 +79,8 @@
                            
                             @endforeach
                             {{-- IF there is no timesheet for hte previous week upload timesheet --}}
-                            @php
-                                $last_week = \Carbon\Carbon::now()->subWeek();
-                                $week_start = $last_week->startOfWeek();
-                                $week_end = $last_week->endOfWeek();
-                                $timesheet = \App\Models\Timesheet::whereUserId(auth()->user()->id)->where('week_start', '=', $week_start)->count();
-                                echo $timesheet;
-                            @endphp
-                            @if($timesheet < 1)
+
+                            @if($timesheets === 0)
                             <li class="list-group-item list-group-item-dark d-flex justify-content-between">
                                 <span>
                                     <i class="fas fa-exclamation-circle text-danger"></i> Timesheet for last week

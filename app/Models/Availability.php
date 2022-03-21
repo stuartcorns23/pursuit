@@ -65,13 +65,15 @@ class Availability extends Model
 
     }
 
-    public function scopeUnavailableFilter($query, $date){
-        $dates = \Carbon\Carbon::parse($date);
-        return $query->where('day', '=', 0)->where('night', '=', 0)->whereDate('date', '=', $dates);
+    public function scopeDateFilter($query, $dates){
+        return $query->whereDate('date', '=', $dates);
     }
 
-    public function scopeAvailableFilter($query, $date){
-        $dates = \Carbon\Carbon::parse($date);
-        return $query->where('day', '=', 1)->orWhere('night', '=', 1)->whereDate('date', '=', $dates);
+    public function scopeUnavailableFilter($query){
+        return $query->where('day', '=', 0)->where('night', '=', 0);
+    }
+
+    public function scopeAvailableFilter($query){
+        return $query->where('day', '=', 1)->orWhere('night', '=', 1);
     }
 }

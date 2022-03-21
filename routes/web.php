@@ -34,6 +34,7 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::get('/availability/{date}/showPDF', 'App\Http\Controllers\AvailabilityController@showPDF')->name('availability.showPDF');
     Route::post('/availability/set', 'App\Http\Controllers\AvailabilityController@set');
     Route::post('/availability/check', 'App\Http\Controllers\AvailabilityController@check');
+    Route::GET('/availability/{date}/check', 'App\Http\Controllers\UserController@viewDate');
     //Accountants
     Route::resource('/accountants', 'App\Http\Controllers\AccountantController');
     //Clients
