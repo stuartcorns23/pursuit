@@ -100,14 +100,16 @@
                             <div class="form-group mb-4 d-flex justify-content-start align-items-center">
                                 <!-- Rounded switch -->
                                 <label class="switch">
-                                    <input type="checkbox" id="expenses_toggle">
+                                    <input type="checkbox" id="expenses_toggle" 
+                                    @if($timesheet->additional || $timesheet->mileage) checked @endif
+                                    >
                                     <span class="slider-toggle round"></span>
                                 </label>
                                 <span class="ms-2">Add Expenses</span>
                             </div>
                             
                             <?php $mileage = json_decode($timesheet->mileage, true);?>
-                            <div id="expenses" class="d-none">
+                            <div id="expenses" class="@if(!$timesheet->additional && !$timesheet->mileage) d-none @endif">
                                 <h4 class="text-primary">Mileage</h4>
                                 <div class="miles mb-4">
                                     @for($i=0; $i < 7; $i++)
