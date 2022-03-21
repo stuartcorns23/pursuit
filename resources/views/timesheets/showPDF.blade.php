@@ -175,7 +175,7 @@
                 <td>{{ucFirst($key)}}</td>
                 <td>{{$mile->to}}</td>
                 <td>{{$mile->from}}</td>
-                <td>{{$mile->miles}}</td>
+                <td>{{$mile->total}}</td>
             </tr>
             @endforeach
         </tbody>
