@@ -71,18 +71,18 @@
                                         </select>  
                                     </div>    
                                     <div class="col-12 col-md-2">
-                                        <input type="time" value="{{$shift->['start'] ?? '18:00'}}" name="{{strtolower($day->format('l'))}}_start" class="form-control">
+                                        <input type="time" value="{{$shift['start'] ?? '18:00'}}" name="{{strtolower($day->format('l'))}}_start" class="form-control">
                                     </div>
                                     <div class="col-12 col-md-2">
-                                        <input type="time" value="{{$shift->end ?? '06:00'}}" name="{{strtolower($day->format('l'))}}_end" class="form-control">    
+                                        <input type="time" value="{{$shift['end'] ?? '06:00'}}" name="{{strtolower($day->format('l'))}}_end" class="form-control">    
                                     </div> 
                                     <div class="col-12 col-md-2">
-                                        <input type="currency" value="{{$shift->rate ?? ''}}" placeholder="£" name="{{strtolower($day->format('l'))}}_shift_rate" class="form-control">    
+                                        <input type="currency" value="{{$shift['rate'] ?? ''}}" placeholder="£" name="{{strtolower($day->format('l'))}}_shift_rate" class="form-control">    
                                     </div>
                                     <div class="col-12 col-md-2">
                                         <select name="pay_type" class="form-control">
-                                            <option value="per-shift" @if(isset($shift->pay_type) && $shift->pay_type == 'per-shift') selected @endif>Per Shift</option>    
-                                            <option value="per-hour" @if(isset($shift->pay_type) && $shift->pay_type == 'per-hour') selected @endif>Per Hour</option>    
+                                            <option value="per-shift" @if(isset($shift['pay_type']) && $shift['pay_type'] == 'per-shift') selected @endif>Per Shift</option>    
+                                            <option value="per-hour" @if(isset($shift['pay_type']) && $shift['pay_type'] == 'per-hour') selected @endif>Per Hour</option>    
                                         </select>    
                                     </div>   
                                 </div>
@@ -93,7 +93,7 @@
                                 <label for="comments">Any comments:</label>
                                 <textarea name="comments" name="comments" cols="30" rows="10" class="form-control">
 
-
+                                    {{$timesheet->comments}}
                                 </textarea>
                             </div>
 
