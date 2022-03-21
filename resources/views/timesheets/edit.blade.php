@@ -218,7 +218,7 @@
 
         addExpenseBtn.addEventListener('click', (e) => {
             element = additionElements[0].cloneNode(true);
-            additons.appendChild(element);
+            additions.appendChild(element);
         });
 
     </script>
