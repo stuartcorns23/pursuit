@@ -59,7 +59,7 @@
                                     @if(!empty($timesheet->getFirstMedia()))
                                     <a class="dropdown-item" href="{{$timesheet->getFirstMedia()->getFullUrl()}}">Download Timesheet</a>
                                     @endif
-                                    <a class="dropdown-item" href="{{route('users.edit', $timesheet->id)}}">Edit</a>
+                                    <a class="dropdown-item" href="{{route('timesheets.edit', $timesheet->id)}}">Edit</a>
                                     <form id="form{{$timesheet->id}}" action="{{ route('users.destroy', $timesheet->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')

@@ -8,14 +8,24 @@ use Illuminate\Http\Request;
 class AccountantController extends Controller
 {
     
+<<<<<<< HEAD
     ///////////////////////////////////////////
     /////////////View Functions////////////////
     ///////////////////////////////////////////
 
     public function index()
+=======
+    public function store(Request $request)
+>>>>>>> 91068464812036f5b568a7a807c48e9904c95d26
     {
-        //
-    }
+        $validation = $request->validate([
+            'name' => 'required',
+            'address_1' => 'required',
+            'city' => 'required',
+            'postcode' => 'required',
+            'telephone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+            'email' => 'required|unique:users|email:rfc,dns,spoof,filter',
+        ]);
 
     public function show(Accountant $accountant)
     {
