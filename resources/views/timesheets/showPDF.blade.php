@@ -126,15 +126,27 @@
                 <td>{{$shift->end}}</td>
                 @php
                     $total += $shift->rate
+                    $start_time = $day->format('d-m-Y')." ".$shift->$start;
+                    $end_time = $day->format('d-m-Y')." ".$request->$end;
+                    //get the rate variable
+                    if($shift->pay_ype == 'per-hour'){
+                        $diffInHours = \Carbon\Carbon::parse($start_time)->diffInHours(\Carbon\Carbon::parse($end_time));
+                        $wages = $shift->rate * $diffInHours;
+                    }else{
+                        $wages = $shift->rate;
+                    }
                 @endphp
-                <td>£{{$shift->rate}}</td>
+                <td>
+                    
+                    £{{$wages}}
+                </td>
             </tr>
             @endif
             
             @endforeach
             <tr>
                 <td colspan="5" class="text-end">Total</td>
-                <td>£{{$total}}</td>
+                <td>£{{$timesheet->total_wages}}</td>
             </tr>
         </tbody>
     </table>
@@ -194,7 +206,7 @@
                 <td>
                     <?php $expenses = json_decode($timesheet->additional);?>
                     @foreach($expenses as $key => $value)
-                    <strong>{{$key}}</strong>: £{{$value}}
+                    <strong>{{$key}}</strong>: £{{$value}}<br>
                     @endforeach
                 </td>
             </tr>
