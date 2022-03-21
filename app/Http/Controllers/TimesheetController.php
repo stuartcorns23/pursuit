@@ -60,16 +60,15 @@ class TimesheetController extends Controller
                 $end = "{$value}_end";
                 $arr['end'] = $request->$end;
                 
-                $start_time = $day->format('d-m-Y')." ".$request->start;
-                return dd($start_time);
-                $end_time = $day->format('d-m-Y')." ".$request->end;
+                $start_time = $day->format('d-m-Y')." ".$request->$start;
+                $end_time = $day->format('d-m-Y')." ".$request->$end;
                 $type = "{$value}_pay_type";
                 $arr['pay_type'] = $request->$type;
                 //get the rate variable
                 $shift = "{$value}_shift_rate";
                 if($request->$type == 'per-hour'){
-                    $diffInHours = \Carbon\Carbon::parse($start_time);
-                    
+                    $diffInHours = \Carbon\Carbon::parse($start_time)->diffInHours(\Carbon\Carbon::parse($end_time));
+                    return dd($diffInHours);
                     $hourly = $request->$shift * $diffInHours;
                     $wages += $hourly;
                 }else{
