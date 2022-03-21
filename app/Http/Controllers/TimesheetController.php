@@ -188,6 +188,7 @@ class TimesheetController extends Controller
             $expenses[$request->expense[$i]] = $request->value[$i];
         }
 
+        return dd($expenses);
 
         $timesheet->shifts = json_encode($shifts);
         $timesheet->mileage = json_encode($mileage);
