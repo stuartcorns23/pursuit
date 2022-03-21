@@ -43,7 +43,7 @@
                             <hr>
                             <h4 class="text-primary">Shifts</h4>
                             <div class="shifts mb-4">
-                                <?php $shifts = json_decode($timesheet->shifts)->toArray();?>
+                                <?php $shifts = json_decode($timesheet->shifts, true);?>
                                 @for($i=0; $i < 7; $i++)
                                 @php($day = \Carbon\Carbon::now()->startOfWeek()->subWeek()->addDays($i))
                                 @php($shift = \App\Models\Shift::whereDate('date', '=', $day)->whereUserId(auth()->user()->id)->first())
