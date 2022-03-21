@@ -48,7 +48,7 @@
                                 @php($shift = \App\Models\Shift::whereDate('date', '=', $day)->whereUserId(auth()->user()->id)->first())
                                 <label for="{{strtolower($day->format('l'))}}">{{$day->format('l')}} </label>
                                 <div class="row">
-                                    <div class="col-12 col-md-2 d-flex justify-content-between align-items-center">
+                                    <div class="col-12 col-md-2 mb-2 mb-sm-0 d-flex justify-content-between align-items-center">
                                         <div>
                                             <input name="{{strtolower($day->format('l'))}}_shift" class="form-check-input me-2" type="checkbox" id="checkboxNoLabel" value="1">
                                         </div>
@@ -58,7 +58,7 @@
                                             <option value="pm">PM Shift</option>
                                         </select>  
                                     </div>
-                                    <div class="col-12 col-md-2">
+                                    <div class="col-12 col-md-2 col-md-2 mb-2 mb-sm-0">
                                         <select name="{{strtolower($day->format('l'))}}_client" class="form-control">
                                             <option selected>Please select a client</option>
                                             @foreach($clients as $client)
@@ -66,16 +66,16 @@
                                             @endforeach
                                         </select>  
                                     </div>    
-                                    <div class="col-12 col-md-2">
+                                    <div class="col-12 col-md-2 col-md-2 mb-2 mb-sm-0">
                                         <input type="time" value="{{$shift->start_time ?? '18:00'}}" name="{{strtolower($day->format('l'))}}_start" class="form-control">
                                     </div>
-                                    <div class="col-12 col-md-2">
+                                    <div class="col-12 col-md-2 col-md-2 mb-2 mb-sm-0">
                                         <input type="time" value="{{$shift->finish_time ?? '06:00'}}" name="{{strtolower($day->format('l'))}}_end" class="form-control">    
                                     </div> 
-                                    <div class="col-12 col-md-2">
+                                    <div class="col-12 col-md-2 col-md-2 mb-2 mb-sm-0">
                                         <input type="currency" value="{{$shift->rate ?? ''}}" placeholder="£" name="{{strtolower($day->format('l'))}}_shift_rate" class="form-control">    
                                     </div>
-                                    <div class="col-12 col-md-2">
+                                    <div class="col-12 col-md-2 col-md-2 mb-2 mb-sm-0">
                                         <select name="{{strtolower($day->format('l'))}}_pay_type" class="form-control">
                                             <option value="per-shift" @if(isset($shift->pay_type) && $shift->pay_type == 'per-shift') selected @endif>Per Shift</option>    
                                             <option value="per-hour" @if(isset($shift->pay_type) && $shift->pay_type == 'per-hour') selected @endif>Per Hour</option>    
