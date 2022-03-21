@@ -125,7 +125,6 @@
                 <td>{{$shift->start}}</td>
                 <td>{{$shift->end}}</td>
                 @php
-                    $total += $shift->rate
                     $start_time = $day->format('d-m-Y')." ".$shift->$start;
                     $end_time = $day->format('d-m-Y')." ".$request->$end;
                     //get the rate variable
