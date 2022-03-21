@@ -122,7 +122,8 @@ class TimesheetController extends Controller
      */
     public function edit(Timesheet $timesheet)
     {
-        //
+        $clients = Client::all();
+        return view('timesheets.edit', compact('clients'));
     }
 
     /**
