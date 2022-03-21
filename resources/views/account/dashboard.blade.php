@@ -83,7 +83,7 @@
                                 $last_week = \Carbon\Carbon::now()->subWeek();
                                 $week_start = $last_week->startOfWeek();
                                 $week_end = $last_week->endOfWeek();
-                                $timesheet = \App\Models\Timesheet::whereUserId(auth()->user()->id)->whereBetween('week_start', [$week_start, $week_end])->count();
+                                $timesheet = \App\Models\Timesheet::whereUserId(auth()->user()->id)->where('week_start', '=', $week_start)->count();
                                 echo $timesheet;
                             @endphp
                             @if($timesheet < 1)
