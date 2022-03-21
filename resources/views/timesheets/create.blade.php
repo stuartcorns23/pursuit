@@ -133,7 +133,7 @@
                                         <div class="col-8">
                                             <select name="expense[]" class="form-control">
                                                 <option value="5hr">5 Hour Shift Allowance (£5)</option>
-                                                <option value="5hr+"></option>Above 5 Hour Shift Allowance (£10)</option>
+                                                <option value="5hr+">Above 5 Hour Shift Allowance (£10)</option>
                                                 <option value="15hr+">15 Hour Shift Allowance (£25)</option>
                                                 <option value="PIE">Personal Incidental Expenses (@£10 per overnight/nightshift)</option>
                                                 <option value="wash">Washing of Workwear (MAX £10 per week)</option>
