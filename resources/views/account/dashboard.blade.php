@@ -84,6 +84,7 @@
                                 $week_start = $last_week->startOfWeek();
                                 $week_end = $last_week->endOfWeek();
                                 $timesheet = \App\Models\Timesheet::whereUserId(auth()->user()->id)->whereBetween('week_start', [$week_start, $week_end])->count();
+                                echo $count;
                             @endphp
                             @if($timesheet < 1)
                             <li class="list-group-item list-group-item-dark d-flex justify-content-between">
