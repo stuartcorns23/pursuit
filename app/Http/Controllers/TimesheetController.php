@@ -61,6 +61,7 @@ class TimesheetController extends Controller
                 $arr['end'] = $request->$end;
                 
                 $start_time = $day->format('d-m-Y')." ".$request->start;
+                return dd($start_time);
                 $end_time = $day->format('d-m-Y')." ".$request->end;
                 $type = "{$value}_pay_type";
                 $arr['pay_type'] = $request->$type;
@@ -68,7 +69,7 @@ class TimesheetController extends Controller
                 $shift = "{$value}_shift_rate";
                 if($request->$type == 'per-hour'){
                     $diffInHours = \Carbon\Carbon::parse($start_time);
-                    return dd($diffInHours);
+                    
                     $hourly = $request->$shift * $diffInHours;
                     $wages += $hourly;
                 }else{
