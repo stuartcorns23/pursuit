@@ -47,7 +47,7 @@
                                 @for($i=0; $i < 7; $i++)
                                 @php($day = \Carbon\Carbon::now()->startOfWeek()->subWeek()->addDays($i))
                                 @php($shift = $shifts[strtolower($day->format('l'))])
-                                {{dd($shift)}}
+            
                                 <label for="{{strtolower($day->format('l'))}}">{{$day->format('l')}} </label>
                                 <div class="row">
                                    
@@ -66,12 +66,12 @@
                                         <select name="{{strtolower($day->format('l'))}}_client" class="form-control">
                                             <option selected>Please select a client</option>
                                             @foreach($clients as $client)
-                                            <option value="{{$client->id}}" @if($shift && $shift->client == $client->id){{ 'selected' }}@endif>{{$client->name}}</option>
+                                            <option value="{{$client->id}}" @if($shift && $shift['client'] == $client->id){{ 'selected' }}@endif>{{$client->name}}</option>
                                             @endforeach
                                         </select>  
                                     </div>    
                                     <div class="col-12 col-md-2">
-                                        <input type="time" value="{{$shift->start ?? '18:00'}}" name="{{strtolower($day->format('l'))}}_start" class="form-control">
+                                        <input type="time" value="{{$shift->['start'] ?? '18:00'}}" name="{{strtolower($day->format('l'))}}_start" class="form-control">
                                     </div>
                                     <div class="col-12 col-md-2">
                                         <input type="time" value="{{$shift->end ?? '06:00'}}" name="{{strtolower($day->format('l'))}}_end" class="form-control">    
