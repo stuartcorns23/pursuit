@@ -129,23 +129,21 @@
                                 <div class="additions mb-2">
                                     <label for="expenses">Expenses</label>
                                     
-                                    <?php $additional = json_decode($timesheet->additional, true);?>
-                                    @foreach($additional as $key => $value)
                                     <div class="row mb-2">
                                         <div class="col-8">
                                             <select name="expense[]" class="form-control">
-                                                <option value="5hr" @if($key == '5hr') selected @endif>5 Hour Shift Allowance (£5)</option>
-                                                <option value="5hr+" @if($key == '5hr+') selected @endif>Above 5 Hour Shift Allowance (£10)</option>
-                                                <option value="15hr+" @if($key == '15hr+') selected @endif>15 Hour Shift Allowance (£25)</option>
-                                                <option value="PIE" @if($key == 'PIE') selected @endif>Personal Incidental Expenses (@£10 per overnight/nightshift)</option>
-                                                <option value="wash" @if($key == 'wash') selected @endif>Washing of Workwear (MAX £10 per week)</option>
-                                                <option value="office" @if($key == 'office') selected @endif>Home Office (£6 per week)</option>
-                                                <option value="overnight" @if($key == 'overnight') selected @endif>Overnight (£25 per night)</option>
-                                                <option value="toll" @if($key == 'toll') selected @endif>Toll Bridges</option>
+                                                <option value="5hr">5 Hour Shift Allowance (£5)</option>
+                                                <option value="5hr+"></option>Above 5 Hour Shift Allowance (£10)</option>
+                                                <option value="15hr+">15 Hour Shift Allowance (£25)</option>
+                                                <option value="PIE">Personal Incidental Expenses (@£10 per overnight/nightshift)</option>
+                                                <option value="wash">Washing of Workwear (MAX £10 per week)</option>
+                                                <option value="office">Home Office (£6 per week)</option>
+                                                <option value="overnight">Overnight (£25 per night)</option>
+                                                <option value="toll">Toll Bridges</option>
                                             </select>
                                         </div>
                                         <div class="col-4">
-                                            <input type="text" name="value[]" placeholder="£" class="form-control" value="{{$value}}">
+                                            <input type="text" name="value[]" placeholder="£" class="form-control" value="">
                                         </div>
                                     </div>
                                     @endforeach
