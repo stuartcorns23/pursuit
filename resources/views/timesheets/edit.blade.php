@@ -29,6 +29,7 @@
                 <div class="col-12 col-lg-10" >
                     <div class="card shadow h-100" >
                         <div class="card-body text-secondary" >
+                            @method('PATCH')
                             @csrf
                             <div class="form-group row">
                                 <div class="col-6">
