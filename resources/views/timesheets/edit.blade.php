@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'New Timesheet | Pursuit TMR')
+@section('title', 'Edit Timesheet | Pursuit TMR')
 
 @section('css')
 
@@ -12,7 +12,7 @@
         <form action="{{route('timesheets.update', $timesheet->id)}}" method="POST">
 
         <div class="w-100 d-flex justify-content-between align-items-center">
-            <h1 class="text-center mb-4">Submit Timesheet</h1>
+            <h1 class="text-center mb-4">Edit Timesheet</h1>
             <div class="p-2">
                 <div class="p-2">
                     <a href="{{route('timesheets.index')}}" class="btn btn-secondary">Back</a>
