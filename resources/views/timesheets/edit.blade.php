@@ -82,8 +82,8 @@
                                     </div>
                                     <div class="col-12 col-md-2">
                                         <select name="{{strtolower($day->format('l'))}}_pay_type" class="form-control">
-                                            <option value="per-shift" @if(isset($shift[strtolower($day->format('l'))}}.'_pay_type']) && $shift[strtolower($day->format('l'))}}.'_pay_type'] == 'per-shift') selected @endif>Per Shift</option>    
-                                            <option value="per-hour" @if(isset($shift[strtolower($day->format('l'))}}.'_pay_type']) && $shift[strtolower($day->format('l'))}}.'_pay_type'] == 'per-hour') selected @endif>Per Hour</option>    
+                                            <option value="per-shift" @if(isset($shift[strtolower($day->format('l')).'_pay_type']) && $shift[strtolower($day->format('l')).'_pay_type'] == 'per-shift') selected @endif>Per Shift</option>    
+                                            <option value="per-hour" @if(isset($shift[strtolower($day->format('l')).'_pay_type']) && $shift[strtolower($day->format('l')).'_pay_type'] == 'per-hour') selected @endif>Per Hour</option>    
                                         </select>    
                                     </div>   
                                 </div>
