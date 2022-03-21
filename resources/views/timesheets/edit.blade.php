@@ -56,8 +56,8 @@
                                         </div>
                                         <select name="{{strtolower($day->format('l'))}}_time" class="form-control">
                                             <option value="0" selected="selected">Please select</option>
-                                            <option value="am" @if($shift[strtolower($day->format('l'))]->shift == 'am') checked @endif>AM Shift</option>
-                                            <option value="pm" @if($shift[strtolower($day->format('l'))]->shift == 'pm') checked @endif>PM Shift</option>
+                                            <option value="am" >AM Shift</option>
+                                            <option value="pm" >PM Shift</option>
                                         </select>  
                                     </div>
                                     <div class="col-12 col-md-2">
