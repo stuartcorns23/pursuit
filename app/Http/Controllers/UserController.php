@@ -163,6 +163,8 @@ class UserController extends Controller
 
     public function viewDate(Request $request){
         $date = \Carbon\Carbon::parse($request->date);
+
+        
         
         $output = "";
 
@@ -209,9 +211,10 @@ class UserController extends Controller
                 <tbody>
                 <tr>
                 <td><ul>";
-
-            foreach(\App\Models\Availability::availableFilter($date)->get() as $available){
+            $avails = \App\Models\Availability::availableFilter($request->date)->get();
+            foreach($avails as $available){
                 $output .= "<li>{$available->user->fullname()}</li>";
+                
             }
             
             $output .= "</ul></td><td></td><td></td></tr>
@@ -297,5 +300,24 @@ class UserController extends Controller
         }
     }
 
+    public function storePass(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+        ]);
+
+        // We will send the password reset link to this user. Once we have attempted
+        // to send the link, we will examine the response then see the message we
+        // need to show to the user. Finally, we'll send out a proper response.
+        $status = Password::sendResetLink(
+            $request->only('email')
+        );
+
+        return $status == Password::RESET_LINK_SENT
+            ? back()->with('status', __($status))
+            : back()->withInput($request->only('email'))
+                ->withErrors(['email' => __($status)]);
+    
+    }
 
 }

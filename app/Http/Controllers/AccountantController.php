@@ -7,77 +7,65 @@ use Illuminate\Http\Request;
 
 class AccountantController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
+    ///////////////////////////////////////////
+    /////////////View Functions////////////////
+    ///////////////////////////////////////////
+
     public function index()
     {
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Accountant  $accountant
-     * @return \Illuminate\Http\Response
-     */
     public function show(Accountant $accountant)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Accountant  $accountant
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Accountant $accountant)
+    ///////////////////////////////////////////
+    ////////////// Create Functions ///////////
+    ///////////////////////////////////////////
+
+    public function store(Request $request)
     {
-        //
+        $validation = $request->validate([
+            "name" => "required|max:255",
+            "telephone" => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+            'email' => 'required|unique:users|email:rfc,dns,spoof,filter',
+            'address_1' => 'required',
+            'city' =>'required',
+            'postcode' => 'required',
+        ]);
+
+        $accountant = new Accountant;
+        $accountant->fill([
+            'name' => $request->name,
+            'address_1' => $request->address_1,
+            'address_2' => $request->address_2,
+            'city' => $request->city,
+            'postcode' => $request->postcode,
+            'telephone' => $request->telephone,
+            'email' => $request->email,
+        ]);
+        $accountant->save();
+
+        session()->flash('success_message', $request->name.' has been added successfully!');
+        return redirect(route('settings.index'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Accountant  $accountant
-     * @return \Illuminate\Http\Response
-     */
+
+    ///////////////////////////////////////////
+    ////////////// Create Functions ///////////
+    ///////////////////////////////////////////
+    
     public function update(Request $request, Accountant $accountant)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Accountant  $accountant
-     * @return \Illuminate\Http\Response
-     */
+    ///////////////////////////////////////////
+    ////////////// Delete Functions ///////////
+    ///////////////////////////////////////////
     public function destroy(Accountant $accountant)
     {
         //

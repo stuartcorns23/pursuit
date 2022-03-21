@@ -115,13 +115,24 @@
                             @endif
 
                             {{-- Check to see if any of the details are incorrect --}}
-                            @if(auth()->user()->address_1 === '' || auth()->user()->city)
+                            @if(!auth()->user()->address_1 || !auth()->user()->city)
                             <li class="list-group-item list-group-item-dark d-flex justify-content-between">
                                 <span>
                                     <i class="fas fa-exclamation-circle text-danger"></i> Update Personal Details
                                 </span>
                                 <span>
-                                    <a class="btn btn-sm btn-warning" href="{{route('user.profile')}}">Update</a>
+                                    <a class="btn btn-sm btn-warning" href="{{route('users.edit', auth()->user()->id)}}">Update</a>
+                                </span>
+                            </li>
+                            @endif
+
+                            @if(!auth()->user()->accountant)
+                            <li class="list-group-item list-group-item-dark d-flex justify-content-between">
+                                <span>
+                                    <i class="fas fa-coins text-secondary"></i> Select your Accountant 
+                                </span>
+                                <span>
+                                    <a class="btn btn-sm btn-secondary" href="{{route('users.edit', auth()->user()->id)}}">Select</a>
                                 </span>
                             </li>
                             @endif

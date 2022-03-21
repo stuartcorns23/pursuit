@@ -160,11 +160,42 @@
                                 <tbody>
                                     @foreach($accountants as $account)
                                     <tr>
-                                        <td>{{$accountant->name}}</td>
-                                        <td>{{$account->get_address()}}</td>
-                                        <td class="text-center">{{ $accountant->telephone }}</td>
-                                        <td class="text-center">{{$accountant->email}}</td>
-                                        <td class="text-end"><button class="btn btn-light">...</button></td>
+                                        <td id="ac_name_{{$account->id}}">{{$account->name}}</td>
+                                        <td>{{$account->full_address(',')}}</td>
+                                        <td class="text-center">{{ $account->telephone }}</td>
+                                        <td class="text-center">{{$account->email}}</td>
+                                        <td class="text-end">
+                                            
+                                            <div class="dropdown">
+                                                <button class="btn btn-secondary" id="dropDown{{$account->id}}" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <i class="fas fa-ellipsis-h"></i>
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="dropDown{{$account->id}}">
+                                                    @can('update', $account)
+                                                    <li><a class="dropdown-item" href="{{route('accountants.show', $account->id)}}">View</a></li>
+                                                    
+                                                    <li>
+                                                        <a class="dropdown-item edit-btn" href="#"
+                                                            data-id="{{$account->id}}" 
+                                                            data-address-1="{{$account->address_1}}" 
+                                                            data-address-2="{{$account->address_2}}" 
+                                                            data-city="{{$account->city}}" 
+                                                            data-postcode="{{$account->postcode}}" 
+                                                            data-email="{{$account->email}}" 
+                                                            data-telephone="{{$account->telephone}}" 
+                                                        >Edit</a>
+                                                    </li>
+                                                    <form id="form{{$account->id}}" action="{{ route('accountants.destroy', $account->id) }}" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <a class="deleteBtn dropdown-item" href="#"
+                                                           data-id="{{$account->id}}">Delete</a>
+                                                    </form>
+                                                    @endcan
+                                                </div>
+                                            </div>
+
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>
@@ -224,9 +255,12 @@
       </div>
     </div>
   </div>
+</div>
 
   <!-- Add Document Type Modal -->
 <div class="modal fade" id="roleAddModal" tabindex="-1" aria-labelledby="roleAddModalLabel" aria-hidden="true">
+
+</div>
 <div class="modal fade" id="accountantAddModal" tabindex="-1" aria-labelledby="accountantAddModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -243,7 +277,7 @@
                 </div>
                 <div class="form-group">
                     <label for="address_1">Address</label>
-                    <input type="text" name="address_1" class="form-control" required>
+                    <input type="text" name="address_1" class="form-control mb-2" required>
                     <input type="text" name="address_2" class="form-control">
                 </div>
                 <div class="form-group">
@@ -270,10 +304,66 @@
         </form>
       </div>
     </div>  
-  </div>
+</div>
+
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editModalLabel">Add New Accountant</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="{{route('accountants.store')}}" method="POST">
+            @csrf
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="Name">Name</label>
+                    <input type="text" name="name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="address_1">Address</label>
+                    <input type="text" name="address_1" class="form-control mb-2" required>
+                    <input type="text" name="address_2" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" name="city" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="city">Post Code</label>
+                    <input type="text" name="postcode" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="telephone">Telephone</label>
+                    <input type="tel" name="telephone" class="form-control" required>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-success">Add Accountant</button>
+            </div>
+        </form>
+      </div>
+    </div>  
+</div>
 
 @endsection
 
 @section('js')
+<script>
+    const editModal = new bootstrap.Modal(document.getElementById('editModal'), {backdrop: true});
+    const editBtns = document.querySelectorAll('.edit-btn');
+
+    editBtns.forEach((btn) => {
+        btn.addEventListener('click', function(){
+            editModal.show();
+        });
+    });
+
+</script>
 
 @endsection
