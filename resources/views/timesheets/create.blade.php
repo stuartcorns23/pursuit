@@ -87,10 +87,7 @@
 
                             <div class="form-group mb-4">
                                 <label for="comments">Any comments:</label>
-                                <textarea name="comments" name="comments" cols="30" rows="10" class="form-control">
-
-
-                                </textarea>
+                                <textarea name="comments" name="comments" cols="30" rows="10" class="form-control"></textarea>
                             </div>
 
                             <div class="form-group mb-4 d-flex justify-content-start align-items-center">
