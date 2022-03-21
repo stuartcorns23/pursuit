@@ -128,7 +128,7 @@
                     $start_time ="{$shift->date} {$shift->start}";
                     $end_time = "{$shift->date} {$shift->end}";
                     //get the rate variable
-                    if($shift->pay_ype == 'per-hour'){
+                    if($shift->pay_type == 'per-hour'){
                         $diffInHours = \Carbon\Carbon::parse($start_time)->diffInHours(\Carbon\Carbon::parse($end_time));
                         $wages = $shift->rate * $diffInHours;
                     }else{
