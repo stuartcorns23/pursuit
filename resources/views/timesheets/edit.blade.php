@@ -213,7 +213,7 @@
         })
 
         const additions = document.querySelector('.additions');
-        const additionElements = addtions.querySelectorAll('.row');
+        const additionElements = additions.querySelectorAll('.row');
         const addExpenseBtn = document.querySelector('.add-expense');
 
         addExpenseBtn.addEventListener('click', (e) => {
