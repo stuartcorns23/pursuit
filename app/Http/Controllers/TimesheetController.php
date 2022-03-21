@@ -66,7 +66,7 @@ class TimesheetController extends Controller
                 $arr['pay_type'] = $request->$type;
                 //get the rate variable
                 $shift = "{$value}_shift_rate";
-                if($request->$type == 'per_hour'){
+                if($request->$type == 'per-hour'){
                     $diffInHours = \Carbon\Carbon::parse($start_time)->diffInHours($end_time);
                     $hourly = $request->$shift * $diffInHours;
                     $wages += $hourly;
