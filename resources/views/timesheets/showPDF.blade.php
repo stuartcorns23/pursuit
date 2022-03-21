@@ -126,7 +126,7 @@
                 <td>{{$shift->end}}</td>
                 @php
                     $start_time = $shift->date." ".$shift->$start;
-                    $end_time = $shift->date." ".$request->$end;
+                    $end_time = $shift->date." ".$shift->$end;
                     //get the rate variable
                     if($shift->pay_ype == 'per-hour'){
                         $diffInHours = \Carbon\Carbon::parse($start_time)->diffInHours(\Carbon\Carbon::parse($end_time));
