@@ -138,7 +138,16 @@
             </tr>
         </tbody>
     </table>
-    
+    <hr>
+
+    <table>
+        <tr>
+            <td>Comments:</td>
+        </tr>
+        <tr>
+            <td>{{$timesheet->comments}}</td>
+        </tr>
+    </table>
     </div>
 
 </body>

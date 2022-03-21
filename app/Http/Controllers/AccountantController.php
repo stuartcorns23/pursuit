@@ -7,35 +7,31 @@ use Illuminate\Http\Request;
 
 class AccountantController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
-        //
+        $validation = $request->validate([
+            'name' => 'required',
+            'address_1' => 'required',
+            'city' => 'required',
+            'postcode' => 'required',
+            'telephone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+            'email' => 'required|unique:users|email:rfc,dns,spoof,filter',
+        ]);
+
+        $accountant = new Accountant;
+        $account->fill([
+            'name' => $request->name,
+            'address_1' => $request->address_1,
+            'address_2' => $request->address_2,
+            'city' => $request->city,
+            'postcode' => $request->postcode,
+            'telephone' => $request->telephone,
+            'email' => $request->email,
+        ])->save();
+
+        session()->flash('success_message', 'You have successfully added an Accountant to the system');
+        return redirect(route('settings.index'));
     }
 
     /**
