@@ -148,7 +148,7 @@
                                     </div>
                                 </div>
                                 <div class="mb-4">
-                                    <button class="btn btn-secondary">Add Another Expense</button>
+                                    <button type="button" class="btn btn-secondary">Add Another Expense</button>
                                 </div>
                             </div>
                             
