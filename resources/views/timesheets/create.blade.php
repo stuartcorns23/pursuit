@@ -146,7 +146,6 @@
                                             <input type="text" name="value[]" placeholder="£" class="form-control" value="">
                                         </div>
                                     </div>
-                                    @endforeach
                                 </div>
                                 <div class="mb-4">
                                     <button type="button" class="add-expense btn btn-secondary">Add Another Expense</button>
