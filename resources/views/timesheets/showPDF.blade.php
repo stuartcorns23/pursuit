@@ -140,15 +140,66 @@
     </table>
     <hr>
 
-    <table>
-        <tr>
-            <td>Comments:</td>
-        </tr>
-        <tr>
-            <td>{{$timesheet->comments}}</td>
-        </tr>
+    <table class="table">
+        <thead>
+            <tr>
+                <td>Comments:</td>
+            </tr>
+        </thead>
+         <tbody>
+            <tr>
+                <td>{{$timesheet->comments}}</td>
+            </tr>
+        </tbody>   
     </table>
     </div>
+
+    <hr>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <td colspan="4">Mileage</td>
+            </tr>
+            <tr>
+                <th>Day</th>
+                <th>To</th>
+                <th>From</th>
+                <th>Miles</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php $mileage = json_decode($timesheet->mileage);?>
+            @foreach($mileage as $key => $mile)
+            <tr>
+                <td>{{ucFirst($key)}}</td>
+                <td>{{$mile->to}}</td>
+                <td>{{$mile->from}}</td>
+                <td>{{$mile->miles}}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+
+    <hr>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <td>Expenses</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <?php $expenses = json_decode($timesheet->additional);?>
+                    @foreach($expenses as $key => $value)
+                    <strong>{{$key}}</strong>: £{{$value}}
+                    @endforeach
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
 </body>
 </html>
