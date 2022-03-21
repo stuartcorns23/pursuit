@@ -33,7 +33,7 @@ class TimesheetController extends Controller
 
         $timesheet->user_id = auth()->user()->id;
 
-        $timesheet->week_start = "$request->start_date";
+        $timesheet->week_start = $request->start_date;
         $timesheet->week_end = $request->end_date;
 
         $shifts = [];
@@ -135,7 +135,72 @@ class TimesheetController extends Controller
      */
     public function update(Request $request, Timesheet $timesheet)
     {
-        //
+        $timesheet->week_start = $request->start_date;
+        $timesheet->week_end = $request->end_date;
+
+        $shifts = [];
+        $mileage = [];
+        $shifts_total = 0;
+        $wages = 0;
+
+        for($i = 0; $i < 7; $i++){
+            
+            $day = \Carbon\Carbon::now()->startOfWeek()->subWeek()->addDays($i);
+
+            //if the {day}_field is checked
+            $value = strtolower($day->format('l'));
+            $shift = "{$value}_shift";
+            $arr = [];
+            if($request->$shift == 1){
+                
+                $time = "{$value}_time";
+                $arr['shift'] = $request->$time;
+                $client = "{$value}_client";
+                $arr['client'] = $request->$client;
+                $start = "{$value}_start";
+                $arr['start'] = $request->$start;
+                $end = "{$value}_end";
+                $arr['end'] = $request->$end;
+                $shift = "{$value}_shift_rate";
+                $wages += $request->$shift;
+                $arr['rate'] = $request->$shift;
+                $arr['pay_type'] = $request->pay_type;
+                $arr['date'] = $day->format('Y-m-d');
+
+                $shifts_total++;
+            }
+        
+
+            $miles = [];
+            $from = "{$value}_from_miles";
+            $miles['from'] = $request->$from;
+            $to = "{$value}_to_miles";
+            $miles['to'] = $request->$to;
+            $total = "{$value}_total";
+            $miles['total'] = $request->$total;
+
+            $shifts[$value] = $arr;
+            $mileage[$value] = $miles;
+        }
+
+        $expenses = [$request->expense1 => $request->value1];
+
+
+        $timesheet->shifts = json_encode($shifts);
+        $timesheet->mileage = json_encode($mileage);
+        $timesheet->additional = json_encode($expenses);
+        $timesheet->total_shifts = $shifts_total;
+        $timesheet->total_wages = $wages;
+        $timesheet->comments = $request->comments;
+        $timesheet->save();
+    
+        //The Job for creating the timesheet PDF and sending it to Accountants and Pursuit TMR
+        //UpdateTimesheet::dispatch($timesheet, 1)->afterResponse();
+
+        $message = "Thank you for submitting your timesheet, it has been sent to Pursuit and to your accountants";
+        session()->flash('success_message', $message);
+
+        return redirect(route('timesheets.index'));
     }
 
     /**

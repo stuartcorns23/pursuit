@@ -142,7 +142,7 @@
                                     
                                     <?php $additional = json_decode($timesheet->additional, true);?>
                                     @foreach($additional as $key => $value)
-                                    <div class="row">
+                                    <div class="row mb-2">
                                         <div class="col-8">
                                             <select name="expense[]" class="form-control">
                                                 <option value="5hr" @if($key == '5hr') selected @endif>5 Hour Shift Allowance (£5)</option>
