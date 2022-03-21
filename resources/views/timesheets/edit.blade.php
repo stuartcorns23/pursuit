@@ -58,8 +58,8 @@
                                         </div>
                                         <select name="{{strtolower($day->format('l'))}}_time" class="form-control">
                                             <option value="0" selected="selected">Please select</option>
-                                            <option value="am" >AM Shift</option>
-                                            <option value="pm" >PM Shift</option>
+                                            <option value="am" @if(isset($shift['shift']) && $shift['shit'] == 'am') selected @endif>AM Shift</option>
+                                            <option value="pm" @if(isset($shift['shift']) && $shift['shit'] == 'pm') selected @endif>PM Shift</option>
                                         </select>  
                                     </div>
                                     <div class="col-12 col-md-2">
@@ -106,21 +106,26 @@
                                 <span class="ms-2">Add Expenses</span>
                             </div>
                             
+                            <?php $mileage = json_decode($timesheet->mileage, true);?>
                             <div id="expenses" class="d-none">
                                 <h4 class="text-primary">Mileage</h4>
                                 <div class="miles mb-4">
                                     @for($i=0; $i < 7; $i++)
                                     @php($day = \Carbon\Carbon::now()->startOfWeek()->subWeek()->addDays($i))
+                                    @php($mile = $mileage[strtolower($day->format('l'))])
                                         <label for="{{strtolower($day->format('l'))}}">{{$day->format('l')}}</label>
                                         <div class="row">
                                             <div class="col-4">
-                                                <input type="text" placeholder="From" name="{{strtolower($day->format('l'))}}_from_miles" class="form-control">
+                                                <input type="text" placeholder="From" name="{{strtolower($day->format('l'))}}_from_miles" 
+                                                class="form-control" value="{{$mile['from']}}">
                                             </div>
                                             <div class="col-4">
-                                                <input type="text" placeholder="To" name="{{strtolower($day->format('l'))}}_to_miles" class="form-control">
+                                                <input type="text" placeholder="To" name="{{strtolower($day->format('l'))}}_to_miles" 
+                                                class="form-control" value="{{$mile['to']}}">
                                             </div>
                                             <div class="col-4">
-                                                <input type="text" placeholder="Total Miles" name="{{strtolower($day->format('l'))}}_total" class="form-control">
+                                                <input type="text" placeholder="Total Miles" name="{{strtolower($day->format('l'))}}_total" 
+                                                class="form-control" value="{{$mile['total']}}">
                                             </div>
                                         </div>
                                         
