@@ -76,7 +76,7 @@
                                         <input type="currency" value="{{$shift->rate ?? ''}}" placeholder="£" name="{{strtolower($day->format('l'))}}_shift_rate" class="form-control">    
                                     </div>
                                     <div class="col-12 col-md-2">
-                                        <select name="pay_type" class="form-control">
+                                        <select name="{{strtolower($day->format('l'))}}_pay_type" class="form-control">
                                             <option value="per-shift" @if(isset($shift->pay_type) && $shift->pay_type == 'per-shift') selected @endif>Per Shift</option>    
                                             <option value="per-hour" @if(isset($shift->pay_type) && $shift->pay_type == 'per-hour') selected @endif>Per Hour</option>    
                                         </select>    
