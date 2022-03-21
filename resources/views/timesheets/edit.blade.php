@@ -46,7 +46,7 @@
                                 <?php $shifts = json_decode($timesheet->shifts, true);?>
                                 @for($i=0; $i < 7; $i++)
                                 @php($day = \Carbon\Carbon::now()->startOfWeek()->subWeek()->addDays($i))
-                                @php($shift = shifts[strtolower($day->format('l')])
+                                @php($shift = $shifts[strtolower($day->format('l'))])
                                 <label for="{{strtolower($day->format('l'))}}">{{$day->format('l')}} </label>
                                 <div class="row">
                                    
