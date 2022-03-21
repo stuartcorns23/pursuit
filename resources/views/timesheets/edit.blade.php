@@ -9,7 +9,7 @@
 @section('content')
 <section class="page-wrapper">
     <div class="page-content">
-        <form action="{{route('timesheets.store')}}" method="POST">
+        <form action="{{route('timesheets.update', $timesheet->id)}}" method="POST">
 
         <div class="w-100 d-flex justify-content-between align-items-center">
             <h1 class="text-center mb-4">Submit Timesheet</h1>
