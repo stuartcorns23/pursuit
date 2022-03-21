@@ -37,7 +37,7 @@
                                 </div>
                                 <div class="col-6">
                                     <label for="end_date">End of Week</label>
-                                    <input type="date" class="form-control" name="end_date" value="{{\Carbon\Carbon:::parse($timesheet->week_end)->endOfWeek()->format('Y-m-d')}}">
+                                    <input type="date" class="form-control" name="end_date" value="{{\Carbon\Carbon::parse($timesheet->week_end)->endOfWeek()->format('Y-m-d')}}">
                                 </div>
                             </div>
                             <hr>
