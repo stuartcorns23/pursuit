@@ -137,29 +137,32 @@
 
 
                                 <h4 class="text-primary">Expenses</h4>
-                                <div class="expenses mb-2">
+                                <div class="additions mb-2">
                                     <label for="expenses">Expenses</label>
                                     
+                                    <?php $additional = json_decode($timesheet->additional, true);?>
+                                    @foreach($additional as $key => $value)
                                     <div class="row">
                                         <div class="col-8">
-                                            <select name="expense1" class="form-control">
-                                                <option value="5hr">5 Hour Shift Allowance (£5)</option>
-                                                <option value="5hr+">Above 5 Hour Shift Allowance (£10)</option>
-                                                <option value="15hr+">15 Hour Shift Allowance (£25)</option>
-                                                <option value="PIE">Personal Incidental Expenses (@£10 per overnight/nightshift)</option>
-                                                <option value="wash">Washing of Workwear (MAX £10 per week)</option>
-                                                <option value="office">Home Office (£6 per week)</option>
-                                                <option value="overnight">Overnight (£25 per night)</option>
-                                                <option value="toll">Toll Bridges</option>
+                                            <select name="expense[]" class="form-control">
+                                                <option value="5hr" @if($key == '5hr') selected @endif>5 Hour Shift Allowance (£5)</option>
+                                                <option value="5hr+" @if($key == '5hr+') selected @endif>Above 5 Hour Shift Allowance (£10)</option>
+                                                <option value="15hr+" @if($key == '15hr+') selected @endif>15 Hour Shift Allowance (£25)</option>
+                                                <option value="PIE" @if($key == 'PIE') selected @endif>Personal Incidental Expenses (@£10 per overnight/nightshift)</option>
+                                                <option value="wash" @if($key == 'wash') selected @endif>Washing of Workwear (MAX £10 per week)</option>
+                                                <option value="office" @if($key == 'office') selected @endif>Home Office (£6 per week)</option>
+                                                <option value="overnight" @if($key == 'overnight') selected @endif>Overnight (£25 per night)</option>
+                                                <option value="toll" @if($key == 'toll') selected @endif>Toll Bridges</option>
                                             </select>
                                         </div>
                                         <div class="col-4">
-                                            <input type="text" name="value1" placeholder="£" class="form-control">
+                                            <input type="text" name="value[]" placeholder="£" class="form-control" value="{{$value}}">
                                         </div>
                                     </div>
+                                    @endforeach
                                 </div>
                                 <div class="mb-4">
-                                    <button type="button" class="btn btn-secondary">Add Another Expense</button>
+                                    <button type="button" class="add-expense btn btn-secondary">Add Another Expense</button>
                                 </div>
                             </div>
                             
@@ -175,7 +178,7 @@
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" @if(!auth()->user()->accountant) disabled @endif>
                                 <label class="form-check-label" for="flexCheckChecked">
-                                Send to Accountants
+                                Update Accountants
                                 </label>
                             </div>
                             <div class="form-check">
@@ -208,6 +211,15 @@
         toggle.addEventListener('change', function(){
             expenses.classList.toggle('d-none');
         })
+
+        const additions = document.querySelector('.additions');
+        const additionElements = addtions.querySelectorAll('.row');
+        const addExpenseBtn = document.querySelector('.add-expense');
+
+        addExpenseBtn.addEventListener('click', (e) => {
+            element = additionElements[0].cloneNode(true);
+            additons.appendChild(element);
+        });
 
     </script>
 
