@@ -108,10 +108,10 @@
                                         </div >
                                         <div class="form-group mb-3">
                                             <label for="exampleDataList" class="form-label">User Role/Qualification<span class="text-danger">*</span></label>
-                                            <input class="form-control" list="roleList" id="roleListInput" name="role" placeholder="Type to search..." autocomplete="off">
+                                            <input class="form-control" list="roleList" id="roleListInput" name="role" placeholder="Type to search..." autocomplete="off" value="{{$user->role->name}}">
                                             <datalist id="roleList">
                                                 @foreach($roles as $role)
-                                                <option value="{{$role->name}}">
+                                                <option value="{{$role->name}}" se>
                                                     @endforeach
                                             </datalist>
                                         </div>
