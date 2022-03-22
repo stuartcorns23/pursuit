@@ -138,7 +138,7 @@
                 <td>
                     £{{$wages}}
                     @if($shift->pay_type == 'per-hour')
-                        <br><div style="font-size: 10px; color: #999;">({{$shift->rate}} per hour * {{%diffInHours}})</div>
+                        <br><div style="font-size: 10px; color: #999;">({{$shift->rate}} per hour * {{$diffInHours}})</div>
                     @endif
                 </td>
             </tr>
