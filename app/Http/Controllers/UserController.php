@@ -135,7 +135,7 @@ class UserController extends Controller
         ]);
         $role = Role::firstOrCreate(array('name' => $request->role));
         $user->fill(array_merge(
-            $request->only('first_name', 'last_name', 'phone', 'email', 'company_name', 'address_1', 'address_2', 'city', 'post_code', 'admin', 'photo_id', 'role_id'),
+            $request->only('first_name', 'last_name', 'phone', 'email', 'company_name', 'address_1', 'address_2', 'city', 'post_code', 'admin', 'photo_id', 'role_id', 'accountant_id'),
             ['role_id' => $role->id]
         ))->save();
       
