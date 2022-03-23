@@ -167,6 +167,7 @@
     </table>
     </div>
 
+    @if($timesheet->mileage)
     <hr>
 
     <table class="table">
@@ -193,7 +194,8 @@
             @endforeach
         </tbody>
     </table>
-
+    @endif
+    @if($timesheet->additional)
     <hr>
 
     <table class="table">
@@ -213,6 +215,7 @@
             </tr>
         </tbody>
     </table>
+    @endif
 
 </body>
 </html>
