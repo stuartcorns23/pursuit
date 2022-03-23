@@ -30,6 +30,7 @@ class SendTimesheet implements ShouldQueue
      */
     public function handle()
     {
+        $timesheet = $this->timesheet;
         //Send the Email
         \Notification::route('mail', $timesheet->user->email)->notifyNow(new SendTimesheetReceipt($timesheet));
 
