@@ -44,7 +44,7 @@ class SendTimesheetReceipt extends Notification
         return (new MailMessage)
             ->subject('You have submitted your Timesheet')
             ->view('mail.timesheet-receipt', ['timesheet' => $this->timesheet])
-            ->attach($timesheet->getFirstMedia()->getPath(), [
+            ->attach($this->timesheet->getFirstMedia()->getPath(), [
                 'mime' => 'application/pdf',
             ]);
     }
