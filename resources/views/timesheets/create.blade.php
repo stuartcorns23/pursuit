@@ -93,7 +93,7 @@
                             <div class="form-group mb-4 d-flex justify-content-start align-items-center">
                                 <!-- Rounded switch -->
                                 <label class="switch">
-                                    <input type="checkbox" id="expenses_toggle">
+                                    <input type="checkbox" id="expenses_toggle" name="expenses" value="1">
                                     <span class="slider-toggle round"></span>
                                 </label>
                                 <span class="ms-2">Add Expenses</span>
