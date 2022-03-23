@@ -113,10 +113,6 @@ class TimesheetController extends Controller
         //The Job for creating the timesheet PDF and sending it to Accountants and Pursuit TMR
         SubmitTimesheet::dispatch($timesheet, 1)->afterResponse();
 
-        if($request->send_receipt == 1){
-            SendTimesheet::dispatch($timesheet, 1)->afterResponse();
-        }
-
         if($request->update_accountants == 1 && $request->accountants != 0){
             SendAccountantTimesheet::dispatch($timesheet, 1)->afterResponse();
         }
