@@ -154,19 +154,20 @@
                                 <label for="accountants">Accounts</label>
                                 <select name="accountants" id="" class="form-control" disabled>
                                     <option value="0">Not Set</option>
-                                    <option value="Hindsight">Hindsight</option>
-                                    <option value="Hindsight">Quay Accounts</option>
+                                    @foreach($accountants as $accountant)
+                                    <option value="{{$accountant->id}}" @if(auth()->user()->accountant_id == $accountant->id) selected @endif>{{$accountant->name}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" @if(!auth()->user()->accountant) disabled @endif>
-                                <label class="form-check-label" for="flexCheckChecked">
-                                Send to Accountants
+                                <input class="form-check-input" type="checkbox" value="" name="update_accountants" @if(!auth()->user()->accountant) disabled @endif>
+                                <label class="form-check-label" for="udate_accountants">
+                                Update Accountants
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                                <label class="form-check-label" for="flexCheckChecked">
+                                <input class="form-check-input" type="checkbox" value="" name="send_receipt" checked>
+                                <label class="form-check-label" for="send_receipt">
                                 Send to a Receipt to Email
                                 </label>
                             </div>

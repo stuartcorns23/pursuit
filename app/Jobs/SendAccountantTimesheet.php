@@ -9,13 +9,14 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 
-use App\Notifications\SendTimesheetReceipt;
+use App\Models\Timesheet;
+use App\Notifications\SendAccountantTimesheet as SAT;
 
-class SendTimesheet implements ShouldQueue
+class SendAccountantTimesheet implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    protected $timesheet;
+    private $timesheet;
     
     public function __construct(Timesheet $timesheet)
     {
@@ -29,11 +30,7 @@ class SendTimesheet implements ShouldQueue
      */
     public function handle()
     {
-        //Send the Email
-        \Notification::route('mail', $timesheet->user->email)->notifyNow(new SendTimesheetReceipt($timesheet));
-
-        //Send Notification that the email has been received
-
-        
+        $timesheet = $this->timesheet;
+        \Notification::route('mail', $timesheet->accountant->email)->notifyNow(new SAT());
     }
 }

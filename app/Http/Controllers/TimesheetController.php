@@ -6,6 +6,7 @@ use App\Models\Timesheet;
 use App\Models\Client;
 use Illuminate\Http\Request;
 use App\Jobs\SubmitTimesheet;
+use App\Models\Accountant;
 
 class TimesheetController extends Controller
 {
@@ -22,8 +23,9 @@ class TimesheetController extends Controller
 
     public function create()
     {
+        $accountants = Accountant::all();
         $clients = Client::all();
-        return view('timesheets.create', compact('clients'));
+        return view('timesheets.create', compact('clients', 'accountants'));
     }
 
 
@@ -111,6 +113,14 @@ class TimesheetController extends Controller
         //The Job for creating the timesheet PDF and sending it to Accountants and Pursuit TMR
         SubmitTimesheet::dispatch($timesheet, 1)->afterResponse();
 
+        if($request->send_receipt == 1){
+            SendTimesheet::dispatch($timesheet, 1)->afterResponse();
+        }
+
+        if($request->update_accountants == 1 && $request->accountants != 0){
+            SendAccountantTimesheet::dispatch($timesheet, 1)->afterResponse();
+        }
+
         $message = "Thank you for submitting your timesheet, it has been sent to Pursuit and to your accountants";
         session()->flash('success_message', $message);
 
@@ -138,8 +148,9 @@ class TimesheetController extends Controller
      */
     public function edit(Timesheet $timesheet)
     {
+        $accountants = Accountant::all();
         $clients = Client::all();
-        return view('timesheets.edit', compact('clients', 'timesheet'));
+        return view('timesheets.edit', compact('clients', 'timesheet', 'accountants'));
     }
 
     /**
