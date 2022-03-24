@@ -101,10 +101,12 @@ class TimesheetController extends Controller
             $expenses[$request->expense[$i]] = $request->value[$i];
         }
 
-
         $timesheet->shifts = json_encode($shifts);
-        $timesheet->mileage = json_encode($mileage);
-        $timesheet->additional = json_encode($expenses);
+        if($request->expenses == 1){
+            $timesheet->mileage = json_encode($mileage);
+            $timesheet->additional = json_encode($expenses);
+        }
+
         $timesheet->total_shifts = $shifts_total;
         $timesheet->total_wages = $wages;
         $timesheet->comments = $request->comments;
