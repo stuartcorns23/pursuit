@@ -46,6 +46,9 @@ class SendTimesheetReceipt extends Notification
             ->view('mail.timesheet-receipt', ['timesheet' => $this->timesheet])
             ->attach($this->timesheet->getFirstMedia('timesheets')->getPath(), [
                 'mime' => 'application/pdf',
+            ])
+            ->attach($this->timesheet->getFirstMedia('expenses')->getPath(), [
+                'mime' => 'application/pdf',
             ]);
     }
 }

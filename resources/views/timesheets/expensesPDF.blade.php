@@ -156,7 +156,7 @@
                     <tr>
                         <td width="80%">Accomodation</td>
                         <td width="20%">
-                            @if(array_key_exists('accomodation'))
+                            @if(array_key_exists('accomodation', $expenses))
                                 {{$expenses['accomodation']}}
                             @endif
                         </td>
@@ -164,7 +164,7 @@
                     <tr>
                         <td width="80%">Equipment</td>
                         <td width="20%">
-                            @if(array_key_exists('equipment'))
+                            @if(array_key_exists('equipment', $expenses))
                                 {{$expenses['equipment']}}
                             @endif    
                         </td>
@@ -172,7 +172,7 @@
                     <tr>
                         <td width="80%">Stationary & Postage</td>
                         <td width="20%">
-                            @if(array_key_exists('stationary'))
+                            @if(array_key_exists('stationary', $expenses))
                                 {{$expenses['stationary']}}
                             @endif    
                         </td>
@@ -180,7 +180,7 @@
                     <tr>
                         <td width="80%">Training</td>
                         <td width="20%">
-                            @if(array_key_exists('training'))
+                            @if(array_key_exists('training', $expenses))
                                 {{$expenses['training']}}
                             @endif    
                         </td>
@@ -188,7 +188,7 @@
                     <tr>
                         <td width="80%">Car/Equipment Hire</td>
                         <td width="20%">
-                            @if(array_key_exists('hire'))
+                            @if(array_key_exists('hire', $expenses))
                                 {{$expenses['hire']}}
                             @endif    
                         </td>
@@ -196,7 +196,7 @@
                     <tr>
                         <td width="80%">Purchase of Workwear</td>
                         <td width="20%">
-                            @if(array_key_exists('workwear'))
+                            @if(array_key_exists('workwear', $expenses))
                             {{$expenses['workwear']}}
                         @endif    
                         </td>
@@ -204,7 +204,7 @@
                     <tr>
                         <td width="80%">Books & Journals</td>
                         <td width="20%">
-                            @if(array_key_exists('books'))
+                            @if(array_key_exists('books', $expenses))
                                 {{$expenses['books']}}
                             @endif    
                         </td>
@@ -212,7 +212,7 @@
                     <tr>
                         <td width="80%">Parking</td>
                         <td width="20%">
-                            @if(array_key_exists('parking'))
+                            @if(array_key_exists('parking', $expenses))
                                 {{$expenses['parking']}}
                             @endif    
                         </td>
@@ -220,7 +220,7 @@
                     <tr>
                         <td width="80%">Other</td>
                         <td width="20%">
-                            @if(array_key_exists('other'))
+                            @if(array_key_exists('other', $expenses))
                                 {{$expenses['other']}}
                             @endif    
                         </td>
