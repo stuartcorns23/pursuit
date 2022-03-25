@@ -78,11 +78,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php $expenses = json_decode($timesheet->additional)->toArray();?>
+                    <?php $expenses = json_decode($timesheet->additional, true);?>
                     <tr>
                         <td width="80%">5 Hour Shift Allowance (£5)</td>
                         <td width="20%">
-                            @if(array_key_exists('5hr', $expenses))
+                            @if($expenses->5hr)
                                 {{$expenses['5hr']}}
                             @endif
                         </td>
