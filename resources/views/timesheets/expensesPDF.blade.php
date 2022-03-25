@@ -43,10 +43,12 @@
      <div class="container">
          <div class="left-column">
             {{-- Hindsight Logo --}}
-
+            <div>
+                <img src="{{asset('images/hidsight-logo.png')}}" alt="Hindsight Contractors" width="250px">
+            </div>
             <h3>Mileage Log</h3>
             <table>
-                <thead>
+                <thead style="background-color: cadetblue">
                     <tr style="border-bottom: solid 5px #666">
                         <th width="25%">Date</th>
                         <th width="25%">From</th>
