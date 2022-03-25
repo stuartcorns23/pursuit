@@ -78,7 +78,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php $expenses = json_decode($timesheet->additional);?>
+                    <?php $expenses = json_decode($timesheet->additional)->toArray();?>
                     <tr>
                         <td width="80%">5 Hour Shift Allowance (£5)</td>
                         <td width="20%">
