@@ -82,7 +82,7 @@
                     <tr>
                         <td width="80%">5 Hour Shift Allowance (£5)</td>
                         <td width="20%">
-                            @if($expenses->5hr)
+                            @if(array_key_exists('5hr', $expenses))
                                 {{$expenses['5hr']}}
                             @endif
                         </td>
