@@ -16,11 +16,13 @@
 
         .left-column{
             width: 70%;
-             background-color: #cccccc
+             background-color: #cccccc;
+             float: left;
         }
 
         .right-column{
             width:30%;
+            float: right;
         }
 
         .expenses thead tr{
