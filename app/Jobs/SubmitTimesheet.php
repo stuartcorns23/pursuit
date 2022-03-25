@@ -61,7 +61,7 @@ class SubmitTimesheet implements ShouldQueue
             $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
             $pdf->getDomPDF()->setHttpContext($contxt);
             $pdf->loadView('timesheets.expensesPDF', compact('timesheet'));
-            $pdf->setPaper('a4', 'portrait');
+            $pdf->setPaper('a4', 'landscape');
 
             Storage::disk('public')->put('expenses/'.$file.'-'.$date.'.pdf', $pdf->output());
             $timesheet->addMediaFromUrl(Storage::disk('public')->url('expenses/'.$file.'-'.$date.'.pdf'))->toMediaCollection('expenses');
