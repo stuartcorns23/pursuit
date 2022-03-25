@@ -39,15 +39,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {{-- Foreach mileage days --}}
-                    {{-- 7 rows in total --}}
-                    {{-- Including 3 totals --}}
+                    <?php $mileage = json_decode($timesheet->mileage);?>
+                    @foreach($mileage as $key => $mile)
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{ucFirst($key)}}</td>
+                        <td>{{$mile->to}}</td>
+                        <td>{{$mile->from}}</td>
+                        <td>{{$mile->total}}</td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
          </div>
@@ -64,18 +64,13 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php $expenses = json_decode($timesheet->additional);?>
+                    @foreach($expenses as $key => $value)
                     <tr>
                         <td>5 Hour Shift Allowance (£5)</td>
                         <td>{{-- Value --}}</td>
                     </tr>
-                    <tr>
-                        <td>10 Hour Shift Allowance (£10)</td>
-                        <td>{{-- Value --}}</td>
-                    </tr>
-                    <tr>
-                        <td>+15 Hour Shift Allowance (£25)</td>
-                        <td>{{-- Value --}}</td>
-                    </tr>
+                    @endforeach
                 </tbody>
             </table>
          </div>
