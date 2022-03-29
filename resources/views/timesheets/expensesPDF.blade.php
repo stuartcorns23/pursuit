@@ -75,7 +75,7 @@
         .right {
             position: absolute;
             top: 0;
-            display: block;
+            right: 0;
             margin-left: 75%;
             width: 20%;
         }
