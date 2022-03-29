@@ -16,13 +16,11 @@
 
         .left-column{
             width: 64%;
-             float: left;
              padding: 2%;
         }
 
         .right-column{
             width:24%;
-            float: right;
             padding: 2%;
         }
 
@@ -79,7 +77,7 @@
      <div class="container">
          <div class="left-column">
             {{-- Hindsight Logo --}}
-            <div>
+            <div style="height: 300px; display: flex; jusitfy-content: flex-start; align-items:center">
                 <img src="{{asset('images/hindsight-logo.png')}}" alt="Hindsight Contractors" width="250px">
             </div>
             <h3>Mileage Log</h3>
