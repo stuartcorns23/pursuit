@@ -44,7 +44,13 @@
                     @foreach($timesheets as $timesheet)
                     <tr>
                         <td class="text-center">{{$timesheet->id}}</td>
-                        <td class="text-center">{{$timesheet->user->fullname() ?? 'Unknown'}}</td>
+                        <td class="text-center">
+                            @if($timesheet->user()->exists())
+                            {{$timesheet->user->fullname() ?? 'Unknown'}}
+                            @else
+                            {{'Unknown'}}
+                            @endif
+                        </td>
                         <td>{{\Carbon\Carbon::parse($timesheet->week_start)->format('d\/m\/Y')}}</td>
                         <td>{{\Carbon\Carbon::parse($timesheet->week_end)->format('d\/m\/Y')}}</td>
                         <td>{{ $timesheet->total_shifts}}</td>
