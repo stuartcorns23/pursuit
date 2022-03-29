@@ -81,7 +81,7 @@
 
     </style>
 </head>
-<body>
+<body style="width: 100%;">
          <div class="left-column">
             {{-- Hindsight Logo --}}
             <div style="height: 100px; display: flex; jusitfy-content: flex-start; align-items:center">
