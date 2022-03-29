@@ -65,8 +65,8 @@
 </head>
 <body style="width: 100%;">
     <table width="100%">
-        <tr>
-            <td width="50%">
+        <tr style="background-color: blanchedalmond;">
+            <td width="70%">
                  {{-- Hindsight Logo --}}
             <div>
                 <img src="{{asset('images/hindsight-logo.png')}}" alt="Hindsight Contractors" width="250px">
@@ -103,7 +103,7 @@
 
             </div>
             </td>
-            <td width="50%">
+            <td width="30%">
                 <h2 class="main-text header">Expense Claim Form</h2>
                 <div class="date">
                     {{-- Date gets enetered here --}}
