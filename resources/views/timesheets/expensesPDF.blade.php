@@ -8,24 +8,6 @@
     <!-- Custom styles for this template-->
     <style>
         @page { size: a4 landscape; }
-        .left-column{
-            width: 64%;
-             padding: 2%;
-             float:left;
-             position: absolute;
-             top: 0;
-             left: 0;
-        }
-
-        .right-column{
-            width:24%;
-            padding: 2%;
-            float: right;
-            position: absolute;
-             top: 0;
-             right: 0;
-        }
-
         table {
         caption-side: bottom;
         border-collapse: collapse;
@@ -82,9 +64,10 @@
     </style>
 </head>
 <body style="width: 100%;">
-    <div style="clear:both; position:relative;">
-         <div style="position:absolute; left:0pt; width:192pt;">
-            {{-- Hindsight Logo --}}
+    <table width="100%">
+        <tr>
+            <td width="50%">
+                 {{-- Hindsight Logo --}}
             <div style="height: 100px; display: flex; jusitfy-content: flex-start; align-items:center">
                 <img src="{{asset('images/hindsight-logo.png')}}" alt="Hindsight Contractors" width="250px">
             </div>
@@ -119,9 +102,9 @@
                 Totals
 
             </div>
-         </div>
-         <div style="margin-left:200pt;">
-            <h2 class="main-text header">Expense Claim Form</h2>
+            </td>
+            <td width="50%">
+                <h2 class="main-text header">Expense Claim Form</h2>
             <div class="date">
                 {{-- Date gets enetered here --}}
             </div>
@@ -282,8 +265,8 @@
                     </tr>
                 </tbody>
             </table>
-            
-         </div>
-    </div>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>
