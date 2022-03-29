@@ -73,6 +73,12 @@
             text-transform: uppercase;
         }
 
+        .clear{
+            width: 100%;
+            height: 1px;
+            clear: both;
+        }
+
     </style>
 </head>
 <body>
@@ -278,6 +284,7 @@
             </table>
             
          </div>
+         <div class="clear"></div>
      </div>
 </body>
 </html>
