@@ -81,7 +81,7 @@
     </style>
 </head>
 <body style="width: 100%;">
-         <div style="float: left; width: 25%; height: 80%; background-color: #cc6633;">
+         <div style="float: left; width: 70%; height: 100%;">
             {{-- Hindsight Logo --}}
             <div style="height: 100px; display: flex; jusitfy-content: flex-start; align-items:center">
                 <img src="{{asset('images/hindsight-logo.png')}}" alt="Hindsight Contractors" width="250px">
@@ -118,7 +118,7 @@
 
             </div>
          </div>
-         <div style="margin-left: 35%; width: 65%; height: 80%; background-color: #3366cc;">
+         <div style="margin-left: 75%; width: 25%; height: 100%;">
             <h2 class="main-text header">Expense Claim Form</h2>
             <div class="date">
                 {{-- Date gets enetered here --}}
