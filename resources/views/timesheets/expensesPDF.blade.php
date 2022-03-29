@@ -7,6 +7,7 @@
     <title>@yield('title')</title>
     <!-- Custom styles for this template-->
     <style>
+        @page { size: a4 landscape; }
         .left-column{
             width: 64%;
              padding: 2%;
