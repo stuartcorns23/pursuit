@@ -18,14 +18,14 @@
             width: 64%;
              float: left;
              padding: 2%;
-             height: 100vh;
+             height: 100%;
         }
 
         .right-column{
             width:26%;
             float: right;
             padding: 2%;
-            height: 100vh;
+            height: 100%;
         }
 
         table {
@@ -57,14 +57,22 @@
         }
 
         .expenses thead tr{
-            border-bottom: solid 5px #666;
+            border-bottom: solid 5px #47b0e3;
             padding: 10px;
             font-weight: bold;
         }
 
         .expenses tr{
-            border-bottom: solid 1px #666;
+            border-bottom: solid 1px #47b0e3;
             padding:5px;
+        }
+
+        .main-text{
+            color: #47b0e3;
+        }
+
+        .header{
+            text-transform: uppercase;
         }
 
     </style>
@@ -98,9 +106,18 @@
                     @endforeach
                 </tbody>
             </table>
+
+            <div style="width: 50%; float: left;">
+                Contractor Name
+
+            </div>
+            <div style="width: 50%; float: right;">
+                Totals
+
+            </div>
          </div>
          <div class="right-column">
-            <h2>Expense Claim Form</h2>
+            <h2 class="main-text header">Expense Claim Form</h2>
             <div class="date">
                 {{-- Date gets enetered here --}}
             </div>
