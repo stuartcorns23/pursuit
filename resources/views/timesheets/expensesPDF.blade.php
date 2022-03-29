@@ -66,14 +66,16 @@
             width: 100%;
         }
         .left {
-            display: inline-block;
+            display: block;
             width: 70%;
             margin-right: -70%;
             float: left;
             page-break-inside: avoid;
         }
         .right {
-            display: inline-block;
+            position: absolute;
+            top: 0;
+            display: block;
             margin-left: 75%;
             width: 20%;
         }
