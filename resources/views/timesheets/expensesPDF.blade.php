@@ -74,8 +74,8 @@
         }
         .right {
             display: block;
-            margin-left: 70%;
-            width: 30%;
+            margin-left: 75%;
+            width: 20%;
         }
 
     </style>
