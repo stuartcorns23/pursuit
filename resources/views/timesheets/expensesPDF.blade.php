@@ -18,14 +18,12 @@
             width: 64%;
              float: left;
              padding: 2%;
-             height: 100%;
         }
 
         .right-column{
-            width:26%;
+            width:24%;
             float: right;
             padding: 2%;
-            height: 100%;
         }
 
         table {
@@ -85,9 +83,9 @@
                 <img src="{{asset('images/hindsight-logo.png')}}" alt="Hindsight Contractors" width="250px">
             </div>
             <h3>Mileage Log</h3>
-            <table width="100%" class="table table-bordered">
-                <thead style="background-color: cadetblue">
-                    <tr style="border-bottom: solid 5px #666">
+            <table width="100%" class="table table-bordered expenses">
+                <thead style="background-color: #47b0e3">
+                    <tr style="border-bottom: solid 5px #47b0e3">
                         <th width="25%">Date</th>
                         <th width="25%">From</th>
                         <th width="25%">To</th>
