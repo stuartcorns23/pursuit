@@ -118,7 +118,7 @@
 
             </div>
          </div>
-         <div style="margin-left: 25%; width: 65%; height: 80%;">
+         <div style="margin-left: 35%; width: 25%; height: 80%;">
             <h2 class="main-text header">Expense Claim Form</h2>
             <div class="date">
                 {{-- Date gets enetered here --}}
