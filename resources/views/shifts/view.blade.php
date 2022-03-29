@@ -47,7 +47,7 @@
                     @foreach($shifts as $shift)
                     <tr>
                         <td class="text-center">{{$shift->id}}</td>
-                        <td class="text-center">{{$shift->user->fullname()}}</td>
+                        <td class="text-center">@if($shift->user()->exists()){{$shift->user->fullname() ?? 'Unknown'}}@else{{'Unknown'}}@endif</td>
                         <td>{{ $shift->client->name}}</td>
                         <td>{{ $shift->date}}</td>
                         <td>{{ $shift->start_time}} - {{ $shift->finish_time }}</td>
