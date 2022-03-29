@@ -68,7 +68,7 @@
         <tr>
             <td width="50%">
                  {{-- Hindsight Logo --}}
-            <div style="height: 100px; display: flex; jusitfy-content: flex-start; align-items:center">
+            <div>
                 <img src="{{asset('images/hindsight-logo.png')}}" alt="Hindsight Contractors" width="250px">
             </div>
             <h3>Mileage Log</h3>
@@ -105,166 +105,166 @@
             </td>
             <td width="50%">
                 <h2 class="main-text header">Expense Claim Form</h2>
-            <div class="date">
-                {{-- Date gets enetered here --}}
-            </div>
+                <div class="date">
+                    {{-- Date gets enetered here --}}
+                </div>
 
-            <table class="expenses">
-                <thead>
-                    <tr>
-                        <th colspan="2">Non-Receipted Claims</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php $expenses = json_decode($timesheet->additional, true);?>
-                    <tr>
-                        <td width="80%">5 Hour Shift Allowance (£5)</td>
-                        <td width="20%">
-                            @if(array_key_exists('5hr', $expenses))
-                                £{{$expenses['5hr']}}
-                            @endif
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="80%">Above 5 Hours Shift Allowance (£10)</td>
-                        <td width="20%">
-                            @if(array_key_exists('5hr+', $expenses))
-                                £{{$expenses['5hr+']}}
-                            @endif
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="80%">15 Hour Shift Allowance (£25)</td>
-                        <td width="20%">
-                            @if(array_key_exists('15hr+', $expenses))
-                                £{{$expenses['15hr+']}}
-                            @endif
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="80%">Personal Incident Expenses @ £10 per overnight/nightshift</td>
-                        <td width="20%">
-                            @if(array_key_exists('PIE', $expenses))
-                                £{{$expenses['PIE']}}
-                            @endif
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="80%">Washing of Workwear (10 MAX)</td>
-                        <td width="20%">
-                            @if(array_key_exists('wash', $expenses))
-                                £{{$expenses['wash']}}
-                            @endif
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="80%">Home Office @£6.00 per week</td>
-                        <td width="20%">
-                            @if(array_key_exists('office', $expenses))
-                                £{{$expenses['office']}}
-                            @endif
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="80%">Overnight @ £25.00 per night</td>
-                        <td width="20%">
-                            @if(array_key_exists('overnight', $expenses))
-                                £{{$expenses['overnight']}}
-                            @endif
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="80%">Toll Bridges</td>
-                        <td width="20%">
-                            @if(array_key_exists('toll', $expenses))
-                                £{{$expenses['toll']}}
-                            @endif
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th colspan="2">Receipted Claims</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td width="80%">Accomodation</td>
-                        <td width="20%">
-                            @if(array_key_exists('accomodation', $expenses))
-                                £{{$expenses['accomodation']}}
-                            @endif
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="80%">Equipment</td>
-                        <td width="20%">
-                            @if(array_key_exists('equipment', $expenses))
-                                £{{$expenses['equipment']}}
+                <table class="expenses">
+                    <thead>
+                        <tr>
+                            <th colspan="2">Non-Receipted Claims</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php $expenses = json_decode($timesheet->additional, true);?>
+                        <tr>
+                            <td width="80%">5 Hour Shift Allowance (£5)</td>
+                            <td width="20%">
+                                @if(array_key_exists('5hr', $expenses))
+                                    £{{$expenses['5hr']}}
+                                @endif
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="80%">Above 5 Hours Shift Allowance (£10)</td>
+                            <td width="20%">
+                                @if(array_key_exists('5hr+', $expenses))
+                                    £{{$expenses['5hr+']}}
+                                @endif
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="80%">15 Hour Shift Allowance (£25)</td>
+                            <td width="20%">
+                                @if(array_key_exists('15hr+', $expenses))
+                                    £{{$expenses['15hr+']}}
+                                @endif
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="80%">Personal Incident Expenses @ £10 per overnight/nightshift</td>
+                            <td width="20%">
+                                @if(array_key_exists('PIE', $expenses))
+                                    £{{$expenses['PIE']}}
+                                @endif
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="80%">Washing of Workwear (10 MAX)</td>
+                            <td width="20%">
+                                @if(array_key_exists('wash', $expenses))
+                                    £{{$expenses['wash']}}
+                                @endif
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="80%">Home Office @£6.00 per week</td>
+                            <td width="20%">
+                                @if(array_key_exists('office', $expenses))
+                                    £{{$expenses['office']}}
+                                @endif
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="80%">Overnight @ £25.00 per night</td>
+                            <td width="20%">
+                                @if(array_key_exists('overnight', $expenses))
+                                    £{{$expenses['overnight']}}
+                                @endif
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="80%">Toll Bridges</td>
+                            <td width="20%">
+                                @if(array_key_exists('toll', $expenses))
+                                    £{{$expenses['toll']}}
+                                @endif
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <hr>
+                <table>
+                    <thead>
+                        <tr>
+                            <th colspan="2">Receipted Claims</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td width="80%">Accomodation</td>
+                            <td width="20%">
+                                @if(array_key_exists('accomodation', $expenses))
+                                    £{{$expenses['accomodation']}}
+                                @endif
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="80%">Equipment</td>
+                            <td width="20%">
+                                @if(array_key_exists('equipment', $expenses))
+                                    £{{$expenses['equipment']}}
+                                @endif    
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="80%">Stationary & Postage</td>
+                            <td width="20%">
+                                @if(array_key_exists('stationary', $expenses))
+                                    £{{$expenses['stationary']}}
+                                @endif    
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="80%">Training</td>
+                            <td width="20%">
+                                @if(array_key_exists('training', $expenses))
+                                    £{{$expenses['training']}}
+                                @endif    
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="80%">Car/Equipment Hire</td>
+                            <td width="20%">
+                                @if(array_key_exists('hire', $expenses))
+                                    £{{$expenses['hire']}}
+                                @endif    
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="80%">Purchase of Workwear</td>
+                            <td width="20%">
+                                @if(array_key_exists('workwear', $expenses))
+                                £{{$expenses['workwear']}}
                             @endif    
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="80%">Stationary & Postage</td>
-                        <td width="20%">
-                            @if(array_key_exists('stationary', $expenses))
-                                £{{$expenses['stationary']}}
-                            @endif    
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="80%">Training</td>
-                        <td width="20%">
-                            @if(array_key_exists('training', $expenses))
-                                £{{$expenses['training']}}
-                            @endif    
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="80%">Car/Equipment Hire</td>
-                        <td width="20%">
-                            @if(array_key_exists('hire', $expenses))
-                                £{{$expenses['hire']}}
-                            @endif    
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="80%">Purchase of Workwear</td>
-                        <td width="20%">
-                            @if(array_key_exists('workwear', $expenses))
-                            £{{$expenses['workwear']}}
-                        @endif    
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="80%">Books & Journals</td>
-                        <td width="20%">
-                            @if(array_key_exists('books', $expenses))
-                                £{{$expenses['books']}}
-                            @endif    
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="80%">Parking</td>
-                        <td width="20%">
-                            @if(array_key_exists('parking', $expenses))
-                                £{{$expenses['parking']}}
-                            @endif    
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="80%">Other</td>
-                        <td width="20%">
-                            @if(array_key_exists('other', $expenses))
-                                £{{$expenses['other']}}
-                            @endif    
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="80%">Books & Journals</td>
+                            <td width="20%">
+                                @if(array_key_exists('books', $expenses))
+                                    £{{$expenses['books']}}
+                                @endif    
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="80%">Parking</td>
+                            <td width="20%">
+                                @if(array_key_exists('parking', $expenses))
+                                    £{{$expenses['parking']}}
+                                @endif    
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="80%">Other</td>
+                            <td width="20%">
+                                @if(array_key_exists('other', $expenses))
+                                    £{{$expenses['other']}}
+                                @endif    
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </td>
         </tr>
     </table>
