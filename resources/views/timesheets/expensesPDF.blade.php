@@ -18,12 +18,18 @@
             width: 64%;
              padding: 2%;
              float:left;
+             position: absolute;
+             top: 0;
+             left: 0;
         }
 
         .right-column{
             width:24%;
             padding: 2%;
             float: right;
+            position: absolute;
+             top: 0;
+             right: 0;
         }
 
         table {
