@@ -47,7 +47,7 @@
                 <img src="{{asset('images/hidsight-logo.png')}}" alt="Hindsight Contractors" width="250px">
             </div>
             <h3>Mileage Log</h3>
-            <table>
+            <table width="100%">
                 <thead style="background-color: cadetblue">
                     <tr style="border-bottom: solid 5px #666">
                         <th width="25%">Date</th>
