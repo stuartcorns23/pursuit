@@ -15,14 +15,46 @@
         }
 
         .left-column{
-            width: 70%;
+            width: 66%;
              background-color: #cccccc;
              float: left;
+             padding: 2%;
+             height: 100vh;
         }
 
         .right-column{
-            width:30%;
+            width:26%;
             float: right;
+            padding: 2%;
+            height: 100vh;
+        }
+
+        table {
+        caption-side: bottom;
+        border-collapse: collapse;
+        }
+
+        .table {
+        --bs-table-bg: transparent;
+        --bs-table-accent-bg: transparent;
+        --bs-table-striped-color: #212529;
+        --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
+        --bs-table-active-color: #212529;
+        --bs-table-active-bg: rgba(0, 0, 0, 0.1);
+        --bs-table-hover-color: #212529;
+        --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
+        width: 100%;
+        margin-bottom: 1rem;
+        color: #212529;
+        vertical-align: top;
+        border-color: #dee2e6;
+        }
+
+        .table-bordered > :not(caption) > * {
+        border-width: 1px 0;
+        }
+        .table-bordered > :not(caption) > * > * {
+        border-width: 0 1px;
         }
 
         .expenses thead tr{
@@ -34,7 +66,6 @@
         .expenses tr{
             border-bottom: solid 1px #666;
             padding:5px;
-
         }
 
     </style>
@@ -44,10 +75,10 @@
          <div class="left-column">
             {{-- Hindsight Logo --}}
             <div>
-                <img src="{{asset('images/hidsight-logo.png')}}" alt="Hindsight Contractors" width="250px">
+                <img src="{{asset('images/hindsight-logo.png')}}" alt="Hindsight Contractors" width="250px">
             </div>
             <h3>Mileage Log</h3>
-            <table width="100%">
+            <table width="100%" class="table table-bordered">
                 <thead style="background-color: cadetblue">
                     <tr style="border-bottom: solid 5px #666">
                         <th width="25%">Date</th>
