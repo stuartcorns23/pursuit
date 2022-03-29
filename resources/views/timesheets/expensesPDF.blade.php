@@ -7,7 +7,16 @@
     <title>@yield('title')</title>
     <!-- Custom styles for this template-->
     <style>
-
+        @page {
+            size: a4 landscape; 
+            margin:0.9;padding:0.9; // you can set margin and padding 0 
+        } 
+        body {
+            font-family: Times New Roman;
+            font-size: 33px;
+            text-align: center;
+            border: thin solid black;  
+        }
         .left-column{
             width: 64%;
              padding: 2%;
