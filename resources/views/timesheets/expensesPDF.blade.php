@@ -17,11 +17,13 @@
         .left-column{
             width: 64%;
              padding: 2%;
+             float:left;
         }
 
         .right-column{
             width:24%;
             padding: 2%;
+            float: right;
         }
 
         table {
