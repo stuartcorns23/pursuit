@@ -76,7 +76,7 @@
     </style>
 </head>
 <body>
-     <div class="container">
+     <div class="container" style="background-color: #999;">
          <div class="left-column">
             {{-- Hindsight Logo --}}
             <div style="height: 100px; display: flex; jusitfy-content: flex-start; align-items:center">
