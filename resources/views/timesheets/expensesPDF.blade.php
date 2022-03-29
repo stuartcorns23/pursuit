@@ -15,8 +15,7 @@
         }
 
         .left-column{
-            width: 66%;
-             background-color: #cccccc;
+            width: 64%;
              float: left;
              padding: 2%;
              height: 100vh;
