@@ -7,12 +7,6 @@
     <title>@yield('title')</title>
     <!-- Custom styles for this template-->
     <style>
-        .container{
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
 
         .left-column{
             width: 64%;
@@ -88,7 +82,6 @@
     </style>
 </head>
 <body>
-     <div class="container" style="background-color: #999;">
          <div class="left-column">
             {{-- Hindsight Logo --}}
             <div style="height: 100px; display: flex; jusitfy-content: flex-start; align-items:center">
@@ -291,6 +284,5 @@
             
          </div>
          <div class="clear"></div>
-     </div>
 </body>
 </html>
