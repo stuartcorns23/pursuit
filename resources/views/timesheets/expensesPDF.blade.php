@@ -58,7 +58,7 @@
     </style>
 </head>
 <body>
-    <div style="background-color: #aeaeae; position: relative; ">
+    <div style="background-color: #aeaeae; height: 100%; position: relative; ">
          <div style="width: 62%; display: inline-block; background-color: #666; margin-top: 0px;">
             {{-- Hindsight Logo --}}
             <div style="height: 100px; display: flex; jusitfy-content: flex-start; align-items:center">
@@ -97,7 +97,7 @@
             </div>
          </div>
 
-         <div style="width: 32%; height: 100%; padding-left: 3%; display: inline-block; background-color: #FFF; margin-top: 0px; padding-top: 0px;">
+         <div style="width: 32%; padding-left: 3%; display: inline-block; background-color: #FFF; margin-top: 0px; padding-top: 0px;">
             <h2 class="main-text header">Expense Claim Form</h2>
             <div class="date">
                 {{-- Date gets enetered here --}}
