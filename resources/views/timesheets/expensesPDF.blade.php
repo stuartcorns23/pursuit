@@ -97,7 +97,7 @@
             </div>
          </div>
 
-         <div style="width: 32%; height: auto; padding-left: 3%; display: inline-block; background-color: #FFF; margin-top: 0px; padding-top: 0px;">
+         <div style="width: 32%; height: 100%; padding-left: 3%; display: inline-block; background-color: #FFF; margin-top: 0px; padding-top: 0px;">
             <h2 class="main-text header">Expense Claim Form</h2>
             <div class="date">
                 {{-- Date gets enetered here --}}
