@@ -58,7 +58,7 @@
     </style>
 </head>
 <body>
-    <table style="background-color: #aeaeae; height: 100%; position: relative; ">
+    <table style="background-color: #aeaeae; width: 100%; position: relative; ">
         <tr>
          <td style="width: 62%; display: inline-block; background-color: #666; margin-top: 0px;">
             {{-- Hindsight Logo --}}
