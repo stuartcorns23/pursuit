@@ -58,8 +58,9 @@
     </style>
 </head>
 <body>
-    <div style="background-color: #aeaeae; height: 100%; position: relative; ">
-         <div style="width: 62%; display: inline-block; background-color: #666; margin-top: 0px;">
+    <table style="background-color: #aeaeae; height: 100%; position: relative; ">
+        <tr>
+         <td style="width: 62%; display: inline-block; background-color: #666; margin-top: 0px;">
             {{-- Hindsight Logo --}}
             <div style="height: 100px; display: flex; jusitfy-content: flex-start; align-items:center">
                 <img src="{{asset('images/hindsight-logo.png')}}" alt="Hindsight Contractors" width="250px">
@@ -95,9 +96,9 @@
                 Totals
 
             </div>
-         </div>
+        </td>
 
-         <div style="width: 32%; padding-left: 3%; display: inline-block; background-color: #FFF; margin-top: 0px; padding-top: 0px;">
+         <td style="width: 32%; padding-left: 3%; display: inline-block; background-color: #FFF; margin-top: 0px; padding-top: 0px;">
             <h2 class="main-text header">Expense Claim Form</h2>
             <div class="date">
                 {{-- Date gets enetered here --}}
@@ -260,7 +261,8 @@
                 </tbody>
             </table>
             
-         </div>
-    </div>
+        </td>
+    </tr>
+</table>
 </body>
 </html>
