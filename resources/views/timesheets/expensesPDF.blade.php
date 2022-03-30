@@ -58,7 +58,7 @@
     </style>
 </head>
 <body>
-    <div style="background-color: #aeaeae; ">
+    <div style="background-color: #aeaeae; position: relative; ">
          <div style="width: 62%; display: inline-block;">
             {{-- Hindsight Logo --}}
             <div style="height: 100px; display: flex; jusitfy-content: flex-start; align-items:center">
