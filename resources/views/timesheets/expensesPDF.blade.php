@@ -58,7 +58,8 @@
     </style>
 </head>
 <body>
-         <div style="width: 62%; pading-right: 3%; display: inline-block;">
+    <div style="background-color: #aeaeae; ">
+         <div style="width: 62%; padding-right: 3%; display: inline-block;">
             {{-- Hindsight Logo --}}
             <div style="height: 100px; display: flex; jusitfy-content: flex-start; align-items:center">
                 <img src="{{asset('images/hindsight-logo.png')}}" alt="Hindsight Contractors" width="250px">
