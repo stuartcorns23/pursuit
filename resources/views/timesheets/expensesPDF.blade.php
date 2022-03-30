@@ -60,7 +60,7 @@
 <body>
     <table style="background-color: #aeaeae; width: 100%; position: relative; ">
         <tr>
-         <td style="width: 62%; background-color: #666; >
+         <td style="width: 62%; background-color: #666;" >
             {{-- Hindsight Logo --}}
             <div style="height: 100px; display: flex; jusitfy-content: flex-start; align-items:center">
                 <img src="{{asset('images/hindsight-logo.png')}}" alt="Hindsight Contractors" width="250px">
