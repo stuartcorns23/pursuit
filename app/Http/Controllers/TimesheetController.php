@@ -63,6 +63,7 @@ class TimesheetController extends Controller
 
         return view('timesheets.view', [
             "timesheets" => $timesheets->paginate(intval($limit))->withPath(asset('/timesheets/filter'))->fragment('table'),
+            "users" => $users,
         ]);
 
     }
