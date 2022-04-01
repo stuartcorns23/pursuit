@@ -74,7 +74,7 @@
             </header>
             <h3>Mileage Log</h3>
             <table width="100%" class="table table-bordered expenses">
-                <thead style="background-color: #47b0e3">
+                <thead style="background-color: #47b0e3; color: #FFF">
                     <tr style="border-bottom: solid 5px #47b0e3">
                         <th width="25%">Date</th>
                         <th width="25%">From</th>
@@ -95,14 +95,21 @@
                 </tbody>
             </table>
 
-            <div style="width: 50%; float: left;">
-                Contractor Name
+            <table style="background-color: #47b0e3; color: #FFF">
+                <tr>
+                    <td class="50%">Company Name:</td>
+                    <td>{{$timesheet->user->company_name ?? $timesheet->user->fullname()}}</td>
+                </tr>
+                <tr>
+                    <td class="50%">Agency:</td>
+                    <td>Pursuit Traffic Management Recruitment Ltd</td>
+                </tr>
+                <tr>
+                    <td class="50%">Week Ending:</td>
+                    <td>{{ $end->format('d-m-Y')}}</td>
+                </tr>
+            </table>
 
-            </div>
-            <div style="width: 50%; float: right;">
-                Totals
-
-            </div>
             <hr>
             <h2 class="main-text header">Expense Claim Form</h2>
             <div class="date">

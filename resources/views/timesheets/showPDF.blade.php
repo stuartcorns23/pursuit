@@ -17,7 +17,7 @@
             border-bottom: solid 3px #1d6fb8;
             width: 100%;
             margin-bottom: 30px;
-            color: #fff;
+            color: #333;
             font-size: 14px;
         }
 
@@ -156,7 +156,7 @@
     <table class="table">
         <thead>
             <tr>
-                <td>Comments:</td>
+                <th>Comments:</th>
             </tr>
         </thead>
          <tbody>
