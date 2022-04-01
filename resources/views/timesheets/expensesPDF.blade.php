@@ -58,9 +58,20 @@
 </head>
 <body>
             {{-- Hindsight Logo --}}
-            <div style="height: 100px; display: flex; jusitfy-content: flex-start; align-items:center">
-                <img src="{{asset('images/hindsight-logo.png')}}" alt="Hindsight Contractors" width="250px">
-            </div>
+            <header id="header">
+                <table width="100%"></i>
+                    <tr>
+                        <td align="left"><h1>{{$user->company_name ?? $user->fullname()}}</h1></td>
+                        <td align="right" style="padding-right: 10px;">
+                            <?php 
+                            $start = \Carbon\Carbon::parse($timesheet->week_start);
+                            $end = \Carbon\Carbon::parse($timesheet->week_end);
+                            ?>
+                            Week {{$start->format('W')}}: {{ $start->format('d-m-Y')}} to {{ $end->format('d-m-Y')}}<br>Operative: {{$timesheet->user->fullname()}}
+                        </td>
+                    </tr>
+                </table>
+            </header>
             <h3>Mileage Log</h3>
             <table width="100%" class="table table-bordered expenses">
                 <thead style="background-color: #47b0e3">
