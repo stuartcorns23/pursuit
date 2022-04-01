@@ -83,8 +83,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php $mileage = json_decode($timesheet->mileage);?>
+                    <?php $mileage = json_decode($timesheet->mileage); $total_miles = 0?>
                     @foreach($mileage as $key => $mile)
+                    @php($total_miles += $mile->total)
                     <tr>
                         <td>{{ucFirst($key)}}</td>
                         <td>{{$mile->to}}</td>
@@ -93,6 +94,26 @@
                     </tr>
                     @endforeach
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>Total Miles</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>45ppm/25ppm</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>£</td>
+                        <td></td>
+                    </tr>
+                </tfoot>
             </table>
 
             <table style="background-color: #47b0e3; color: #FFF">
