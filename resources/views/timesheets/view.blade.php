@@ -14,6 +14,9 @@
             <div class="p-2">
                 <a href="#" class="btn btn-warning">Download PDF</a>
                 <a href="#" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#filterModal">Filter</a>
+                @if(session('filter') === true)
+                    <a href="{{ route('timesheets.clear.filter')}}" class="btn btn-danger shadow-sm">Clear Filter</a>
+                @endif
                 <a href="{{route('timesheets.create')}}" class="btn btn-success">Submit a Timesheet</a>
             </div>
         </div>
@@ -141,7 +144,7 @@
                         <div class="form-group mb-4">
                             <label for="type">Operative</label>
                             <select name="operative" id="type" class="form-control">
-                                <option value="0" @if(session('filter_user') === 0) {{ 'selected'}} @endif>All
+                                <option value="" @if(session('filter_user') === 0) {{ 'selected'}} @endif>All
                                 </option>
                                 @foreach($users as $user)
                                 <option value="{{$user->id}}" @if(session('filter_user') === $user->id) {{ 'selected'}} @endif>

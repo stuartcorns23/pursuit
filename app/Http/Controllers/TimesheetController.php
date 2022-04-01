@@ -39,11 +39,15 @@ class TimesheetController extends Controller
             if(! empty($request->operative))
             {
                 session(['filter_user' => $request->operative]);
+            }else{
+                session()->forget('filter_user');
             }
 
             if($request->end_date != "")
             {
                 session(['filter_end_date' => $request->end_date]);
+            }else{
+                session()->forget('filter_end_date');
             }
         }
 
@@ -71,9 +75,9 @@ class TimesheetController extends Controller
     public function clearFilter()
     {
         session(['filter' => false]);
-        session()->forget(['filter_search', 'filter_type', 'filter_year_group', 'filter_category', 'filter_status', 'filter_start', 'filter_end', 'order_by', 'limit', 'direction']);
+        session()->forget(['filter_user', 'filter_end_date']);
 
-        return to_route('concerns.index')->with('success_message', 'The concern filter has been cleared!');
+        return redirect(route('timesheets.index')->with('success_message', 'The concern filter has been cleared!'));
     }
 
     public function create()
