@@ -27,7 +27,7 @@ class Timesheet extends Model implements HasMedia
 
     public function scopeUserFilter($query, $user)
     {
-        return $query->whereIn('user_id', $user);
+        return $query->where('user_id', '=', $user);
     }
 
     public function scopeDateFilter($query,  $end)
