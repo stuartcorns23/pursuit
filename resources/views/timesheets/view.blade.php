@@ -14,7 +14,7 @@
             <div class="p-2">
                 <a href="#" class="btn btn-warning">Download PDF</a>
                 <a href="#" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#filterModal">Filter</a>
-                @if(session('timehseet_filter') === true)
+                @if(session('timesheet_filter') === true)
                     <a href="{{ route('timesheets.clear.filter')}}" class="btn btn-danger shadow-sm">Clear Filter</a>
                 @endif
                 <a href="{{route('timesheets.create')}}" class="btn btn-success">Submit a Timesheet</a>
