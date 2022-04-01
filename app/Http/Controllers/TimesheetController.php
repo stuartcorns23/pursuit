@@ -187,17 +187,7 @@ class TimesheetController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Timesheet  $timesheet
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Timesheet $timesheet)
-    {
-        //
-    }
-
+    
     /**
      * Show the form for editing the specified resource.
      *
@@ -298,6 +288,9 @@ class TimesheetController extends Controller
      */
     public function destroy(Timesheet $timesheet)
     {
-        //
+        $timesheet->delete();
+        session()->flash('danger_message', 'The timesheet was deleted from the system');
+
+        return redirect(route('timesheets.index'));
     }
 }
