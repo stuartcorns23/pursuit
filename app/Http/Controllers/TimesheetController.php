@@ -77,7 +77,8 @@ class TimesheetController extends Controller
         session(['filter' => false]);
         session()->forget(['filter_user', 'filter_end_date']);
 
-        return redirect(route('timesheets.index')->with('success_message', 'The concern filter has been cleared!'));
+        session()->flash('success_message', 'The timehseet filter has been cleared!');
+        return redirect(route('timesheets.index'));
     }
 
     public function create()
