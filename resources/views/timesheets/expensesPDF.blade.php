@@ -6,7 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
     <!-- Custom styles for this template-->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300&display=swap" rel="stylesheet">
     <style>
+
+        body{
+            font-family: 'Raleway';
+        }
         table {
         caption-side: bottom;
         border-collapse: collapse;
@@ -61,7 +66,7 @@
             <header id="header">
                 <table width="100%"></i>
                     <tr>
-                        <td align="left"><h1>{{$timesheet->user->company_name ?? $timesheet->user->fullname()}}</h1></td>
+                        <td align="left"><h1 class="main-text">{{$timesheet->user->company_name ?? $timesheet->user->fullname()}}</h1></td>
                         <td align="right" style="padding-right: 10px;">
                             <?php 
                             $start = \Carbon\Carbon::parse($timesheet->week_start);
@@ -136,11 +141,8 @@
 
             <hr>
             <h2 class="main-text header">Expense Claim Form</h2>
-            <div class="date">
-                {{-- Date gets enetered here --}}
-            </div>
 
-            <table class="expenses" width="100%">
+            <table class="expenses table table-bordered" width="100%">
                 <thead>
                     <tr>
                         <th colspan="2">Non-Receipted Claims</th>
@@ -272,6 +274,19 @@
                         </td>
                     </tr>
                 </tbody>
+            </table>
+
+            <table>
+                <tr>
+                    <td width="50%">
+                        <div style="border: solid 1px rgb(167, 199, 231); padding: 10px;">Signed<br></div>
+                    </td>
+                    <td width="50%" style="background-color: rgb(167, 199, 231, .7);">
+                        <strong>Declaration</strong><br>
+                        The above travel expenses have been incurred wholly in conjunction with performing my duties <br>
+                        I understand that without providing my receipts, my expenses will not ber processed and the amount will be reversed
+                    </td>
+                </tr>
             </table>
 </body>
 </html>
