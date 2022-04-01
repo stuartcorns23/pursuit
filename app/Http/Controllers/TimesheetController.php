@@ -291,6 +291,6 @@ class TimesheetController extends Controller
         $timesheet->delete();
         session()->flash('danger_message', 'The timesheet was deleted from the system');
 
-        return redirect(route('timesheets.index'));
+        return back();
     }
 }

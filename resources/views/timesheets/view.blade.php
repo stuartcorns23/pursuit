@@ -66,7 +66,7 @@
                                     <a class="dropdown-item" href="{{$timesheet->getFirstMedia('expenses')->getFullUrl()}}">Download Expenses</a>
                                     @endif
                                     <a class="dropdown-item" href="{{route('timesheets.edit', $timesheet->id)}}">Edit</a>
-                                    <form id="form{{$timesheet->id}}" action="{{ route('users.destroy', $timesheet->id) }}" method="POST">
+                                    <form id="form{{$timesheet->id}}" action="{{ route('timesheets.destroy', $timesheet->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <a class="deleteBtn dropdown-item" href="#"
@@ -116,7 +116,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <input id="user-id" type="hidden" value="">
+                <input id="timesheet-id" type="hidden" value="">
                 <p>Select "Delete" to remove this timesheet from the system.</p>
                 <small class="text-danger">**Warning this is permanent. </small>
             </div>
@@ -172,7 +172,7 @@
 @section('js')
 <script>
     let deleteBtn = document.querySelectorAll('.deleteBtn');
-    const userID = document.querySelector('#user-id');
+    const timesheetID = document.querySelector('#timesheet-id');
     const removeUserModal =  new bootstrap.Modal(document.getElementById('removeUserModal'), {backdrop: true});
     const confirmBtn = document.querySelector('#confirmBtn');
 
@@ -180,13 +180,13 @@
         item.addEventListener('click', function(e){
             e.preventDefault();
 
-            userID.value = this.getAttribute('data-id');
+            timesheetID.value = this.getAttribute('data-id');
             removeUserModal.show();
         });
     });
 
     confirmBtn.addEventListener('click', function(){
-        let form = document.querySelector('#form'+userID.value);
+        let form = document.querySelector('#form'+timesheetID.value);
         form.submit()
     })
 
