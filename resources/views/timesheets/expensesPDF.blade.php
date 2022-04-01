@@ -116,7 +116,7 @@
                 </tfoot>
             </table>
 
-            <div style="background-color: #47b0e3; color: #333; padding: 10px;">
+            <div style="background-color: rgb(167, 199, 231, 0.7); color: #333; padding: 10px;">
                 <table >
                     <tr>
                         <td style="50%">Company Name:</td>
