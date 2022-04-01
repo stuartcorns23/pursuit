@@ -27,7 +27,7 @@ class TimesheetController extends Controller
     public function filter(Request $request)
     {
         if(auth()->user()->admin == 1){
-            $timesheets = new Timesheet;
+            $timesheets = Timesheet::with('user', 'client');
             $users = User::all();
         }else{
             $timesheets = Timesheet::whereUserId(auth()->user()->id);
