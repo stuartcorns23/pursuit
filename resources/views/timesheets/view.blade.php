@@ -141,11 +141,11 @@
                         <div class="form-group mb-4">
                             <label for="type">Operative</label>
                             <select name="type" id="type" class="form-control">
-                                <option value="All" @if(session('filter_type') === 'All') {{ 'selected'}} @endif>All
+                                <option value="0" @if(session('filter_user') === 0) {{ 'selected'}} @endif>All
                                 </option>
-                                <option
-                                    value="Disclosure" @if(session('filter_type') === 'Disclosure') {{ 'selected'}} @endif>
-                                    Disclosure
+                                @foreach($users as $user)
+                                <option value="{{$user->id}}" @if(session('filter_user') === $user->id) {{ 'selected'}} @endif>
+                                    {{$user->fullname()}}
                                 </option>
                             </select>
                         </div>
