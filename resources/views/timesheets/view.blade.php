@@ -13,18 +13,12 @@
             <h1 class="text-center mb-4">Timesheets</h1>
             <div class="p-2">
                 <a href="#" class="btn btn-warning">Download PDF</a>
+                <a href="#" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#filterModal">Filter</a>
                 <a href="{{route('timesheets.create')}}" class="btn btn-success">Submit a Timesheet</a>
             </div>
         </div>
-        @if(session('danger_message'))
-            <div class="alert alert-danger"> {!! session('danger_message')!!} </div>
-        @endif
-
-        @if(session('success_message'))
-            <div class="alert alert-success"> {!!session('success_message')!!} </div>
-        @endif
-
-        <p class="fs-5">Here are all of the users within the application</p>
+       
+        <x-handlers.alerts ></x-handlers.alerts>
 
         <div class="w-100">
 
@@ -112,7 +106,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="removeUserModalLabel">Are you sure you want to delete this User?
+                <h5 class="modal-title" id="removeUserModalLabel">Are you sure you want to delete this Timesheet?
                 </h5>
                 <button class="btn btn-gray close" type="button" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
@@ -120,7 +114,7 @@
             </div>
             <div class="modal-body">
                 <input id="user-id" type="hidden" value="">
-                <p>Select "Delete" to remove this User from the system.</p>
+                <p>Select "Delete" to remove this timesheet from the system.</p>
                 <small class="text-danger">**Warning this is permanent. </small>
             </div>
             <div class="modal-footer">
@@ -130,6 +124,44 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade bd-example-modal-lg" id="filterModal" tabindex="-1" role="dialog"
+         aria-labelledby="filterModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <form action="{{route('concerns.filter')}}" method="POST">
+                    @csrf
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="filterModalLabel">Filter Timesheets</h5>
+                        <button class="btn btn-light" type="button" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group mb-4">
+                            <label for="type">Operative</label>
+                            <select name="type" id="type" class="form-control">
+                                <option value="All" @if(session('filter_type') === 'All') {{ 'selected'}} @endif>All
+                                </option>
+                                <option
+                                    value="Disclosure" @if(session('filter_type') === 'Disclosure') {{ 'selected'}} @endif>
+                                    Disclosure
+                                </option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group mb-4">
+                                <label for="type">End Date</label>
+                                <input type="date" class="form-control" name="end">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <x-submit.submit class="btn-info" icon="fa-undo-alt">Filter</x-submit.submit>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('js')
