@@ -7,7 +7,6 @@
     <title>@yield('title')</title>
     <!-- Custom styles for this template-->
     <style>
-        @page { size: a4 landscape; }
         table {
         caption-side: bottom;
         border-collapse: collapse;
@@ -58,9 +57,6 @@
     </style>
 </head>
 <body>
-    <table style="background-color: #aeaeae; width: 100%; position: relative; ">
-        <tr>
-         <td style="width: 62%; background-color: #666;" >
             {{-- Hindsight Logo --}}
             <div style="height: 100px; display: flex; jusitfy-content: flex-start; align-items:center">
                 <img src="{{asset('images/hindsight-logo.png')}}" alt="Hindsight Contractors" width="250px">
@@ -96,9 +92,7 @@
                 Totals
 
             </div>
-        </td>
-
-         <td style="width: 32%; background-color: #FFF; ">
+            <hr>
             <h2 class="main-text header">Expense Claim Form</h2>
             <div class="date">
                 {{-- Date gets enetered here --}}
