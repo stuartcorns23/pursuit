@@ -32,7 +32,7 @@ class Timesheet extends Model implements HasMedia
 
     public function scopeDateFilter($query,  $end)
     {
-        return $query->where('date', '=', $end);
+        return $query->where('week_end', '=', $end);
     }
 
 
