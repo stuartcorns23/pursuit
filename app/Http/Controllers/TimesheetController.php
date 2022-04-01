@@ -34,7 +34,6 @@ class TimesheetController extends Controller
             $users = "";
         }
 
-        return dd($request->operative);
         if($request->isMethod('post'))
         {
             if(! empty($request->operative))
@@ -50,13 +49,13 @@ class TimesheetController extends Controller
 
         if(session()->has('filter_user'))
         {
-            $timesheets->userFilter(session('filter_type'));
+            $timesheets->userFilter(session('filter_user'));
             session(['timesheet_filter' => true]);
         }
 
         if(session()->has('filter_end_date'))
         {
-            $timesheets->dateFilter(session('filter_end'));
+            $timesheets->dateFilter(session('filter_end_date'));
             session(['timesheet_filter' => true]);
         }
 
