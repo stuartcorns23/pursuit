@@ -126,7 +126,16 @@
                                 <div class="card card-shadow bg-success text-center">
                                     <div class="card-body text-white">
                                         <span class="text-light">Total Wages</span><br>
-                                        <span class="fs-3">£700</span>
+                                        <span class="fs-3">
+                                            @php
+                                                  $total = 0;
+                                                  foreach($user->timesheets as $timesheet){
+                                                      $total += $timesheet->total_wages;
+                                                  }  
+
+                                            @endphp
+                                            £{{number_format( (float) $total, 2, '.', ',' )}}
+                                        </span>
                                     </div>
                                 </div>
                             </div>
