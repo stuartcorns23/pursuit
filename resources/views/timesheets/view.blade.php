@@ -156,7 +156,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <x-submit.submit class="btn-info" icon="fa-undo-alt">Filter</x-submit.submit>
+                        <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Cancel</button>
+                        <button class="btn btn-danger" type="submit">Filter</button>
                     </div>
                 </form>
             </div>
