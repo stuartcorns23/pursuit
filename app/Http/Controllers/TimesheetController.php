@@ -61,7 +61,7 @@ class TimesheetController extends Controller
 
         $limit = 25;
 
-        return view('timehseets.view', [
+        return view('timesheets.view', [
             "timesheets" => $timesheets->paginate(intval($limit))->withPath(asset('/timesheets/filter'))->fragment('table'),
         ]);
 
