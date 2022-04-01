@@ -11,6 +11,7 @@
 
         body{
             font-family: 'Raleway';
+            font-size: 12px;
         }
         table {
         caption-side: bottom;
@@ -124,8 +125,8 @@
             <div style="background-color: rgb(167, 199, 231, 0.7); color: #333; padding: 10px;">
                 <table >
                     <tr>
-                        <td style="50%">Company Name:</td>
-                        <td>{{$timesheet->user->company_name ?? $timesheet->user->fullname()}}</td>
+                        <td width="50%">Company Name:</td>
+                        <td width="50%">{{$timesheet->user->company_name ?? $timesheet->user->fullname()}}</td>
                     </tr>
                     <tr>
                         <td>Agency:</td>
