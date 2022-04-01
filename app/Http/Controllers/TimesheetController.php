@@ -15,10 +15,12 @@ class TimesheetController extends Controller
     {
         if(auth()->user()->admin == 1){
             $timesheets = Timesheet::all();
+            $users = User::all();
         }else{
             $timesheets = Timesheet::whereUserId(auth()->user()->id)->get();
+            $users = "";
         }
-        return view('timesheets.view', compact('timesheets'));
+        return view('timesheets.view', compact('timesheets', 'users'));
     }
 
     public function filter(Request $request)

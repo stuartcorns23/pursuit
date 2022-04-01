@@ -147,6 +147,7 @@
                                 <option value="{{$user->id}}" @if(session('filter_user') === $user->id) {{ 'selected'}} @endif>
                                     {{$user->fullname()}}
                                 </option>
+                                @endforeach
                             </select>
                         </div>
                         
