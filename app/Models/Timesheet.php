@@ -25,5 +25,15 @@ class Timesheet extends Model implements HasMedia
         $this->addMediaCollection('timesheet');
     }
 
+    public function scopeUserFilter($query, $user)
+    {
+        return $query->whereIn('user_id', $user);
+    }
+
+    public function scopeDateFilter($query,  $end)
+    {
+        return $query->where('date', '=', $end);
+    }
+
 
 }

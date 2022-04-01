@@ -140,7 +140,7 @@
                     <div class="modal-body">
                         <div class="form-group mb-4">
                             <label for="type">Operative</label>
-                            <select name="type" id="type" class="form-control">
+                            <select name="operative" id="type" class="form-control">
                                 <option value="0" @if(session('filter_user') === 0) {{ 'selected'}} @endif>All
                                 </option>
                                 @foreach($users as $user)
@@ -152,8 +152,8 @@
                         </div>
                         
                         <div class="form-group mb-4">
-                                <label for="type">End Date</label>
-                                <input type="date" class="form-control" name="end">
+                                <label for="end">End Date</label>
+                                <input type="date" class="form-control" name="end_date">
                         </div>
                     </div>
                     <div class="modal-footer">
