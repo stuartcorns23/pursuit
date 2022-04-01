@@ -119,15 +119,15 @@
             <div style="background-color: #47b0e3; color: #333; padding: 10px;">
                 <table >
                     <tr>
-                        <td class="50%">Company Name:</td>
+                        <td style="50%">Company Name:</td>
                         <td>{{$timesheet->user->company_name ?? $timesheet->user->fullname()}}</td>
                     </tr>
                     <tr>
-                        <td class="50%">Agency:</td>
+                        <td>Agency:</td>
                         <td>Pursuit Traffic Management Recruitment Ltd</td>
                     </tr>
                     <tr>
-                        <td class="50%">Week Ending:</td>
+                        <td>Week Ending:</td>
                         <td>{{ $end->format('d-m-Y')}}</td>
                     </tr>
                 </table>
@@ -140,7 +140,7 @@
                 {{-- Date gets enetered here --}}
             </div>
 
-            <table class="expenses">
+            <table class="expenses" width="100%">
                 <thead>
                     <tr>
                         <th colspan="2">Non-Receipted Claims</th>
