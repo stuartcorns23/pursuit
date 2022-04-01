@@ -55,7 +55,7 @@ class SubmitTimesheet implements ShouldQueue
        
        
         Storage::disk('public')->put('timesheets/'.$file.'-TS-'.$date.'.pdf', $pdf->output());
-        $timesheet->addMediaFromUrl(Storage::disk('public')->url('timesheets/'.$file.'-'.$date.'.pdf'))->toMediaCollection('timesheets');
+        $timesheet->addMediaFromUrl(Storage::disk('public')->url('timesheets/'.$file.'-TS-'.$date.'.pdf'))->toMediaCollection('timesheets');
 
         if($timesheet->mileage != null && $timesheet->additional != null){
             $epdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
@@ -64,7 +64,7 @@ class SubmitTimesheet implements ShouldQueue
             $epdf->setPaper('a4', 'portait');
 
             Storage::disk('public')->put('expenses/'.$file.'-EX-'.$date.'.pdf', $epdf->output());
-            $timesheet->addMediaFromUrl(Storage::disk('public')->url('expenses/'.$file.'-'.$date.'.pdf'))->toMediaCollection('expenses');
+            $timesheet->addMediaFromUrl(Storage::disk('public')->url('expenses/'.$file.'-EX-'.$date.'.pdf'))->toMediaCollection('expenses');
         }
         
         SendTimesheet::dispatch($this->timesheet)->afterResponse();
