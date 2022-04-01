@@ -61,7 +61,7 @@
             <header id="header">
                 <table width="100%"></i>
                     <tr>
-                        <td align="left"><h1>{{$user->company_name ?? $user->fullname()}}</h1></td>
+                        <td align="left"><h1>{{$timesheet->user->company_name ?? $timesheet->user->fullname()}}</h1></td>
                         <td align="right" style="padding-right: 10px;">
                             <?php 
                             $start = \Carbon\Carbon::parse($timesheet->week_start);
