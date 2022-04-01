@@ -54,7 +54,7 @@ class SubmitTimesheet implements ShouldQueue
         $pdf->setPaper('a4', 'portrait');
        
        
-        Storage::disk('public')->put('timesheets/'.$file.'-'.$date.'.pdf', $pdf->output());
+        Storage::disk('public')->put('timesheets/'.$file.'-TS-'.$date.'.pdf', $pdf->output());
         $timesheet->addMediaFromUrl(Storage::disk('public')->url('timesheets/'.$file.'-'.$date.'.pdf'))->toMediaCollection('timesheets');
 
         if($timesheet->mileage != null && $timesheet->additional != null){
@@ -63,7 +63,7 @@ class SubmitTimesheet implements ShouldQueue
             $epdf->loadView('timesheets.expensesPDF', compact('timesheet'));
             $epdf->setPaper('a4', 'portait');
 
-            Storage::disk('public')->put('expenses/'.$file.'-'.$date.'.pdf', $epdf->output());
+            Storage::disk('public')->put('expenses/'.$file.'-EX-'.$date.'.pdf', $epdf->output());
             $timesheet->addMediaFromUrl(Storage::disk('public')->url('expenses/'.$file.'-'.$date.'.pdf'))->toMediaCollection('expenses');
         }
         
