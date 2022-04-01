@@ -34,6 +34,7 @@ class TimesheetController extends Controller
             $users = "";
         }
 
+        return dd($request->operative);
         if($request->isMethod('post'))
         {
             if(! empty($request->operative))
