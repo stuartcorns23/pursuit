@@ -14,7 +14,7 @@
         }
 
         #header{
-            background-color: #1d6fb8;
+            border-bottom: solid 3px #1d6fb8;
             width: 100%;
             margin-bottom: 30px;
             color: #fff;
@@ -71,7 +71,7 @@
     <header id="header">
         <table width="100%"></i>
             <tr>
-                <td align="left" style="padding-left:10px;" width="20%"><img id="logo" src="{{ asset('images/pursuit-tmr.jpg') }}" alt="Pursuit TMR"></td>
+                <td align="left" style="padding-left:10px;" width="20%"><img id="logo" src="{{ asset('images/pursuit-tmr-1.jpg') }}" alt="Pursuit TMR"></td>
                 <td align="left">Pursuit<br><span class="small">Traffic Management Recruitment Ltd &copy; {{\Carbon\Carbon::now()->format('Y')}}</span>
                     <br><strong>@yield('page')</strong>
                 </td>
