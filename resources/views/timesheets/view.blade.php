@@ -129,7 +129,7 @@
          aria-labelledby="filterModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
-                <form action="{{route('concerns.filter')}}" method="POST">
+                <form action="{{route('timesheets.filter')}}" method="POST">
                     @csrf
                     <div class="modal-header">
                         <h5 class="modal-title" id="filterModalLabel">Filter Timesheets</h5>
