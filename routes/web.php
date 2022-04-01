@@ -46,9 +46,9 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::get('/shift/{shift}/pdf', 'App\Http\Controllers\ShiftController@showPDF')->name('shifts.showPDF');
     //Timesheets
     Route::resource('/timesheets', 'App\Http\Controllers\TimesheetController');
-    Route::post('/timesheets/filter', "filter")->name('timesheets.filter');
-    Route::get('/timesheets/filter/clear', 'clearFilter')->name('timesheets.clear.filter');
-    Route::get('/timesheets/filter', 'filter')->name('timesheets.filtered');
+    Route::post('/timesheets/filter', "App\Http\Controllers\TimesheetController@filter")->name('timesheets.filter');
+    Route::get('/timesheets/filter/clear', 'App\Http\Controllers\TimesheetController@clearFilter')->name('timesheets.clear.filter');
+    Route::get('/timesheets/filter', 'App\Http\Controllers\TimesheetController@filter')->name('timesheets.filtered');
     //Document Type
     Route::resource('/documents', 'App\Http\Controllers\DocumentController');
     Route::resource('/types', 'App\Http\Controllers\TypeController');

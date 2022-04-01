@@ -21,6 +21,118 @@ class TimesheetController extends Controller
         return view('timesheets.view', compact('timesheets'));
     }
 
+    public function filter(Request $request)
+    {
+        if(auth()->user()->cant('view', Concern::class))
+        {
+            $concerns = Concern::with('student', 'user')->where('user_id', '=', auth()->user()->id);
+        } else
+        {
+            $concerns = Concern::with('student', 'user');
+        }
+
+        if($request->isMethod('post'))
+        {
+
+            if(! empty($request->search))
+            {
+                session(['filter_search' => $request->search]);
+            }
+
+            if(! empty($request->type))
+            {
+                if($request->type == 'All')
+                {
+                    session()->forget('filter_type');
+                } else
+                {
+                    session(['filter_type' => $request->type]);
+                }
+            }
+
+            if(! empty($request->year_group))
+            {
+                session(['filter_year_group' => $request->year_group]);
+            }
+
+            if(! empty($request->status))
+            {
+                if($request->status == 'All')
+                {
+                    session()->forget('filter_status');
+                } else
+                {
+                    session(['filter_status' => $request->status]);
+                }
+            }
+
+            if(! empty($request->category))
+            {
+
+                $array = explode(',', $request->category);
+                session(['filter_category' => $array]);
+            }
+
+            if($request->start != '' && $request->end != '')
+            {
+                session(['filter_start' => $request->start]);
+                session(['filter_end' => $request->end]);
+            }
+        }
+
+        if(session()->has('filter_search'))
+        {
+            $students = Student::where('first_name', 'LIKE', '%' . session('filter_search') . '%')->orWhere('last_name', 'LIKE', '%' . session('filter_search') . '%')->get();
+
+            $concerns->studentFilter($students->pluck('id')->toArray());
+
+            session(['filter' => true]);
+        }
+
+        if(session()->has('filter_type'))
+        {
+            $concerns->typeFilter(session('filter_type'));
+            session(['filter' => true]);
+        }
+        if(session()->has('filter_year_group'))
+        {
+            $concerns->yearGroupFilter(session('filter_year_group'));
+            session(['filter' => true]);
+        }
+        if(session()->has('filter_category'))
+        {
+            $concerns->categoryFilter(session('filter_category'));
+            session(['filter' => true]);
+        }
+
+        if(session()->has('filter_status'))
+        {
+            $concerns->statusFilter(session('filter_status'));
+            session(['filter' => true]);
+        }
+
+        if(session()->has('filter_start') && session()->has('filter_end'))
+        {
+            $concerns->dateFilter(session('filter_start'), session('filter_end'));
+            session(['filter' => true]);
+        }
+
+        $limit = 25;
+
+        return view('concerns.view', [
+            "concerns" => $concerns->paginate(intval($limit))->withPath(asset('/concerns/filter'))->fragment('table'),
+        ]);
+
+    }
+
+    public function clearFilter()
+    {
+        session(['filter' => false]);
+        session()->forget(['filter_search', 'filter_type', 'filter_year_group', 'filter_category', 'filter_status', 'filter_start', 'filter_end', 'order_by', 'limit', 'direction']);
+
+        return to_route('concerns.index')->with('success_message', 'The concern filter has been cleared!');
+    }
+
     public function create()
     {
         $accountants = Accountant::all();
