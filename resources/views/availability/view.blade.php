@@ -208,8 +208,10 @@
 
     calendarCells.forEach(item => {
         item.addEventListener('click', function(){
+            console.log('clicked');
             /* Get information on the date that is passed to the Controller */
             let date = item.getAttribute('data-date');
+            let dateFn = new Date(item.getAttribute('data-date'));
             let formData = new FormData();
             formData.append('date', date);
             const xhr = new XMLHttpRequest();
@@ -217,16 +219,20 @@
             xhr.onload = function(e) {
                 //Place the JSON Images into the modal
                 let day = JSON.parse(xhr.response);
-                modalTitle.innerHTML = date;
+                modalTitle.innerHTML = dateFn.getFullYear()+'-'+(dateFn.getMonth()+1)+'-'+dateFn.getDate();;
                 if(day.shift){
                     dayDetails.innerHTML = `
                         <h3 class="text-primary text-center">${day.shift.client_id}</h3>
                         <h4 class="text-muted text-center">${day.shift.start_time} - ${day.shift.finish_time}</h4>
                         <p>${day.shift.details}</p>
                         <p>Contact: ${day.shift.contact_name}</p>
-                    `
-                    detailsModal.show();
+                        <hr>
+                    `;
                 }
+
+                if(day.available)
+
+                detailsModal.show();
                 
             }
             xhr.open("POST", `/user/date`);

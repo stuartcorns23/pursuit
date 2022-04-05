@@ -163,9 +163,7 @@ class UserController extends Controller
 
     public function viewDate(Request $request){
         $date = \Carbon\Carbon::parse($request->date);
-
-        
-        
+   
         $array = [];
 
         if($shift = auth()->user()->has_shift($date->format('Y-m-d'))){
