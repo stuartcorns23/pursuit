@@ -128,45 +128,49 @@
     </div>
 </div>
 
+@if(auth()->user()->admin === 1)
 <div class="modal fade bd-example-modal-lg" id="filterModal" tabindex="-1" role="dialog"
          aria-labelledby="filterModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <form action="{{route('timesheets.filter')}}" method="POST">
-                    @csrf
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="filterModalLabel">Filter Timesheets</h5>
-                        <button class="btn btn-light" type="button" data-bs-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <form action="{{route('timesheets.filter')}}" method="POST">
+                @csrf
+                <div class="modal-header">
+                    <h5 class="modal-title" id="filterModalLabel">Filter Timesheets</h5>
+                    <button class="btn btn-light" type="button" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group mb-4">
+                        <label for="type">Operative</label>
+                        <select name="operative" id="type" class="form-control">
+                            <option value="" @if(session('filter_user') === 0) {{ 'selected'}} @endif>All
+                            </option>
+                            @foreach($users as $user)
+                            <option value="{{$user->id}}" @if(session('filter_user') === $user->id) {{ 'selected'}} @endif>
+                                {{$user->fullname()}}
+                            </option>
+                            @endforeach
+                        </select>
                     </div>
-                    <div class="modal-body">
-                        <div class="form-group mb-4">
-                            <label for="type">Operative</label>
-                            <select name="operative" id="type" class="form-control">
-                                <option value="" @if(session('filter_user') === 0) {{ 'selected'}} @endif>All
-                                </option>
-                                @foreach($users as $user)
-                                <option value="{{$user->id}}" @if(session('filter_user') === $user->id) {{ 'selected'}} @endif>
-                                    {{$user->fullname()}}
-                                </option>
-                                @endforeach
-                            </select>
-                        </div>
-                        
-                        <div class="form-group mb-4">
-                                <label for="end">End Date</label>
-                                <input type="date" class="form-control" name="end_date">
-                        </div>
+                    
+                    <div class="form-group mb-4">
+                            <label for="end">End Date</label>
+                            <input type="date" class="form-control" name="end_date">
                     </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Cancel</button>
-                        <button class="btn btn-danger" type="submit">Filter</button>
-                    </div>
-                </form>
-            </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Cancel</button>
+                    <button class="btn btn-danger" type="submit">Filter</button>
+                </div>
+            </form>
         </div>
     </div>
+</div>
+
+@endif
+
 @endsection
 
 @section('js')
