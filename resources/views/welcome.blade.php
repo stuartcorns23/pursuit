@@ -5,9 +5,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Pursuit Traffic Management Recruitment</title>
 		<link rel="icon" href="images/favicon.png">
-		
+		<link href="{{ asset('css/app.css') }}" rel="stylesheet">
 		<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}">
-		<link rel="stylesheet" href="{{ asset('css/fontawesome.min.css')}}">
 		<link rel="stylesheet" href="{{ asset('css/fakeLoader.min.css')}}">
 		<link rel="stylesheet" href="{{ asset('css/hoverbuttons.css')}}">
 		<link rel="stylesheet" href="{{ asset('css/style.css')}}">
@@ -106,33 +105,31 @@
 					<h3><span>Traffic Management</span> Industry</h3>
 					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit dolore vel voluptatum libero consectetur accusamus! Ipsum qui veniam nemo nisi.</p>
 				</div>
-				<div class="row">
+				<div class="row justify-row-content">
 					<div class="col col-md-4 col-sm-12 col-12">
-						<div class="content">
-							<i class="fa fa-building"></i>
+						<div class="content h-100">
+							<i class="fas fa-traffic-light"></i>
 							<h5>TM Experience</h5>
-							<p class="mb-0">Whether your looking for a sinlge operative or multiple crews. Pursuit TMR can help provide highly experienced operative of all levels at short notice. 
+							<p class="mb-3">Whether your looking for a sinlge operative or multiple crews. Pursuit TMR can help provide highly experienced operative of all levels at short notice. 
                                 Please get in touch today!</p>
+								<a href="" class="btn btn-primary">Sign up today!</a>
 						</div>
 					</div>
 					<div class="col col-md-4 col-sm-12 col-12">
-						<div class="content content-center">
-							<i class="fa fa-dumbbell"></i>
+						<div class="content content-center h-100">
+							<i class="fas fa-hard-hat"></i>
 							<h5>Looking for Skilled Operatives?</h5>
-							<p class="mb-0">Whether your looking for a sinlge operative or multiple crews. Pursuit TMR can help provide highly experienced operative of all levels at short notice. 
+							<p class="mb-3">Whether your looking for a sinlge operative or multiple crews. Pursuit TMR can help provide highly experienced operative of all levels at short notice. 
                                 Please get in touch today!</p>
+								<a href="" class="btn btn-light">Sign up today!</a>
 						</div>
 					</div>
 					<div class="col col-md-4 col-sm-12 col-12">
-						<div class="content">
-							<i class="fa fa-wrench"></i>
+						<div class="content h-100">
+							<i class="fas fa-road"></i>
 							<h5>Looking for Work?</h5>
-<<<<<<< HEAD
-							<p class="mb-0">Are you looking for work? If you are looking for a job in the Traffic Management sector, we can help you get qualified and working in
-                                .</p>
-=======
-							<p class="mb-0">Are you looking for work? If you are looking for a job in the Traffic Management sector, we can help you - <a href="">sign up today</a>.</p>
->>>>>>> 7298683c7ee5d2b6a112c984cd2dc4778c892ac4
+							<p class="mb-3">Are you looking for work? If you are looking for a job in the Traffic Management sector, we can help you! Click the following link and submit your details.</p>
+							<a href="" class="btn btn-primary">Sign up today!</a>
 						</div>
 					</div>
 				</div>
@@ -150,51 +147,51 @@
 			<div class="row no-gutters">
 				<div class="col-md-6 col-sm-4 col-12">
 					<div class="content imghvr-fade">
-						<img src="images/work1.jpg" alt="">
-						<a href="">
+						<img src="{{asset('images/roadworks-1.jpg')}}" alt="">
+						<a href="#">
 							<div class="caption">
-								<h6>Building Bridge</h6>
-								<p>Construction</p>
+								<h6>Signal Traffic Management</h6>
+								<p>Kidderminster</p>
 							</div>
 						</a>
 					</div>
 				</div>
 				<div class="col-md-3 col-sm-4 col-12">
 					<div class="content imghvr-fade">
-						<img src="images/work2.jpg" alt="">
-						<a href="">
+						<img src="{{asset('images/roadworks-2.jpg')}}" alt="">
+						<a href="#">
 							<div class="caption">
-								<h6>Building Home</h6>
-								<p>Construction</p>
+								<h6>Highway Traffic Management (HTM)</h6>
+								<p>Birmingham</p>
 							</div>
 						</a>
 					</div>
 				</div>
 				<div class="col-md-3 col-sm-4 col-12">
 					<div class="content imghvr-fade">
-						<img src="images/work3.jpg" alt="">
+						<img src="{{asset('images/roadworks-3.jpg')}}" alt="">
 						<a href="">
 							<div class="caption">
-								<h6>Looking for work?</h6>
-								<p>Construction</p>
+								<h6>Total Traffic Management</h6>
+								<p>Nottingham</p>
 							</div>
 						</a>
 					</div>
 				</div>
 				<div class="col-md-3 col-sm-4 col-12">
 					<div class="content imghvr-fade">
-						<img src="images/work4.jpg" alt="">
+						<img src="{{asset('images/roadworks-4.jpeg')}}" alt="">
 						<a href="">
 							<div class="caption">
-								<h6>Building House</h6>
-								<p>Construction</p>
+								<h6>Alliance Highways</h6>
+								<p>Kirkby-in-Ashfield</p>
 							</div>
 						</a>
 					</div>
 				</div>
 				<div class="col-md-3 col-sm-4 col-12">
 					<div class="content imghvr-fade">
-						<img src="images/work5.jpg" alt="">
+						<img src="{{asset('images/tm-01.png')}}" alt="">
 						<a href="">
 							<div class="caption">
 								<h6>Building Home</h6>
