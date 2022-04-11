@@ -127,7 +127,8 @@
 						<div class="content">
 							<i class="fa fa-wrench"></i>
 							<h5>Looking for Work?</h5>
-							<p class="mb-0">Are you looking for work? If you are looking for a job in the Traffic Management sector, we can help you.</p>
+							<p class="mb-0">Are you looking for work? If you are looking for a job in the Traffic Management sector, we can help you get qualified and working in
+                                .</p>
 						</div>
 					</div>
 				</div>
