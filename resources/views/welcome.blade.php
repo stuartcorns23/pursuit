@@ -30,7 +30,7 @@
 						<li class="nav-item">
 							<a class="nav-link" href="index.html">Home</a>
 						</li>
-						<li class="nav-item">
+						{{-- <li class="nav-item">
 							<a class="nav-link" href="about.html">About</a>
 						</li>
 						<li class="nav-item">
@@ -41,7 +41,7 @@
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="blog.html">Blog</a>
-						</li>
+						</li> --}}
 						<li class="nav-item">
 							<a class="nav-link" href="contact-us.html">Contact us</a>
 						</li>
@@ -127,8 +127,12 @@
 						<div class="content">
 							<i class="fa fa-wrench"></i>
 							<h5>Looking for Work?</h5>
+<<<<<<< HEAD
 							<p class="mb-0">Are you looking for work? If you are looking for a job in the Traffic Management sector, we can help you get qualified and working in
                                 .</p>
+=======
+							<p class="mb-0">Are you looking for work? If you are looking for a job in the Traffic Management sector, we can help you - <a href="">sign up today</a>.</p>
+>>>>>>> 7298683c7ee5d2b6a112c984cd2dc4778c892ac4
 						</div>
 					</div>
 				</div>
