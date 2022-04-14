@@ -262,7 +262,7 @@
                     availability.concat(`</td></tr>`);
                 }
 
-                dayDetails.innerHTML = information+availability;
+                dayDetails.innerHTML = information.concat(availability);
 
                 detailsModal.show();
                 
