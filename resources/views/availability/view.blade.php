@@ -249,7 +249,8 @@
                     `;
 
                     Object.keys(day.available).forEach(item => {
-                        availability.concat(`<p>${item}</p>`);
+                        let [key, value] = item;
+                        availability.concat(`<p>${value}</p>`);
                     });
 
                     availability.concat(`</td></tr><tr><td>`);
