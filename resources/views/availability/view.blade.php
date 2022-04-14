@@ -219,6 +219,7 @@
             xhr.onload = function(e) {
                 //Place the JSON Images into the modal
                 let day = JSON.parse(xhr.response);
+                console.log(day);
                 modalTitle.innerHTML = dateFn.getFullYear()+'-'+(dateFn.getMonth()+1)+'-'+dateFn.getDate();;
                 if(day.shift){
                     dayDetails.innerHTML = `
