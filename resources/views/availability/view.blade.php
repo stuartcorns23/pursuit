@@ -240,7 +240,7 @@
 
                 if(day.available || day.unavailable){
                     availability = `
-                        <table>
+                        <table class="table table-striped">
                             <tr>
                                 <td>Available</td>
                                 <td>Unavailable</td>
