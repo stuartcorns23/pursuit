@@ -231,9 +231,9 @@
                         <p>Pay: £${day.shift.rate}</p>
                     `;
 
-                    if(day.shift.response_date){
+                   /*  if(day.shift.response_date){
                         let information.concat(`<p>${day.shift.response_date}</p>`);
-                    }
+                    } */
                 }
 
                 if(day.available || day.unavailable){
