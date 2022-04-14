@@ -248,13 +248,13 @@
                             <tr>
                     `;
 
-                    day.available.forEach(item => {
+                    Object.keys(day.available).forEach(item => {
                         availability.concat(`<p>${item}</p>`);
                     });
 
                     availability.concat(`</td></tr><tr><td>`);
 
-                    day.unavailable.forEach(item => {
+                        Object.keys(day.unavailable).forEach(item => {
                         availability.concat(`<p>${item}</p>`);
                     });
 
