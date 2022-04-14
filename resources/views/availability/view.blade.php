@@ -222,16 +222,44 @@
                 console.log(day);
                 modalTitle.innerHTML = dateFn.getFullYear()+'-'+(dateFn.getMonth()+1)+'-'+dateFn.getDate();;
                 if(day.shift){
-                    dayDetails.innerHTML = `
+                    let information = `
                         <h3 class="text-primary text-center">${day.shift.client_id}</h3>
                         <h4 class="text-muted text-center">${day.shift.start_time} - ${day.shift.finish_time}</h4>
                         <p>${day.shift.details}</p>
                         <p>Contact: ${day.shift.contact_name}</p>
-                        <hr>
+                        <p>Hours: ${day.shift.start_time} - ${day.shift.finish_time}</p>
+                        <p>Pay: £${day.shift.rate}</p>
                     `;
+
+                    if(day.shift.response_date){
+                        let information.concat(`<p>${day.shift.response_date}</p>`);
+                    }
                 }
 
-                if(day.available)
+                if(day.available || day.unavailable){
+                    let availability = `
+                        <table>
+                            <tr>
+                                <td>Available</td>
+                                <td>Unavailable</td>
+                            </tr>
+                            <tr>
+                    `;
+
+                    day.available.forEach(item => {
+                        availability.concat(`<p>${item}</p>`);
+                    });
+
+                    availability.concat(`</td></tr><tr><td>`);
+
+                    day.unavailable.forEach(item => {
+                        availability.concat(`<p>${item}</p>`);
+                    });
+
+                    availability.concat(`</td></tr>`);
+                }
+
+                dayDetails.innerHTML = information+availability;
 
                 detailsModal.show();
                 
