@@ -219,10 +219,12 @@
             xhr.onload = function(e) {
                 //Place the JSON Images into the modal
                 let day = JSON.parse(xhr.response);
+                let information;
+                let availability;
                 console.log(day);
                 modalTitle.innerHTML = dateFn.getFullYear()+'-'+(dateFn.getMonth()+1)+'-'+dateFn.getDate();;
                 if(day.shift){
-                    let information = `
+                    information = `
                         <h3 class="text-primary text-center">${day.shift.client_id}</h3>
                         <h4 class="text-muted text-center">${day.shift.start_time} - ${day.shift.finish_time}</h4>
                         <p>${day.shift.details}</p>
@@ -237,7 +239,7 @@
                 }
 
                 if(day.available || day.unavailable){
-                    let availability = `
+                    availability = `
                         <table>
                             <tr>
                                 <td>Available</td>
