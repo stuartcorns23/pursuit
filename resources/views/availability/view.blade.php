@@ -219,8 +219,8 @@
             xhr.onload = function(e) {
                 //Place the JSON Images into the modal
                 let day = JSON.parse(xhr.response);
-                let information;
-                let availability;
+                let information = '';
+                let availability = '';
                 console.log(day);
                 modalTitle.innerHTML = dateFn.getFullYear()+'-'+(dateFn.getMonth()+1)+'-'+dateFn.getDate();;
                 if(day.shift){
@@ -262,7 +262,9 @@
                     availability.concat(`</td></tr>`);
                 }
 
-                dayDetails.innerHTML = information.concat(availability);
+                let details = information.concat(availability);
+
+                dayDetails.innerHTML = details;
 
                 detailsModal.show();
                 
