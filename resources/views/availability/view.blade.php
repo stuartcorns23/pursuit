@@ -250,11 +250,8 @@
                             <tr>
                     `;
                     
-                    if(day.unavailable){
-                        Object.keys(day.available).forEach(item => {
-                            let [key, value] = item;
-                            availability.concat(`<p>${value}</p>`);
-                        });
+                    if(day.available){
+                        availability.concat(`<p>${day.availabile[0]}</p>`);
                     }else{
                         availability.concat(`<p>No Operative have made themselves available</p>`);
                     }
