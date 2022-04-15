@@ -253,7 +253,7 @@
                     
                     if(day.available){
                         for (const [key, value] of Object.entries(day.available)) {
-                            availability +=`<p>${key} : ${value}</p>`;
+                            availability +=`<a class="" href="users/${key}">${value}</a>`;
                         }
                     }else{
                         availability += `<p>No Operative have made themselves available</p>`;
@@ -262,9 +262,9 @@
                     availability += `</td><td>`;
 
                     if(day.unavailable){
-                        Object.entries(day.unavailable).forEach(item => {
-                            availability+= `<p>${item}</p>`;
-                        });
+                        for (const [key, value] of Object.entries(day.unavailable)) {
+                            availability +=`<a class="" href="users/${key}">${value}</a>`;
+                        }
                     }else{
                         availability += `<p>No Operative have made themselves unavailable</p>`;
                     }
