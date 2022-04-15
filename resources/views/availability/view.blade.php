@@ -252,7 +252,7 @@
                     `;
                     
                     if(day.available){
-                        Object.keys(day.available).forEach(item => {
+                        Object.entries(day.available).forEach(item => {
                             availability +=`<p>${item}</p>`;
                         });
                     }else{
@@ -262,7 +262,7 @@
                     availability += `</td><td>`;
 
                     if(day.unavailable){
-                        Object.keys(day.unavailable).forEach(item => {
+                        Object.entries(day.unavailable).forEach(item => {
                             availability+= `<p>${item}</p>`;
                         });
                     }else{
