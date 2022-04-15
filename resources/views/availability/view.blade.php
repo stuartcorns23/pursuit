@@ -252,7 +252,7 @@
                     `;
                     
                     if(day.available){
-                        for (const [key, value] of Object.entries(object1)) {
+                        for (const [key, value] of Object.entries(day.available)) {
                             availability +=`<p>${key} : ${value}</p>`;
                         }
                     }else{
