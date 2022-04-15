@@ -252,7 +252,7 @@
                     `;
                     
                     if(day.available.length != 0){
-                        availability.concat(`<p>${day.available[0]}</p>`);
+                        availability.concat(`<p>Op Available</p>`);
                     }else{
                         availability.concat(`<p>No Operative have made themselves available</p>`);
                     }
@@ -269,6 +269,8 @@
                     
 
                     availability.concat(`</td></tr></table>`);
+
+                    console.log(availability);
 
                     details = information.concat(availability);
                 }
