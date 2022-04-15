@@ -253,19 +253,17 @@
                     
                     if(day.available){
                         Object.keys(day.available).forEach(item => {
-                            let [key, value] = item;
-                            availability +=`<p>${value}</p>`;
+                            availability +=`<p>${item}</p>`;
                         });
                     }else{
                         availability += `<p>No Operative have made themselves available</p>`;
                     }
 
-                    availability += `</td></tr><tr><td>`;
+                    availability += `</td><td>`;
 
                     if(day.unavailable){
                         Object.keys(day.unavailable).forEach(item => {
-                            let [key, value] = item;
-                            availability+= `<p>${value}</p>`;
+                            availability+= `<p>${item}</p>`;
                         });
                     }else{
                         availability += `<p>No Operative have made themselves unavailable</p>`;
