@@ -198,6 +198,7 @@ class UserController extends Controller
                 foreach($avails as $available){
                     $av[] = $available->user->fullname();
                 }
+                
                 if(!empty($av)){
                     $array['available'] = $av;
                 }
