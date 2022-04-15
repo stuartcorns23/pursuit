@@ -241,29 +241,36 @@
                         } */
                     }
 
-                    if(day.available || day.unavailable){
-                        availability = `
-                            <table class="table table-striped">
-                                <tr>
-                                    <td>Available</td>
-                                    <td>Unavailable</td>
-                                </tr>
-                                <tr>
-                        `;
-
+                    availability = `
+                        <table class="table table-striped">
+                            <tr>
+                                <td>Available</td>
+                                <td>Unavailable</td>
+                            </tr>
+                            <tr>
+                    `;
+                    
+                    if(day.unavailable){
                         Object.keys(day.available).forEach(item => {
                             let [key, value] = item;
                             availability.concat(`<p>${value}</p>`);
                         });
+                    }else{
+                        availability.concat(`<p>No Operative have made themselves available</p>`);
+                    }
 
-                        availability.concat(`</td></tr><tr><td>`);
+                    availability.concat(`</td></tr><tr><td>`);
 
-                            Object.keys(day.unavailable).forEach(item => {
+                    if(day.unavailable){
+                        Object.keys(day.unavailable).forEach(item => {
                             availability.concat(`<p>${item}</p>`);
                         });
-
-                        availability.concat(`</td></tr>`);
+                    }else{
+                        availability.concat(`<p>No Operative have made themselves unavailable</p>`);
                     }
+                    
+
+                    availability.concat(`</td></tr>`);
 
                     details = information.concat(availability);
                 }
