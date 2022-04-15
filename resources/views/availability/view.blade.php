@@ -248,15 +248,16 @@
                                 <td>Unavailable</td>
                             </tr>
                             <tr>
+                                <td>
                     `;
                     
-                    if(day.available){
+                    if(day.available.length != 0){
                         availability.concat(`<p>${day.available[0]}</p>`);
                     }else{
                         availability.concat(`<p>No Operative have made themselves available</p>`);
                     }
 
-                    availability.concat(`</td></tr><tr><td>`);
+                    availability.concat(`</td><td>`);
 
                     if(day.unavailable){
                         Object.keys(day.unavailable).forEach(item => {
@@ -267,7 +268,7 @@
                     }
                     
 
-                    availability.concat(`</td></tr>`);
+                    availability.concat(`</td></tr></table>`);
 
                     details = information.concat(availability);
                 }
