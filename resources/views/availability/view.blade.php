@@ -225,7 +225,7 @@
                 console.log(day);
                 modalTitle.innerHTML = dateFn.getFullYear()+'-'+(dateFn.getMonth()+1)+'-'+dateFn.getDate();
 
-                if(day.length != 0)
+                if(day.length != 0){
                     if(day.shift){
                         information = `
                             <h3 class="text-primary text-center">${day.shift.client_id}</h3>
@@ -236,7 +236,7 @@
                             <p>Pay: £${day.shift.rate}</p>
                         `;
 
-                    /*  if(day.shift.response_date){
+                        /*  if(day.shift.response_date){
                             let information.concat(`<p>${day.shift.response_date}</p>`);
                         } */
                     }
