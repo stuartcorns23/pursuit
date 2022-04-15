@@ -265,7 +265,7 @@
                         availability.concat(`</td></tr>`);
                     }
 
-                    let details = information.concat(availability);
+                    details = information.concat(availability);
                 }
 
                 dayDetails.innerHTML = details;
