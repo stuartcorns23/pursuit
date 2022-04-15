@@ -252,12 +252,14 @@
                     `;
                     
                     if(day.available.length != 0){
-                        availability.concat(`<p>Op Available</p>`);
+                        Object.keys(day.available).forEach(item => {
+                            availability += `<p>${item}</p>`;
+                        });
                     }else{
-                        availability.concat(`<p>No Operative have made themselves available</p>`);
+                        availability += `<p>No Operative have made themselves available</p>`;
                     }
 
-                    availability.concat(`</td><td>`);
+                    availability += `</td><td>`;
 
                     if(day.unavailable){
                         Object.keys(day.unavailable).forEach(item => {
@@ -270,7 +272,7 @@
 
                     availability.concat(`</td></tr></table>`);
 
-                    console.log(availability);
+                    console.log(availability)
 
                     details = information.concat(availability);
                 }
