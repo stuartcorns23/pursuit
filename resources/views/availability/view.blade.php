@@ -255,8 +255,6 @@
                         for (const [key, value] of Object.entries(object1)) {
                             availability +=`<p>${key} : ${value}</p>`;
                         }
-                            
-                        });
                     }else{
                         availability += `<p>No Operative have made themselves available</p>`;
                     }
