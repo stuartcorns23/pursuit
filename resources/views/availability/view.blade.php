@@ -251,30 +251,30 @@
                                 <td>
                     `;
                     
-                    if(day.available.length != 0){
+                    if(day.available){
                         Object.keys(day.available).forEach(item => {
-                            availability += `<p>${item}</p>`;
+                            let [key, value] = item;
+                            availability +=`<p>${value}</p>`;
                         });
                     }else{
                         availability += `<p>No Operative have made themselves available</p>`;
                     }
 
-                    availability += `</td><td>`;
+                    availability += `</td></tr><tr><td>`;
 
                     if(day.unavailable){
                         Object.keys(day.unavailable).forEach(item => {
-                            availability.concat(`<p>${item}</p>`);
+                            let [key, value] = item;
+                            availability+= `<p>${value}</p>`;
                         });
                     }else{
-                        availability.concat(`<p>No Operative have made themselves unavailable</p>`);
+                        availability += `<p>No Operative have made themselves unavailable</p>`;
                     }
                     
 
-                    availability.concat(`</td></tr></table>`);
+                    availability += `</td></tr></table>`;
 
-                    console.log(availability)
-
-                    details = information.concat(availability);
+                    details = information + availability;
                 }
 
                 dayDetails.innerHTML = details;
