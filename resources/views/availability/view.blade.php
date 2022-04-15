@@ -219,18 +219,63 @@
             xhr.onload = function(e) {
                 //Place the JSON Images into the modal
                 let day = JSON.parse(xhr.response);
-                modalTitle.innerHTML = dateFn.getFullYear()+'-'+(dateFn.getMonth()+1)+'-'+dateFn.getDate();;
-                if(day.shift){
-                    dayDetails.innerHTML = `
-                        <h3 class="text-primary text-center">${day.shift.client_id}</h3>
-                        <h4 class="text-muted text-center">${day.shift.start_time} - ${day.shift.finish_time}</h4>
-                        <p>${day.shift.details}</p>
-                        <p>Contact: ${day.shift.contact_name}</p>
-                        <hr>
+                let information = '';
+                let availability = '';
+                let details = `<p>No Information Available for this day!</p>`;
+                console.log(day);
+                modalTitle.innerHTML = dateFn.getFullYear()+'-'+(dateFn.getMonth()+1)+'-'+dateFn.getDate();
+
+                if(day.length != 0){
+                    if(day.shift){
+                        information = `
+                            <h3 class="text-primary text-center">${day.shift.client_id}</h3>
+                            <h4 class="text-muted text-center">${day.shift.start_time} - ${day.shift.finish_time}</h4>
+                            <p>${day.shift.details}</p>
+                            <p>Contact: ${day.shift.contact_name}</p>
+                            <p>Hours: ${day.shift.start_time} - ${day.shift.finish_time}</p>
+                            <p>Pay: £${day.shift.rate}</p>
+                        `;
+
+                        /*  if(day.shift.response_date){
+                            let information.concat(`<p>${day.shift.response_date}</p>`);
+                        } */
+                    }
+
+                    availability = `
+                        <table class="table table-striped">
+                            <tr>
+                                <td>Available</td>
+                                <td>Unavailable</td>
+                            </tr>
+                            <tr>
+                                <td>
                     `;
+                    
+                    if(day.available){
+                        for (const [key, value] of Object.entries(day.available)) {
+                            availability +=`<p>${key} : ${value}</p>`;
+                        }
+                    }else{
+                        availability += `<p>No Operative have made themselves available</p>`;
+                    }
+
+                    availability += `</td><td>`;
+
+                    if(day.unavailable){
+                        Object.entries(day.unavailable).forEach(item => {
+                            availability+= `<p>${item}</p>`;
+                        });
+                    }else{
+                        availability += `<p>No Operative have made themselves unavailable</p>`;
+                    }
+                    
+
+                    availability += `</td></tr></table>`;
+
+                    details = information + availability;
                 }
 
-                if(day.available)
+                dayDetails.innerHTML = details;
 
                 detailsModal.show();
                 

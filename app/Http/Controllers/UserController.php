@@ -196,8 +196,9 @@ class UserController extends Controller
             if($avails = \App\Models\Availability::dateFilter($request->date)->availableFilter()->get()){
                 $av = [];
                 foreach($avails as $available){
-                    $av[$available->user->id] = $available->user->fullname();
+                    $av[] = $available->user->fullname();
                 }
+                
                 if(!empty($av)){
                     $array['available'] = $av;
                 }
