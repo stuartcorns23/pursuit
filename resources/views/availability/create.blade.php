@@ -16,7 +16,9 @@
             <div class="p-2">
                 <div class="p-2">
                     <a href="{{route('dashboard')}}" class="btn btn-secondary"><i class="fas fa-chart-line"></i> <span class="d-none d-sm-inline d-md-none d-lg-inline d-xl-none d-xxl-inline">Back to Dashboard<span></span></a>
-                    <a href="{{route('availability.index')}}" class="btn btn-secondary"><i class="fas fa-calendar-alt"></i> <span class="d-none d-sm-inline d-md-none d-lg-inline d-xl-none d-xxl-inline">Back to Calendar</span></a>
+                    
+                <?php $now = \Carbon\Carbon::now();?>
+                    <a href="{{route('availability.index', [$now->format('m'), $now->format('Y')])}}" class="btn btn-secondary"><i class="fas fa-calendar-alt"></i> <span class="d-none d-sm-inline d-md-none d-lg-inline d-xl-none d-xxl-inline">Back to Calendar</span></a>
                 </div>
             </div>
         </div>
