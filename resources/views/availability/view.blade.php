@@ -253,11 +253,7 @@
                     
                     if(day.available){
                         for (const [key, value] of Object.entries(day.available)) {
-<<<<<<< HEAD
-                            availability +=`<a href="users/${key}">${value}</a>`;
-=======
                             availability +=`<a class="d-inline-block mb-2" href="/users/${key}">${value}</a>`;
->>>>>>> 661a928b44618c7e2b7b6273a80150b808eddef5
                         }
                     }else{
                         availability += `<p>No Operative have made themselves available</p>`;
