@@ -8,19 +8,19 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use App\Models\Timesheet;
 
-use App\Notifications\SendTimesheetReceipt;
-
-class SendTimesheet implements ShouldQueue
+class NotifyAvailableOperatives implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    protected $timesheet;
-    
-    public function __construct(Timesheet $timesheet)
+    /**
+     * Create a new job instance.
+     *
+     * @return void
+     */
+    public function __construct()
     {
-        $this->timesheet = $timesheet;
+        //
     }
 
     /**
@@ -30,13 +30,11 @@ class SendTimesheet implements ShouldQueue
      */
     public function handle()
     {
-        $timesheet = $this->timesheet;
+        $admin = Users::where('admin', '=', 1)->get();
         //Send the Email
-        \Notification::route('mail', $timesheet->user->email)->notifyNow(new SendTimesheetReceipt($timesheet));
+        foreach($admins as $admin){
+            \Notification::route('mail', $admin->email)->notifyNow(new SendAvailableUsers($admin));
+        }
 
-        //Send Notification that the email has been received
-        
-
-        
     }
 }
