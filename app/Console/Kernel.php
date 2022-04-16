@@ -17,7 +17,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
-        $schedule->job(new NotifyAvailableOperatives)->weekly()->saturdays()->at('21:30');
+        $schedule->job(new NotifyAvailableOperatives)->weekly()->sundays()->at('00:00');
     }
 
     /**
