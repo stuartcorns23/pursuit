@@ -12,11 +12,9 @@
         <div class="w-100 d-flex justify-content-between align-items-center flex-column flex-lg-row">
             <h1 class="text-center mb-4 order-2 order-lg-1">Schedule</h1>
             <div class="p-2 order-1 order-lg-2">
-                @can('viewAll', auth()->user())
                 <a href="{{route('availability.create')}}" class="btn btn-success"><i class="fas fa-plus"></i> Add Availability</a>
-                <a href="{{route('availability.showPDF', $date->format('F-Y'))}}" class="btn btn-warning">Download Month Schedule</a>
+                <a href="{{route('availability.showPDF', $date->format('F-Y'))}}" class="btn btn-warning disabled">Download Month Schedule</a>
                 <a href="{{route('help.docs')}}" class="btn btn-secondary">Help</a>
-                @endcan
             </div>
         </div>
        
