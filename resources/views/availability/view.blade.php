@@ -253,7 +253,7 @@
                     
                     if(day.available){
                         for (const [key, value] of Object.entries(day.available)) {
-                            availability +=`<a class="" href="users/${key}">${value}</a>`;
+                            availability +=`<a class="d-inline-block mb-2" href="/users/${key}">${value}</a>`;
                         }
                     }else{
                         availability += `<p>No Operative have made themselves available</p>`;
@@ -263,7 +263,7 @@
 
                     if(day.unavailable){
                         for (const [key, value] of Object.entries(day.unavailable)) {
-                            availability +=`<a class="" href="users/${key}">${value}</a>`;
+                            availability +=`<a class="d-inline-block mb-2" href="/users/${key}">${value}</a>`;
                         }
                     }else{
                         availability += `<p>No Operative have made themselves unavailable</p>`;
