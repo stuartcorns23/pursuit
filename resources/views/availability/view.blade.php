@@ -239,38 +239,41 @@
                         } */
                     }
 
-                    availability = `
-                        <table class="table table-striped">
-                            <tr>
-                                <td>Available</td>
-                                <td>Unavailable</td>
-                            </tr>
-                            <tr>
-                                <td>
-                    `;
-                    
-                    if(day.available){
-                        for (const [key, value] of Object.entries(day.available)) {
-                            availability +=`<a class="d-inline-block mb-2" href="/users/${key}">${value}</a>`;
+                    if(day.available || day.unavailable){
+
+                        availability = `
+                            <table class="table table-striped">
+                                <tr>
+                                    <td>Available</td>
+                                    <td>Unavailable</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                        `;
+                        
+                        if(day.available){
+                            for (const [key, value] of Object.entries(day.available)) {
+                                availability +=`<a class="d-inline-block mb-2" href="/users/${key}">${value}</a>`;
+                            }
+                        }else{
+                            availability += `<p>No Operative have made themselves available</p>`;
                         }
-                    }else{
-                        availability += `<p>No Operative have made themselves available</p>`;
-                    }
 
-                    availability += `</td><td>`;
+                        availability += `</td><td>`;
 
-                    if(day.unavailable){
-                        for (const [key, value] of Object.entries(day.unavailable)) {
-                            availability +=`<a class="d-inline-block mb-2" href="/users/${key}">${value}</a>`;
+                        if(day.unavailable){
+                            for (const [key, value] of Object.entries(day.unavailable)) {
+                                availability +=`<a class="d-inline-block mb-2" href="/users/${key}">${value}</a>`;
+                            }
+                        }else{
+                            availability += `<p>No Operative have made themselves unavailable</p>`;
                         }
-                    }else{
-                        availability += `<p>No Operative have made themselves unavailable</p>`;
+                        
+
+                        availability += `</td></tr></table>`;
+
+                        details = information + availability;
                     }
-                    
-
-                    availability += `</td></tr></table>`;
-
-                    details = information + availability;
                 }
 
                 dayDetails.innerHTML = details;

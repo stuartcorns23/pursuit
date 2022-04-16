@@ -198,7 +198,7 @@ class UserController extends Controller
                 foreach($avails as $available){
                     $av[] = $available->user->fullname();
                 }
-                
+
                 if(!empty($av)){
                     $array['available'] = $av;
                 }
@@ -219,10 +219,6 @@ class UserController extends Controller
                 $unset = \App\Models\User::count() - count($av) - count($unav);
                 $array['unset'] = $unset;
             }
-            
-
-
-            
         }
         return $array;
     }
