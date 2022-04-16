@@ -176,7 +176,7 @@
 <!-- Delete Modal-->
 <div class="modal fade bd-example-modal-lg" id="dateDetailsModal" tabindex="-1" role="dialog"
     aria-labelledby="dateDetailsModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
         <div class="modal-content text-dark">
             <div class="modal-header">
                 <h5 class="modal-title" id="dateDetailsModalLabel">30th January 2022</h5>
@@ -244,8 +244,8 @@
                         availability = `
                             <table class="table table-striped">
                                 <tr>
-                                    <td>Available</td>
-                                    <td>Unavailable</td>
+                                    <td class="col-6">Available</td>
+                                    <td class="col-6">Unavailable</td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -253,7 +253,7 @@
                         
                         if(day.available){
                             for (const [key, value] of Object.entries(day.available)) {
-                                availability +=`<a class="d-inline-block mb-2" href="/users/${key}">${value}</a>`;
+                                availability +=`<a class="d-block mb-2 text-decoration-none" href="/users/${key}">${value}</a>`;
                             }
                         }else{
                             availability += `<p>No Operative have made themselves available</p>`;

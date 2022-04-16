@@ -4,6 +4,7 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use App\Jobs\NotifyAvailableOperatives;
 
 class Kernel extends ConsoleKernel
 {
@@ -16,7 +17,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
-        $schedule->job(new NotifyAvailableOperatives)->weekly()->saturdays()->at('10:30');
+        $schedule->job(new NotifyAvailableOperatives)->weekly()->saturdays()->at('21:30');
     }
 
     /**
