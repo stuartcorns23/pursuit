@@ -243,10 +243,11 @@
 
                     }
 
+                    availability = `<div class="row">`;
                     if(day.available || day.unavailable){
 
-                        availability = `
-                            <table class="table table-striped">
+                        availability += `
+                            <table class="table table-striped col-6">
                                 <tr>
                                     <td class="col-12">Available</td>
                                 </tr>
@@ -262,7 +263,7 @@
                             availability += `<p>No Operative have made themselves available</p>`;
                         }
 
-                        availability += `</td><td>`;
+                        availability += `</td><tr></table>`;
 
                         if(day.unavailable){
                             for (const [key, value] of Object.entries(day.unavailable)) {
@@ -273,7 +274,7 @@
                         }
                         
 
-                        availability += `</td></tr></table>`;
+                        availability += `</tr></tr></table>`;
 
                         details = information + availability;
                     }
