@@ -239,13 +239,16 @@
                         } */
                     }
 
+                    if(day->availability){
+
+                    }
+
                     if(day.available || day.unavailable){
 
                         availability = `
                             <table class="table table-striped">
                                 <tr>
-                                    <td class="col-6">Available</td>
-                                    <td class="col-6">Unavailable</td>
+                                    <td class="col-12">Available</td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -263,7 +266,7 @@
 
                         if(day.unavailable){
                             for (const [key, value] of Object.entries(day.unavailable)) {
-                                availability +=`<a class="d-inline-block mb-2" href="/users/${key}">${value}</a>`;
+                                availability +=`<a class="d-block mb-2 text-decoration-none" href="/users/${key}">${value}</a>`;
                             }
                         }else{
                             availability += `<p>No Operative have made themselves unavailable</p>`;

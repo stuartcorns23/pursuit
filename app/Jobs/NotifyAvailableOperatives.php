@@ -8,6 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use App\Notifications\SendAvailableUsers;
 
 class NotifyAvailableOperatives implements ShouldQueue
 {
@@ -30,11 +31,13 @@ class NotifyAvailableOperatives implements ShouldQueue
      */
     public function handle()
     {
-        $admin = Users::where('admin', '=', 1)->get();
+        $admin = App\Models\User::find(1);
+        \Notification::route('mail', 'stuart.corns@tandonta.com')->notifyNow(new SendAvailableUsers($admin));
+        /* $admin = Users::where('admin', '=', 1)->get();
         //Send the Email
         foreach($admins as $admin){
             \Notification::route('mail', $admin->email)->notifyNow(new SendAvailableUsers($admin));
-        }
+        } */
 
     }
 }
