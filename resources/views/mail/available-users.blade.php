@@ -12,7 +12,7 @@
         margin-bottom: 1rem;
         color: #212529;
         vertical-align: top;
-        border-color: #dee2e6;
+        border: solid 1px #dee2e6;
     ">
         <tr>
             <th colspan="3">Monday ({{$date->format('d-m')}})</th>
