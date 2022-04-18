@@ -238,8 +238,8 @@
                         } */
                     }
 
-                    if(day->availability){
-
+                    if(day.availability){
+                        information += `<p>You have marked yourself as available!</p>`;
                     }
 
                     availability = `<div class="row">`;
