@@ -239,7 +239,9 @@
                     }
 
                     if(day.availability){
-                        information += `<p>You have marked yourself as available!</p>`;
+                        information += `<p class="text-success">You have marked yourself as available!</p>`;
+                    }else{
+                        information += `<p class="text-danger">You have marked yourself as unavailable!</p>`;
                     }
 
                     availability = `<div class="row">`;
