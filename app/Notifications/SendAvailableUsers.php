@@ -45,7 +45,7 @@ class SendAvailableUsers extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->subject('You have submitted your Timesheet')
+            ->subject("Operative Available for {$this->date->format('d-m-Y')}")
             ->view('mail.available-users', ['user' => $this->user, 'date' => $this->date]);
     }
 
