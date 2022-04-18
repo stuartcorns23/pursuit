@@ -9,6 +9,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use App\Notifications\SendAvailableUsers;
+use App\Models\User;
 
 class NotifyAvailableOperatives implements ShouldQueue
 {
