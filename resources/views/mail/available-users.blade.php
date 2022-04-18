@@ -18,12 +18,12 @@
             border: solid 1px #dee2e6;
         }
 
-        table#usersAvailable tr th.day{
+        table#usersAvailable tr.day{
             background-color: blue;
             color: #FFF;
         }
 
-        table#usersAvailable tr th.day{
+        table#usersAvailable tr.shift{
             background-color: rgb(135, 135, 140);
             color: #666;
         }
@@ -36,14 +36,14 @@
 
     <table id="usersAvailable">
         <tr>
-            <th colspan="3">Monday ({{$date->format('d-m')}})</th>
+            <th colspan="3" class="day">Monday ({{$date->format('d-m')}})</th>
         </tr>
         <tr>
             <th>Day</th>
             <th>Night</th>
             <th>Both</th>
         </tr>
-        <tr>
+        <tr class="shift">
             <td>
                 <?php 
                     $monDay = \App\Models\Availability::dateFilter($date)->where('day', '=', 1)->where('night', '=', 0)->count();
@@ -68,9 +68,9 @@
             $tueDay = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('night', '=', 0)->count();
         ?>
         <tr>
-            <td colspan="3">Tuesday ({{$date->format('d-m')}})</td>
+            <td colspan="3" class="day">Tuesday ({{$date->format('d-m')}})</td>
         </tr>
-        <tr>
+        <tr class="shift">
             <td>Day</td>
             <td>Night</td>
             <td>Both</td>
