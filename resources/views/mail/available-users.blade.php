@@ -19,19 +19,19 @@
         <tr>
             <td>
                 <?php 
-                    $monDay = \App\Models\Availability::dateFilter($date)->where('day', '=', 1)->where('day', '=', 0)->count();
+                    $monDay = \App\Models\Availability::dateFilter($date)->where('day', '=', 1)->where('night', '=', 0)->count();
                 ?>
                 {{$monDay}}
             </td>
             <td>
                 <?php 
-                    $monNight = \App\Models\Availability::dateFilter($date)->where('day', '=', 0)->where('day', '=', 1)->count();
+                    $monNight = \App\Models\Availability::dateFilter($date)->where('day', '=', 0)->where('night', '=', 1)->count();
                 ?>
                 {{$monNight}}
             </td>
             <td>
                 <?php 
-                    $monAll = \App\Models\Availability::dateFilter($date)->where('day', '=', 1)->where('day', '=', 1)->count();
+                    $monAll = \App\Models\Availability::dateFilter($date)->where('day', '=', 1)->where('night', '=', 1)->count();
                 ?>
                 {{$monAll}}
             </td>
@@ -47,19 +47,19 @@
         <tr>
             <td>
                 <?php 
-                    $tueDay = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('day', '=', 0)->count();
+                    $tueDay = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('night', '=', 0)->count();
                 ?>
                 {{$tueDay}}
             </td>
             <td>
                 <?php 
-                    $tueNight = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 0)->where('day', '=', 1)->count();
+                    $tueNight = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 0)->where('night', '=', 1)->count();
                 ?>
                 {{$tueNight}}
             </td>
             <td>
                 <?php 
-                    $tueAll = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('day', '=', 1)->count();
+                    $tueAll = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('night', '=', 1)->count();
                 ?>
                 {{$tueAll}}
             </td>
@@ -75,19 +75,19 @@
         <tr>
             <td>
                 <?php 
-                    $wedDay = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('day', '=', 0)->count();
+                    $wedDay = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('night', '=', 0)->count();
                 ?>
                 {{$wedDay}}
             </td>
             <td>
                 <?php 
-                    $wedNight = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 0)->where('day', '=', 1)->count();
+                    $wedNight = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 0)->where('night', '=', 1)->count();
                 ?>
                 {{$wedNight}}
             </td>
             <td>
                 <?php 
-                    $wedAll = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('day', '=', 1)->count();
+                    $wedAll = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('night', '=', 1)->count();
                 ?>
                 {{$wedAll}}
             </td>
@@ -103,19 +103,19 @@
         <tr>
             <td>
                 <?php 
-                    $thurDay = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('day', '=', 0)->count();
+                    $thurDay = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('night', '=', 0)->count();
                 ?>
                 {{$thurDay}}
             </td>
             <td>
                 <?php 
-                    $thurNight = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 0)->where('day', '=', 1)->count();
+                    $thurNight = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 0)->where('night', '=', 1)->count();
                 ?>
                 {{$thurNight}}
             </td>
             <td>
                 <?php 
-                    $thurAll = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('day', '=', 1)->count();
+                    $thurAll = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('night', '=', 1)->count();
                 ?>
                 {{$thurAll}}
             </td>
@@ -131,19 +131,19 @@
         <tr>
             <td>
                 <?php 
-                    $friDay = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('day', '=', 0)->count();
+                    $friDay = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('night', '=', 0)->count();
                 ?>
                 {{$friDay}}
             </td>
             <td>
                 <?php 
-                    $friNight = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 0)->where('day', '=', 1)->count();
+                    $friNight = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 0)->where('night', '=', 1)->count();
                 ?>
                 {{$friNight}}
             </td>
             <td>
                 <?php 
-                    $friAll = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('day', '=', 1)->count();
+                    $friAll = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('night', '=', 1)->count();
                 ?>
                 {{$friAll}}
             </td>
@@ -159,19 +159,19 @@
         <tr>
             <td>
                 <?php 
-                    $satDay = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('day', '=', 0)->count();
+                    $satDay = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('night', '=', 0)->count();
                 ?>
                 {{$satDay}}
             </td>
             <td>
                 <?php 
-                    $satNight = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 0)->where('day', '=', 1)->count();
+                    $satNight = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 0)->where('night', '=', 1)->count();
                 ?>
                 {{$satNight}}
             </td>
             <td>
                 <?php 
-                    $satAll = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('day', '=', 1)->count();
+                    $satAll = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('night', '=', 1)->count();
                 ?>
                 {{$satAll}}
             </td>
@@ -187,19 +187,19 @@
         <tr>
             <td>
                 <?php 
-                    $sunDay = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('day', '=', 0)->count();
+                    $sunDay = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('night', '=', 0)->count();
                 ?>
                 {{$sunDay}}
             </td>
             <td>
                 <?php 
-                    $sunNight = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 0)->where('day', '=', 1)->count();
+                    $sunNight = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 0)->where('night', '=', 1)->count();
                 ?>
                 {{$sunNight}}
             </td>
             <td>
                 <?php 
-                    $sunAll = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('day', '=', 1)->count();
+                    $sunAll = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('night', '=', 1)->count();
                 ?>
                 {{$sunAll}}
             </td>

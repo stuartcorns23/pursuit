@@ -90,44 +90,9 @@ u + #body a {color:inherit;text-decoration:none;font-size:inherit;font-family:in
   .center-on-mobile {text-align: center!important;}
   .rwd-col {width:100%!important;max-width:100%!important;display:inline-block!important;}
 }
-</style>
-<style type="text/css" class="export-delete"> 
-  .composer--mobile table.row {width: 100%!important;max-width: 100%!important;}
-  .composer--mobile td.row {width: 100%!important;max-width: 100%!important;}
-  .composer--mobile .img-responsive img {width:100%!important;max-width: 100%!important;height: auto!important;margin: auto;}
-  .composer--mobile .center-float {float: none!important;margin:auto!important;}
-  .composer--mobile .center-text{text-align: center!important;}
-  .composer--mobile .container-padding {width: 100%!important;padding-left: 15px!important;padding-right: 15px!important;}
-  .composer--mobile .container-padding10 {width: 100%!important;padding-left: 10px!important;padding-right: 10px!important;}
-  .composer--mobile .hide-mobile {display: none!important;}
-  .composer--mobile .menu-container {text-align: center !important;}
-  .composer--mobile .autoheight {height: auto!important;}
-  .composer--mobile .m-padding-10 {margin: 10px 0!important;}
-  .composer--mobile .m-padding-15 {margin: 15px 0!important;}
-  .composer--mobile .m-padding-20 {margin: 20px 0!important;}
-  .composer--mobile .m-padding-30 {margin: 30px 0!important;}
-  .composer--mobile .m-padding-40 {margin: 40px 0!important;}
-  .composer--mobile .m-padding-50 {margin: 50px 0!important;}
-  .composer--mobile .m-padding-60 {margin: 60px 0!important;}
-  .composer--mobile .m-padding-top10 {margin: 30px 0 0 0!important;}
-  .composer--mobile .m-padding-top15 {margin: 15px 0 0 0!important;}
-  .composer--mobile .m-padding-top20 {margin: 20px 0 0 0!important;}
-  .composer--mobile .m-padding-top30 {margin: 30px 0 0 0!important;}
-  .composer--mobile .m-padding-top40 {margin: 40px 0 0 0!important;}
-  .composer--mobile .m-padding-top50 {margin: 50px 0 0 0!important;}
-  .composer--mobile .m-padding-top60 {margin: 60px 0 0 0!important;}
-  .composer--mobile .m-height10 {font-size:10px!important;line-height:10px!important;height:10px!important;}
-  .composer--mobile .m-height15 {font-size:15px!important;line-height:15px!important;height:15px!important;}
-  .composer--mobile .m-height20 {font-sBarlowize:20px!important;line-height:20px!important;height:20px!important;}
-  .composer--mobile .m-height25 {font-size:25px!important;line-height:25px!important;height:25px!important;}
-  .composer--mobile .m-height30 {font-size:30px!important;line-height:30px!important;height:30px!important;}
-  .composer--mobile .radius6 {border-radius: 6px!important;}
-  .composer--mobile .fade-white {background-color: rgba(255, 255, 255, 0.8)!important;}
-  .composer--mobile .rwd-on-mobile {display: inline-block!important;padding: 5px!important;}
-  .composer--mobile .center-on-mobile {text-align: center!important;}
-  .composer--mobile .rwd-col {width:100%!important;max-width:100%!important;display:inline-block!important;}
 
-  .table {
+
+.table {
     --bs-table-bg: transparent;
     --bs-table-accent-bg: transparent;
     --bs-table-striped-color: #212529;
@@ -205,6 +170,43 @@ u + #body a {color:inherit;text-decoration:none;font-size:inherit;font-family:in
   color: #000;
   border-color: #cbccce;
 }
+</style>
+<style type="text/css" class="export-delete"> 
+  .composer--mobile table.row {width: 100%!important;max-width: 100%!important;}
+  .composer--mobile td.row {width: 100%!important;max-width: 100%!important;}
+  .composer--mobile .img-responsive img {width:100%!important;max-width: 100%!important;height: auto!important;margin: auto;}
+  .composer--mobile .center-float {float: none!important;margin:auto!important;}
+  .composer--mobile .center-text{text-align: center!important;}
+  .composer--mobile .container-padding {width: 100%!important;padding-left: 15px!important;padding-right: 15px!important;}
+  .composer--mobile .container-padding10 {width: 100%!important;padding-left: 10px!important;padding-right: 10px!important;}
+  .composer--mobile .hide-mobile {display: none!important;}
+  .composer--mobile .menu-container {text-align: center !important;}
+  .composer--mobile .autoheight {height: auto!important;}
+  .composer--mobile .m-padding-10 {margin: 10px 0!important;}
+  .composer--mobile .m-padding-15 {margin: 15px 0!important;}
+  .composer--mobile .m-padding-20 {margin: 20px 0!important;}
+  .composer--mobile .m-padding-30 {margin: 30px 0!important;}
+  .composer--mobile .m-padding-40 {margin: 40px 0!important;}
+  .composer--mobile .m-padding-50 {margin: 50px 0!important;}
+  .composer--mobile .m-padding-60 {margin: 60px 0!important;}
+  .composer--mobile .m-padding-top10 {margin: 30px 0 0 0!important;}
+  .composer--mobile .m-padding-top15 {margin: 15px 0 0 0!important;}
+  .composer--mobile .m-padding-top20 {margin: 20px 0 0 0!important;}
+  .composer--mobile .m-padding-top30 {margin: 30px 0 0 0!important;}
+  .composer--mobile .m-padding-top40 {margin: 40px 0 0 0!important;}
+  .composer--mobile .m-padding-top50 {margin: 50px 0 0 0!important;}
+  .composer--mobile .m-padding-top60 {margin: 60px 0 0 0!important;}
+  .composer--mobile .m-height10 {font-size:10px!important;line-height:10px!important;height:10px!important;}
+  .composer--mobile .m-height15 {font-size:15px!important;line-height:15px!important;height:15px!important;}
+  .composer--mobile .m-height20 {font-sBarlowize:20px!important;line-height:20px!important;height:20px!important;}
+  .composer--mobile .m-height25 {font-size:25px!important;line-height:25px!important;height:25px!important;}
+  .composer--mobile .m-height30 {font-size:30px!important;line-height:30px!important;height:30px!important;}
+  .composer--mobile .radius6 {border-radius: 6px!important;}
+  .composer--mobile .fade-white {background-color: rgba(255, 255, 255, 0.8)!important;}
+  .composer--mobile .rwd-on-mobile {display: inline-block!important;padding: 5px!important;}
+  .composer--mobile .center-on-mobile {text-align: center!important;}
+  .composer--mobile .rwd-col {width:100%!important;max-width:100%!important;display:inline-block!important;}
+
 </style>
 </head>
 
