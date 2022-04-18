@@ -212,7 +212,7 @@
             let dateFn = new Date(item.getAttribute('data-date'));
             let formData = new FormData();
             formData.append('date', date);
-            const xhr = new XMLHttpRequest();[]any
+            const xhr = new XMLHttpRequest();
             xhr.onload = function(e) {
                 //Place the JSON Images into the modal
                 let day = JSON.parse(xhr.response);
