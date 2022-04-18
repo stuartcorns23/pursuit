@@ -260,20 +260,29 @@
                                     <td><a class="d-block mb-2 text-decoration-none" href="/users/${key}">${value}</a></td>    
                                 </tr>`;
                             }
+                            availability += `</table></div>`;
                         }else{
+                            availability += `
+                            <div class="col-6">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <td class="col-12">Available</td>
+                                    </tr>
+                            `;
                             availability += `<tr>
                                                 <td>No Operative have made themselves available</td>
                                             </tr>`;
+                            availability += `</table></div>`;
                         }
 
-                        availability += `</table></div>`;
+                        
 
                         if(day.unavailable){
                             availability += `
                             <div class="col-6">
                                 <table class="table table-striped">
                                     <tr>
-                                        <td class="col-12">Available</td>
+                                        <td class="col-12">Unavailable</td>
                                     </tr>
                             `;
                             for (const [key, value] of Object.entries(day.unavailable)) {
@@ -282,13 +291,20 @@
                                     <td><a class="d-block mb-2 text-decoration-none" href="/users/${key}">${value}</a></td>    
                                 </tr>`;
                             }
+                            availability += `</table></div>`;
                         }else{
+                            availability += `
+                            <div class="col-6">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <td class="col-12">Available</td>
+                                    </tr>
+                            `;
                             availability += `<tr>
                                                 <td>No Operative have made themselves unavailable</td>
                                             </tr>`;
+                            availability += `</table></div>`;
                         }
-
-                        availability += `</table></div>`;
 
                         details = information + availability;
                     }
