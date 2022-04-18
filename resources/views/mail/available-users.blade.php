@@ -10,16 +10,22 @@
             margin-bottom: 1rem;
             color: #212529;
             vertical-align: top;
-            border-color: #dee2e6;
+            
         }
 
         table#usersAvailable, table#usersAvailable tr, table#usersAvailable th, table#usersAvailable td{
             border-collapse: collapse;
+            border: solid 1px #dee2e6;
         }
 
-        table#usersAvailable tr th{
+        table#usersAvailable tr th.day{
             background-color: blue;
             color: #FFF;
+        }
+
+        table#usersAvailable tr th.day{
+            background-color: rgb(135, 135, 140);
+            color: #666;
         }
 
     </style>
