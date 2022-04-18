@@ -7,7 +7,7 @@
     <p>Hi {{$user->first_name}}</p>
     <p>Below is the availability of Operatives for next week. Week Begining: {{$date->format('d\/m\/Y')}}</p>
 
-    <table width="100%" style="margin-bottom: 20px;">
+    <table width="100%" class="table table-primary">
         <tr>
             <td colspan="3">Monday</td>
         </tr>
