@@ -59,7 +59,7 @@
             </td>
             <td>
                 <?php 
-                    $monAll = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('day', '=', 1)->get();
+                    $tueAll = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('day', '=', 1)->get();
                 ?>
                 {{$tueAll}}
             </td>
