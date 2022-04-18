@@ -8,6 +8,7 @@
         table#usersAvailable{
             width: 100%;
             margin-bottom: 2.5rem;
+            margin-top: 2.5rem;
             color: #212529;
             vertical-align: top;
             
@@ -19,7 +20,7 @@
         }
 
         table#usersAvailable tr.day{
-            background-color: #;
+            background-color: ##0d6efd;
             color: #FFF;
         }
 
@@ -27,6 +28,16 @@
             background-color: #aeaeae;
             color: #666;
         }
+
+        table#usersAvailable > th{
+            text-align: center;
+        }
+
+        table#usersAvailable > td{
+            text-align: center;
+            font-weight: 600;
+        }
+
 
     </style>
 @endsection
