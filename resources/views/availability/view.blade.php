@@ -248,30 +248,47 @@
                         
                         if(day.available){
                             availability += `
-                            <table class="table table-striped col-6">
-                                <tr>
-                                    <td class="col-12">Available</td>
-                                </tr>
+                            <div class="col-6">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <td class="col-12">Available</td>
+                                    </tr>
                             `;
                             for (const [key, value] of Object.entries(day.available)) {
-                                availability += `<a class="d-block mb-2 text-decoration-none" href="/users/${key}">${value}</a>`;
+                                availability += `
+                                <tr>
+                                    <td><a class="d-block mb-2 text-decoration-none" href="/users/${key}">${value}</a></td>    
+                                </tr>`;
                             }
                         }else{
-                            availability += `<p>No Operative have made themselves available</p>`;
+                            availability += `<tr>
+                                                <td>No Operative have made themselves available</td>
+                                            </tr>`;
                         }
 
-                        availability += `></table>`;
+                        availability += `</table></div>`;
 
                         if(day.unavailable){
+                            availability += `
+                            <div class="col-6">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <td class="col-12">Available</td>
+                                    </tr>
+                            `;
                             for (const [key, value] of Object.entries(day.unavailable)) {
-                                availability +=`<a class="d-block mb-2 text-decoration-none" href="/users/${key}">${value}</a>`;
+                                availability += `
+                                <tr>
+                                    <td><a class="d-block mb-2 text-decoration-none" href="/users/${key}">${value}</a></td>    
+                                </tr>`;
                             }
                         }else{
-                            availability += `<p>No Operative have made themselves unavailable</p>`;
+                            availability += `<tr>
+                                                <td>No Operative have made themselves unavailable</td>
+                                            </tr>`;
                         }
-                        
 
-                        availability += `</tr></tr></table>`;
+                        availability += `</table></div>`;
 
                         details = information + availability;
                     }

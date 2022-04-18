@@ -7,7 +7,7 @@
 
         table#usersAvailable{
             width: 100%;
-            margin-bottom: 1rem;
+            margin-bottom: 2.5rem;
             color: #212529;
             vertical-align: top;
             
