@@ -2,18 +2,33 @@
 
 @section('titlePT1', 'Operative Availability')
 @section('titlePT2', 'Week Begining: '.$date->format('d\/m\/Y'))
+@section("css")
+    <style>
 
+        table#usersAvailable{
+            width: 100%;
+            margin-bottom: 1rem;
+            color: #212529;
+            vertical-align: top;
+            border-color: #dee2e6;
+        }
+
+        table#usersAvailable, table#usersAvailable tr, table#usersAvailable th, table#usersAvailable td{
+            border-collapse: collapse;
+        }
+
+        table#usersAvailable tr th{
+            background-color: blue;
+            color: #FFF;
+        }
+
+    </style>
+@endsection
 @section('content')
     <p>Hi {{$user->first_name}}</p>
     <p>Below is the availability of Operatives for next week. Week Begining: {{$date->format('d\/m\/Y')}}</p>
 
-    <table style="
-        width: 100%;
-        margin-bottom: 1rem;
-        color: #212529;
-        vertical-align: top;
-        border: solid 1px #dee2e6;
-    ">
+    <table id="usersAvailable">
         <tr>
             <th colspan="3">Monday ({{$date->format('d-m')}})</th>
         </tr>
