@@ -186,9 +186,9 @@ class UserController extends Controller
 
         $availability = auth()->user()->availability($date->format('Y-m-d'));
         if($availability && $availability->unavailable() == true){
-            $array['availability'] = 'false';
+            $array['availability'] = false;
         }elseif($availability && $availability->available() == true){
-            $array['availability'] = 'true';
+            $array['availability'] = true;
         }
 
         if(auth()->user()->admin == 1){
