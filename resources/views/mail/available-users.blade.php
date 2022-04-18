@@ -15,16 +15,16 @@
 
         table#usersAvailable, table#usersAvailable tr, table#usersAvailable th, table#usersAvailable td{
             border-collapse: collapse;
-            border: solid 1px #dee2e6;
+            border: solid 1px #666;
         }
 
         table#usersAvailable tr.day{
-            background-color: blue;
+            background-color: #;
             color: #FFF;
         }
 
         table#usersAvailable tr.shift{
-            background-color: rgb(135, 135, 140);
+            background-color: #aeaeae;
             color: #666;
         }
 
@@ -35,15 +35,15 @@
     <p>Below is the availability of Operatives for next week. Week Begining: {{$date->format('d\/m\/Y')}}</p>
 
     <table id="usersAvailable">
-        <tr>
-            <th colspan="3" class="day">Monday ({{$date->format('d-m')}})</th>
+        <tr class="day">
+            <th colspan="3" >Monday ({{$date->format('d-m')}})</th>
         </tr>
-        <tr>
+        <tr class="shift">
             <th>Day</th>
             <th>Night</th>
             <th>Both</th>
         </tr>
-        <tr class="shift">
+        <tr>
             <td>
                 <?php 
                     $monDay = \App\Models\Availability::dateFilter($date)->where('day', '=', 1)->where('night', '=', 0)->count();
@@ -67,8 +67,8 @@
         <?php 
             $tueDay = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('night', '=', 0)->count();
         ?>
-        <tr>
-            <td colspan="3" class="day">Tuesday ({{$date->format('d-m')}})</td>
+        <tr class="day">
+            <td colspan="3">Tuesday ({{$date->format('d-m')}})</td>
         </tr>
         <tr class="shift">
             <td>Day</td>
@@ -95,10 +95,10 @@
         <?php 
             $wedDay = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('night', '=', 0)->count();
         ?>
-        <tr>
+        <tr class="day">
             <td colspan="3">Wednesday ({{$date->format('d-m')}})</td>
         </tr>
-        <tr>
+        <tr class="shift">
             <td>Day</td>
             <td>Night</td>
             <td>Both</td>
@@ -123,10 +123,10 @@
         <?php 
             $thurDay = \App\Models\Availability::dateFilter($date)->where('day', '=', 1)->where('night', '=', 0)->count();
         ?>
-        <tr>
+        <tr class="day">
             <td colspan="3">Thursday ({{$date->format('d-m')}})</td>
         </tr>
-        <tr>
+        <tr class="shift">
             <td>Day</td>
             <td>Night</td>
             <td>Both</td>
@@ -151,10 +151,10 @@
         <?php 
             $friDay = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('night', '=', 0)->count();
         ?>
-        <tr>
+        <tr class="day">
             <td colspan="3">Friday ({{$date->format('d-m')}})</td>
         </tr>
-        <tr>
+        <tr class="shift">
             <td>Day</td>
             <td>Night</td>
             <td>Both</td>
@@ -179,10 +179,10 @@
         <?php 
             $satDay = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('night', '=', 0)->count();
         ?>
-        <tr>
+        <tr class="day">
             <td colspan="3">Saturday ({{$date->format('d-m')}})</td>
         </tr>
-        <tr>
+        <tr class="shift">
             <td>Day</td>
             <td>Night</td>
             <td>Both</td>
@@ -207,10 +207,10 @@
         <?php 
             $sunDay = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('night', '=', 0)->count();
         ?>
-        <tr>
+        <tr class="day">
             <td colspan="3">Sunday ({{$date->format('d-m')}})</td>
         </tr>
-        <tr>
+        <tr class="shift">
             <td>Day</td>
             <td>Night</td>
             <td>Both</td>

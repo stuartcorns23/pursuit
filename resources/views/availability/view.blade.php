@@ -297,7 +297,7 @@
                             <div class="col-6">
                                 <table class="table table-striped">
                                     <tr>
-                                        <td class="col-12">Available</td>
+                                        <td class="col-12">Unavailable</td>
                                     </tr>
                             `;
                             availability += `<tr>
