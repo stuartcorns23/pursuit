@@ -7,7 +7,7 @@
     <p>Hi {{$user->first_name}}</p>
     <p>Below is the availability of Operatives for next week. Week Begining: {{$date->format('d\/m\/Y')}}</p>
 
-    <table>
+    <table width="100%">
         <tr>
             <td colspan="3">Monday</td>
         </tr>
@@ -19,34 +19,25 @@
         <tr>
             <td>
                 <?php 
-                    $avails = \App\Models\Availability::dateFilter($date)->where('day', '=', 1)->where('day', '=', 0)->get();
+                    $monDay = \App\Models\Availability::dateFilter($date)->where('day', '=', 1)->where('day', '=', 0)->count();
                 ?>
-                @foreach($avails as $avail)
-                    {{$avail->user->fullname() ?? 'Error finding the Operative' }}<br>
-                @endforeach
-                <?php unset($avails);?>
+                {{$monDay}}
             </td>
             <td>
                 <?php 
-                    $avails = \App\Models\Availability::dateFilter($date)->where('day', '=', 0)->where('day', '=', 1)->get();
+                    $monNight = \App\Models\Availability::dateFilter($date)->where('day', '=', 0)->where('day', '=', 1)->get();
                 ?>
-                @foreach($avails as $avail)
-                    {{$avail->user->fullname() ?? 'Error finding the Operative' }}<br>
-                @endforeach
-                <?php unset($avails);?>
+                {{$monNight}}
             </td>
             <td>
                 <?php 
-                    $avails = \App\Models\Availability::dateFilter($date)->where('day', '=', 1)->where('day', '=', 1)->get();
+                    $monAll = \App\Models\Availability::dateFilter($date)->where('day', '=', 1)->where('day', '=', 1)->get();
                 ?>
-                @foreach($avails as $avail)
-                    {{$avail->user->fullname() ?? 'Error finding the Operative' }}<br>
-                @endforeach
-                <?php unset($avails);?>
+                {{$monAll}}
             </td>
         </tr>
         <tr>
-            <td>Tuesday</td>
+            <td colspan="3">Tuesday</td>
         </tr>
         <tr>
             <td>Day</td>
@@ -54,7 +45,27 @@
             <td>Both</td>
         </tr>
         <tr>
-            <td>Wednesday</td>
+            <td>
+                <?php 
+                    $tueDay = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('day', '=', 0)->count();
+                ?>
+                {{$tueDay}}
+            </td>
+            <td>
+                <?php 
+                    $tueNight = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 0)->where('day', '=', 1)->get();
+                ?>
+                {{$tueNight}}
+            </td>
+            <td>
+                <?php 
+                    $monAll = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('day', '=', 1)->get();
+                ?>
+                {{$tueAll}}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">Wednesday</td>
         </tr>
         <tr>
             <td>Day</td>
@@ -62,7 +73,27 @@
             <td>Both</td>
         </tr>
         <tr>
-            <td>Thursday</td>
+            <td>
+                <?php 
+                    $wedDay = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('day', '=', 0)->count();
+                ?>
+                {{$wedDay}}
+            </td>
+            <td>
+                <?php 
+                    $wedNight = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 0)->where('day', '=', 1)->get();
+                ?>
+                {{$wedNight}}
+            </td>
+            <td>
+                <?php 
+                    $wedAll = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('day', '=', 1)->get();
+                ?>
+                {{$wedAll}}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">Thursday</td>
         </tr>
         <tr>
             <td>Day</td>
@@ -70,7 +101,27 @@
             <td>Both</td>
         </tr>
         <tr>
-            <td>Friday</td>
+            <td>
+                <?php 
+                    $thurDay = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('day', '=', 0)->count();
+                ?>
+                {{$thurDay}}
+            </td>
+            <td>
+                <?php 
+                    $thurNight = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 0)->where('day', '=', 1)->get();
+                ?>
+                {{$thurNight}}
+            </td>
+            <td>
+                <?php 
+                    $thurAll = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('day', '=', 1)->get();
+                ?>
+                {{$thurAll}}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">Friday</td>
         </tr>
         <tr>
             <td>Day</td>
@@ -78,7 +129,27 @@
             <td>Both</td>
         </tr>
         <tr>
-            <td>Saturday</td>
+            <td>
+                <?php 
+                    $friDay = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('day', '=', 0)->count();
+                ?>
+                {{$friDay}}
+            </td>
+            <td>
+                <?php 
+                    $friNight = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 0)->where('day', '=', 1)->get();
+                ?>
+                {{$friNight}}
+            </td>
+            <td>
+                <?php 
+                    $friAll = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('day', '=', 1)->get();
+                ?>
+                {{$friAll}}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">Saturday</td>
         </tr>
         <tr>
             <td>Day</td>
@@ -86,16 +157,56 @@
             <td>Both</td>
         </tr>
         <tr>
-            <td>Sunday</td>
+            <td>
+                <?php 
+                    $satDay = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('day', '=', 0)->count();
+                ?>
+                {{$satDay}}
+            </td>
+            <td>
+                <?php 
+                    $satNight = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 0)->where('day', '=', 1)->get();
+                ?>
+                {{$satNight}}
+            </td>
+            <td>
+                <?php 
+                    $satAll = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('day', '=', 1)->get();
+                ?>
+                {{$satAll}}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">Sunday</td>
         </tr>
         <tr>
             <td>Day</td>
             <td>Night</td>
             <td>Both</td>
+        </tr>
+        <tr>
+            <td>
+                <?php 
+                    $sunDay = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('day', '=', 0)->count();
+                ?>
+                {{$sunDay}}
+            </td>
+            <td>
+                <?php 
+                    $sunNight = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 0)->where('day', '=', 1)->get();
+                ?>
+                {{$sunNight}}
+            </td>
+            <td>
+                <?php 
+                    $sunAll = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('day', '=', 1)->get();
+                ?>
+                {{$sunAll}}
+            </td>
         </tr>
     </table>
 
-    <p>Please go to <a href="{{route('user.change.password', $user->id)}}">Change Password</a> to update you password. This will make your account more secure.</p>
+    <p>For more information and who is and who isn't available for next week. Please visit <a href="#">Operatives Availability</a></p>
 
     <p>Kind Regards</p>
     <p>The Pursuit TMR Team</p>

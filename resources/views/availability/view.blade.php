@@ -212,8 +212,7 @@
             let dateFn = new Date(item.getAttribute('data-date'));
             let formData = new FormData();
             formData.append('date', date);
-            const xhr = new XMLHttpRequest();
-
+            const xhr = new XMLHttpRequest();[]any
             xhr.onload = function(e) {
                 //Place the JSON Images into the modal
                 let day = JSON.parse(xhr.response);
@@ -246,24 +245,22 @@
                     availability = `<div class="row">`;
                     if(day.available || day.unavailable){
 
-                        availability += `
+                        
+                        if(day.available){
+                            availability += `
                             <table class="table table-striped col-6">
                                 <tr>
                                     <td class="col-12">Available</td>
                                 </tr>
-                                <tr>
-                                    <td>
-                        `;
-                        
-                        if(day.available){
+                            `;
                             for (const [key, value] of Object.entries(day.available)) {
-                                availability +=`<a class="d-block mb-2 text-decoration-none" href="/users/${key}">${value}</a>`;
+                                availability += `<a class="d-block mb-2 text-decoration-none" href="/users/${key}">${value}</a>`;
                             }
                         }else{
                             availability += `<p>No Operative have made themselves available</p>`;
                         }
 
-                        availability += `</td><tr></table>`;
+                        availability += `></table>`;
 
                         if(day.unavailable){
                             for (const [key, value] of Object.entries(day.unavailable)) {
