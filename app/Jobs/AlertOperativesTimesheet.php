@@ -39,7 +39,7 @@ class AlertOperativesTimesheet implements ShouldQueue
         $startWeek = \Carbon\Carbon::now()->addWeek()->startOfWeek();
         $endWeek = \Carbon\Carbon::now()->addWeek()->endOfWeek();
         foreach($users as $user){
-            if(!$timesheet = Timesheet::where('user_id', '=', $user->id)->where('week_start', '=', $startWeek)->get()){
+            if($timesheet = Timesheet::where('user_id', '=', $user->id)->where('week_start', '=', $startWeek)->count() == 0){
                 $user->notify(new Alert());
             }
         }
