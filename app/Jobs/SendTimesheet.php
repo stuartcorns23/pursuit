@@ -9,6 +9,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use App\Models\Timesheet;
+use App\Models\User;
 
 use App\Notifications\SendTimesheetReceipt;
 use App\Notifications\SendAdminTimesheetReceipt;
@@ -36,7 +37,7 @@ class SendTimesheet implements ShouldQueue
         \Notification::route('mail', $timesheet->user->email)->notifyNow(new SendTimesheetReceipt($timesheet));
         $admin = User::whereAdmin(1)->get();
         foreach($admin as $admin){
-             //\Notification::route('mail', $timesheet->user->email)->notifyNow(new SendAdminTimesheetReceipt($timesheet));   
+             \Notification::route('mail', $timesheet->user->email)->notifyNow(new SendAdminTimesheetReceipt($timesheet));   
         }
 
         //Send Notification that the email has been received
