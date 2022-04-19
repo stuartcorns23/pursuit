@@ -17,6 +17,17 @@ class NotifyShift extends Notification
 {
     use Queueable;
 
+    /**
+     * Create a new notification instance.
+     *
+     * @return void
+     */
+    public function __construct(User $user, Shift $shift)
+    {
+        $this->user = $user;
+        $this->shift = $shift;
+    }
+
     public function via($notifiable)
     {
         return [SnsChannel::class];
@@ -26,15 +37,9 @@ class NotifyShift extends Notification
     {        
         // OR return a SnsMessage passing the arguments via `create()` or `__construct()`:
         return SnsMessage::create([
-            'body' => "Your Account has been approved! If you have verified your email you can now access your account at https://www.pursuit-tmr.co.uk/login",
+            'body' => "Hi {$this->user->fullname()}, you have a shift tonight at {$this->shift->client->name}. Starting at {$this->shift->start_time}. If there any problems please let us know as soon as possible. ",
             'transactional' => true,
             'sender' => 'Pursuit-TMR',
         ]); 
-
-        // OR create the object with or without arguments and then use the fluent API:
-        return SnsMessage::create()
-            ->body("Your Account was approved! you can now access your account at ")
-            ->promotional()
-            ->sender('Pursuit TMR');
     }
 }
