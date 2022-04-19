@@ -6,6 +6,7 @@ use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use App\Jobs\NotifyAvailableOperatives;
 use App\Jobs\AlertOperativesAvailability;
+use App\Jobs\AlertOperativesTimesheet;
 use Illuminate\Support\Facades\Log;
 
 class Kernel extends ConsoleKernel
@@ -24,6 +25,7 @@ class Kernel extends ConsoleKernel
         $schedule->job(new NotifyDailyShifts)->daily()->at('11:00'); */
         //$schedule->job(new NotifyAvailableOperatives)->everyFiveMinutes();
         $schedule->job(new AlertOperativesAvailability)->everyFiveMinutes();
+        $schedule->job(new AlertOperativesTimesheet)->everyFiveMinutes();
     }
 
     /**
