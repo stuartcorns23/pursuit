@@ -11,6 +11,7 @@ use Illuminate\Queue\SerializesModels;
 
 use App\Notifications\AlertOperativesAvailability as Alert;
 use App\Models\User;
+use App\Models\Availability;
 
 class AlertOperativesAvailability implements ShouldQueue
 {
@@ -38,7 +39,7 @@ class AlertOperativesAvailability implements ShouldQueue
         $startWeek = \Carbon\Carbon::now()->addWeek()->startOfWeek();
         $endWeek = \Carbon\Carbon::now()->addWeek()->endOfWeek();
         foreach($users as $user){
-            if(!$user->availability()->whereBetween('date', [$startWeek, $endWeek])){
+            if(!$availabilty = Availability::where('user_id', '=', $user->id)->whereBetween('date', [$startWeek, $endWeek])->get()){
                 $user->notify(new Alert());
             }
         }
