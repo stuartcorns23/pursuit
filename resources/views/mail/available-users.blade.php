@@ -20,7 +20,7 @@
         }
 
         table#usersAvailable tr.day{
-            background-color: ##0d6efd;
+            background-color: #0d6efd;
             color: #FFF;
         }
 
@@ -33,7 +33,7 @@
             text-align: center;
         }
 
-        table#usersAvailable > td{
+        table#usersAvailable > tr > td{
             text-align: center;
             font-weight: 600;
         }
@@ -79,12 +79,12 @@
             $tueDay = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('night', '=', 0)->count();
         ?>
         <tr class="day">
-            <td colspan="3">Tuesday ({{$date->format('d-m')}})</td>
+            <th colspan="3">Tuesday ({{$date->format('d-m')}})</th>
         </tr>
         <tr class="shift">
-            <td>Day</td>
-            <td>Night</td>
-            <td>Both</td>
+            <th>Day</th>
+            <th>Night</th>
+            <th>Both</th>
         </tr>
         <tr>
             <td>
@@ -107,12 +107,12 @@
             $wedDay = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('night', '=', 0)->count();
         ?>
         <tr class="day">
-            <td colspan="3">Wednesday ({{$date->format('d-m')}})</td>
+            <th colspan="3">Wednesday ({{$date->format('d-m')}})</th>
         </tr>
         <tr class="shift">
-            <td>Day</td>
-            <td>Night</td>
-            <td>Both</td>
+            <th>Day</th>
+            <th>Night</th>
+            <th>Both</th>
         </tr>
         <tr>
             <td>
@@ -135,12 +135,12 @@
             $thurDay = \App\Models\Availability::dateFilter($date)->where('day', '=', 1)->where('night', '=', 0)->count();
         ?>
         <tr class="day">
-            <td colspan="3">Thursday ({{$date->format('d-m')}})</td>
+            <th colspan="3">Thursday ({{$date->format('d-m')}})</th>
         </tr>
         <tr class="shift">
-            <td>Day</td>
-            <td>Night</td>
-            <td>Both</td>
+            <th>Day</th>
+            <th>Night</th>
+            <th>Both</th>
         </tr>
         <tr>
             <td>
@@ -163,12 +163,12 @@
             $friDay = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('night', '=', 0)->count();
         ?>
         <tr class="day">
-            <td colspan="3">Friday ({{$date->format('d-m')}})</td>
+            <th colspan="3">Friday ({{$date->format('d-m')}})</th>
         </tr>
         <tr class="shift">
-            <td>Day</td>
-            <td>Night</td>
-            <td>Both</td>
+            <th>Day</th>
+            <th>Night</th>
+            <th>Both</th>
         </tr>
         <tr>
             <td>
@@ -191,12 +191,12 @@
             $satDay = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('night', '=', 0)->count();
         ?>
         <tr class="day">
-            <td colspan="3">Saturday ({{$date->format('d-m')}})</td>
+            <th colspan="3">Saturday ({{$date->format('d-m')}})</th>
         </tr>
         <tr class="shift">
-            <td>Day</td>
-            <td>Night</td>
-            <td>Both</td>
+            <th>Day</th>
+            <th>Night</th>
+            <th>Both</th>
         </tr>
         <tr>
             <td>
@@ -219,12 +219,12 @@
             $sunDay = \App\Models\Availability::dateFilter($date->addDay())->where('day', '=', 1)->where('night', '=', 0)->count();
         ?>
         <tr class="day">
-            <td colspan="3">Sunday ({{$date->format('d-m')}})</td>
+            <th colspan="3">Sunday ({{$date->format('d-m')}})</th>
         </tr>
         <tr class="shift">
-            <td>Day</td>
-            <td>Night</td>
-            <td>Both</td>
+            <th>Day</th>
+            <th>Night</th>
+            <th>Both</th>
         </tr>
         <tr>
             <td>
@@ -244,8 +244,8 @@
             </td>
         </tr>
     </table>
-
-    <p>For more information and who is and who isn't available for next week. Please visit <a href="#">Operatives Availability</a></p>
+    <?php $now = \Carbon\Carbon::now()->format('m\/Y');?>
+    <p>For more information and who is and who isn't available for next week. Please visit <a href="schedule/{{$now}}">Operatives Availability</a></p>
 
     <p>Kind Regards</p>
     <p>The Pursuit TMR Team</p>

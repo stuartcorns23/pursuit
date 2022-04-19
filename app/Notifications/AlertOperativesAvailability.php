@@ -33,3 +33,4 @@ class AlertOperativesAvailability extends Notification
             ->sender('Pursuit TMR');
     }
 }
+
