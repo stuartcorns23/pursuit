@@ -37,7 +37,7 @@ class SendTimesheet implements ShouldQueue
         \Notification::route('mail', $timesheet->user->email)->notifyNow(new SendTimesheetReceipt($timesheet));
         $admin = User::whereAdmin(1)->get();
         foreach($admin as $admin){
-             \Notification::route('mail', $timesheet->user->email)->notifyNow(new SendAdminTimesheetReceipt($timesheet));   
+             \Notification::route('mail', $admin->email)->notifyNow(new SendAdminTimesheetReceipt($timesheet));   
         }
 
         //Send Notification that the email has been received
