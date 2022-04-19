@@ -5,6 +5,8 @@ namespace App\Notifications;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use NotificationChannels\AwsSns\SnsChannel;
+use NotificationChannels\AwsSns\SnsMessage;
 use Illuminate\Notifications\Notification;
 use \Carbon\Carbon;
 
