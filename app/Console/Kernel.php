@@ -7,6 +7,7 @@ use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use App\Jobs\NotifyAvailableOperatives;
 use App\Jobs\AlertOperativesAvailability;
 use App\Jobs\AlertOperativesTimesheet;
+use App\Jobs\NotifyDailyShifts;
 use Illuminate\Support\Facades\Log;
 
 class Kernel extends ConsoleKernel
