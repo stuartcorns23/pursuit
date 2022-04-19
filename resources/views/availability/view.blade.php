@@ -220,7 +220,7 @@
                 let availability = '';
                 let details = `<p>No Information Available for this day!</p>`;
                 console.log(day);
-                modalTitle.innerHTML = dateFn.getFullYear()+'-'+(dateFn.getMonth()+1)+'-'+dateFn.getDate();
+                modalTitle.innerHTML = 'Date: '.dateFn.getDate()+'/'+(dateFn.getMonth()+1)+'/'+dateFn.getFullYear();
 
                 if(day.length != 0){
                     if(day.shift){
