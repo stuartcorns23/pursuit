@@ -35,13 +35,12 @@ class AlertOperativesTimesheet implements ShouldQueue
     {
         $users = User::all();
         $now = \Carbon\Carbon::now();
-        $nextWeek = \Carbon\Carbon::now()->addWeek()->startOfWeek();
-       /*  foreach($users as $user){
-            if(!$user->availability()->whereBetween('date', [$startWeek, $endWeek])){
+        $startWeek = \Carbon\Carbon::now()->addWeek()->startOfWeek();
+        $endWeek = \Carbon\Carbon::now()->addWeek()->endOfWeek();
+        foreach($users as $user){
+            if(!$user->availability()->where('week_start', '=', $startWeek)){
                 $user->notify(new Alert());
             }
-        } */
-        $user = User::find(1);
-        $user->notify(new Alert());
+        }
     }
 }
