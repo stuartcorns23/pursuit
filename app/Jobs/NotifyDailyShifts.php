@@ -13,6 +13,8 @@ use App\Notifications\NotifyShift;
 use App\Models\Shift;
 use App\Models\User;
 
+use Illuminate\Support\Facades\Log;
+
 class NotifyDailyShifts implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
@@ -39,6 +41,7 @@ class NotifyDailyShifts implements ShouldQueue
 
         foreach($users as $user){
             if($shift = $user->has_shift($now)){
+                Log::info($user->fullname()." has a shift");
                 $user->notify(new NotifyShift($user, $shift));
             }
         }
