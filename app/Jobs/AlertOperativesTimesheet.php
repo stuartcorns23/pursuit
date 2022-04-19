@@ -9,6 +9,9 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 
+use App\Notifications\AlertOperativesTimesheet as Alert;
+use App\Models\User;
+
 class AlertOperativesTimesheet implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
@@ -30,6 +33,15 @@ class AlertOperativesTimesheet implements ShouldQueue
      */
     public function handle()
     {
-        //
+        $users = User::all();
+        $now = \Carbon\Carbon::now();
+        $nextWeek = \Carbon\Carbon::now()->addWeek()->startOfWeek();
+       /*  foreach($users as $user){
+            if(!$user->availability()->whereBetween('date', [$startWeek, $endWeek])){
+                $user->notify(new Alert());
+            }
+        } */
+        $user = User::find(1);
+        $user->notify(new Alert());
     }
 }
