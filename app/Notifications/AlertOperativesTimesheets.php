@@ -10,7 +10,7 @@ use NotificationChannels\AwsSns\SnsMessage;
 use Illuminate\Notifications\Notification;
 use \Carbon\Carbon;
 
-class AlertOperativesTimesheet extends Notification
+class AlertOperativesTimesheets extends Notification
 {
     use Queueable;
 
