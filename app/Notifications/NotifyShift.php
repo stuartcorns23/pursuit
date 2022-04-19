@@ -17,11 +17,9 @@ class NotifyShift extends Notification
 {
     use Queueable;
 
-    /**
-     * Create a new notification instance.
-     *
-     * @return void
-     */
+    public $shift;
+    public $user;
+    
     public function __construct(User $user, Shift $shift)
     {
         $this->user = $user;
