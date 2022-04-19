@@ -34,8 +34,8 @@ class AlertOperativesAvailability implements ShouldQueue
     public function handle()
     {
         $users = User::all();
-        $now = Carbon\Carbon::now();
-        $nextWeek = Carbon\Carbon::now()->addWeek()->startOfWeek();
+        $now = \Carbon\Carbon::now();
+        $nextWeek = \Carbon\Carbon::now()->addWeek()->startOfWeek();
        /*  foreach($users as $user){
             if(!$user->availability()->whereBetween('date', [$startWeek, $endWeek])){
                 $user->notify(new Alert());
