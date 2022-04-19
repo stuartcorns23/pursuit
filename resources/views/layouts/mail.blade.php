@@ -242,62 +242,6 @@ u + #body a {color:inherit;text-decoration:none;font-size:inherit;font-family:in
     <!-- blue-preface-11 -->
     </table>
 
-<table data-outer-table border="0" align="center" cellpadding="0" cellspacing="0" class="outer-table row" role="presentation" width="640" style="width:640px;max-width:640px;" data-module="blue-title">
-  <!-- blue-title -->
-  <tr>
-    <td height="20" style="font-size:20px;line-height:20px;" data-height="Spacing top">&nbsp;</td>
-  </tr>
-  <tr>
-    <td align="center" bgcolor="#FFFFFF" data-bgcolor="BgColor" class="container-padding">
-    <!-- Content -->
-    <table border="0" align="center" cellpadding="0" cellspacing="0" role="presentation" width="100%" style="width:100%;max-width:100%;">
-      <tr data-element="blue-title-titles" data-label="Titles">
-        <td class="center-text" data-text-style="Titles" align="center" style="font-family:'Barlow',Arial,Helvetica,sans-serif;font-size:24px;line-height:36px;font-weight:700;font-style:normal;color:#50C0FF;text-decoration:none;letter-spacing:0px;">
-            <singleline>
-              <div mc:edit data-text-edit>
-                Button
-              </div>
-            </singleline>
-        </td>
-      </tr>
-    </table>
-    <!-- Content -->
-    </td>
-  </tr>
-  <tr>
-    <td height="10" style="font-size:10px;line-height:10px;" data-height="Spacing bottom">&nbsp;</td>
-  </tr>
-</table>
-<!-- blue-title -->
-
-
-<table data-outer-table border="0" align="center" cellpadding="0" cellspacing="0" class="outer-table row" role="presentation" width="640" style="width:640px;max-width:640px;" data-module="blue-title">
-  <!-- blue-title -->
-  <tr>
-    <td height="20" style="font-size:20px;line-height:20px;" data-height="Spacing top">&nbsp;</td>
-  </tr>
-  <tr>
-    <td align="center" bgcolor="#FFFFFF" data-bgcolor="BgColor" class="container-padding">
-    <!-- Content -->
-    <table border="0" align="center" cellpadding="0" cellspacing="0" role="presentation" width="100%" style="width:100%;max-width:100%;">
-      <tr data-element="blue-title-titles" data-label="Titles">
-        <td class="center-text" data-text-style="Titles" align="center" style="font-family:'Barlow',Arial,Helvetica,sans-serif;font-size:24px;line-height:36px;font-weight:700;font-style:normal;color:#50C0FF;text-decoration:none;letter-spacing:0px;">
-            <singleline>
-              <div mc:edit data-text-edit>
-                Pick a Plan and let's get started!
-              </div>
-            </singleline>
-        </td>
-      </tr>
-    </table>
-    <!-- Content -->
-    </td>
-  </tr>
-  <tr>
-    <td height="10" style="font-size:10px;line-height:10px;" data-height="Spacing bottom">&nbsp;</td>
-  </tr>
-</table>
-<!-- blue-title -->
 
 
     </td>
