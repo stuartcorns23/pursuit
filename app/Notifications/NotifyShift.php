@@ -19,7 +19,7 @@ class NotifyShift extends Notification
 
     public $shift;
     public $user;
-    
+
     public function __construct(User $user, Shift $shift)
     {
         $this->user = $user;
@@ -35,7 +35,7 @@ class NotifyShift extends Notification
     {        
         // OR return a SnsMessage passing the arguments via `create()` or `__construct()`:
         return SnsMessage::create([
-            'body' => "Hi {$this->user->fullname()}, you have a shift tonight at {$this->shift->client->name}. Starting at {$this->shift->start_time}. If there any problems please let us know as soon as possible. ",
+            'body' => "If there any problems please let us know as soon as possible. ",
             'transactional' => true,
             'sender' => 'Pursuit-TMR',
         ]); 
