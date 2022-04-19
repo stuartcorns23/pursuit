@@ -18,9 +18,9 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->job(new NotifyAvailableOperatives)->weekly()->fridays()->at('11:00');
-        $schedule->job(new AlertOperativesAvailability)->weekly()->thursdays()->at('11:00');
+        /* $schedule->job(new AlertOperativesAvailability)->weekly()->thursdays()->at('11:00');
         $schedule->job(new AlertOperativesTimesheet)->weekly()->mondays()->at('11:00');
-        $schedule->job(new NotifyDailyShifts)->daily()->at('11:00');
+        $schedule->job(new NotifyDailyShifts)->daily()->at('11:00'); */
         $schedule->job(new NotifyAvailableOperatives)->everyFiveMinutes();
     }
 

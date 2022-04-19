@@ -272,7 +272,7 @@
                                     </tr>
                             `;
                             availability += `<tr>
-                                                <td>No Operative have made themselves available</td>
+                                                <td><p>No Operative have made themselves available</p></td>
                                             </tr>`;
                             availability += `</table></div>`;
                         }
@@ -303,7 +303,7 @@
                                     </tr>
                             `;
                             availability += `<tr>
-                                                <td>No Operative have made themselves unavailable</td>
+                                                <td><p>No Operative have made themselves unavailable</p></td>
                                             </tr>`;
                             availability += `</table></div>`;
                         }
