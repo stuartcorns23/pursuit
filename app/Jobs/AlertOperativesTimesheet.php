@@ -9,7 +9,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 
-use App\Notifications\AlertOperativesTimesheet as Alert;
+use App\Notifications\AlertOperativesTimesheets as Alert;
 use App\Models\User;
 
 class AlertOperativesTimesheet implements ShouldQueue

@@ -23,8 +23,7 @@ class AlertOperativesTimesheet extends Notification
     {        
         // OR return a SnsMessage passing the arguments via `create()` or `__construct()`:
         return SnsMessage::create([
-            'body' => "You haven't submitted your Timesheet for last week. Please can you do so at - https://www.pursuit-tmr.co.uk/timesheet/create as soon as possible to
-                prevent any delays with your payment. Thank you ",
+            'body' => "You haven't submitted your Timesheet for last week. Please can you do so at - https://www.pursuit-tmr.co.uk/timesheet/create as soon as possible to prevent any delays with your payment. Thank you ",
             'transactional' => true,
             'sender' => 'Pursuit-TMR',
         ]); 
