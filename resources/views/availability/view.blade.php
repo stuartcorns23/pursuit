@@ -259,7 +259,7 @@
                             for (const [key, value] of Object.entries(day.available)) {
                                 availability += `
                                 <tr>
-                                    <td><a class="d-block mb-2 text-decoration-none" href="/users/${key}">${value}</a></td>    
+                                    <td><a class="d-block text-decoration-none" href="/users/${key}">${value}</a></td>    
                                 </tr>`;
                             }
                             availability += `</table></div>`;
@@ -272,7 +272,7 @@
                                     </tr>
                             `;
                             availability += `<tr>
-                                                <td><p>No Operative have made themselves available</p></td>
+                                                <td>No Operative have made themselves available</td>
                                             </tr>`;
                             availability += `</table></div>`;
                         }
@@ -290,7 +290,7 @@
                             for (const [key, value] of Object.entries(day.unavailable)) {
                                 availability += `
                                 <tr>
-                                    <td><a class="d-block mb-2 text-decoration-none" href="/users/${key}">${value}</a></td>    
+                                    <td><a class="d-block text-decoration-none" href="/users/${key}">${value}</a></td>    
                                 </tr>`;
                             }
                             availability += `</table></div>`;
@@ -303,7 +303,7 @@
                                     </tr>
                             `;
                             availability += `<tr>
-                                                <td><p>No Operative have made themselves unavailable</p></td>
+                                                <td>No Operative have made themselves unavailable</td>
                                             </tr>`;
                             availability += `</table></div>`;
                         }
