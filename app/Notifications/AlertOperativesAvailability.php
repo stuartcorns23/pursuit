@@ -6,56 +6,30 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use \Carbon\Carbon;
 
 class AlertOperativesAvailability extends Notification
 {
     use Queueable;
 
-    /**
-     * Create a new notification instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    /**
-     * Get the notification's delivery channels.
-     *
-     * @param  mixed  $notifiable
-     * @return array
-     */
     public function via($notifiable)
     {
-        return ['mail'];
+        return [SnsChannel::class];
     }
 
-    /**
-     * Get the mail representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return \Illuminate\Notifications\Messages\MailMessage
-     */
-    public function toMail($notifiable)
-    {
-        return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
-    }
+    public function toSns($notifiable)
+    {        
+        // OR return a SnsMessage passing the arguments via `create()` or `__construct()`:
+        return SnsMessage::create([
+            'body' => "Your Account has been approved! If you have verified your email you can now access your account at https://www.pursuit-tmr.co.uk/schedule/".Carbon::now()->format('m\/Y'),
+            'transactional' => true,
+            'sender' => 'Pursuit-TMR',
+        ]); 
 
-    /**
-     * Get the array representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return array
-     */
-    public function toArray($notifiable)
-    {
-        return [
-            //
-        ];
+        // OR create the object with or without arguments and then use the fluent API:
+        return SnsMessage::create()
+            ->body("Your Account has been approved! If you have verified your email you can now access your account at https://www.pursuit-tmr.co.uk/schedule/".Carbon::now()->format('m\/Y'))
+            ->promotional()
+            ->sender('Pursuit TMR');
     }
 }
