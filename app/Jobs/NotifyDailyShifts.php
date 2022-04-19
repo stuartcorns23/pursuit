@@ -9,6 +9,10 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 
+use App\Notifications\NotifyShift;
+use App\Models\Shift;
+use App\Models\User;
+
 class NotifyDailyShifts implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
@@ -30,6 +34,13 @@ class NotifyDailyShifts implements ShouldQueue
      */
     public function handle()
     {
-        //
+        $users = User::all();
+        $now = \Carbon\Carbon::now();
+
+        foreach($users as $user){
+            if($shift = $user->has_shift($now)){
+                $user->notify(new NotifyShift($user, $shift));
+            }
+        }
     }
 }
