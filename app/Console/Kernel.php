@@ -23,7 +23,7 @@ class Kernel extends ConsoleKernel
         $schedule->job(new NotifyAvailableOperatives)->weekly()->fridays()->at('12:00');
         $schedule->job(new AlertOperativesAvailability)->weekly()->thursdays()->at('12:00')->timezone('Europe/London');
         $schedule->job(new AlertOperativesTimesheet)->weekly()->mondays()->at('11:45')->timezone('Europe/London');
-        $schedule->job(new NotifyDailyShifts)->daily()->at('12:15')->timezone('Europe/London');
+        $schedule->job(new NotifyDailyShifts)->daily()->at('12:18')->timezone('Europe/London');
     }
 
     /**
